@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://d3vc4m48cxd7o"]
+
+[ext_resource type="Script" uid="uid://kj5y1o71r2lf" path="res://scenes/test/border_path_3d.gd" id="1_52hd0"]
+[ext_resource type="Texture2D" uid="uid://d2mnhejh2rw7a" path="res://icon.svg" id="1_wumln"]
+
+[sub_resource type="Curve3D" id="Curve3D_5unt0"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 18.952, 1.4, 99.28, 0, 0, 0, 0, 0, 0, -39.714, 1.8, 93.1, 0, 0, 0, 0, 0, 0, -72.56545, 1.9, 80, 0, 0, 0, 0, 0, 0, -90, 2, 49.76, 0, 0, 0, 0, 0, 0, -91.536, 1.375, 25.157, 0, 0, 0, 0, 0, 0, -84.05148, 2, -18.769682, 0, 0, 0, 0, 0, 0, -71.631676, 2.269558, -52.781586, 0, 0, 0, 0, 0, 0, -52.860954, 2.0395432, -86.763855, 0, 0, 0, 0, 0, 0, -15.067871, 1.5418472, -90.456375, 0, 0, 0, 0, 0, 0, 55.5186, 1.392149, -95.81485, 0, 0, 0, 0, 0, 0, 73.07321, 2.3723183, -73.359375, 0, 0, 0, 0, 0, 0, 80.8823, 1.7284088, -41.44703, 0, 0, 0, 0, 0, 0, 95.992615, 2.0396652, 7.847168, 0, 0, 0, 0, 0, 0, 85.039955, 2.0455093, 76.142136, 0, 0, 0, 0, 0, 0, 62.704605, 1.4073792, 95.42758),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 15
+
+[node name="BorderPath3D" type="Path3D" unique_id=1304233724]
+curve = SubResource("Curve3D_5unt0")
+script = ExtResource("1_52hd0")
+
+[node name="BorderSprite_1" type="PathFollow3D" parent="." unique_id=466705705]
+transform = Transform3D(0.10476233, 0.00674327, 0.99447405, 0, 0.99997663, -0.0067805815, -0.9944973, 0.00071034953, 0.10475988, 18.952, 1.4, 99.28)
+
+[node name="Sprite3D" type="Sprite3D" parent="BorderSprite_1" unique_id=717316134]
+transform = Transform3D(3.0000002, 2.3283064e-10, 7.450581e-09, 2.3283064e-10, 5.0000005, 2.5465852e-10, 2.9802322e-08, -1.0186341e-09, 1, 0, 2.8999343, -0.019662857)
+billboard = 2
+texture = ExtResource("1_wumln")
+
+[node name="BorderSprite_2" type="PathFollow3D" parent="." unique_id=199422528]
+transform = Transform3D(0.37039748, 0.0031164566, 0.928868, -0.001323133, 0.999995, -0.0028274802, -0.9288721, -0.00018172442, 0.37039986, -40.08529, 1.8011302, 92.95194)
+progress = 59.39109
+
+[node name="Sprite3D" type="Sprite3D" parent="BorderSprite_2" unique_id=168748255]
+transform = Transform3D(3.0000002, 2.3283064e-10, 7.450581e-09, 2.3283064e-10, 5.0000005, 2.5465852e-10, 2.9802322e-08, -1.0186341e-09, 1, 0, 2.8999343, -0.019662857)
+billboard = 2
+texture = ExtResource("1_wumln")
+
+[node name="BorderSprite_3" type="PathFollow3D" parent="." unique_id=919474204]
+transform = Transform3D(0.86632, 0.004289339, 0.49947083, -0.0032994694, 0.9999903, -0.0028648353, -0.4994785, 0.00083387544, 0.8663257, -84.76411, 1.969968, 58.841595)
+progress = 118.78218
+
+[node name="Sprite3D" type="Sprite3D" parent="BorderSprite_3" unique_id=713343947]
+transform = Transform3D(3.0000002, 2.3283064e-10, 7.450581e-09, 2.3283064e-10, 5.0000005, 2.5465852e-10, 2.9802322e-08, -1.0186341e-09, 1, 0, 2.8999343, -0.019662857)
+billboard = 2
+texture = ExtResource("1_wumln")
+
+[node name="BorderSprite_4" type="PathFollow3D" parent="." unique_id=576996735]
+transform = Transform3D(0.10476233, 0.0067432695, 0.994474, 0, 0.9999766, -0.006780581, -0.9944973, 0.0007103495, 0.10475987, 18.952, 1.4, 99.28)
+
+[node name="Sprite3D" type="Sprite3D" parent="BorderSprite_4" unique_id=1128451299]
+transform = Transform3D(3.0000002, 2.3283064e-10, 7.450581e-09, 2.3283064e-10, 5.0000005, 2.5465852e-10, 2.9802322e-08, -1.0186341e-09, 1, 0, 2.8999343, -0.019662857)
+billboard = 2
+texture = ExtResource("1_wumln")
+
+[node name="BorderSprite_5" type="PathFollow3D" parent="." unique_id=681992215]
+transform = Transform3D(0.10476233, 0.006743269, 0.99447393, 0, 0.9999765, -0.0067805806, -0.9944973, 0.0007103494, 0.104759865, 18.952, 1.4, 99.28)
+
+[node name="Sprite3D" type="Sprite3D" parent="BorderSprite_5" unique_id=695710349]
+transform = Transform3D(3.0000002, 2.3283064e-10, 7.450581e-09, 2.3283064e-10, 5.0000005, 2.5465852e-10, 2.9802322e-08, -1.0186341e-09, 1, 0, 2.8999343, -0.019662857)
+billboard = 2
+texture = ExtResource("1_wumln")
+
+[node name="BorderSprite_6" type="PathFollow3D" parent="." unique_id=1097526835]
+transform = Transform3D(0.10476233, 0.0067432686, 0.9944739, 0, 0.99997646, -0.00678058, -0.9944973, 0.00071034936, 0.10475986, 18.952, 1.4, 99.28)
+
+[node name="Sprite3D" type="Sprite3D" parent="BorderSprite_6" unique_id=23789454]
+transform = Transform3D(3.0000002, 2.3283064e-10, 7.450581e-09, 2.3283064e-10, 5.0000005, 2.5465852e-10, 2.9802322e-08, -1.0186341e-09, 1, 0, 2.8999343, -0.019662857)
+billboard = 2
+texture = ExtResource("1_wumln")

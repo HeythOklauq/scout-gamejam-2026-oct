@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://6sqfp621ubbu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_klvle"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dbif6"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o5jhn"]
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_maqwv"]
+height = 0.50097656
+radius = 0.025390625
+
+[node name="Node3D" type="Node3D" unique_id=1981228565]
+
+[node name="PointA" type="StaticBody3D" parent="." unique_id=543461913]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PointA" unique_id=267470339]
+shape = SubResource("BoxShape3D_klvle")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PointA" unique_id=1251574273]
+mesh = SubResource("BoxMesh_dbif6")
+
+[node name="PinJoint3D_A-1" type="PinJoint3D" parent="PointA" unique_id=422308831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49905038, 0, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../LineSegment1")
+params/bias = 0.99
+
+[node name="PointB" type="StaticBody3D" parent="." unique_id=373208890]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PointB" unique_id=1813863202]
+shape = SubResource("BoxShape3D_klvle")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PointB" unique_id=1318076339]
+mesh = SubResource("BoxMesh_dbif6")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1345830742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4993148, 0, 1.7608664)
+
+[node name="LineSegment1" type="RigidBody3D" parent="." unique_id=446410657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2499323, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LineSegment1" unique_id=151694415]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_o5jhn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LineSegment1" unique_id=1354586650]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_maqwv")
+
+[node name="PinJoint3D_1-2" type="PinJoint3D" parent="LineSegment1" unique_id=1588994155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7426977, 0, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../LineSegment2")
+params/bias = 0.99
+
+[node name="LineSegment2" type="RigidBody3D" parent="." unique_id=366907141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.664859, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LineSegment2" unique_id=1382230290]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_o5jhn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LineSegment2" unique_id=193609386]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_maqwv")
+
+[node name="PinJoint3D_2-3" type="PinJoint3D" parent="LineSegment2" unique_id=166312787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5119343, 0, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../LineSegment3")
+params/bias = 0.99
+
+[node name="LineSegment3" type="RigidBody3D" parent="." unique_id=1493170283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7301657, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LineSegment3" unique_id=425441983]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_o5jhn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LineSegment3" unique_id=626372592]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_maqwv")
+
+[node name="PinJoint3D_3-B" type="PinJoint3D" parent="LineSegment3" unique_id=202869538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77587485, 0, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../PointB")
+params/bias = 0.99

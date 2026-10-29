@@ -1,11 +1,27 @@
 [gd_resource type="Environment" format=3 uid="uid://c4jiuhl5im7nu"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ao6tx"]
-sky_top_color = Color(0.40937358, 0.12790859, 0.5629379, 1)
-sky_horizon_color = Color(0.752309, 0.39823222, 0.7941017, 1)
+[ext_resource type="CompressedCubemap" uid="uid://bnduqheacd2fk" path="res://assets/graphics/sky_boxmap.jpg" id="1_ov61q"]
+
+[sub_resource type="Shader" id="Shader_ao6tx"]
+code = "shader_type sky;
+
+uniform samplerCube source_panorama : filter_linear, source_color, hint_default_black;
+uniform float exposure : hint_range(0, 128) = 1.0;
+
+void sky() {
+    // If importing a cubemap from another engine, you may need to flip one of the `EYEDIR` components below
+    // by replacing it with `-EYEDIR`.
+    vec3 eyedir = vec3(EYEDIR.x, EYEDIR.y, EYEDIR.z);
+    COLOR = texture(source_panorama, eyedir).rgb * exposure;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ov61q"]
+shader = SubResource("Shader_ao6tx")
+shader_parameter/source_panorama = ExtResource("1_ov61q")
+shader_parameter/exposure = 1.0
 
 [sub_resource type="Sky" id="Sky_ov61q"]
-sky_material = SubResource("ProceduralSkyMaterial_ao6tx")
+sky_material = SubResource("ShaderMaterial_ov61q")
 
 [resource]
 background_mode = 2

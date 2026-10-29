@@ -8,6 +8,9 @@
 [ext_resource type="ArrayMesh" uid="uid://beu5b7ki88lxm" path="res://assets/models/telephone_pole.obj" id="6_k6n02"]
 [ext_resource type="Material" uid="uid://cv160ljqnerp3" path="res://assets/models/telephone_pole.tres" id="7_1suh2"]
 [ext_resource type="ArrayMesh" uid="uid://bbabp6cfyi3vt" path="res://assets/models/tree_a.obj" id="8_2ns80"]
+[ext_resource type="PackedScene" uid="uid://d3vc4m48cxd7o" path="res://scenes/test/border_path_3d.tscn" id="8_saoeg"]
+[ext_resource type="AudioStream" uid="uid://bh02sg8jcjh7l" path="res://assets/audio/ambiants/freesound_community-forest-wind-and-birds-6881.mp3" id="9_5unt0"]
+[ext_resource type="Texture2D" uid="uid://chm4qfskxhy2g" path="res://assets/graphics/boosh.png" id="9_we7ej"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_da6vm"]
 
@@ -59,17 +62,17 @@ material = SubResource("StandardMaterial3D_saoeg")
 offsets = PackedFloat32Array(0, 0.18018018, 0.8873874, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2ns80"]
+
 [node name="Test" type="Node3D" unique_id=1028040761]
 
 [node name="WoodyNode" parent="." unique_id=744089844 instance=ExtResource("1_st4qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
 
 [node name="FloorStaticBody" type="StaticBody3D" parent="." unique_id=1739935836]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FloorStaticBody" unique_id=996966712]
 shape = SubResource("WorldBoundaryShape3D_da6vm")
-
-[node name="PlayerNode" parent="." unique_id=799488892 instance=ExtResource("2_da6vm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23794079, 9.691069, 63.39904)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=158698627]
 mesh = SubResource("PlaneMesh_oj4i3")
@@ -90,36 +93,40 @@ surface_material_override/0 = SubResource("StandardMaterial3D_k6n02")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=1368564481]
 shape = SubResource("ConcavePolygonShape3D_51e2l")
 
-[node name="TelephonePole" type="MeshInstance3D" parent="." unique_id=916221144]
-transform = Transform3D(0.6963642, 0.17364818, 0.6963642, -0.2437102, 0.96984637, 0.0018654168, -0.67504233, -0.17101006, 0.7176861, 28.910004, 0.47850138, 94.75897)
+[node name="TelephonePole" type="MeshInstance3D" parent="Floor" unique_id=916221144]
+transform = Transform3D(0.6963642, 0.17364818, 0.6963642, -0.2437102, 0.96984637, 0.0018654168, -0.67504233, -0.17101006, 0.7176861, 28.910004, -0.5214986, 94.75897)
 mesh = ExtResource("6_k6n02")
 surface_material_override/0 = ExtResource("7_1suh2")
 surface_material_override/1 = ExtResource("7_1suh2")
 surface_material_override/2 = ExtResource("7_1suh2")
 
-[node name="TelephonePole2" type="MeshInstance3D" parent="." unique_id=1677174451]
-transform = Transform3D(0.90676063, -0.24838665, 0.3407187, 0.2536428, 0.96683866, 0.02980902, -0.33682403, 0.059391174, 0.9396926, 41.01493, 0.6595246, 88.761665)
+[node name="TelephonePole2" type="MeshInstance3D" parent="Floor" unique_id=1677174451]
+transform = Transform3D(0.90676063, -0.24838665, 0.3407187, 0.2536428, 0.96683866, 0.02980902, -0.33682403, 0.059391174, 0.9396926, 41.01493, -0.34047538, 88.761665)
 mesh = ExtResource("6_k6n02")
 surface_material_override/0 = ExtResource("7_1suh2")
 surface_material_override/1 = ExtResource("7_1suh2")
 surface_material_override/2 = ExtResource("7_1suh2")
 
-[node name="TelephonePole3" type="MeshInstance3D" parent="." unique_id=1219731302]
-transform = Transform3D(0.98293006, -0.14269803, 0.11612869, 0.14171243, 0.9897663, 0.016742675, -0.117329404, 0, 0.9930931, 24.393272, 1.1740849, 70.31808)
+[node name="TelephonePole3" type="MeshInstance3D" parent="Floor" unique_id=1219731302]
+transform = Transform3D(0.98293006, -0.14269803, 0.11612869, 0.14171243, 0.9897663, 0.016742675, -0.117329404, 0, 0.9930931, 24.393272, 0.1740849, 70.31808)
 mesh = ExtResource("6_k6n02")
 surface_material_override/0 = ExtResource("7_1suh2")
 surface_material_override/1 = ExtResource("7_1suh2")
 surface_material_override/2 = ExtResource("7_1suh2")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=772168369]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.795612, 11.161011, -14.2733135)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Floor" unique_id=772168369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.795612, 10.161011, -14.2733135)
 mesh = SubResource("BoxMesh_1suh2")
 
-[node name="TreeA" type="MeshInstance3D" parent="." unique_id=1044991717]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.631538, 1.4017287, 91.45662)
+[node name="TreeA" type="MeshInstance3D" parent="Floor" unique_id=1044991717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.631538, 0.40172875, 91.45662)
 mesh = ExtResource("8_2ns80")
 surface_material_override/0 = SubResource("StandardMaterial3D_2ns80")
 surface_material_override/1 = SubResource("StandardMaterial3D_5unt0")
+
+[node name="BorderPath3D" parent="Floor" unique_id=1304233724 instance=ExtResource("8_saoeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+TEXTURE_LIST = Array[Texture2D]([ExtResource("9_we7ej")])
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1634201769]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 5.5999985, 161)
@@ -141,3 +148,25 @@ initial_velocity_max = 2.0
 angular_velocity_min = -2.0
 angular_velocity_max = 2.0
 color_ramp = SubResource("Gradient_5unt0")
+
+[node name="PlayerNode" parent="." unique_id=764222003 instance=ExtResource("2_da6vm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.776207, 6.4613, 4.670761)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=990270406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.88315, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1912784790]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 1.9326553, 9.408264, 0)
+shape = SubResource("WorldBoundaryShape3D_2ns80")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D/CollisionShape3D" unique_id=1232970594]
+transform = Transform3D(-4.371139e-07, -10, 0, -4.371139e-07, 1.9106854e-14, -1, 10, -4.371139e-07, -4.371139e-08, 0, 0, 0)
+texture = ExtResource("9_we7ej")
+
+[node name="AudioStreams" type="Node" parent="." unique_id=568307879]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreams" unique_id=1391437052]
+stream = ExtResource("9_5unt0")
+autoplay = true
+bus = &"Environment"
+parameters/looping = true

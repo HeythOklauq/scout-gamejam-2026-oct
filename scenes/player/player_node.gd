@@ -8,6 +8,7 @@ const WOOD_IMPACT_PARTICLE = preload("res://scenes/game_scene/wood_impact_partic
 @onready var hitzone_collision_shape: CollisionShape3D = $HitzoneCollisionShape
 @onready var forward_marker_3d: Marker3D = $Camera3D/ForwardMarker3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var baseball_bat_swing_audio_stream: AudioStreamPlayer3D = $Camera3D/BaseballBat_SwingAudioStream
 
 
 @export_group("Movement Stats")
@@ -90,6 +91,12 @@ func hit_target(node3d :Node3D) -> void:
 	velocity.y = 0
 	apply_movement(hit_normal, knockback_strength);
 	
+	
+	var target = node3d.find_parent("WoodyNode")
+	if not target == null:
+		target.on_hit()
+	
+	baseball_bat_swing_audio_stream.stop();
 	var tmp_particle = WOOD_IMPACT_PARTICLE.instantiate() as WoodImpactParticle
 	tmp_particle.global_position = forward_marker_3d.global_position
 	get_tree().root.add_child(tmp_particle)
