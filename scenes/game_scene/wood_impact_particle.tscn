@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bwjeeuqr6cche"]
+
+[ext_resource type="Texture2D" uid="uid://k2wectds4dww" path="res://assets/graphics/wood_splinter.png" id="1_20s0e"]
+[ext_resource type="Script" uid="uid://bilehqbvd0i3r" path="res://scenes/game_scene/wood_impact_particle.gd" id="1_afleg"]
+[ext_resource type="AudioStream" uid="uid://4oifjtb3mpsr" path="res://assets/audio/impactWood_light_001.ogg" id="2_bs0cv"]
+[ext_resource type="AudioStream" uid="uid://n7cuotart1tx" path="res://assets/audio/impactWood_light_002.ogg" id="3_gyr13"]
+[ext_resource type="AudioStream" uid="uid://bm4cfxki22prq" path="res://assets/audio/impactWood_light_003.ogg" id="4_eqqdy"]
+[ext_resource type="AudioStream" uid="uid://0tvrc2li5k4s" path="res://assets/audio/impactWood_light_004.ogg" id="5_l6np1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afleg"]
+transparency = 1
+albedo_texture = ExtResource("1_20s0e")
+
+[sub_resource type="QuadMesh" id="QuadMesh_maldk"]
+material = SubResource("StandardMaterial3D_afleg")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="Gradient" id="Gradient_1h5bk"]
+offsets = PackedFloat32Array(0, 0.42792794, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="WoodImpactParticle" type="Node3D" unique_id=302135248]
+script = ExtResource("1_afleg")
+possible_sounds = Array[AudioStream]([ExtResource("2_bs0cv"), ExtResource("3_gyr13"), ExtResource("4_eqqdy"), ExtResource("5_l6np1")])
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=602525027]
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+mesh = SubResource("QuadMesh_maldk")
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+angular_velocity_min = -45.0
+angular_velocity_max = 45.0
+color_ramp = SubResource("Gradient_1h5bk")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1256534771]
+
+[connection signal="finished" from="CPUParticles3D" to="." method="_on_cpu_particles_3d_finished"]
