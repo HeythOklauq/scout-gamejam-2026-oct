@@ -4,16 +4,22 @@ class_name StateMachine
 var current_state :StateNode
 
 @export var starting_state :StateNode
+var state_list :Dictionary[String, StateNode] = {}
 
 func _ready() -> void:
-	call_deferred("switch_state_to", starting_state)
+	call_deferred("initialize")
+
+func initialize() -> void:
+	for child in get_children():
+		state_list[child.name] = child as StateNode
+	
+	switch_state_to(starting_state)
 
 func switch_state_to(new_state :StateNode) -> void:
 	if new_state == null:
 		return
 	
-	print("StateMachine.switch_state_to")
-	prints("Switch state: ", current_state, " to ", new_state)
+	prints(name, "- Switch state: ", current_state, " to ", new_state)
 	
 	if not current_state == null:
 		current_state.on_exiting_state()
@@ -23,13 +29,13 @@ func switch_state_to(new_state :StateNode) -> void:
 		current_state.on_entering_state()
 
 func _process(delta: float) -> void:
-	if current_state == null:
+	if current_state == null or Engine.time_scale == 0.0:
 		return
 	
 	switch_state_to(current_state.process_frame(delta));
 
 func _physics_process(delta: float) -> void:
-	if current_state == null:
+	if current_state == null or Engine.time_scale == 0.0:
 		return
 	
 	switch_state_to(current_state.process_physics(delta));

@@ -1,6 +1,11 @@
 extends Node
 class_name StateNode
 
+var state_machine :StateMachine
+
+func _ready() -> void:
+	state_machine = get_parent() as StateMachine
+
 func on_entering_state() -> void:
 	pass
 

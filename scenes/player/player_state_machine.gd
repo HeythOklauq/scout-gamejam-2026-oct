@@ -1,7 +1,7 @@
 extends StateMachine
 class_name PlayerStateMachine
 
-var player_state :PlayerStateNode
+var current_player_state :PlayerStateNode
 
 func _ready() -> void:
 	super()
@@ -17,13 +17,12 @@ func switch_state_to(new_state :StateNode) -> void:
 	if (new_state as PlayerStateNode) == null:
 		return
 	
-	print("PlayerStateMachine.switch_state_to")
 	super(new_state);
-	player_state = new_state as PlayerStateNode
+	current_player_state = new_state as PlayerStateNode
 
 
 func _input(event: InputEvent) -> void:
-	if player_state == null:
+	if current_player_state == null:
 		return
 	
-	switch_state_to(player_state.process_input(event));
+	switch_state_to(current_player_state.process_input(event));

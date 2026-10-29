@@ -10,6 +10,8 @@ const WOOD_IMPACT_PARTICLE = preload("res://scenes/game_scene/wood_impact_partic
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var baseball_bat_swing_audio_stream: AudioStreamPlayer3D = $Camera3D/BaseballBat_SwingAudioStream
 
+@onready var pause_menu_control: ColorRect = %PauseMenuControl
+
 
 @export_group("Movement Stats")
 @export var damping_speed = 100.0;
@@ -20,15 +22,18 @@ var squared_max_walking_speed = 0.0;
 		max_walking_speed = _speed
 		squared_max_walking_speed = pow(max_walking_speed, 2);
 @export var jump_speed = 10.0;
-@export var falling_speed = 20.0;
+@export var falling_speed = 2.0;
 @export var dash_speed = 20.0;
 @export var knockback_strength = 20.0
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	max_walking_speed = max_walking_speed;
+	call_deferred("_on_pause_menu_control_visibility_changed")
 
 func turn_player(movement :Vector2) -> void:
+	if Engine.time_scale == 0.0:
+		return
+	
 	var camera_sensibility = Vector2(10.0, 10.0);
 	rotation_degrees.y -= deg_to_rad(movement.x) * camera_sensibility.x;
 	camera_3d.rotation_degrees.x = clampf(camera_3d.rotation_degrees.x - deg_to_rad(movement.y) * camera_sensibility.x, -80.0, 80.0);
@@ -70,6 +75,9 @@ func attack() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		turn_player(event.relative);
+	
+	if Input.is_action_just_pressed("Pause"):
+		pause_menu_control.visible = !pause_menu_control.visible
 
 func _process(delta: float) -> void:
 	turn_player(Vector2(Input.get_axis("PivotLeft", "PivotRight"), Input.get_axis("PivotUp", "PivotDown")) * 20.0)
@@ -91,6 +99,7 @@ func hit_target(node3d :Node3D) -> void:
 	velocity.y = 0
 	apply_movement(hit_normal, knockback_strength);
 	
+	SlowMotionManager.slow_time(SlowMotionManager.STANDARD_SLOW, 0.5);
 	
 	var target = node3d.find_parent("WoodyNode")
 	if not target == null:
@@ -109,3 +118,15 @@ func _on_interaction_area_3d_area_entered(area: Area3D) -> void:
 
 func _on_interaction_area_3d_area_exited(area: Area3D) -> void:
 	pass # Replace with function body.
+
+func _on_pause_menu_control_visibility_changed() -> void:
+	if pause_menu_control == null:
+		return;
+	
+	print("_on_pause_menu_control_visibility_changed")
+	if pause_menu_control.visible:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		SlowMotionManager.pause_time()
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		SlowMotionManager.resume_time()

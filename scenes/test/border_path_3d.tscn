@@ -15,7 +15,7 @@ curve = SubResource("Curve3D_5unt0")
 script = ExtResource("1_52hd0")
 
 [node name="BorderSprite_1" type="PathFollow3D" parent="." unique_id=466705705]
-transform = Transform3D(0.10476233, 0.00674327, 0.99447405, 0, 0.99997663, -0.0067805815, -0.9944973, 0.00071034953, 0.10475988, 18.952, 1.4, 99.28)
+transform = Transform3D(0.10476233, 0.006743269, 0.99447393, 0, 0.9999765, -0.0067805806, -0.9944973, 0.0007103494, 0.104759865, 18.952, 1.4, 99.28)
 
 [node name="Sprite3D" type="Sprite3D" parent="BorderSprite_1" unique_id=717316134]
 transform = Transform3D(3.0000002, 2.3283064e-10, 7.450581e-09, 2.3283064e-10, 5.0000005, 2.5465852e-10, 2.9802322e-08, -1.0186341e-09, 1, 0, 2.8999343, -0.019662857)
@@ -23,7 +23,7 @@ billboard = 2
 texture = ExtResource("1_wumln")
 
 [node name="BorderSprite_2" type="PathFollow3D" parent="." unique_id=199422528]
-transform = Transform3D(0.37039748, 0.0031164566, 0.928868, -0.001323133, 0.999995, -0.0028274802, -0.9288721, -0.00018172442, 0.37039986, -40.08529, 1.8011302, 92.95194)
+transform = Transform3D(0.37039745, 0.0031164566, 0.928868, -0.0013231329, 0.999995, -0.0028274802, -0.928872, -0.00018172442, 0.37039986, -40.08529, 1.8011302, 92.95194)
 progress = 59.39109
 
 [node name="Sprite3D" type="Sprite3D" parent="BorderSprite_2" unique_id=168748255]
@@ -41,7 +41,7 @@ billboard = 2
 texture = ExtResource("1_wumln")
 
 [node name="BorderSprite_4" type="PathFollow3D" parent="." unique_id=576996735]
-transform = Transform3D(0.10476233, 0.0067432695, 0.994474, 0, 0.9999766, -0.006780581, -0.9944973, 0.0007103495, 0.10475987, 18.952, 1.4, 99.28)
+transform = Transform3D(0.10476233, 0.0067432686, 0.9944739, 0, 0.99997646, -0.00678058, -0.9944973, 0.00071034936, 0.10475986, 18.952, 1.4, 99.28)
 
 [node name="Sprite3D" type="Sprite3D" parent="BorderSprite_4" unique_id=1128451299]
 transform = Transform3D(3.0000002, 2.3283064e-10, 7.450581e-09, 2.3283064e-10, 5.0000005, 2.5465852e-10, 2.9802322e-08, -1.0186341e-09, 1, 0, 2.8999343, -0.019662857)
@@ -49,7 +49,7 @@ billboard = 2
 texture = ExtResource("1_wumln")
 
 [node name="BorderSprite_5" type="PathFollow3D" parent="." unique_id=681992215]
-transform = Transform3D(0.10476233, 0.006743269, 0.99447393, 0, 0.9999765, -0.0067805806, -0.9944973, 0.0007103494, 0.104759865, 18.952, 1.4, 99.28)
+transform = Transform3D(0.10476233, 0.006743268, 0.9944738, 0, 0.9999764, -0.0067805797, -0.9944973, 0.00071034936, 0.10475986, 18.952, 1.4, 99.28)
 
 [node name="Sprite3D" type="Sprite3D" parent="BorderSprite_5" unique_id=695710349]
 transform = Transform3D(3.0000002, 2.3283064e-10, 7.450581e-09, 2.3283064e-10, 5.0000005, 2.5465852e-10, 2.9802322e-08, -1.0186341e-09, 1, 0, 2.8999343, -0.019662857)
@@ -57,7 +57,7 @@ billboard = 2
 texture = ExtResource("1_wumln")
 
 [node name="BorderSprite_6" type="PathFollow3D" parent="." unique_id=1097526835]
-transform = Transform3D(0.10476233, 0.0067432686, 0.9944739, 0, 0.99997646, -0.00678058, -0.9944973, 0.00071034936, 0.10475986, 18.952, 1.4, 99.28)
+transform = Transform3D(0.10476233, 0.006743268, 0.99447376, 0, 0.99997634, -0.006780579, -0.9944973, 0.0007103493, 0.10475985, 18.952, 1.4, 99.28)
 
 [node name="Sprite3D" type="Sprite3D" parent="BorderSprite_6" unique_id=23789454]
 transform = Transform3D(3.0000002, 2.3283064e-10, 7.450581e-09, 2.3283064e-10, 5.0000005, 2.5465852e-10, 2.9802322e-08, -1.0186341e-09, 1, 0, 2.8999343, -0.019662857)

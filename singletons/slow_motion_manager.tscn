@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dphwu35i2y503"]
+
+[ext_resource type="Script" uid="uid://d4mg2nhphmnbt" path="res://singletons/slow_motion_manager.gd" id="1_t2jyi"]
+
+[node name="SlowMotionManager" type="Node" unique_id=866280761]
+script = ExtResource("1_t2jyi")

@@ -1,21 +1,19 @@
 extends PlayerStateNode
 
 @export var falling_max_speed = -300.0
+var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func on_exiting_state() -> void:
 	player_node.velocity.y = 0.0;
 
-func process_input(event: InputEvent) -> StateNode:
+func process_frame(delta: float) -> StateNode:
+	if Input.is_action_just_pressed("Dash"):
+		return state_machine.state_list["DashingState"]
+	
 	if Input.is_action_just_pressed("Attack"):
 		player_node.attack()
 	
-	if Input.is_action_just_pressed("Dash"):
-		return dashing_state
-	
-	return null
-
-func process_frame(delta: float) -> StateNode:
-	player_node.velocity.y -= player_node.falling_speed * delta
+	player_node.velocity.y -= player_node.falling_speed * delta * default_gravity
 	return null
 
 func process_physics(delta: float) -> StateNode:
@@ -29,5 +27,5 @@ func process_physics(delta: float) -> StateNode:
 		player_node.apply_relative_movement(movement_vector, player_node.walking_speed * delta)
 		
 	if player_node.is_on_floor():
-		return idle_state
+		return state_machine.state_list["IdleState"]
 	return null
