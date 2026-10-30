@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://c0pb4u2dewqa"]
 
+[ext_resource type="PackedScene" uid="uid://buw74twm4vjks" path="res://scenes/options_screen/volume_controller.tscn" id="1_2ktvu"]
+[ext_resource type="Script" uid="uid://b4ygn78mmwmm4" path="res://scenes/options_screen/option_control.gd" id="1_emcv7"]
+
 [node name="OptionControl" type="Control" unique_id=668183180]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +10,66 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_emcv7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1324952584]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=2120877820]
+layout_mode = 2
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=8137248]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=161186131]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AudioOptionsContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=261109026]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/AudioOptionsContainer" unique_id=72023627]
+layout_mode = 2
+text = "AUDIO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/AudioOptionsContainer" unique_id=234082315]
+layout_mode = 2
+
+[node name="SlidersContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/AudioOptionsContainer" unique_id=566067408]
+layout_mode = 2
+
+[node name="VolumeController" parent="VBoxContainer/ScrollContainer/AudioOptionsContainer/SlidersContainer" unique_id=888258577 instance=ExtResource("1_2ktvu")]
+layout_mode = 2
+
+[node name="VolumeController2" parent="VBoxContainer/ScrollContainer/AudioOptionsContainer/SlidersContainer" unique_id=653629141 instance=ExtResource("1_2ktvu")]
+layout_mode = 2
+audio_bus = 1
+
+[node name="VolumeController3" parent="VBoxContainer/ScrollContainer/AudioOptionsContainer/SlidersContainer" unique_id=185443946 instance=ExtResource("1_2ktvu")]
+layout_mode = 2
+audio_bus = 2
+
+[node name="VolumeController4" parent="VBoxContainer/ScrollContainer/AudioOptionsContainer/SlidersContainer" unique_id=1383002741 instance=ExtResource("1_2ktvu")]
+layout_mode = 2
+audio_bus = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1691876475]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1356576360]
+layout_mode = 2
+text = "EXIT"
