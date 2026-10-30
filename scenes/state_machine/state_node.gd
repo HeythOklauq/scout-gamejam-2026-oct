@@ -3,6 +3,9 @@ class_name StateNode
 
 var state_machine :StateMachine
 
+func is_valid_state() -> bool:
+	return true;
+
 func _ready() -> void:
 	state_machine = get_parent() as StateMachine
 

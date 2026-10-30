@@ -15,11 +15,14 @@ func initialize() -> void:
 	
 	switch_state_to(starting_state)
 
-func switch_state_to(new_state :StateNode) -> void:
+func switch_state_to(new_state :StateNode) -> bool:
 	if new_state == null:
-		return
+		return false
 	
 	prints(name, "- Switch state: ", current_state, " to ", new_state)
+	
+	if not new_state.is_valid_state():
+		return false
 	
 	if not current_state == null:
 		current_state.on_exiting_state()
@@ -28,6 +31,8 @@ func switch_state_to(new_state :StateNode) -> void:
 	current_state = new_state;
 	if not current_state == null:
 		current_state.on_entering_state(tmp_previous_state)
+	
+	return true
 
 func _process(delta: float) -> void:
 	if current_state == null or Engine.time_scale == 0.0:

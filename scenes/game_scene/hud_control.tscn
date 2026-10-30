@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bushhfwb0kykk"]
 
 [ext_resource type="PackedScene" uid="uid://udeqcylculyn" path="res://scenes/game_scene/cigarette_timer.tscn" id="1_dhjr6"]
+[ext_resource type="PackedScene" uid="uid://dno1lgy1587be" path="res://scenes/game_scene/stamina_bar.tscn" id="2_tjly2"]
 
 [node name="HUDControl" type="Control" unique_id=1211318264]
 layout_mode = 3
@@ -10,30 +11,61 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=19055802]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=833891330]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1393415711]
+[node name="CigaretteTimer" parent="MarginContainer" unique_id=1769428755 instance=ExtResource("1_dhjr6")]
 layout_mode = 2
-text = "SCORE"
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=905317805]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ScoreConatiner" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=19055802]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScoreConatiner" unique_id=176460164]
+layout_mode = 2
+
+[node name="MoneySymbol" type="Label" parent="MarginContainer/VBoxContainer/ScoreConatiner/HBoxContainer" unique_id=1393415711]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "$ "
+vertical_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="MarginContainer/VBoxContainer/ScoreConatiner/HBoxContainer" unique_id=643013466]
+layout_mode = 2
+text = "0000.00"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="CigaretteTimer" parent="." unique_id=1769428755 instance=ExtResource("1_dhjr6")]
-layout_mode = 1
-anchors_preset = 10
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_vertical = 1
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScoreConatiner" unique_id=1643826779]
+layout_mode = 2
+
+[node name="ChipsSymbol" type="Label" parent="MarginContainer/VBoxContainer/ScoreConatiner/HBoxContainer2" unique_id=417226982]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "W "
+vertical_alignment = 1
+
+[node name="ChipsLabel" type="Label" parent="MarginContainer/VBoxContainer/ScoreConatiner/HBoxContainer2" unique_id=1895454133]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "000000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="StaminaBar" parent="MarginContainer/VBoxContainer" unique_id=598262902 instance=ExtResource("2_tjly2")]
+layout_mode = 2
+segment_size = null

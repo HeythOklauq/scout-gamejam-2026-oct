@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dno1lgy1587be"]
+
+[ext_resource type="Script" uid="uid://cqtrao275vhbh" path="res://scenes/game_scene/stamina_bar.gd" id="1_ke02j"]
+[ext_resource type="Texture2D" uid="uid://7v1q78614u48" path="res://assets/graphics/baseball_bat.png" id="2_ioxev"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke02j"]
+atlas = ExtResource("2_ioxev")
+region = Rect2(64, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6xiq"]
+atlas = ExtResource("2_ioxev")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e3713"]
+load_path = "res://.godot/imported/baseball_bat.png-60064f269a44cba9305bd84a95eab10c.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44kiu"]
+atlas = SubResource("CompressedTexture2D_e3713")
+region = Rect2(64, 0, 48, 32)
+filter_clip = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tv0g7"]
+load_path = "res://.godot/imported/baseball_bat.png-60064f269a44cba9305bd84a95eab10c.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fiqqh"]
+atlas = SubResource("CompressedTexture2D_tv0g7")
+region = Rect2(112, 0, 32, 32)
+
+[node name="StaminaBar" type="HBoxContainer" unique_id=598262902]
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+script = ExtResource("1_ke02j")
+segment_texture = SubResource("AtlasTexture_ke02j")
+segment_texture_cracked = SubResource("AtlasTexture_ke02j")
+empty_segment_modulate_color = Color(1, 1, 1, 0.4)
+loading_flash_speed = 5.0
+
+[node name="StartTextureRect" type="TextureRect" parent="." unique_id=100449367]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_a6xiq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SegmentContainer" type="HBoxContainer" parent="." unique_id=552189053]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MiddleTextureRect" type="TextureRect" parent="SegmentContainer" unique_id=1076570015]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_44kiu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EndTextureRect" type="TextureRect" parent="." unique_id=384933832]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_fiqqh")
+expand_mode = 1
+stretch_mode = 5

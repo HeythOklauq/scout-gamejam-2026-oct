@@ -10,9 +10,6 @@ func process_frame(delta: float) -> StateNode:
 	if Input.is_action_just_pressed("Dash"):
 		return state_machine.state_list["DashingState"]
 	
-	if Input.is_action_just_pressed("Attack"):
-		player_node.attack()
-	
 	player_node.velocity.y -= player_node.falling_speed * delta * default_gravity
 	return null
 

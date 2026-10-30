@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://3biuj7shuxve"]
+
+[ext_resource type="Script" uid="uid://cd1aq51tyqobp" path="res://singletons/particle_manager.gd" id="1_mibax"]
+
+[node name="ParticleManager" type="Node" unique_id=1622864129]
+script = ExtResource("1_mibax")

@@ -24,6 +24,8 @@ buses/default_bus_layout="uid://cpde6asl0s45p"
 ScoreManager="*uid://bjh4nbe7s3wg2"
 SlowMotionManager="*uid://dphwu35i2y503"
 OptionsManager="*uid://xcaf7wqotfuw"
+SfxManager="*uid://crw4vtghf20cc"
+ParticleManager="*uid://3biuj7shuxve"
 
 [display]
 
@@ -123,7 +125,7 @@ Pause={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
-Punt={
+Bunt={
 "deadzone": 0.2,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(193, 15),"global_position":Vector2(202, 63),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":4,"axis_value":1.0,"script":null)

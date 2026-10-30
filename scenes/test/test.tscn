@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://u7n84xx7pgyv"]
 
-[ext_resource type="PackedScene" uid="uid://cvd574a3vd0dc" path="res://scenes/game_scene/woody_node.tscn" id="1_st4qh"]
+[ext_resource type="PackedScene" uid="uid://cvd574a3vd0dc" path="res://scenes/props/woody_node.tscn" id="1_st4qh"]
 [ext_resource type="PackedScene" uid="uid://cwk7yh52bw2lt" path="res://scenes/player/player_node.tscn" id="2_da6vm"]
 [ext_resource type="ArrayMesh" uid="uid://rog1unjwiwve" path="res://assets/models/floor.obj" id="4_51e2l"]
 [ext_resource type="Texture2D" uid="uid://bkyevm5ghv8pt" path="res://assets/models/ground_texture.001.png" id="5_oj4i3"]
-[ext_resource type="ArrayMesh" uid="uid://beu5b7ki88lxm" path="res://assets/models/telephone_pole.obj" id="6_k6n02"]
-[ext_resource type="Material" uid="uid://cv160ljqnerp3" path="res://assets/models/telephone_pole.tres" id="7_1suh2"]
 [ext_resource type="ArrayMesh" uid="uid://bbabp6cfyi3vt" path="res://assets/models/tree_a.obj" id="8_2ns80"]
 [ext_resource type="PackedScene" uid="uid://d3vc4m48cxd7o" path="res://scenes/test/border_path_3d.tscn" id="8_saoeg"]
 [ext_resource type="AudioStream" uid="uid://bh02sg8jcjh7l" path="res://assets/audio/ambiants/freesound_community-forest-wind-and-birds-6881.mp3" id="9_5unt0"]
+[ext_resource type="PackedScene" uid="uid://drmhsiovv34hb" path="res://scenes/props/telephone_pole.tscn" id="9_saoeg"]
 [ext_resource type="Texture2D" uid="uid://chm4qfskxhy2g" path="res://assets/graphics/boosh.png" id="9_we7ej"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_da6vm"]
@@ -80,27 +79,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_k6n02")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=1368564481]
 shape = SubResource("ConcavePolygonShape3D_51e2l")
 
-[node name="TelephonePole" type="MeshInstance3D" parent="Floor" unique_id=916221144]
-transform = Transform3D(0.6963642, 0.17364818, 0.6963642, -0.2437102, 0.96984637, 0.0018654168, -0.67504233, -0.17101006, 0.7176861, 28.910004, -0.5214986, 94.75897)
-mesh = ExtResource("6_k6n02")
-surface_material_override/0 = ExtResource("7_1suh2")
-surface_material_override/1 = ExtResource("7_1suh2")
-surface_material_override/2 = ExtResource("7_1suh2")
-
-[node name="TelephonePole2" type="MeshInstance3D" parent="Floor" unique_id=1677174451]
-transform = Transform3D(0.90676063, -0.24838665, 0.3407187, 0.2536428, 0.96683866, 0.02980902, -0.33682403, 0.059391174, 0.9396926, 41.01493, -0.34047538, 88.761665)
-mesh = ExtResource("6_k6n02")
-surface_material_override/0 = ExtResource("7_1suh2")
-surface_material_override/1 = ExtResource("7_1suh2")
-surface_material_override/2 = ExtResource("7_1suh2")
-
-[node name="TelephonePole3" type="MeshInstance3D" parent="Floor" unique_id=1219731302]
-transform = Transform3D(0.98293006, -0.14269803, 0.11612869, 0.14171243, 0.9897663, 0.016742675, -0.117329404, 0, 0.9930931, 24.393272, 0.1740849, 70.31808)
-mesh = ExtResource("6_k6n02")
-surface_material_override/0 = ExtResource("7_1suh2")
-surface_material_override/1 = ExtResource("7_1suh2")
-surface_material_override/2 = ExtResource("7_1suh2")
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Floor" unique_id=772168369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.795612, 10.161011, -14.2733135)
 mesh = SubResource("BoxMesh_1suh2")
@@ -157,3 +135,9 @@ stream = ExtResource("9_5unt0")
 autoplay = true
 bus = &"Ambiant"
 parameters/looping = true
+
+[node name="TelephonePole" parent="." unique_id=1388397219 instance=ExtResource("9_saoeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.753834, 3.7316144, 35.33615)
+knockback_angle = 20.0
+knockback_movement = 0.0
+animation_duration = 1.5

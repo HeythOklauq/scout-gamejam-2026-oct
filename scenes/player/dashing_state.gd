@@ -3,6 +3,9 @@ extends PlayerStateNode
 var dash_duration = 0.2
 var timer := 0.0
 
+func is_valid_state() -> bool:
+	return player_node.use_stamina();
+
 func on_entering_state(_previous_state :StateNode) -> void:
 	timer = dash_duration;
 	var dash_direction :Vector3 = player_node.velocity

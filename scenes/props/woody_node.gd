@@ -1,0 +1,2 @@
+extends HittableBody
+class_name WoodyNode
