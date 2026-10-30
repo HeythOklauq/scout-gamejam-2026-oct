@@ -31,11 +31,11 @@ albedo_color = Color(1, 1, 1, 0.277)
 [sub_resource type="BoxShape3D" id="BoxShape3D_aivhf"]
 size = Vector3(1, 0.3, 1.3000001)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tu3ki"]
+size = Vector3(1, 0.8046875, 0.70410156)
+
 [sub_resource type="BoxMesh" id="BoxMesh_mw67o"]
 size = Vector3(1, 0.8, 0.7)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_toa43"]
-data = PackedVector3Array(-0.5, 0.39999998, 0.35, 0.5, 0.39999998, 0.35, -0.5, -0.39999998, 0.35, 0.5, 0.39999998, 0.35, 0.5, -0.39999998, 0.35, -0.5, -0.39999998, 0.35, 0.5, 0.39999998, -0.35, -0.5, 0.39999998, -0.35, 0.5, -0.39999998, -0.35, -0.5, 0.39999998, -0.35, -0.5, -0.39999998, -0.35, 0.5, -0.39999998, -0.35, 0.5, 0.39999998, 0.35, 0.5, 0.39999998, -0.35, 0.5, -0.39999998, 0.35, 0.5, 0.39999998, -0.35, 0.5, -0.39999998, -0.35, 0.5, -0.39999998, 0.35, -0.5, 0.39999998, -0.35, -0.5, 0.39999998, 0.35, -0.5, -0.39999998, -0.35, -0.5, 0.39999998, 0.35, -0.5, -0.39999998, 0.35, -0.5, -0.39999998, -0.35, 0.5, 0.39999998, 0.35, -0.5, 0.39999998, 0.35, 0.5, 0.39999998, -0.35, -0.5, 0.39999998, 0.35, -0.5, 0.39999998, -0.35, 0.5, 0.39999998, -0.35, -0.5, -0.39999998, 0.35, 0.5, -0.39999998, 0.35, -0.5, -0.39999998, -0.35, 0.5, -0.39999998, 0.35, 0.5, -0.39999998, -0.35, -0.5, -0.39999998, -0.35)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6i6l"]
 albedo_color = Color(0.3774689, 0.17408878, 0.11314615, 1)
@@ -506,6 +506,8 @@ collision_mask = 3
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_e0ebx")
+max_stamina = 150.0
+stamina_usage = 10.0
 
 [node name="HitzoneCollisionShape" type="CollisionShape3D" parent="." unique_id=1645901718]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -531,7 +533,7 @@ shape = SubResource("BoxShape3D_xlee4")
 [node name="Swing_HurtZoneArea" type="Area3D" parent="Camera3D" unique_id=1913803103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021437677, -0.48510623, -1)
 collision_layer = 0
-collision_mask = 10
+collision_mask = 11
 monitorable = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Swing_HurtZoneArea" unique_id=741235311]
@@ -547,18 +549,18 @@ shape = SubResource("BoxShape3D_aivhf")
 [node name="Bunt_HurtZoneArea" type="Area3D" parent="Camera3D" unique_id=1801602985]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021437677, -0.48510623, -1)
 collision_layer = 0
-collision_mask = 10
+collision_mask = 11
 monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Bunt_HurtZoneArea" unique_id=1696795455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 0, 0.25, -0.14999998)
+shape = SubResource("BoxShape3D_tu3ki")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Bunt_HurtZoneArea" unique_id=996915530]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 0, 0.25, -0.14999998)
 visible = false
 mesh = SubResource("BoxMesh_mw67o")
 surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Bunt_HurtZoneArea" unique_id=1696795455]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 0, 0.25, -0.14999998)
-shape = SubResource("ConcavePolygonShape3D_toa43")
 
 [node name="Bat" type="MeshInstance3D" parent="Camera3D" unique_id=1265214212]
 transform = Transform3D(0.0002126582, 0.121869095, 0.99254614, 0.001732318, 0.99254405, -0.12186935, -0.9999979, 0.001745322, -4.338557e-08, 0.977, -0.863, -1.03)
@@ -581,6 +583,9 @@ size = Vector2i(800, 600)
 render_target_update_mode = 4
 
 [node name="HUDControl" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=1211318264 instance=ExtResource("2_aivhf")]
+
+[node name="StaminaBar" parent="Camera3D/SubViewportContainer/SubViewport/HUDControl/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1211318264, 905317805) index="1" unique_id=598262902]
+segment_size = Vector2(64, 32)
 
 [node name="PauseMenuControl" type="ColorRect" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=1494267686]
 unique_name_in_owner = true

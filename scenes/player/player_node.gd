@@ -32,11 +32,18 @@ var squared_max_walking_speed = 0.0;
 		max_stamina = _max_stamina
 		if stamina_bar != null:
 			stamina_bar.update_segment_count()
-@export var current_stamina := max_stamina;
-@export var stamina_usage := 30.0;
+@export var current_stamina := 0.0;
+## Stamina consumption by action
+@export var stamina_usage := 30.0:
+	set(_stamina_usage):
+		stamina_usage = _stamina_usage
+		if stamina_bar != null:
+			stamina_bar.update_segment_count()
+## Stamina regen per seconds
 @export var stamina_regen := 10.0;
 
 func _ready() -> void:
+	current_stamina = max_stamina;
 	max_walking_speed = max_walking_speed;
 	if not stamina_bar == null:
 		stamina_bar.player_node = self;

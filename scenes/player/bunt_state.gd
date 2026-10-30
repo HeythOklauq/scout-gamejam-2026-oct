@@ -11,7 +11,7 @@ var hurtzone_active := false:
 	set(_state):
 		hurtzone_active = _state;
 		if hurtzone_active:
-			call_deferred("on_activate_hurtbox")
+			on_activate_hurtbox()
 
 func is_valid_state() -> bool:
 	return player_node.use_stamina();
@@ -29,6 +29,7 @@ func on_exiting_state() -> void:
 
 func on_activate_hurtbox() -> void:
 	var hit_bodies := hurt_zone_area.get_overlapping_bodies();
+	prints("hit_bodies", hit_bodies)
 	if hit_bodies.size() == 0:
 		return
 	

@@ -19,6 +19,9 @@ func _ready() -> void:
 func on_hit(_impact_position :Vector3, _impact_direction :Vector3) -> void:
 	SfxManager.play_3d_sound(_impact_position, on_hit_soundtype, 1.0, 0.1);
 	
+	if animation_duration == 0.0:
+		return
+	
 	if not swinging_tween == null:
 		swinging_tween.stop()
 	

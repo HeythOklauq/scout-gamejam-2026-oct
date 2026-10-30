@@ -60,9 +60,7 @@ func _process(delta: float) -> void:
 	flashing_timer += delta * loading_flash_speed
 	var loading_segment_index = get_loading_segment_index();
 	if not loading_segment_index == -1:
-		if flashing_timer > 3.14:
-			flashing_timer -= 3.14;
-		segments_list[loading_segment_index].modulate = lerp(default_segment_modulate_color, empty_segment_modulate_color, (sin(flashing_timer)+1/2.0));
+		segments_list[loading_segment_index].modulate = lerp(default_segment_modulate_color, empty_segment_modulate_color, (sin(flashing_timer)+1.0)/2.0);
 	
 	if loading_segment_index == -1:
 		loading_segment_index = get_segment_count();

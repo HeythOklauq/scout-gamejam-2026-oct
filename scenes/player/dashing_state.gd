@@ -13,7 +13,7 @@ func on_entering_state(_previous_state :StateNode) -> void:
 		var h_velocity = player_node.get_player_forward_angle()
 		dash_direction = Vector3(h_velocity.x, 0.0, h_velocity.y)
 	
-	SlowMotionManager.slow_time(SlowMotionManager.STANDARD_SLOW, 0.5);
+	SlowMotionManager.slow_time(SlowMotionManager.MINOR_SLOW, 0.3);
 	player_node.apply_movement(dash_direction, player_node.dash_speed);
 	player_node.attack_locked = false
 
