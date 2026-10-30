@@ -1,5 +1,9 @@
 extends PlayerStateNode
 
+func on_entering_state(_previous_state :StateNode) -> void:
+	if not player_node == null:
+		player_node.combo_count = 0
+
 func process_frame(delta: float) -> StateNode:
 	if Input.is_action_just_pressed("Jump"):
 		return state_machine.state_list["JumpingState"]

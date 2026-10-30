@@ -584,9 +584,6 @@ render_target_update_mode = 4
 
 [node name="HUDControl" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=1211318264 instance=ExtResource("2_aivhf")]
 
-[node name="StaminaBar" parent="Camera3D/SubViewportContainer/SubViewport/HUDControl/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1211318264, 905317805) index="1" unique_id=598262902]
-segment_size = Vector2(64, 32)
-
 [node name="PauseMenuControl" type="ColorRect" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=1494267686]
 unique_name_in_owner = true
 anchors_preset = 15

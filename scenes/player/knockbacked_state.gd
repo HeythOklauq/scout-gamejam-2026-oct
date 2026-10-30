@@ -10,6 +10,8 @@ var previous_state :PlayerStateNode
 func on_entering_state(_previous_state :StateNode) -> void:
 	previous_state = _previous_state
 	
+	player_node.combo_count += 1;
+	
 	var animation_name = "Swing_KnockedBack"
 	var knockback_strength = swing_knockback;
 	var knockback_duration = SlowMotionManager.MAJOR_SLOW;

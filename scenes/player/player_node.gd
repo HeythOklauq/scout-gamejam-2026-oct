@@ -9,8 +9,14 @@ const WOOD_IMPACT_PARTICLE = preload("res://scenes/game_scene/wood_impact_partic
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var pause_menu_control: ColorRect = %PauseMenuControl
+@onready var combo_counter_label: Label = $Camera3D/SubViewportContainer/SubViewport/HUDControl/MarginContainer/VBoxContainer/HBoxContainer/ComboCounter
 
 var attack_locked := false;
+var combo_count := 0:
+	set(_combo_count):
+		combo_count = _combo_count
+		if not combo_counter_label == null:
+			combo_counter_label.text = str(combo_count)
 
 @export_group("Movement Stats")
 @export var damping_speed = 100.0;
