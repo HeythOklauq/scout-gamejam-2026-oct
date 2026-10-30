@@ -8,10 +8,10 @@ const WOOD_IMPACT_PARTICLE = preload("res://scenes/game_scene/wood_impact_partic
 @onready var hitzone_collision_shape: CollisionShape3D = $HitzoneCollisionShape
 @onready var forward_marker_3d: Marker3D = $Camera3D/ForwardMarker3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var baseball_bat_swing_audio_stream: AudioStreamPlayer3D = $Camera3D/BaseballBat_SwingAudioStream
 
 @onready var pause_menu_control: ColorRect = %PauseMenuControl
 
+var attack_locked := false;
 
 @export_group("Movement Stats")
 @export var damping_speed = 100.0;
@@ -88,24 +88,23 @@ func get_hit() -> void:
 func _on_hurt_zone_area_body_entered(body: Node3D) -> void:
 	hit_target(body);
 
-func _on_hurt_zone_area_visibility_changed() -> void:
-	hurt_zone_area.monitoring = hurt_zone_area.visible
-
 func hit_target(node3d :Node3D) -> void:
-	hurt_zone_area.monitoring = false
+	animation_player.stop();
+	animation_player.play("KnockedBack");
+	
+	SlowMotionManager.slow_time(SlowMotionManager.MAJOR_SLOW, 0.5);
+	
 	var hit_normal = -get_player_forward_angle()
 	if is_on_floor():
 		hit_normal.y = 0;
 	velocity.y = 0
 	apply_movement(hit_normal, knockback_strength);
 	
-	SlowMotionManager.slow_time(SlowMotionManager.STANDARD_SLOW, 0.5);
 	
 	var target = node3d.find_parent("WoodyNode")
 	if not target == null:
 		target.on_hit()
 	
-	baseball_bat_swing_audio_stream.stop();
 	var tmp_particle = WOOD_IMPACT_PARTICLE.instantiate() as WoodImpactParticle
 	tmp_particle.global_position = forward_marker_3d.global_position
 	get_tree().root.add_child(tmp_particle)
@@ -115,7 +114,6 @@ var interactable_nodes = []
 func _on_interaction_area_3d_area_entered(area: Area3D) -> void:
 	pass # Replace with function body.
 
-
 func _on_interaction_area_3d_area_exited(area: Area3D) -> void:
 	pass # Replace with function body.
 
@@ -123,7 +121,6 @@ func _on_pause_menu_control_visibility_changed() -> void:
 	if pause_menu_control == null:
 		return;
 	
-	print("_on_pause_menu_control_visibility_changed")
 	if pause_menu_control.visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		SlowMotionManager.pause_time()

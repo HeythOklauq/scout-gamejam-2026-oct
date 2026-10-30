@@ -10,7 +10,8 @@ func _ready() -> void:
 func initialize_player_node_data() -> void:
 	for child in get_children():
 		child = child as PlayerStateNode
-		child.player_node = find_parent("PlayerNode");
+		if child != null:
+			child.player_node = find_parent("PlayerNode");
 
 
 func switch_state_to(new_state :StateNode) -> void:

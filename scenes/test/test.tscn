@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://cvd574a3vd0dc" path="res://scenes/game_scene/woody_node.tscn" id="1_st4qh"]
 [ext_resource type="PackedScene" uid="uid://cwk7yh52bw2lt" path="res://scenes/player/player_node.tscn" id="2_da6vm"]
-[ext_resource type="Texture2D" uid="uid://d2mnhejh2rw7a" path="res://icon.svg" id="3_st4qh"]
 [ext_resource type="ArrayMesh" uid="uid://rog1unjwiwve" path="res://assets/models/floor.obj" id="4_51e2l"]
 [ext_resource type="Texture2D" uid="uid://bkyevm5ghv8pt" path="res://assets/models/ground_texture.001.png" id="5_oj4i3"]
 [ext_resource type="ArrayMesh" uid="uid://beu5b7ki88lxm" path="res://assets/models/telephone_pole.obj" id="6_k6n02"]
@@ -13,15 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://chm4qfskxhy2g" path="res://assets/graphics/boosh.png" id="9_we7ej"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_da6vm"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51e2l"]
-albedo_texture = ExtResource("3_st4qh")
-texture_filter = 0
-grow_amount = -0.78
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_oj4i3"]
-material = SubResource("StandardMaterial3D_51e2l")
-size = Vector2(200, 200)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6n02"]
 albedo_texture = ExtResource("5_oj4i3")
@@ -73,9 +63,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FloorStaticBody" unique_id=996966712]
 shape = SubResource("WorldBoundaryShape3D_da6vm")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=158698627]
-mesh = SubResource("PlaneMesh_oj4i3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=83092244]
 transform = Transform3D(1, 0, 0, 0, 0.9860077, 0.16669992, 0, -0.16669992, 0.9860077, 138.95998, 41.592552, -172.62411)
@@ -168,5 +155,5 @@ texture = ExtResource("9_we7ej")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreams" unique_id=1391437052]
 stream = ExtResource("9_5unt0")
 autoplay = true
-bus = &"Environment"
+bus = &"Ambiant"
 parameters/looping = true

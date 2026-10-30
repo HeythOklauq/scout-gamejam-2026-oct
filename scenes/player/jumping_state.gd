@@ -2,7 +2,7 @@ extends PlayerStateNode
 
 var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-func on_entering_state() -> void:
+func on_entering_state(_previous_state :StateNode) -> void:
 	player_node.velocity.y = player_node.jump_speed;
 
 func on_exiting_state() -> void:

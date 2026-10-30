@@ -3,7 +3,7 @@ extends PlayerStateNode
 var dash_duration = 0.2
 var timer := 0.0
 
-func on_entering_state() -> void:
+func on_entering_state(_previous_state :StateNode) -> void:
 	timer = dash_duration;
 	var dash_direction :Vector3 = player_node.velocity
 	if player_node.get_horizontal_velocity().length_squared() < 1.0:
@@ -12,6 +12,10 @@ func on_entering_state() -> void:
 	
 	SlowMotionManager.slow_time(SlowMotionManager.STANDARD_SLOW, 0.5);
 	player_node.apply_movement(dash_direction, player_node.dash_speed);
+	player_node.attack_locked = false
+
+func on_exiting_state() -> void:
+	player_node.attack_locked = false
 
 func process_frame(delta: float) -> StateNode:
 	timer -= delta

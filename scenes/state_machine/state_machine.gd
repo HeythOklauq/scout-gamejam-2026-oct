@@ -24,9 +24,10 @@ func switch_state_to(new_state :StateNode) -> void:
 	if not current_state == null:
 		current_state.on_exiting_state()
 	
+	var tmp_previous_state = current_state; 
 	current_state = new_state;
 	if not current_state == null:
-		current_state.on_entering_state()
+		current_state.on_entering_state(tmp_previous_state)
 
 func _process(delta: float) -> void:
 	if current_state == null or Engine.time_scale == 0.0:
