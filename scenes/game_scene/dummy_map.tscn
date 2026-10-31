@@ -30,6 +30,17 @@ material = SubResource("StandardMaterial3D_saoeg")
 offsets = PackedFloat32Array(0, 0.18018018, 0.8873874, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
+[sub_resource type="Gradient" id="Gradient_2ns80"]
+offsets = PackedFloat32Array(0.5575221, 0.63716817)
+colors = PackedColorArray(1.3886719, 0, 1.3886719, 1, 0.96618015, 0.7280375, 0.53202194, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iuepn"]
+gradient = SubResource("Gradient_2ns80")
+width = 320
+height = 320
+fill = 1
+fill_from = Vector2(0.4957265, 0.508547)
+
 [node name="Dummy Map" type="Node3D" unique_id=1980671728]
 
 [node name="DummyMap" type="MeshInstance3D" parent="." unique_id=2136592491]
@@ -68,7 +79,7 @@ angular_velocity_max = 2.0
 color_ramp = SubResource("Gradient_iuepn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=761825884]
-transform = Transform3D(1, 0, 0, 0, 0.9860077, 0.16669992, 0, -0.16669992, 0.9860077, 138.95998, 41.592552, -172.62411)
+transform = Transform3D(1, 0, 0, 0, 0.9860077, 0.16669992, 0, -0.16669992, 0.9860077, -17.921944, 41.592552, 154.41487)
 light_color = Color(0.63525116, 0.2775518, 0.48703212, 1)
 shadow_enabled = true
 sky_mode = 1
@@ -86,3 +97,9 @@ stream = ExtResource("6_iuepn")
 autoplay = true
 bus = &"Ambiant"
 parameters/looping = true
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1348152954]
+transform = Transform3D(19.813692, 0, 0, 0, 18.51284, 0, 0, 0, 1, -49.438366, 5.5999985, 263.57935)
+billboard = 2
+texture_filter = 0
+texture = SubResource("GradientTexture2D_iuepn")

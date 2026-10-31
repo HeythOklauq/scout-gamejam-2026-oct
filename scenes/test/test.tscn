@@ -27,12 +27,12 @@ albedo_color = Color(0.3782868, 0.15579787, 0.0055941166, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5unt0"]
 albedo_color = Color(0.082516186, 0.22647342, 4.813075e-08, 1)
 
-[sub_resource type="Gradient" id="Gradient_2ns80"]
+[sub_resource type="Gradient" id="Gradient_saoeg"]
 offsets = PackedFloat32Array(0.5575221, 0.63716817)
 colors = PackedColorArray(1.3887179, 0.89650697, 0.44604686, 1, 0.96618015, 0.7280375, 0.53202194, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5unt0"]
-gradient = SubResource("Gradient_2ns80")
+gradient = SubResource("Gradient_saoeg")
 width = 320
 height = 320
 fill = 1

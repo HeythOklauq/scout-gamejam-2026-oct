@@ -5,6 +5,8 @@
 [ext_resource type="ArrayMesh" uid="uid://1ws1yh130w4s" path="res://assets/models/pillar_eyewrap.obj" id="3_1glew"]
 [ext_resource type="ArrayMesh" uid="uid://bclnwpt2fy3ad" path="res://assets/models/pillar_arm.obj" id="4_brs0k"]
 [ext_resource type="ArrayMesh" uid="uid://cnqoq6wcha3gu" path="res://assets/models/pillar_nose.obj" id="5_c3yqh"]
+[ext_resource type="PackedScene" uid="uid://cydn8rfyee3s" path="res://assets/models/ciggiebasic.blend" id="6_65piq"]
+[ext_resource type="Texture2D" uid="uid://7bx28j1qwm6y" path="res://assets/graphics/smokelet.png" id="7_tbbh2"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hv1t7"]
 height = 2.0002441
@@ -16,6 +18,47 @@ stencil_flags = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_43a5k"]
 viewport_path = NodePath("../SubViewport")
+
+[sub_resource type="Curve" id="Curve_8rms8"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25118485, 230.56186), 0.0, 0.0, 0, 0, Vector2(0.7440759, -206.29211), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_bgv0c"]
+curve = SubResource("Curve_8rms8")
+
+[sub_resource type="Curve" id="Curve_f4r6e"]
+_data = [Vector2(0.01421801, 0), 0.0, 3.8948643, 0, 0, Vector2(0.13270143, 0.7865169), 2.9946768, 2.9946768, 0, 0, Vector2(0.38388628, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_kl2ce"]
+curve = SubResource("Curve_f4r6e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_paawa"]
+emission_shape_scale = Vector3(0.007, 0.007, 0.007)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_curve = SubResource("CurveTexture_bgv0c")
+velocity_pivot = Vector3(0.725, 0, 0)
+direction = Vector3(1, 0.12, 0)
+spread = 0.0
+gravity = Vector3(0.07, 0.38, 0.055)
+scale_min = 0.0
+scale_max = 8.03
+scale_curve = SubResource("CurveTexture_kl2ce")
+scale_over_velocity_max = 108.43
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1oi6"]
+transparency = 4
+albedo_texture = ExtResource("7_tbbh2")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4t0ym"]
+lightmap_size_hint = Vector2i(12, 12)
+material = SubResource("StandardMaterial3D_n1oi6")
+size = Vector2(0.01, 0.01)
+orientation = 2
+
+[sub_resource type="Skin" id="Skin_6gsia"]
 
 [node name="WoodyNode" type="StaticBody3D" unique_id=697933605]
 collision_layer = 9
@@ -81,3 +124,15 @@ qs djklaz
 sqk"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ciggiebasic" parent="." unique_id=1663029497 instance=ExtResource("6_65piq")]
+transform = Transform3D(5.220247, 1.74667, 0.78216153, -1.7642134, 5.272679, -7.792501e-08, -0.7417434, -0.24818361, 5.504708, 0.26024964, 1.4923592, -0.047901608)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="ciggiebasic" unique_id=395031434]
+transform = Transform3D(0.9999991, 1.8673018e-07, 1.4901161e-07, -2.30968e-07, 0.9999989, -3.7252903e-09, -4.4703484e-08, -3.3527613e-08, 0.9999991, 0.020067208, 0.0045619607, -0.0032924055)
+amount = 4
+amount_ratio = 0.5162
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_paawa")
+draw_pass_1 = SubResource("PlaneMesh_4t0ym")
+draw_skin = SubResource("Skin_6gsia")
