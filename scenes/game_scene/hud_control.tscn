@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bushhfwb0kykk"]
 
+[ext_resource type="Script" uid="uid://bjhu0tk53qwqd" path="res://scenes/game_scene/hud_control.gd" id="1_a6xiq"]
 [ext_resource type="PackedScene" uid="uid://udeqcylculyn" path="res://scenes/game_scene/cigarette_timer.tscn" id="1_dhjr6"]
 [ext_resource type="PackedScene" uid="uid://dno1lgy1587be" path="res://scenes/game_scene/stamina_bar.tscn" id="2_tjly2"]
+[ext_resource type="FontFile" uid="uid://w5eb3iy23tj6" path="res://assets/fonts/Redden.ttf" id="3_e3713"]
 
 [node name="HUDControl" type="Control" unique_id=1211318264]
 layout_mode = 3
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_a6xiq")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=833891330]
 layout_mode = 1
@@ -24,6 +27,7 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="CigaretteTimer" parent="MarginContainer" unique_id=1769428755 instance=ExtResource("1_dhjr6")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 
@@ -38,11 +42,16 @@ size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=570986576]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_e3713")
+theme_override_font_sizes/font_size = 32
 text = "COMBO: "
 
 [node name="ComboCounter" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=822345965]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_e3713")
+theme_override_font_sizes/font_size = 32
 text = "999"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -57,11 +66,16 @@ layout_mode = 2
 [node name="MoneySymbol" type="Label" parent="MarginContainer/VBoxContainer/ScoreConatiner/HBoxContainer" unique_id=1393415711]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_e3713")
+theme_override_font_sizes/font_size = 32
 text = "$ "
 vertical_alignment = 1
 
 [node name="MoneyLabel" type="Label" parent="MarginContainer/VBoxContainer/ScoreConatiner/HBoxContainer" unique_id=643013466]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_e3713")
+theme_override_font_sizes/font_size = 32
 text = "0000.00"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -72,15 +86,21 @@ layout_mode = 2
 [node name="ChipsSymbol" type="Label" parent="MarginContainer/VBoxContainer/ScoreConatiner/HBoxContainer2" unique_id=417226982]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_e3713")
+theme_override_font_sizes/font_size = 32
 text = "W "
 vertical_alignment = 1
 
 [node name="ChipsLabel" type="Label" parent="MarginContainer/VBoxContainer/ScoreConatiner/HBoxContainer2" unique_id=1895454133]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_e3713")
+theme_override_font_sizes/font_size = 32
 text = "000000"
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="StaminaBar" parent="MarginContainer/VBoxContainer" unique_id=598262902 instance=ExtResource("2_tjly2")]
+unique_name_in_owner = true
 layout_mode = 2

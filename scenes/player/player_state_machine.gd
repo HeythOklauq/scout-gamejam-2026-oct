@@ -13,11 +13,11 @@ func initialize_player_node_data() -> void:
 		if child != null:
 			child.player_node = find_parent("PlayerNode");
 
-func switch_state_to(new_state :StateNode) -> bool:
+func switch_state_to(new_state :StateNode, new_state_data = null) -> bool:
 	if (new_state as PlayerStateNode) == null:
 		return false
 	
-	if super(new_state):
+	if super(new_state, new_state_data):
 		current_player_state = new_state as PlayerStateNode
 		return true
 	

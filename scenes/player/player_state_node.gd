@@ -4,7 +4,7 @@ class_name PlayerStateNode
 var player_node :PlayerNode
 
 
-func on_entering_state(_previous_state :StateNode) -> void:
+func on_entering_state(_previous_state :StateNode, state_data = null) -> void:
 	pass
 
 func on_exiting_state() -> void:

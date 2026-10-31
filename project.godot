@@ -44,6 +44,10 @@ folder_colors={
 "res://singletons/": "blue"
 }
 
+[gui]
+
+theme/custom="uid://jpnoko6t36ew"
+
 [input]
 
 Forward={
@@ -140,6 +144,7 @@ Bunt={
 3d_physics/layer_4="Dummy"
 3d_physics/layer_5="Player"
 3d_physics/layer_6="HurtZone"
+3d_physics/layer_7="Pickup"
 
 [physics]
 
@@ -149,4 +154,6 @@ Bunt={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+textures/decals/filter=0
+textures/light_projectors/filter=0
 environment/defaults/default_environment="uid://c4jiuhl5im7nu"

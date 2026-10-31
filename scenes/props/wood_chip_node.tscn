@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dl1g3n0samtg3"]
+
+[ext_resource type="Script" uid="uid://coabcqnvs1j08" path="res://scenes/props/wood_chip_node.gd" id="1_k3c1e"]
+[ext_resource type="Texture2D" uid="uid://rpnlh06vg4mx" path="res://assets/graphics/cursed_wood_chips.png" id="1_s5vyn"]
+[ext_resource type="Texture2D" uid="uid://7bx28j1qwm6y" path="res://assets/graphics/smokelet.png" id="3_pj5d6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pj5d6"]
+bounce = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pj5d6"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_pj5d6"]
+_data = [Vector2(0, 1), 0.0, -2.275175, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_p8qal"]
+curve = SubResource("Curve_pj5d6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p8qal"]
+emission_shape = 3
+emission_box_extents = Vector3(0.06, 0.06, 0.02)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.19999999
+gravity = Vector3(0, 0.3, 0)
+scale_curve = SubResource("CurveTexture_p8qal")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_la6qj"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.7176471, 0.54901963, 0.7490196, 1)
+albedo_texture = ExtResource("3_pj5d6")
+texture_filter = 0
+billboard_mode = 2
+stencil_flags = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_h6vw0"]
+material = SubResource("StandardMaterial3D_la6qj")
+size = Vector2(0.1, 0.1)
+
+[node name="WoodChipNode" type="RigidBody3D" unique_id=1986304666]
+collision_layer = 64
+collision_mask = 3
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_pj5d6")
+script = ExtResource("1_k3c1e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1801380951]
+shape = SubResource("BoxShape3D_pj5d6")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=875624622]
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_s5vyn")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1272061619]
+amount = 10
+amount_ratio = 0.5
+lifetime = 2.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_p8qal")
+draw_pass_1 = SubResource("QuadMesh_h6vw0")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=967929229]
+light_color = Color(0.627451, 0.5764706, 0.8745098, 1)
+light_energy = 0.3

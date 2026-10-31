@@ -9,7 +9,7 @@ func is_valid_state() -> bool:
 func _ready() -> void:
 	state_machine = get_parent() as StateMachine
 
-func on_entering_state(_previous_state :StateNode) -> void:
+func on_entering_state(_previous_state :StateNode, new_state_data = null) -> void:
 	pass
 
 func on_exiting_state() -> void:

@@ -16,7 +16,7 @@ var hurtzone_active := false:
 func is_valid_state() -> bool:
 	return player_node.use_stamina();
 
-func on_entering_state(_previous_state :StateNode) -> void:
+func on_entering_state(_previous_state :StateNode, _state_data = null) -> void:
 	target_hit = null;
 	
 	sfx = SfxManager.play_sound(SfxManager.SOUND_TYPES.BUNT, 1.0, 0.02);
@@ -53,7 +53,7 @@ func process_frame(delta: float) -> StateNode:
 	if target_hit == null:
 		return null
 	
-	if target_hit is HittableBody:
+	if target_hit is HittableBodyComponent:
 		target_hit.on_hit(hurt_zone_area.global_position, player_node.get_player_forward_angle())
 	SfxManager.stop_sound(sfx)
 	return state_machine.state_list["KnockbackedState"]

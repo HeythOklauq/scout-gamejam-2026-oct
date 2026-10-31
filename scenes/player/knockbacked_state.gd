@@ -7,7 +7,7 @@ var previous_state :PlayerStateNode
 
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
-func on_entering_state(_previous_state :StateNode) -> void:
+func on_entering_state(_previous_state :StateNode, _state_data = null) -> void:
 	previous_state = _previous_state
 	
 	player_node.combo_count += 1;

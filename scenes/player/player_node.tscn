@@ -14,12 +14,17 @@
 [ext_resource type="Script" uid="uid://c3v8y40ynvi6r" path="res://scenes/player/knockbacked_state.gd" id="12_toa43"]
 [ext_resource type="Script" uid="uid://c8a6a48ulwjvj" path="res://scenes/player/bunt_state.gd" id="13_tu3ki"]
 [ext_resource type="Script" uid="uid://bctfox6bswbcl" path="res://scenes/player/swinging_state.gd" id="14_toa43"]
+[ext_resource type="Script" uid="uid://q1xbkhesn5kk" path="res://scenes/player/charging_state.gd" id="16_mw67o"]
 [ext_resource type="Script" uid="uid://spmjsaalsve5" path="res://scenes/player/windup_state.gd" id="16_toa43"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l67bh"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xlee4"]
-size = Vector3(0.8, 0.8, 2)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tu3ki"]
+height = 1.1259766
+radius = 1.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_toa43"]
+size = Vector3(0.2890625, 0.23657227, 3.5617676)
 
 [sub_resource type="BoxMesh" id="BoxMesh_toa43"]
 size = Vector3(1, 0.3, 1.3)
@@ -597,7 +602,7 @@ _data = {
 
 [node name="PlayerNode" type="CharacterBody3D" unique_id=764222003]
 collision_layer = 16
-collision_mask = 3
+collision_mask = 11
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_e0ebx")
@@ -608,8 +613,18 @@ stamina_usage = 10.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_l67bh")
 
+[node name="PickupArea" type="Area3D" parent="." unique_id=1856561486]
+collision_layer = 0
+collision_mask = 64
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea" unique_id=1413318854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.087402344, 0)
+shape = SubResource("CylinderShape3D_tu3ki")
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=143402113]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.52422, 0)
+current = true
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Camera3D" unique_id=1346256610]
 current = true
@@ -621,9 +636,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/InteractionArea3D" unique_id=1198881066]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3711385e-08, 0, -1.5)
-shape = SubResource("BoxShape3D_xlee4")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/InteractionArea3D" unique_id=355644444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7360198e-08, 0, -1.9068121)
+shape = SubResource("BoxShape3D_toa43")
 
 [node name="Swing_HurtZoneArea" type="Area3D" parent="Camera3D" unique_id=1913803103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021437677, -0.48510623, -1)
@@ -658,7 +673,7 @@ mesh = SubResource("BoxMesh_mw67o")
 surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
 
 [node name="Bat" type="MeshInstance3D" parent="Camera3D" unique_id=1265214212]
-transform = Transform3D(0.00021265815, 0.12186909, 0.99254626, 0.0017323175, 0.992544, -0.12186936, -0.9999977, 0.0017453219, -4.3385572e-08, 0.977, -0.863, -1.03)
+transform = Transform3D(0.00021265811, 0.121869065, 0.99254626, 0.0017323173, 0.9925438, -0.12186936, -0.9999975, 0.0017453216, -4.3385572e-08, 0.977, -0.863, -1.03)
 cast_shadow = 0
 mesh = ExtResource("3_xlee4")
 surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")
@@ -677,7 +692,8 @@ handle_input_locally = false
 size = Vector2i(800, 600)
 render_target_update_mode = 4
 
-[node name="HUDControl" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=1211318264 instance=ExtResource("2_aivhf")]
+[node name="HUDControl" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=1211318264 node_paths=PackedStringArray("player_node") instance=ExtResource("2_aivhf")]
+player_node = NodePath("../../../..")
 
 [node name="PauseMenuControl" type="ColorRect" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=1494267686]
 unique_name_in_owner = true
@@ -739,13 +755,22 @@ metadata/_custom_type_script = "uid://fyrql5g47aon"
 script = ExtResource("16_toa43")
 metadata/_custom_type_script = "uid://fyrql5g47aon"
 
+[node name="ChargingState" type="Node" parent="CombatPlayerStateMachine" unique_id=173443898]
+script = ExtResource("16_mw67o")
+metadata/_custom_type_script = "uid://fyrql5g47aon"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=179279295]
 libraries/ = SubResource("AnimationLibrary_k6i6l")
 
-[connection signal="area_entered" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_3d_area_entered"]
-[connection signal="area_exited" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_3d_area_exited"]
+[connection signal="combo_changed" from="." to="Camera3D/SubViewportContainer/SubViewport/HUDControl" method="_on_player_combo_changed"]
+[connection signal="money_changed" from="." to="Camera3D/SubViewportContainer/SubViewport/HUDControl" method="_on_player_money_changed"]
+[connection signal="stamina_changed" from="." to="Camera3D/SubViewportContainer/SubViewport/HUDControl" method="_on_player_stamina_changed"]
+[connection signal="woodchip_changed" from="." to="Camera3D/SubViewportContainer/SubViewport/HUDControl" method="_on_player_woodchip_changed"]
+[connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
+[connection signal="area_entered" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_entered"]
+[connection signal="area_exited" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_exited"]
+[connection signal="body_entered" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_entered"]
+[connection signal="body_exited" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_exited"]
 [connection signal="body_entered" from="Camera3D/Swing_HurtZoneArea" to="CombatPlayerStateMachine/SwingingState" method="_on_hurt_zone_area_body_entered"]
 [connection signal="body_entered" from="Camera3D/Bunt_HurtZoneArea" to="CombatPlayerStateMachine/SwingingState" method="_on_hurt_zone_area_body_entered"]
 [connection signal="visibility_changed" from="Camera3D/SubViewportContainer/SubViewport/PauseMenuControl" to="." method="_on_pause_menu_control_visibility_changed"]
-
-[editable path="Camera3D/SubViewportContainer/SubViewport/HUDControl"]

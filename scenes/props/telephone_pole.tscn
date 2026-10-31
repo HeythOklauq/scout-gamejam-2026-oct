@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://drmhsiovv34hb"]
 
 [ext_resource type="ArrayMesh" uid="uid://beu5b7ki88lxm" path="res://assets/models/telephone_pole.obj" id="1_stgfi"]
-[ext_resource type="Script" uid="uid://kapoa6ejh07a" path="res://scenes/props/hittable_body.gd" id="2_xge5t"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="2_jenge"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xge5t"]
 albedo_color = Color(0.51584375, 0, 0, 1)
@@ -12,8 +12,6 @@ data = PackedVector3Array(0.19999999, 0, 0.19999999, 0.25, 0, 0, 0, 0, 0.25, 0, 
 [node name="TelephonePole" type="StaticBody3D" unique_id=1388397219]
 collision_layer = 3
 collision_mask = 0
-script = ExtResource("2_xge5t")
-on_hit_soundtype = 4
 
 [node name="TelephonePole" type="MeshInstance3D" parent="." unique_id=1882804808]
 mesh = ExtResource("1_stgfi")
@@ -23,3 +21,7 @@ surface_material_override/2 = SubResource("StandardMaterial3D_xge5t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1043558820]
 shape = SubResource("ConcavePolygonShape3D_ltwex")
+
+[node name="HittableBodyComponent" parent="." unique_id=1598085311 instance=ExtResource("2_jenge")]
+on_hit_soundtype = 4
+knockback_movement = 0.0

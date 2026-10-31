@@ -15,9 +15,6 @@ var flashing_timer := 0.0
 
 var segments_list :Array[Control] = []
 
-func _ready() -> void:
-	call_deferred("update_segment_count")
-
 func create_segment() -> TextureRect:
 	var new_segment :TextureRect = TextureRect.new()
 	
@@ -57,6 +54,12 @@ func get_loading_segment_index() -> int:
 	return segment_index
 
 func _process(delta: float) -> void:
+	if player_node == null:
+		return
+	
+	if player_node.stamina_locked:
+		return
+	
 	flashing_timer += delta * loading_flash_speed
 	var loading_segment_index = get_loading_segment_index();
 	if not loading_segment_index == -1:

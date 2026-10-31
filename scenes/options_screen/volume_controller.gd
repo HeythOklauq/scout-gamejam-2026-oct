@@ -24,10 +24,14 @@ func initialize() -> void:
 
 func update_name() -> void:
 	if label == null:
+		call_deferred("update_name")
 		return
 	label.text = OptionsManager.AUDIO_BUSES.keys()[audio_bus]
 
 func update_volume() -> void:
+	if OptionsManager == null:
+		call_deferred("update_volume")
+		return
 	check_button.button_pressed = !OptionsManager.is_bus_mute(audio_bus);
 	h_slider.value = OptionsManager.get_audio_level(audio_bus);
 

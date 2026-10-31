@@ -21,7 +21,17 @@ const SOUNDS :Dictionary[SOUND_TYPES, Array] = {
 		preload("res://assets/audio/sfx/swing.wav")
 	],
 	SOUND_TYPES.PICK_UP: [
-		preload("res://assets/audio/sfx/impactWood_light_001.ogg")
+		preload("uid://stiujfj5814e"), 
+		preload("uid://c674f0pnbcqid"), 
+		preload("uid://csque4rcnsc3c"), 
+		preload("uid://c4oqrkoyrrg40"), 
+		preload("uid://b174eqe5scpy8"), 
+		preload("uid://bouccsto523wy"), 
+		preload("uid://gfvhnkkdb4et"), 
+		preload("uid://ccdg5wb0iwr03"), 
+		preload("uid://drseai0hod72x"), 
+		preload("uid://y1eccf4m4s66"), 
+		preload("uid://do4g56rv5iwno")
 	],
 	SOUND_TYPES.IMPACT_WOOD: [
 		preload("res://assets/audio/sfx/impactWood_light_001.ogg")

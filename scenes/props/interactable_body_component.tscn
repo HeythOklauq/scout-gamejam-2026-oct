@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://3t4r1b5j25iv"]
+
+[ext_resource type="Script" uid="uid://bdpwaxy5trodm" path="res://scenes/props/interactable_body_component.gd" id="1_lmgca"]
+
+[node name="InteractableBodyComponent" type="Node" unique_id=1906740058]
+script = ExtResource("1_lmgca")

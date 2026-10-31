@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://jpnoko6t36ew"]
+
+[ext_resource type="FontFile" uid="uid://qo20hk1wekhq" path="res://assets/fonts/Tengoku.ttf" id="1_ols5k"]
+
+[resource]
+default_font = ExtResource("1_ols5k")

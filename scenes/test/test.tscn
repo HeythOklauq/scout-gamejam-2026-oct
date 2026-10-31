@@ -2,14 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://cvd574a3vd0dc" path="res://scenes/props/woody_node.tscn" id="1_st4qh"]
 [ext_resource type="PackedScene" uid="uid://cwk7yh52bw2lt" path="res://scenes/player/player_node.tscn" id="2_da6vm"]
-[ext_resource type="Script" uid="uid://kapoa6ejh07a" path="res://scenes/props/hittable_body.gd" id="2_saoeg"]
 [ext_resource type="ArrayMesh" uid="uid://rog1unjwiwve" path="res://assets/models/floor.obj" id="4_51e2l"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="4_saoeg"]
 [ext_resource type="Texture2D" uid="uid://bkyevm5ghv8pt" path="res://assets/models/ground_texture.001.png" id="5_oj4i3"]
+[ext_resource type="PackedScene" uid="uid://dl1g3n0samtg3" path="res://scenes/props/wood_chip_node.tscn" id="5_we7ej"]
 [ext_resource type="ArrayMesh" uid="uid://bbabp6cfyi3vt" path="res://assets/models/tree_a.obj" id="8_2ns80"]
 [ext_resource type="PackedScene" uid="uid://d3vc4m48cxd7o" path="res://scenes/test/border_path_3d.tscn" id="8_saoeg"]
 [ext_resource type="AudioStream" uid="uid://bh02sg8jcjh7l" path="res://assets/audio/ambiants/freesound_community-forest-wind-and-birds-6881.mp3" id="9_5unt0"]
 [ext_resource type="PackedScene" uid="uid://drmhsiovv34hb" path="res://scenes/props/telephone_pole.tscn" id="9_saoeg"]
 [ext_resource type="Texture2D" uid="uid://chm4qfskxhy2g" path="res://assets/graphics/boosh.png" id="9_we7ej"]
+[ext_resource type="PackedScene" uid="uid://3t4r1b5j25iv" path="res://scenes/props/interactable_body_component.tscn" id="9_xi5sv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6n02"]
 albedo_texture = ExtResource("5_oj4i3")
@@ -27,16 +29,24 @@ albedo_color = Color(0.3782868, 0.15579787, 0.0055941166, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5unt0"]
 albedo_color = Color(0.082516186, 0.22647342, 4.813075e-08, 1)
 
-[sub_resource type="Gradient" id="Gradient_saoeg"]
-offsets = PackedFloat32Array(0.5575221, 0.63716817)
-colors = PackedColorArray(1.3887179, 0.89650697, 0.44604686, 1, 0.96618015, 0.7280375, 0.53202194, 0)
+[sub_resource type="BoxShape3D" id="BoxShape3D_2dgve"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5unt0"]
-gradient = SubResource("Gradient_saoeg")
-width = 320
-height = 320
-fill = 1
-fill_from = Vector2(0.4957265, 0.508547)
+[sub_resource type="BoxMesh" id="BoxMesh_x4ubh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm0ii"]
+albedo_color = Color(1, 0.4627451, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bg4ew"]
+albedo_color = Color(0.15294118, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xi5sv"]
+albedo_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xi5sv"]
+size = Vector3(1, 3, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2dgve"]
+size = Vector3(1, 3, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_saoeg"]
 albedo_color = Color(16.1889, 16.1889, 9.459594, 1)
@@ -50,7 +60,16 @@ material = SubResource("StandardMaterial3D_saoeg")
 offsets = PackedFloat32Array(0, 0.18018018, 0.8873874, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2ns80"]
+[sub_resource type="Gradient" id="Gradient_saoeg"]
+offsets = PackedFloat32Array(0.5575221, 0.63716817)
+colors = PackedColorArray(1.3887179, 0.89650697, 0.44604686, 1, 0.96618015, 0.7280375, 0.53202194, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5unt0"]
+gradient = SubResource("Gradient_saoeg")
+width = 320
+height = 320
+fill = 1
+fill_from = Vector2(0.4957265, 0.508547)
 
 [node name="Test" type="Node3D" unique_id=1028040761]
 
@@ -69,14 +88,13 @@ mesh = ExtResource("4_51e2l")
 surface_material_override/0 = SubResource("StandardMaterial3D_k6n02")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=138281393]
-script = ExtResource("2_saoeg")
-on_hit_soundtype = 4
-knockback_angle = 0.0
-knockback_movement = 0.0
-animation_duration = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=1368564481]
 shape = SubResource("ConcavePolygonShape3D_51e2l")
+
+[node name="HittableBodyComponent" parent="Floor/StaticBody3D" unique_id=1598085311 instance=ExtResource("4_saoeg")]
+on_hit_soundtype = 4
+animation_duration = 0.0
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Floor" unique_id=772168369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.795612, 10.161011, -14.2733135)
@@ -92,14 +110,72 @@ surface_material_override/1 = SubResource("StandardMaterial3D_5unt0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 TEXTURE_LIST = Array[Texture2D]([ExtResource("9_we7ej")])
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1634201769]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 5.5999985, 161)
-billboard = 2
-texture_filter = 0
-texture = SubResource("GradientTexture2D_5unt0")
+[node name="InteractibleA" type="StaticBody3D" parent="Floor" unique_id=96294275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.915455, 3.165615, 16.132698)
+collision_layer = 0
+collision_mask = 4
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=587188115]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.1, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/InteractibleA" unique_id=2075004624]
+shape = SubResource("BoxShape3D_2dgve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/InteractibleA" unique_id=482394264]
+mesh = SubResource("BoxMesh_x4ubh")
+surface_material_override/0 = SubResource("StandardMaterial3D_xm0ii")
+
+[node name="InteractableBodyComponent" parent="Floor/InteractibleA" unique_id=1906740058 node_paths=PackedStringArray("body", "mesh") instance=ExtResource("9_xi5sv")]
+body = NodePath("..")
+mesh = NodePath("../MeshInstance3D")
+
+[node name="InteractibleA2" type="StaticBody3D" parent="Floor" unique_id=120191128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.915455, 3.165615, 19.185009)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/InteractibleA2" unique_id=2110787516]
+shape = SubResource("BoxShape3D_2dgve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/InteractibleA2" unique_id=961725608]
+mesh = SubResource("BoxMesh_x4ubh")
+surface_material_override/0 = SubResource("StandardMaterial3D_bg4ew")
+
+[node name="InteractableBodyComponent" parent="Floor/InteractibleA2" unique_id=1262155850 node_paths=PackedStringArray("body", "mesh") instance=ExtResource("9_xi5sv")]
+body = NodePath("..")
+mesh = NodePath("../MeshInstance3D")
+
+[node name="InteractibleA3" type="StaticBody3D" parent="Floor" unique_id=1397112737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.090237, 3.188796, 21.21261)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/InteractibleA3" unique_id=1674372203]
+shape = SubResource("BoxShape3D_2dgve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/InteractibleA3" unique_id=823099464]
+mesh = SubResource("BoxMesh_x4ubh")
+surface_material_override/0 = SubResource("StandardMaterial3D_xi5sv")
+
+[node name="InteractableBodyComponent" parent="Floor/InteractibleA3" unique_id=1053167583 node_paths=PackedStringArray("body", "mesh") instance=ExtResource("9_xi5sv")]
+body = NodePath("..")
+mesh = NodePath("../MeshInstance3D")
+
+[node name="InteractibleA4" type="StaticBody3D" parent="Floor" unique_id=1498741077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.146881, 2.55829, 2.3291335)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/InteractibleA4" unique_id=1742229300]
+shape = SubResource("BoxShape3D_xi5sv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/InteractibleA4" unique_id=149873455]
+mesh = SubResource("BoxMesh_2dgve")
+surface_material_override/0 = SubResource("StandardMaterial3D_xi5sv")
+
+[node name="InteractableBodyComponent" parent="Floor/InteractibleA4" unique_id=976260215 node_paths=PackedStringArray("body", "mesh") instance=ExtResource("9_xi5sv")]
+body = NodePath("..")
+mesh = NodePath("../MeshInstance3D")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Floor" unique_id=587188115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.1, 0)
 amount = 200
 lifetime = 8.0
 mesh = SubResource("PointMesh_we7ej")
@@ -113,19 +189,21 @@ angular_velocity_min = -2.0
 angular_velocity_max = 2.0
 color_ramp = SubResource("Gradient_5unt0")
 
+[node name="TelephonePole" parent="Floor" unique_id=1388397219 instance=ExtResource("9_saoeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.753834, 2.7316144, 35.33615)
+
+[node name="WoodChipNode" parent="Floor" unique_id=1986304666 instance=ExtResource("5_we7ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.532465, 9.6010275, -0.13810323)
+collision_mask = 3
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1634201769]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 5.5999985, 161)
+billboard = 2
+texture_filter = 0
+texture = SubResource("GradientTexture2D_5unt0")
+
 [node name="PlayerNode" parent="." unique_id=764222003 instance=ExtResource("2_da6vm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.776207, 6.4613, 4.670761)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=990270406]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.88315, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1912784790]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 1.9326553, 9.408264, 0)
-shape = SubResource("WorldBoundaryShape3D_2ns80")
-
-[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D/CollisionShape3D" unique_id=1232970594]
-transform = Transform3D(-4.371139e-07, -10, 0, -4.371139e-07, 1.9106854e-14, -1, 10, -4.371139e-07, -4.371139e-08, 0, 0, 0)
-texture = ExtResource("9_we7ej")
 
 [node name="AudioStreams" type="Node" parent="." unique_id=568307879]
 
@@ -134,9 +212,3 @@ stream = ExtResource("9_5unt0")
 autoplay = true
 bus = &"Ambiant"
 parameters/looping = true
-
-[node name="TelephonePole" parent="." unique_id=1388397219 instance=ExtResource("9_saoeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.753834, 3.7316144, 35.33615)
-knockback_angle = 20.0
-knockback_movement = 0.0
-animation_duration = 1.5

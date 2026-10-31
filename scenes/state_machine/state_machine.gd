@@ -15,7 +15,7 @@ func initialize() -> void:
 	
 	switch_state_to(starting_state)
 
-func switch_state_to(new_state :StateNode) -> bool:
+func switch_state_to(new_state :StateNode, new_state_data = null) -> bool:
 	if new_state == null:
 		return false
 	
@@ -30,7 +30,7 @@ func switch_state_to(new_state :StateNode) -> bool:
 	var tmp_previous_state = current_state; 
 	current_state = new_state;
 	if not current_state == null:
-		current_state.on_entering_state(tmp_previous_state)
+		current_state.on_entering_state(tmp_previous_state, new_state_data);
 	
 	return true
 

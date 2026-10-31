@@ -1,6 +1,11 @@
 extends CharacterBody3D
 class_name PlayerNode
 
+signal stamina_changed()
+signal combo_changed(value :int)
+signal woodchip_changed(value :int, modifier :int)
+signal money_changed(value :int, modifier :int)
+
 const WOOD_IMPACT_PARTICLE = preload("res://scenes/game_scene/wood_impact_particle.tscn")
 
 @onready var camera_3d: Camera3D = $Camera3D
@@ -9,14 +14,26 @@ const WOOD_IMPACT_PARTICLE = preload("res://scenes/game_scene/wood_impact_partic
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var pause_menu_control: ColorRect = %PauseMenuControl
-@onready var combo_counter_label: Label = $Camera3D/SubViewportContainer/SubViewport/HUDControl/MarginContainer/VBoxContainer/HBoxContainer/ComboCounter
 
 var attack_locked := false;
+var stamina_locked := false;
+
+@export_group("Score Stats")
+var woodchips := 0:
+	set(_value):
+		var delta := _value - woodchips
+		woodchips = _value
+		woodchip_changed.emit(_value, delta);
+var money := 0:
+	set(_value):
+		var delta := _value - money
+		money = _value
+		money_changed.emit(_value, delta);
 var combo_count := 0:
-	set(_combo_count):
-		combo_count = _combo_count
-		if not combo_counter_label == null:
-			combo_counter_label.text = str(combo_count)
+	set(_value):
+		var delta := _value - combo_count
+		combo_count = _value
+		combo_changed.emit(_value);
 
 @export_group("Movement Stats")
 @export var damping_speed = 100.0;
@@ -32,27 +49,22 @@ var squared_max_walking_speed = 0.0;
 @export var knockback_strength = 20.0
 
 @export_group("Stamina")
-@onready var stamina_bar: StaminaBar = $Camera3D/SubViewportContainer/SubViewport/HUDControl/MarginContainer/VBoxContainer/StaminaBar
 @export var max_stamina := 100.0:
 	set(_max_stamina):
 		max_stamina = _max_stamina
-		if stamina_bar != null:
-			stamina_bar.update_segment_count()
+		stamina_changed.emit();
 @export var current_stamina := 0.0;
 ## Stamina consumption by action
 @export var stamina_usage := 30.0:
 	set(_stamina_usage):
 		stamina_usage = _stamina_usage
-		if stamina_bar != null:
-			stamina_bar.update_segment_count()
+		stamina_changed.emit();
 ## Stamina regen per seconds
 @export var stamina_regen := 10.0;
 
 func _ready() -> void:
 	current_stamina = max_stamina;
 	max_walking_speed = max_walking_speed;
-	if not stamina_bar == null:
-		stamina_bar.player_node = self;
 	call_deferred("_on_pause_menu_control_visibility_changed")
 
 func turn_player(movement :Vector2) -> void:
@@ -100,7 +112,7 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	turn_player(Vector2(Input.get_axis("PivotLeft", "PivotRight"), Input.get_axis("PivotUp", "PivotDown")) * 20.0)
 	
-	if current_stamina < max_stamina:
+	if not stamina_locked and current_stamina < max_stamina:
 		current_stamina = min(current_stamina + stamina_regen*delta, max_stamina);
 
 func use_stamina() -> bool:
@@ -125,13 +137,22 @@ func hit_target(node3d :Node3D) -> void:
 	tmp_particle.global_position = forward_marker_3d.global_position
 	get_tree().root.add_child(tmp_particle)
 
-var interactable_nodes = []
+var active_interactable_node
 
-func _on_interaction_area_3d_area_entered(area: Area3D) -> void:
-	pass # Replace with function body.
+func _on_interaction_area_entered(node) -> void:
+	var interactable_component = InteractableBodyComponent.get_interactable_component(node);
+	if not active_interactable_node == null:
+		active_interactable_node.unselect()
+	
+	if not interactable_component == null:
+		active_interactable_node = interactable_component
+		interactable_component.select()
 
-func _on_interaction_area_3d_area_exited(area: Area3D) -> void:
-	pass # Replace with function body.
+func _on_interaction_area_exited(node) -> void:
+	var interactable_component = InteractableBodyComponent.get_interactable_component(node);
+	if active_interactable_node == interactable_component:
+		active_interactable_node = null;
+		interactable_component.unselect()
 
 func _on_pause_menu_control_visibility_changed() -> void:
 	if pause_menu_control == null:
@@ -143,3 +164,14 @@ func _on_pause_menu_control_visibility_changed() -> void:
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		SlowMotionManager.resume_time()
+
+
+func _on_pickup_area_body_entered(body: Node3D) -> void:
+	if not is_on_floor():
+		return
+	var woodchip := body as WoodChipNode
+	if woodchip == null:
+		return
+	
+	woodchips += woodchip.value
+	woodchip.picked_up()

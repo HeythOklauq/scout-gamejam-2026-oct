@@ -7,6 +7,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cnqoq6wcha3gu" path="res://assets/models/pillar_nose.obj" id="5_c3yqh"]
 [ext_resource type="PackedScene" uid="uid://cydn8rfyee3s" path="res://assets/models/ciggiebasic.blend" id="6_65piq"]
 [ext_resource type="Texture2D" uid="uid://7bx28j1qwm6y" path="res://assets/graphics/smokelet.png" id="7_tbbh2"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="8_tbbh2"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hv1t7"]
 height = 2.0002441
@@ -61,19 +62,19 @@ orientation = 2
 [sub_resource type="Skin" id="Skin_6gsia"]
 
 [node name="WoodyNode" type="StaticBody3D" unique_id=697933605]
-collision_layer = 9
+collision_layer = 8
 collision_mask = 18
 axis_lock_linear_x = true
 axis_lock_linear_y = true
 axis_lock_linear_z = true
 script = ExtResource("1_43a5k")
-on_hit_soundtype = 4
-knockback_angle = 20.0
-knockback_movement = 0.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=995140032]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0001221, 0)
 shape = SubResource("CylinderShape3D_hv1t7")
+
+[node name="ChipSpawnPoint" type="Marker3D" parent="." unique_id=1547758020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3364533, 0)
 
 [node name="PillarMesh" type="MeshInstance3D" parent="." unique_id=1171941106]
 mesh = ExtResource("1_hv1t7")
@@ -136,3 +137,10 @@ transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_paawa")
 draw_pass_1 = SubResource("PlaneMesh_4t0ym")
 draw_skin = SubResource("Skin_6gsia")
+
+[node name="HittableBodyComponent" parent="." unique_id=1598085311 instance=ExtResource("8_tbbh2")]
+on_hit_soundtype = 4
+knockback_angle = 20.0
+knockback_movement = 0.3
+
+[connection signal="hit" from="HittableBodyComponent" to="." method="_on_hittable_body_component_hit"]
