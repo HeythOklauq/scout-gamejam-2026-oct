@@ -69,7 +69,7 @@ color_ramp = SubResource("Gradient_iuepn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=761825884]
 transform = Transform3D(1, 0, 0, 0, 0.9860077, 0.16669992, 0, -0.16669992, 0.9860077, 138.95998, 41.592552, -172.62411)
-light_color = Color(0.6156863, 0.34901962, 0.078431375, 1)
+light_color = Color(0.63525116, 0.2775518, 0.48703212, 1)
 shadow_enabled = true
 sky_mode = 1
 
