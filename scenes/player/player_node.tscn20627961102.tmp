@@ -1,0 +1,794 @@
+[gd_scene format=3 uid="uid://cwk7yh52bw2lt"]
+
+[ext_resource type="Script" uid="uid://burvraqbakhmt" path="res://scenes/player/player_node.gd" id="1_e0ebx"]
+[ext_resource type="PackedScene" uid="uid://dpbf7qrlh6qqk" path="res://scenes/player/player_state_machine.tscn" id="2_3mpri"]
+[ext_resource type="PackedScene" uid="uid://bushhfwb0kykk" path="res://scenes/game_scene/hud_control.tscn" id="2_aivhf"]
+[ext_resource type="Script" uid="uid://bvp10nu5m1tgl" path="res://scenes/player/idle_move_state.gd" id="3_aivhf"]
+[ext_resource type="ArrayMesh" uid="uid://byum2ocxara4a" path="res://assets/models/bat.obj" id="3_xlee4"]
+[ext_resource type="Script" uid="uid://cgrsjfh4j818g" path="res://scenes/player/walking_state.gd" id="4_xlee4"]
+[ext_resource type="Script" uid="uid://den8tw2v4lk6h" path="res://scenes/player/dashing_state.gd" id="5_k6i6l"]
+[ext_resource type="Script" uid="uid://b5u4i01ywgksx" path="res://scenes/player/falling_state.gd" id="5_xlee4"]
+[ext_resource type="Script" uid="uid://dasd35dkn24dq" path="res://scenes/player/jumping_state.gd" id="6_2yxhw"]
+[ext_resource type="PackedScene" uid="uid://c0pb4u2dewqa" path="res://scenes/options_screen/option_control.tscn" id="6_tu3ki"]
+[ext_resource type="Script" uid="uid://2xa0jbo84i3w" path="res://scenes/player/idle_combat_state.gd" id="12_ami1r"]
+[ext_resource type="Script" uid="uid://c3v8y40ynvi6r" path="res://scenes/player/knockbacked_state.gd" id="12_toa43"]
+[ext_resource type="Script" uid="uid://q1xbkhesn5kk" path="res://scenes/player/charging_state.gd" id="16_mw67o"]
+[ext_resource type="Script" uid="uid://spmjsaalsve5" path="res://scenes/player/windup_state.gd" id="16_toa43"]
+[ext_resource type="Script" uid="uid://b5wxsu6elij08" path="res://scenes/player/attacking_state.gd" id="17_mw67o"]
+[ext_resource type="Script" uid="uid://bvq2t7bef0vwa" path="res://scenes/player/AttackResource.gd" id="18_ppx7h"]
+[ext_resource type="Script" uid="uid://4lrefw2564ya" path="res://scenes/player/BumpAttackResource.gd" id="19_33ooy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l67bh"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tu3ki"]
+height = 1.1259766
+radius = 1.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_toa43"]
+size = Vector3(0.2890625, 0.23657227, 3.5617676)
+
+[sub_resource type="BoxMesh" id="BoxMesh_toa43"]
+size = Vector3(1, 0.3, 1.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_toa43"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.277)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aivhf"]
+size = Vector3(1, 0.3, 1.3000001)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tu3ki"]
+size = Vector3(1, 0.8046875, 0.70410156)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mw67o"]
+size = Vector3(1, 0.8, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6i6l"]
+albedo_color = Color(0.33034274, 0.1058517, 0.22935909, 1)
+
+[sub_resource type="Resource" id="Resource_ikhd0"]
+script = ExtResource("18_ppx7h")
+animation_name = "Swing"
+knockback_animation_name = "Swing_KnockedBack"
+range = 1
+knockback_player = 1.0
+charging_impact = 0.8
+sfx_type = 1
+sfx_volume = 0.7
+sfx_variation = 0.1
+metadata/_custom_type_script = "uid://bvq2t7bef0vwa"
+
+[sub_resource type="Resource" id="Resource_bxedq"]
+script = ExtResource("19_33ooy")
+animation_name = "Bunt"
+knockback_animation_name = "Bunt_KnockedBack"
+knockback_player = 0.4
+strength = 0.1
+sfx_type = 2
+sfx_volume = 0.8
+sfx_variation = 0.2
+metadata/_custom_type_script = "uid://4lrefw2564ya"
+
+[sub_resource type="Resource" id="Resource_mw67o"]
+script = ExtResource("18_ppx7h")
+animation_name = "Swing"
+knockback_animation_name = "Swing_Knockedback"
+range = 1
+knockback_player = 1.2
+strength = 1.2
+charging_impact = 2.0
+sfx_type = 1
+sfx_volume = 0.8
+sfx_variation = 0.1
+metadata/_custom_type_script = "uid://bvq2t7bef0vwa"
+
+[sub_resource type="Animation" id="Animation_toa43"]
+resource_name = "Bunt"
+length = 0.4
+step = 0.025
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/Bat:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(3, 3, 2, 3),
+"points": PackedFloat32Array(0.06799686, -0.049999993, 0.11882421, 0.049999993, -0.11882421, -0.089134336, -0.07499999, -0.008624993, 0.07499999, 0.008624993, 0.06799686, -0.024999976, -0.016209304, 0.020139644, 0.013057998, 0.12217305, -0.025000006, -0.23865299, 0.025000006, 0.23865299),
+"times": PackedFloat32Array(7.450581e-09, 0.15, 0.325, 0.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/Bat:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3, 3, 2, 3),
+"points": PackedFloat32Array(3.1083603, -0.031249998, 0, 0.031249998, 0, 3.1431713, -0.016991828, 0, 0.016991828, 0, 3.1083603, -0.05833333, 0, 0.025000006, 0, 1.5707964, -0.050000012, 0.73930514, 0.050000012, -0.73930514),
+"times": PackedFloat32Array(7.450581e-09, 0.15, 0.325, 0.4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/Bat:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(3, 3, 2, 3),
+"points": PackedFloat32Array(-1.6476618, -0.074999996, 0.17017722, 0.074999996, -0.17017722, -1.8254672, -0.050000004, 0.029294133, 0.050000004, -0.029294133, -1.6476618, -0.058177143, -0.10816722, 0.025000006, 0.046481848, 0.0017453292, 0, -0.21630727, 0, 0.21630727),
+"times": PackedFloat32Array(7.450581e-09, 0.15, 0.325, 0.4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/Bat:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(3, 3, 2, 3),
+"points": PackedFloat32Array(1.0329969, -0.031249998, 0, 0.031249998, 0, 0.9642918, -0.016991828, 0, 0.016991828, 0, 1.0329969, -0.05833333, 0, 0.025000006, 0, 0.977, -0.050000012, -0.5734982, 0.050000012, 0.5734982),
+"times": PackedFloat32Array(7.450581e-09, 0.15, 0.325, 0.4)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/Bat:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(3, 3, 2, 3),
+"points": PackedFloat32Array(-0.24500313, -0.049999993, 0.12939033, 0.049999993, -0.12939033, -0.36151147, -0.0625, -0.038619995, 0.0625, 0.038619995, -0.24500313, -0.05833333, 0, 0.025000006, 0, -0.863, -0.051758174, 0, 0.051758174, 0),
+"times": PackedFloat32Array(7.450581e-09, 0.15, 0.325, 0.4)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D/Bat:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(3, 3, 2, 3),
+"points": PackedFloat32Array(-0.68700314, -0.031249998, 0, 0.031249998, 0, -0.80340874, -0.07499999, -0.025533259, 0.07499999, 0.025533259, -0.68700314, -0.05833333, 0, 0.025000006, 0, -1.03, -0.051758174, 0, 0.051758174, 0),
+"times": PackedFloat32Array(7.450581e-09, 0.15, 0.325, 0.4)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CombatPlayerStateMachine/AttackingState:hurtzone_active")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.28),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_srlsm"]
+resource_name = "Bunt_KnockedBack"
+length = 0.2
+step = 0.025
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/Bat:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 1, 1),
+"points": PackedFloat32Array(-0.0837758, -0.00069389, -0.00095948414, 0.024775364, 0.034258414, -0.089134336, 0, 0, 0, 0, 0.12217305, 0, 0, 0, 0),
+"times": PackedFloat32Array(1.6763806e-08, 0.07218449, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/Bat:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 1, 1),
+"points": PackedFloat32Array(3.0997047, -0.00069389, 0.0071396884, 0.024775364, -0.2549228, 3.1431713, 0, 0, 0, 0, 1.5707964, 0, 0, 0, 0),
+"times": PackedFloat32Array(1.6763806e-08, 0.07218449, 0.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/Bat:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 1, 1),
+"points": PackedFloat32Array(-1.6877334, -0.00069389, -0.008296831, 0.024775364, 0.2962386, -1.8254672, 0, 0, 0, 0, 0.0017453292, 0, 0, 0, 0),
+"times": PackedFloat32Array(1.6763806e-08, 0.07218449, 0.2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/Bat:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 1, 1),
+"points": PackedFloat32Array(0.965, -0.00069389, -5.770411e-05, 0.024775364, 0.0020603272, 0.9642918, 0, 0, 0, 0, 0.977, 0, 0, 0, 0),
+"times": PackedFloat32Array(1.6763806e-08, 0.07218449, 0.2)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/Bat:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(2, 1, 1),
+"points": PackedFloat32Array(-0.358, -0.00069389, 0.0022632375, 0.024775364, -0.08080897, -0.36456674, 0, 0, 0, 0, -0.863, 0, 0, 0, 0),
+"times": PackedFloat32Array(1.6763806e-08, 0.07218449, 0.2)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D/Bat:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(2, 1, 1),
+"points": PackedFloat32Array(-0.59, -0.00069389, 0.0010288836, 0.024775364, -0.03673632, -0.80340874, 0, 0, 0, 0, -1.03, 0, 0, 0, 0),
+"times": PackedFloat32Array(1.6763806e-08, 0.07218449, 0.2)
+}
+
+[sub_resource type="Animation" id="Animation_tu3ki"]
+resource_name = "Downswing"
+length = 0.6
+step = 0.025
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/Bat:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0.7469999, -0.016666668, 0, 0.06666667, 0, 0.74699986, -0.0027777776, -4.5155032e-10, 0.05358872, -3.5993524, -0.5679053, -0.025112307, -8.553201e-09, 0.03322103, 1.1315016e-08, 0.977, 0, 0, 0.029166667, -0.03833335),
+"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/Bat:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-0.738, -0.016666668, 0, 0.06666667, 0, -0.738, -0.0027777776, 0, 0.058333334, 0, -0.73800004, -0.025112307, 0, 0.03322103, 0, -0.863, 0, 0, 0.029166667, 0.020833334),
+"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/Bat:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.016666668, 0, 0.06666667, 0, 0, -0.0027777776, 0, 0.05358872, -1.8801764, -0.71149015, -0.025112307, 0, 0.03322103, 0, -1.03, 0, 0, 0.029166667, 0.17166667),
+"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/Bat:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.016666668, 0, 0.06666667, 0, 1.5707964, -0.01046136, -0.73330057, 0.012361795, 0.87962806, 1.5707964, -0.020971537, -0.622826, 0.0123618245, 0.9901024, 0.12217305, 0, 0, 0.029166667, -0.020362176),
+"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/Bat:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1.5707964, -0.016666668, 0, 0.06666667, 0, 1.5707964, -0.0027777776, 0, 0.016273588, 2.536747, 4.148648, -0.014906943, 1.107832, 0.016666671, 0, 1.5707964, 0, 0, 0.029166667, 0),
+"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D/Bat:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.6038839, -0.016666668, 0, 0.007198587, 0.65341526, 0.6038839, -0.009862602, -0.517615, 0.02347073, 0.5871305, 0, -0.018354952, -0.59867334, 0.06058091, 0.28512308, 0, -0.10555556, 0.16806728, 0.016666671, -0.026536945, 0.0017453292, 0, 0, 0.029166667, 0.10035643),
+"times": PackedFloat32Array(0, 0.075, 0.175, 0.5, 0.6)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera3D:rotation:z")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.13333334, -0.045361258, -0.05235988, -0.023888603, 0, 0.06666666, 0.102060616, 0.08726646, -0.037996773, 0.037067708, 0.09712058, -0.094745874, 0, -0.19999999, -0.009623668, 0, 0),
+"times": PackedFloat32Array(0, 0.175, 0.42500004, 0.6)
+}
+
+[sub_resource type="Animation" id="Animation_ami1r"]
+resource_name = "RESET"
+step = 0.025
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/Bat:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.12217305, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/Bat:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.5707964, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/Bat:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0017453292, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/Bat:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.977, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/Bat:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.863, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D/Bat:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.03, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CombatPlayerStateMachine/AttackingState:hurtzone_active")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3mpri"]
+resource_name = "Swing"
+length = 0.6
+step = 0.025
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/Bat:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0.7469999, -0.016666668, 0, 0.06666667, 0, 0.74699986, -0.0027777776, -4.5155032e-10, 0.05358872, -3.5993524, -0.5679053, -0.025112307, -8.553201e-09, 0.03322103, 1.1315016e-08, 0.977, 0, 0, 0.029166667, -0.03833335),
+"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/Bat:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-0.738, -0.016666668, 0, 0.06666667, 0, -0.738, -0.0027777776, 0, 0.058333334, 0, -0.73800004, -0.025112307, 0, 0.03322103, 0, -0.863, 0, 0, 0.029166667, 0.020833334),
+"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/Bat:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.016666668, 0, 0.06666667, 0, 0, -0.0027777776, 0, 0.05358872, -1.8801764, -0.71149015, -0.025112307, 0, 0.03322103, 0, -1.03, 0, 0, 0.029166667, 0.17166667),
+"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/Bat:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.016666668, 0, 0.06666667, 0, 1.5707964, -0.01046136, -0.73330057, 0.012361795, 0.87962806, 1.5707964, -0.020971537, -0.622826, 0.0123618245, 0.9901024, 0.12217305, 0, 0, 0.029166667, -0.020362176),
+"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/Bat:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1.5707964, -0.016666668, 0, 0.06666667, 0, 1.5707964, -0.0027777776, 0, 0.016273588, 2.536747, 4.148648, -0.014906943, 1.107832, 0.016666671, 0, 1.5707964, 0, 0, 0.029166667, 0),
+"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D/Bat:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.6038839, -0.016666668, 0, 0.007198587, 0.65341526, 0.6038839, -0.009862602, -0.517615, 0.02347073, 0.5871305, 0, -0.018354952, -0.59867334, 0.06058091, 0.28512308, 0, -0.10555556, 0.16806728, 0.016666671, -0.026536945, 0.0017453292, 0, 0, 0.029166667, 0.10035643),
+"times": PackedFloat32Array(0, 0.075, 0.175, 0.5, 0.6)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera3D:rotation:z")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.15, -0.01944923, 0.0865579, -0.037996773, 0.037067708, 0.084773436, -0.119576044, -0.047435112, -0.023888603, 0, 0.099999964, 0.009328626, 0, -0.050000012, -0.014360889, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.425, 0.6)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CombatPlayerStateMachine/AttackingState:hurtzone_active")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.275),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_aivhf"]
+resource_name = "Swing_KnockedBack"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/Bat:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(-0.5528303, 0, 0, 0.10000001, 0, 0.977, -0.10000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/Bat:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(-0.738, 0, 0, 0.10000001, 0, -0.863, -0.10000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/Bat:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(-0.68064356, 0, 0, 0.10000001, 0, -1.03, -0.10000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/Bat:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2),
+"points": PackedFloat32Array(1.84959, 0, 0, 0.009680603, 0, 1.519296, -0.011107608, -0.27909034, 0.0077605955, 0.19499314, 0.12217305, -0.05527395, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.033333335, 0.3)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/Bat:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2),
+"points": PackedFloat32Array(2.8981922, 0, 0, 0.009680603, 0, 2.8640852, -0.009680603, 0, 0.035045452, 0, 1.5707964, -0.05527395, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.029041808, 0.3)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D/Bat:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 2),
+"points": PackedFloat32Array(0.11128808, 0, 0, 0.009680603, 0, 0.7609893, -0.0009483215, -0.0104746595, 0.01016279, 0.11225284, 0.86931884, -0.023818173, -0.043331802, 0.0035078835, 0.0063818046, 0.0017453292, -0.05527395, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.3)
+}
+
+[sub_resource type="Animation" id="Animation_mw67o"]
+resource_name = "WindUp"
+length = 0.3
+step = 0.025
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/Bat:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.977, -0.25, 0, 0.25, 0, 0.7469999, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/Bat:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-0.863, -0.25, 0, 0.25, 0, -0.738, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/Bat:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-1.03, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k6i6l"]
+_data = {
+&"Bunt": SubResource("Animation_toa43"),
+&"Bunt_KnockedBack": SubResource("Animation_srlsm"),
+&"Downswing": SubResource("Animation_tu3ki"),
+&"RESET": SubResource("Animation_ami1r"),
+&"Swing": SubResource("Animation_3mpri"),
+&"Swing_KnockedBack": SubResource("Animation_aivhf"),
+&"WindUp": SubResource("Animation_mw67o")
+}
+
+[node name="PlayerNode" type="CharacterBody3D" unique_id=764222003]
+collision_layer = 16
+collision_mask = 11
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_e0ebx")
+max_stamina = 150.0
+stamina_usage = 10.0
+
+[node name="HitzoneCollisionShape" type="CollisionShape3D" parent="." unique_id=1645901718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_l67bh")
+
+[node name="PickupArea" type="Area3D" parent="." unique_id=1856561486]
+collision_layer = 0
+collision_mask = 64
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea" unique_id=1413318854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.087402344, 0)
+shape = SubResource("CylinderShape3D_tu3ki")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=143402113]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.52422, 0)
+current = true
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D" unique_id=1346256610]
+current = true
+
+[node name="ForwardMarker3D" type="Marker3D" parent="Camera3D" unique_id=1049655489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="InteractionArea3D" type="Area3D" parent="Camera3D" unique_id=819175782]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/InteractionArea3D" unique_id=355644444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7360198e-08, 0, -1.9068121)
+shape = SubResource("BoxShape3D_toa43")
+
+[node name="Medium_HurtZoneArea" type="Area3D" parent="Camera3D" unique_id=1913803103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021437677, -0.48510623, -1)
+collision_layer = 0
+collision_mask = 11
+monitorable = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Medium_HurtZoneArea" unique_id=741235311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 8.8475645e-09, 0, -0.45002162)
+visible = false
+mesh = SubResource("BoxMesh_toa43")
+surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Medium_HurtZoneArea" unique_id=835786139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -4.7606363e-13, -1.8596236e-15, 1, 0, 0, -0.45000005)
+shape = SubResource("BoxShape3D_aivhf")
+
+[node name="Short_HurtZoneArea" type="Area3D" parent="Camera3D" unique_id=1801602985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021437677, -0.48510623, -1)
+collision_layer = 0
+collision_mask = 11
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Short_HurtZoneArea" unique_id=1696795455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 0, 0.25, -0.14999998)
+shape = SubResource("BoxShape3D_tu3ki")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Short_HurtZoneArea" unique_id=996915530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 0, 0.25, -0.14999998)
+visible = false
+mesh = SubResource("BoxMesh_mw67o")
+surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
+
+[node name="Bat" type="MeshInstance3D" parent="Camera3D" unique_id=1265214212]
+transform = Transform3D(0.00021265811, 0.121869065, 0.99254626, 0.0017323173, 0.9925438, -0.12186936, -0.9999975, 0.0017453216, -4.3385572e-08, 0.977, -0.863, -1.03)
+cast_shadow = 0
+mesh = ExtResource("3_xlee4")
+surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera3D" unique_id=327297930]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Camera3D/SubViewportContainer" unique_id=375281558]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(800, 600)
+render_target_update_mode = 4
+
+[node name="HUDControl" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=1211318264 node_paths=PackedStringArray("player_node") instance=ExtResource("2_aivhf")]
+player_node = NodePath("../../../..")
+
+[node name="PauseMenuControl" type="ColorRect" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=1494267686]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3)
+
+[node name="OptionControl" parent="Camera3D/SubViewportContainer/SubViewport/PauseMenuControl" unique_id=668183180 instance=ExtResource("6_tu3ki")]
+layout_mode = 1
+
+[node name="MotionPlayerStateMachine" parent="." unique_id=2089066676 node_paths=PackedStringArray("starting_state") instance=ExtResource("2_3mpri")]
+starting_state = NodePath("IdleState")
+
+[node name="DashingState" type="Node" parent="MotionPlayerStateMachine" unique_id=1764745019]
+script = ExtResource("5_k6i6l")
+metadata/_custom_type_script = "uid://fyrql5g47aon"
+
+[node name="FallingState" type="Node" parent="MotionPlayerStateMachine" unique_id=2009918683]
+script = ExtResource("5_xlee4")
+metadata/_custom_type_script = "uid://fyrql5g47aon"
+
+[node name="IdleState" type="Node" parent="MotionPlayerStateMachine" unique_id=1417722448]
+script = ExtResource("3_aivhf")
+metadata/_custom_type_script = "uid://fyrql5g47aon"
+
+[node name="JumpingState" type="Node" parent="MotionPlayerStateMachine" unique_id=795301072]
+script = ExtResource("6_2yxhw")
+metadata/_custom_type_script = "uid://fyrql5g47aon"
+
+[node name="WalkingState" type="Node" parent="MotionPlayerStateMachine" unique_id=962159681]
+script = ExtResource("4_xlee4")
+metadata/_custom_type_script = "uid://fyrql5g47aon"
+
+[node name="CombatPlayerStateMachine" parent="." unique_id=1342137781 node_paths=PackedStringArray("starting_state") instance=ExtResource("2_3mpri")]
+starting_state = NodePath("IdleState")
+
+[node name="AttackingState" type="Node" parent="CombatPlayerStateMachine" unique_id=2015591623 node_paths=PackedStringArray("hurtboxes_list")]
+script = ExtResource("17_mw67o")
+hurtboxes_list = {
+0: NodePath("../../Camera3D/Short_HurtZoneArea"),
+1: NodePath("../../Camera3D/Medium_HurtZoneArea")
+}
+attack_resources_list = Dictionary[int, ExtResource("18_ppx7h")]({
+0: SubResource("Resource_ikhd0"),
+1: SubResource("Resource_bxedq"),
+2: SubResource("Resource_mw67o")
+})
+metadata/_custom_type_script = "uid://fyrql5g47aon"
+
+[node name="ChargingState" type="Node" parent="CombatPlayerStateMachine" unique_id=173443898]
+script = ExtResource("16_mw67o")
+max_time = null
+max_strength = null
+metadata/_custom_type_script = "uid://fyrql5g47aon"
+
+[node name="IdleState" type="Node" parent="CombatPlayerStateMachine" unique_id=637435399]
+script = ExtResource("12_ami1r")
+metadata/_custom_type_script = "uid://fyrql5g47aon"
+
+[node name="KnockbackedState" type="Node" parent="CombatPlayerStateMachine" unique_id=1905680067]
+script = ExtResource("12_toa43")
+metadata/_custom_type_script = "uid://fyrql5g47aon"
+
+[node name="WindupState" type="Node" parent="CombatPlayerStateMachine" unique_id=2070312977]
+script = ExtResource("16_toa43")
+metadata/_custom_type_script = "uid://fyrql5g47aon"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=179279295]
+libraries/ = SubResource("AnimationLibrary_k6i6l")
+
+[connection signal="combo_changed" from="." to="Camera3D/SubViewportContainer/SubViewport/HUDControl" method="_on_player_combo_changed"]
+[connection signal="money_changed" from="." to="Camera3D/SubViewportContainer/SubViewport/HUDControl" method="_on_player_money_changed"]
+[connection signal="stamina_changed" from="." to="Camera3D/SubViewportContainer/SubViewport/HUDControl" method="_on_player_stamina_changed"]
+[connection signal="woodchip_changed" from="." to="Camera3D/SubViewportContainer/SubViewport/HUDControl" method="_on_player_woodchip_changed"]
+[connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
+[connection signal="area_entered" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_entered"]
+[connection signal="area_exited" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_exited"]
+[connection signal="body_entered" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_entered"]
+[connection signal="body_exited" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_exited"]
+[connection signal="body_entered" from="Camera3D/Medium_HurtZoneArea" to="CombatPlayerStateMachine/AttackingState" method="_on_medium_hurt_zone_area_body_entered"]
+[connection signal="body_entered" from="Camera3D/Short_HurtZoneArea" to="CombatPlayerStateMachine/AttackingState" method="_on_short_hurt_zone_area_body_entered"]
+[connection signal="visibility_changed" from="Camera3D/SubViewportContainer/SubViewport/PauseMenuControl" to="." method="_on_pause_menu_control_visibility_changed"]

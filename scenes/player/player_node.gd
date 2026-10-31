@@ -114,6 +114,10 @@ func _process(delta: float) -> void:
 	
 	if not stamina_locked and current_stamina < max_stamina:
 		current_stamina = min(current_stamina + stamina_regen*delta, max_stamina);
+	
+	if Input.is_action_just_pressed("Interact") and active_interactable_node != null:
+		active_interactable_node = active_interactable_node as InteractableBodyComponent;
+		active_interactable_node.interact()
 
 func use_stamina() -> bool:
 	if current_stamina < stamina_usage:

@@ -1,6 +1,6 @@
 extends PlayerStateNode
 
-func on_entering_state(_previous_state :StateNode, _state_data = null) -> void:
+func on_entering_state(_previous_state :StateNode) -> void:
 	if not player_node == null:
 		player_node.combo_count = 0
 

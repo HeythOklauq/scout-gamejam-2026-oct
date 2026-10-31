@@ -12,10 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://c0pb4u2dewqa" path="res://scenes/options_screen/option_control.tscn" id="6_tu3ki"]
 [ext_resource type="Script" uid="uid://2xa0jbo84i3w" path="res://scenes/player/idle_combat_state.gd" id="12_ami1r"]
 [ext_resource type="Script" uid="uid://c3v8y40ynvi6r" path="res://scenes/player/knockbacked_state.gd" id="12_toa43"]
-[ext_resource type="Script" uid="uid://c8a6a48ulwjvj" path="res://scenes/player/bunt_state.gd" id="13_tu3ki"]
-[ext_resource type="Script" uid="uid://bctfox6bswbcl" path="res://scenes/player/swinging_state.gd" id="14_toa43"]
 [ext_resource type="Script" uid="uid://q1xbkhesn5kk" path="res://scenes/player/charging_state.gd" id="16_mw67o"]
 [ext_resource type="Script" uid="uid://spmjsaalsve5" path="res://scenes/player/windup_state.gd" id="16_toa43"]
+[ext_resource type="Script" uid="uid://b5wxsu6elij08" path="res://scenes/player/attacking_state.gd" id="17_mw67o"]
+[ext_resource type="Script" uid="uid://bvq2t7bef0vwa" path="res://scenes/player/AttackResource.gd" id="18_ppx7h"]
+[ext_resource type="Script" uid="uid://4lrefw2564ya" path="res://scenes/player/BumpAttackResource.gd" id="19_33ooy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l67bh"]
 
@@ -44,6 +45,42 @@ size = Vector3(1, 0.8, 0.7)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6i6l"]
 albedo_color = Color(0.33034274, 0.1058517, 0.22935909, 1)
+
+[sub_resource type="Resource" id="Resource_ikhd0"]
+script = ExtResource("18_ppx7h")
+animation_name = "Swing"
+knockback_animation_name = "Swing_KnockedBack"
+range = 1
+knockback_player = 1.0
+charging_impact = 0.8
+sfx_type = 1
+sfx_volume = 0.7
+sfx_variation = 0.1
+metadata/_custom_type_script = "uid://bvq2t7bef0vwa"
+
+[sub_resource type="Resource" id="Resource_bxedq"]
+script = ExtResource("19_33ooy")
+animation_name = "Bunt"
+knockback_animation_name = "Bunt_KnockedBack"
+knockback_player = 0.4
+strength = 0.1
+sfx_type = 2
+sfx_volume = 0.8
+sfx_variation = 0.2
+metadata/_custom_type_script = "uid://4lrefw2564ya"
+
+[sub_resource type="Resource" id="Resource_mw67o"]
+script = ExtResource("18_ppx7h")
+animation_name = "Swing"
+knockback_animation_name = "Swing_Knockedback"
+range = 1
+knockback_player = 1.2
+strength = 1.2
+charging_impact = 2.0
+sfx_type = 1
+sfx_volume = 0.8
+sfx_variation = 0.1
+metadata/_custom_type_script = "uid://bvq2t7bef0vwa"
 
 [sub_resource type="Animation" id="Animation_toa43"]
 resource_name = "Bunt"
@@ -118,11 +155,11 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CombatPlayerStateMachine/BuntState:hurtzone_active")
+tracks/6/path = NodePath("CombatPlayerStateMachine/AttackingState:hurtzone_active")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.28),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -280,18 +317,6 @@ tracks/6/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.13333334, -0.045361258, -0.05235988, -0.023888603, 0, 0.06666666, 0.102060616, 0.08726646, -0.037996773, 0.037067708, 0.09712058, -0.094745874, 0, -0.19999999, -0.009623668, 0, 0),
 "times": PackedFloat32Array(0, 0.175, 0.42500004, 0.6)
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("CombatPlayerStateMachine/SwingingState:hurtzone_active")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.17562215, 0.26685444),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
 
 [sub_resource type="Animation" id="Animation_ami1r"]
 resource_name = "RESET"
@@ -365,7 +390,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CombatPlayerStateMachine/SwingingState:hurtzone_active")
+tracks/6/path = NodePath("CombatPlayerStateMachine/AttackingState:hurtzone_active")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -373,18 +398,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("CombatPlayerStateMachine/BuntState:hurtzone_active")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_3mpri"]
@@ -471,11 +484,11 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("CombatPlayerStateMachine/SwingingState:hurtzone_active")
+tracks/7/path = NodePath("CombatPlayerStateMachine/AttackingState:hurtzone_active")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.17562215, 0.26685444),
+"times": PackedFloat32Array(0, 0.1, 0.275),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -640,33 +653,33 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7360198e-08, 0, -1.9068121)
 shape = SubResource("BoxShape3D_toa43")
 
-[node name="Swing_HurtZoneArea" type="Area3D" parent="Camera3D" unique_id=1913803103]
+[node name="Medium_HurtZoneArea" type="Area3D" parent="Camera3D" unique_id=1913803103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021437677, -0.48510623, -1)
 collision_layer = 0
 collision_mask = 11
 monitorable = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Swing_HurtZoneArea" unique_id=741235311]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Medium_HurtZoneArea" unique_id=741235311]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 8.8475645e-09, 0, -0.45002162)
 visible = false
 mesh = SubResource("BoxMesh_toa43")
 surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Swing_HurtZoneArea" unique_id=835786139]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Medium_HurtZoneArea" unique_id=835786139]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -4.7606363e-13, -1.8596236e-15, 1, 0, 0, -0.45000005)
 shape = SubResource("BoxShape3D_aivhf")
 
-[node name="Bunt_HurtZoneArea" type="Area3D" parent="Camera3D" unique_id=1801602985]
+[node name="Short_HurtZoneArea" type="Area3D" parent="Camera3D" unique_id=1801602985]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021437677, -0.48510623, -1)
 collision_layer = 0
 collision_mask = 11
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Bunt_HurtZoneArea" unique_id=1696795455]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Short_HurtZoneArea" unique_id=1696795455]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 0, 0.25, -0.14999998)
 shape = SubResource("BoxShape3D_tu3ki")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Bunt_HurtZoneArea" unique_id=996915530]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Short_HurtZoneArea" unique_id=996915530]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 0, 0.25, -0.14999998)
 visible = false
 mesh = SubResource("BoxMesh_mw67o")
@@ -733,8 +746,23 @@ metadata/_custom_type_script = "uid://fyrql5g47aon"
 [node name="CombatPlayerStateMachine" parent="." unique_id=1342137781 node_paths=PackedStringArray("starting_state") instance=ExtResource("2_3mpri")]
 starting_state = NodePath("IdleState")
 
-[node name="BuntState" type="Node" parent="CombatPlayerStateMachine" unique_id=1346080934]
-script = ExtResource("13_tu3ki")
+[node name="AttackingState" type="Node" parent="CombatPlayerStateMachine" unique_id=2015591623 node_paths=PackedStringArray("hurtboxes_list")]
+script = ExtResource("17_mw67o")
+hurtboxes_list = {
+0: NodePath("../../Camera3D/Short_HurtZoneArea"),
+1: NodePath("../../Camera3D/Medium_HurtZoneArea")
+}
+attack_resources_list = Dictionary[int, ExtResource("18_ppx7h")]({
+0: SubResource("Resource_ikhd0"),
+1: SubResource("Resource_bxedq"),
+2: SubResource("Resource_mw67o")
+})
+metadata/_custom_type_script = "uid://fyrql5g47aon"
+
+[node name="ChargingState" type="Node" parent="CombatPlayerStateMachine" unique_id=173443898]
+script = ExtResource("16_mw67o")
+max_time = null
+max_strength = null
 metadata/_custom_type_script = "uid://fyrql5g47aon"
 
 [node name="IdleState" type="Node" parent="CombatPlayerStateMachine" unique_id=637435399]
@@ -743,20 +771,11 @@ metadata/_custom_type_script = "uid://fyrql5g47aon"
 
 [node name="KnockbackedState" type="Node" parent="CombatPlayerStateMachine" unique_id=1905680067]
 script = ExtResource("12_toa43")
-swing_knockback = 20.0
-bunt_knockback = 10.0
-metadata/_custom_type_script = "uid://fyrql5g47aon"
-
-[node name="SwingingState" type="Node" parent="CombatPlayerStateMachine" unique_id=1079197660]
-script = ExtResource("14_toa43")
+max_strength_modifier_on_knockback = 1.5
 metadata/_custom_type_script = "uid://fyrql5g47aon"
 
 [node name="WindupState" type="Node" parent="CombatPlayerStateMachine" unique_id=2070312977]
 script = ExtResource("16_toa43")
-metadata/_custom_type_script = "uid://fyrql5g47aon"
-
-[node name="ChargingState" type="Node" parent="CombatPlayerStateMachine" unique_id=173443898]
-script = ExtResource("16_mw67o")
 metadata/_custom_type_script = "uid://fyrql5g47aon"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=179279295]
@@ -771,6 +790,6 @@ libraries/ = SubResource("AnimationLibrary_k6i6l")
 [connection signal="area_exited" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_exited"]
 [connection signal="body_entered" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_entered"]
 [connection signal="body_exited" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_exited"]
-[connection signal="body_entered" from="Camera3D/Swing_HurtZoneArea" to="CombatPlayerStateMachine/SwingingState" method="_on_hurt_zone_area_body_entered"]
-[connection signal="body_entered" from="Camera3D/Bunt_HurtZoneArea" to="CombatPlayerStateMachine/SwingingState" method="_on_hurt_zone_area_body_entered"]
+[connection signal="body_entered" from="Camera3D/Medium_HurtZoneArea" to="CombatPlayerStateMachine/AttackingState" method="_on_medium_hurt_zone_area_body_entered"]
+[connection signal="body_entered" from="Camera3D/Short_HurtZoneArea" to="CombatPlayerStateMachine/AttackingState" method="_on_short_hurt_zone_area_body_entered"]
 [connection signal="visibility_changed" from="Camera3D/SubViewportContainer/SubViewport/PauseMenuControl" to="." method="_on_pause_menu_control_visibility_changed"]

@@ -34,7 +34,12 @@ const SOUNDS :Dictionary[SOUND_TYPES, Array] = {
 		preload("uid://do4g56rv5iwno")
 	],
 	SOUND_TYPES.IMPACT_WOOD: [
-		preload("res://assets/audio/sfx/impactWood_light_001.ogg")
+		preload("uid://bfa28h1p2ky5n"), 
+		preload("uid://bkqp1birh5vsh"), 
+		preload("uid://dhystfok6plyr"), 
+		preload("uid://oxk3cut45kok"), 
+		preload("uid://b33utbnontobh"), 
+		preload("uid://1w2ea5wjx7v4")
 	],
 	SOUND_TYPES.IMPACT_CONCRETE: [
 		preload("res://assets/audio/sfx/impactWood_light_001.ogg")

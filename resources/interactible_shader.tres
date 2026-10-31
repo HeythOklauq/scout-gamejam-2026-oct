@@ -1,17 +1,5 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cqas26bf4crwg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpcin"]
-render_priority = 1
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0.9764706, 0.64705884, 0.654902, 1)
-grow = true
-grow_amount = 0.03
-stencil_mode = 3
-stencil_flags = 1
-stencil_compare = 5
-metadata/_stencil_owned = true
-
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_tpcin"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o3gie"]
@@ -22,16 +10,13 @@ in_3d_space = true
 as_normal_map = true
 
 [resource]
-next_pass = SubResource("StandardMaterial3D_tpcin")
 transparency = 1
-albedo_color = Color(0.5882353, 0.9843137, 1, 1)
 emission_enabled = true
-emission = Color(0.23529412, 0.6627451, 0.7607843, 1)
-emission_energy_multiplier = 3.24
+emission = Color(0.85736334, 0.52872735, 0.588027, 1)
+emission_energy_multiplier = 2.0
 normal_scale = -4.1
 normal_texture = SubResource("NoiseTexture2D_o3gie")
 texture_filter = 0
 grow_amount = 0.05
-stencil_mode = 1
 stencil_flags = 2
-stencil_outline_thickness = 0.03
+stencil_compare = 3
