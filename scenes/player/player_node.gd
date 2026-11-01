@@ -119,12 +119,11 @@ func _process(delta: float) -> void:
 		active_interactable_node = active_interactable_node as InteractableBodyComponent;
 		active_interactable_node.interact()
 
-func use_stamina() -> bool:
-	if current_stamina < stamina_usage:
-		return false
-	
+func can_use_stamina() -> bool:
+	return (current_stamina >= stamina_usage);
+
+func use_stamina() -> void:
 	current_stamina -= stamina_usage;
-	return true
 
 func hit_target(node3d :Node3D) -> void:
 	animation_player.stop();
@@ -178,4 +177,4 @@ func _on_pickup_area_body_entered(body: Node3D) -> void:
 		return
 	
 	woodchips += woodchip.value
-	woodchip.picked_up()
+	woodchip.pick_up()

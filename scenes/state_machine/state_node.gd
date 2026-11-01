@@ -3,7 +3,7 @@ class_name StateNode
 
 var state_machine :StateMachine
 
-func is_valid_state() -> bool:
+func is_valid_state(previous_state :StateNode) -> bool:
 	return true;
 
 func _ready() -> void:

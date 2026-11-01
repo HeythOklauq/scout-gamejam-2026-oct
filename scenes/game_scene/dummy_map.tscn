@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bhati6sjd4de2"]
+[gd_scene format=3 uid="uid://blygvalsnvb35"]
 
 [ext_resource type="Texture2D" uid="uid://bkyevm5ghv8pt" path="res://assets/models/ground_texture.001.png" id="1_8ghve"]
 [ext_resource type="ArrayMesh" uid="uid://c560n2s0slopl" path="res://assets/models/dummy map.obj" id="2_p3kjh"]
@@ -87,8 +87,9 @@ sky_mode = 1
 [node name="PlayerNode" parent="." unique_id=764222003 instance=ExtResource("4_p3kjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.776207, 7.6534805, 4.670761)
 
-[node name="WoodyNode" parent="." unique_id=744089844 instance=ExtResource("5_vpstl")]
+[node name="WoodyNode" parent="." unique_id=744089844 node_paths=PackedStringArray("player_node") instance=ExtResource("5_vpstl")]
 transform = Transform3D(0.9810703, 0, -0.6996615, 0, 1.205, 0, 0.6996615, 0, 0.9810703, -14.72998, 5.484318, -11.7648115)
+player_node = NodePath("../PlayerNode")
 
 [node name="AudioStreams" type="Node" parent="." unique_id=1274581695]
 

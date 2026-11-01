@@ -19,12 +19,14 @@ func on_exiting_state() -> void:
 
 func process_frame(_delta: float) -> StateNode:
 	var attack_released := false;
+	time_passed = min(time_passed+_delta, max_time);
 	
 	if Input.is_action_just_pressed("Bunt"):
 		attack_type = AttackingState.ATTACK_TYPES.BUNT
 		attack_released = true
 	
 	if not Input.is_action_pressed("Attack") or time_passed >= max_time:
+		attack_type = AttackingState.ATTACK_TYPES.SWING
 		attack_released = true
 		if not player_node.is_on_floor():
 			attack_type = AttackingState.ATTACK_TYPES.SLAM
@@ -33,7 +35,6 @@ func process_frame(_delta: float) -> StateNode:
 	if attack_released:
 		return state_machine.state_list["AttackingState"]
 	
-	time_passed = min(time_passed+_delta, max_time);
 	return null
 
 func get_strength_power() -> float:

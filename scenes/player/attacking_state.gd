@@ -31,12 +31,15 @@ var strength_modifier := 1.0
 		if hurtzone_active:
 			on_activate_hurtbox()
 
-func is_valid_state() -> bool:
-	return player_node.use_stamina();
+func is_valid_state(previous_state :StateNode) -> bool:
+	var is_bunt = (previous_state.attack_type == ATTACK_TYPES.BUNT)
+	return (not is_bunt) or player_node.can_use_stamina();
 
 func on_entering_state(_previous_state :StateNode) -> void:
 	target_hit = null;
 	
+	if _previous_state.attack_type == ATTACK_TYPES.BUNT:
+		player_node.use_stamina()
 	strength_modifier = _previous_state.strength_modifier
 	
 	current_attack_resource = attack_resources_list[_previous_state.attack_type]

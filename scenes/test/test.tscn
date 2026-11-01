@@ -74,8 +74,9 @@ fill_from = Vector2(0.4957265, 0.508547)
 
 [node name="Test" type="Node3D" unique_id=1028040761]
 
-[node name="WoodyNode" parent="." unique_id=744089844 instance=ExtResource("1_st4qh")]
+[node name="WoodyNode" parent="." unique_id=744089844 node_paths=PackedStringArray("player_node") instance=ExtResource("1_st4qh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
+player_node = NodePath("../PlayerNode")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=83092244]
 transform = Transform3D(1, 0, 0, 0, 0.9860077, 0.16669992, 0, -0.16669992, 0.9860077, 138.95998, 41.592552, -172.62411)

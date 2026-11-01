@@ -21,7 +21,7 @@ func switch_state_to(new_state :StateNode) -> bool:
 	
 	prints(name, "- Switch state: ", current_state, " to ", new_state)
 	
-	if not new_state.is_valid_state():
+	if not new_state.is_valid_state(current_state):
 		return false
 	
 	if not current_state == null:

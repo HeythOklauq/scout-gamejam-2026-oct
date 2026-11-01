@@ -14,7 +14,7 @@ func on_entering_state(_previous_state :StateNode) -> void:
 	
 	var attack_resource :AttackResource = _previous_state.current_attack_resource
 	
-	var knockback_strength = attack_resource.strength * knockback_base * min(_previous_state.strength_modifier, max_strength_modifier_on_knockback);
+	var knockback_strength = attack_resource.knockback_player * knockback_base * min(_previous_state.strength_modifier, max_strength_modifier_on_knockback);
 	var knockback_duration = SlowMotionManager.MAJOR_SLOW;
 	
 	SlowMotionManager.slow_time(knockback_duration, 0.5);
