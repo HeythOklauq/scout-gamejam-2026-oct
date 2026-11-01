@@ -130,9 +130,9 @@ vertical_alignment = 1
 transform = Transform3D(5.220247, 1.74667, 0.78216153, -1.7642134, 5.272679, -7.792501e-08, -0.7417434, -0.24818361, 5.504708, 0.26024964, 1.4923592, -0.047901608)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="ciggiebasic" unique_id=395031434]
-transform = Transform3D(0.9999991, 1.8673018e-07, 1.4901161e-07, -2.30968e-07, 0.9999989, -3.7252903e-09, -4.4703484e-08, -3.3527613e-08, 0.9999991, 0.020067208, 0.0045619607, -0.0032924055)
-amount = 4
-amount_ratio = 0.5162
+transform = Transform3D(0.99999905, 2.4680048e-07, 1.4901161e-07, -2.6170164e-07, 0.9999987, -7.450581e-09, -4.4703484e-08, -4.4703484e-08, 0.9999991, 0.017212143, 0.003606677, -0.00017249444)
+amount = 7
+amount_ratio = 0.6611
 transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_paawa")
 draw_pass_1 = SubResource("PlaneMesh_4t0ym")
