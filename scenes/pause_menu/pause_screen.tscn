@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bnsmcdxyrgku7"]
+
+[ext_resource type="Script" uid="uid://cki1nje1jmkde" path="res://scenes/pause_menu/pause_screen.gd" id="1_0426r"]
+[ext_resource type="PackedScene" uid="uid://b2gdmadvpjpbi" path="res://scenes/pause_menu/credit_screen.tscn" id="2_qi6yq"]
+[ext_resource type="PackedScene" uid="uid://c0pb4u2dewqa" path="res://scenes/pause_menu/option_control.tscn" id="3_ixexu"]
+
+[node name="PauseScreen" type="Control" unique_id=736869025]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0426r")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=326309320]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.23529412)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1698673658]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 40
+
+[node name="MainMenu" type="Control" parent="MarginContainer" unique_id=762857423]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainMenu" unique_id=331357673]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -38.5
+offset_right = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="MarginContainer/MainMenu/VBoxContainer" unique_id=1103575178]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+text = "PLAY"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/MainMenu/VBoxContainer" unique_id=999545850]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+text = "OPTIONS"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/MainMenu/VBoxContainer" unique_id=538260961]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+text = "CREDITS"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/MainMenu/VBoxContainer" unique_id=979007536]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+text = "QUIT"
+
+[node name="CreditScreen" parent="MarginContainer" unique_id=1372777105 instance=ExtResource("2_qi6yq")]
+visible = false
+layout_mode = 2
+
+[node name="OptionControl" parent="MarginContainer" unique_id=668183180 instance=ExtResource("3_ixexu")]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/MainMenu/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MainMenu/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MainMenu/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MainMenu/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="close_clicked" from="MarginContainer/CreditScreen" to="." method="_on_credit_screen_close_clicked"]
+[connection signal="visibility_changed" from="MarginContainer/CreditScreen" to="." method="_on_credit_screen_visibility_changed"]
+[connection signal="close_clicked" from="MarginContainer/OptionControl" to="." method="_on_option_control_close_clicked"]
+[connection signal="visibility_changed" from="MarginContainer/OptionControl" to="." method="_on_option_control_visibility_changed"]

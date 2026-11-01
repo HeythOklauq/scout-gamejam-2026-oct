@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://drpdprq8newxm"]
+
+[ext_resource type="Script" uid="uid://dewmaistddcpe" path="res://scenes/pause_menu/credit_line.gd" id="1_hugaq"]
+
+[node name="CreditLine" type="HBoxContainer" unique_id=1954263039]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+script = ExtResource("1_hugaq")
+
+[node name="Control" type="Control" parent="." unique_id=894979441]
+layout_mode = 2
+
+[node name="NameLabel" type="RichTextLabel" parent="." unique_id=42359409]
+layout_mode = 2
+bbcode_enabled = true
+text = "<NAME>"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="." unique_id=968886846]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RoleLabel" type="RichTextLabel" parent="." unique_id=503756986]
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+bbcode_enabled = true
+text = "<ROLE>"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1

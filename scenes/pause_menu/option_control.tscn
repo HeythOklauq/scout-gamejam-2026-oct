@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0pb4u2dewqa"]
 
-[ext_resource type="PackedScene" uid="uid://buw74twm4vjks" path="res://scenes/options_screen/volume_controller.tscn" id="1_2ktvu"]
-[ext_resource type="Script" uid="uid://b4ygn78mmwmm4" path="res://scenes/options_screen/option_control.gd" id="1_emcv7"]
+[ext_resource type="PackedScene" uid="uid://buw74twm4vjks" path="res://scenes/pause_menu/volume_controller.tscn" id="1_2ktvu"]
+[ext_resource type="Script" uid="uid://b4ygn78mmwmm4" path="res://scenes/pause_menu/option_control.gd" id="1_emcv7"]
 
 [node name="OptionControl" type="Control" unique_id=668183180]
 layout_mode = 3
@@ -22,6 +22,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=2120877820]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "OPTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -70,6 +71,8 @@ audio_bus = 3
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1356576360]
+[node name="CloseButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1356576360]
 layout_mode = 2
-text = "EXIT"
+text = "CLOSE"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

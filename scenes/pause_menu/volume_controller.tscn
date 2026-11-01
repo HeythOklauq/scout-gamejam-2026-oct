@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://buw74twm4vjks"]
 
-[ext_resource type="Script" uid="uid://3p3er52bj044" path="res://scenes/options_screen/volume_controller.gd" id="1_nhfwm"]
+[ext_resource type="Script" uid="uid://3p3er52bj044" path="res://scenes/pause_menu/volume_controller.gd" id="1_nhfwm"]
 
 [node name="VolumeController" type="HBoxContainer" unique_id=888258577]
 anchors_preset = 15

@@ -65,7 +65,6 @@ var squared_max_walking_speed = 0.0;
 func _ready() -> void:
 	current_stamina = max_stamina;
 	max_walking_speed = max_walking_speed;
-	call_deferred("_on_pause_menu_control_visibility_changed")
 
 func turn_player(movement :Vector2) -> void:
 	if Engine.time_scale == 0.0:
@@ -105,9 +104,6 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		turn_player(event.relative);
-	
-	if Input.is_action_just_pressed("Pause"):
-		pause_menu_control.visible = !pause_menu_control.visible
 
 func _process(delta: float) -> void:
 	turn_player(Vector2(Input.get_axis("PivotLeft", "PivotRight"), Input.get_axis("PivotUp", "PivotDown")) * 20.0)
@@ -156,18 +152,6 @@ func _on_interaction_area_exited(node) -> void:
 	if active_interactable_node == interactable_component:
 		active_interactable_node = null;
 		interactable_component.unselect()
-
-func _on_pause_menu_control_visibility_changed() -> void:
-	if pause_menu_control == null:
-		return;
-	
-	if pause_menu_control.visible:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		SlowMotionManager.pause_time()
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		SlowMotionManager.resume_time()
-
 
 func _on_pickup_area_body_entered(body: Node3D) -> void:
 	if not is_on_floor():

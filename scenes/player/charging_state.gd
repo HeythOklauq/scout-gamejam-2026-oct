@@ -29,7 +29,7 @@ func process_frame(_delta: float) -> StateNode:
 		attack_type = AttackingState.ATTACK_TYPES.SWING
 		attack_released = true
 		if not player_node.is_on_floor():
-			attack_type = AttackingState.ATTACK_TYPES.SLAM
+			attack_type = AttackingState.ATTACK_TYPES.DOWNSWING
 		strength_modifier = get_strength_power()
 	
 	if attack_released:

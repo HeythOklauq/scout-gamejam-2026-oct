@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bushhfwb0kykk" path="res://scenes/game_scene/hud_control.tscn" id="2_aivhf"]
 [ext_resource type="Script" uid="uid://bvp10nu5m1tgl" path="res://scenes/player/idle_move_state.gd" id="3_aivhf"]
 [ext_resource type="ArrayMesh" uid="uid://byum2ocxara4a" path="res://assets/models/bat.obj" id="3_xlee4"]
+[ext_resource type="PackedScene" uid="uid://bnsmcdxyrgku7" path="res://scenes/pause_menu/pause_screen.tscn" id="4_mw67o"]
 [ext_resource type="Script" uid="uid://cgrsjfh4j818g" path="res://scenes/player/walking_state.gd" id="4_xlee4"]
 [ext_resource type="Script" uid="uid://den8tw2v4lk6h" path="res://scenes/player/dashing_state.gd" id="5_k6i6l"]
 [ext_resource type="Script" uid="uid://b5u4i01ywgksx" path="res://scenes/player/falling_state.gd" id="5_xlee4"]
 [ext_resource type="Script" uid="uid://dasd35dkn24dq" path="res://scenes/player/jumping_state.gd" id="6_2yxhw"]
-[ext_resource type="PackedScene" uid="uid://c0pb4u2dewqa" path="res://scenes/options_screen/option_control.tscn" id="6_tu3ki"]
 [ext_resource type="Script" uid="uid://2xa0jbo84i3w" path="res://scenes/player/idle_combat_state.gd" id="12_ami1r"]
 [ext_resource type="Script" uid="uid://c3v8y40ynvi6r" path="res://scenes/player/knockbacked_state.gd" id="12_toa43"]
 [ext_resource type="Script" uid="uid://q1xbkhesn5kk" path="res://scenes/player/charging_state.gd" id="16_mw67o"]
@@ -72,8 +72,8 @@ metadata/_custom_type_script = "uid://4lrefw2564ya"
 
 [sub_resource type="Resource" id="Resource_mw67o"]
 script = ExtResource("18_ppx7h")
-animation_name = "Swing"
-knockback_animation_name = "Swing_Knockedback"
+animation_name = "Downswing"
+knockback_animation_name = "Downswing_Knockedback"
 range = 1
 knockback_player = 0.8
 strength = 1.2
@@ -416,6 +416,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_ami1r"]
 resource_name = "RESET"
+length = 0.01
 step = 0.025
 tracks/0/type = "bezier"
 tracks/0/imported = false
@@ -795,7 +796,7 @@ mesh = SubResource("BoxMesh_mw67o")
 surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
 
 [node name="Bat" type="MeshInstance3D" parent="Camera3D" unique_id=1265214212]
-transform = Transform3D(0.00021265807, 0.12186904, 0.99254626, 0.0017323169, 0.99254364, -0.12186936, -0.9999973, 0.0017453213, -4.3385572e-08, 0.977, -0.863, -1.03)
+transform = Transform3D(0.00021265796, 0.12186899, 0.99254626, 0.0017323161, 0.99254316, -0.12186936, -0.99999684, 0.0017453205, -4.3385572e-08, 0.977, -0.863, -1.03)
 cast_shadow = 0
 mesh = ExtResource("3_xlee4")
 surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")
@@ -817,17 +818,8 @@ render_target_update_mode = 4
 [node name="HUDControl" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=1211318264 node_paths=PackedStringArray("player_node") instance=ExtResource("2_aivhf")]
 player_node = NodePath("../../../..")
 
-[node name="PauseMenuControl" type="ColorRect" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=1494267686]
-unique_name_in_owner = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.3)
-
-[node name="OptionControl" parent="Camera3D/SubViewportContainer/SubViewport/PauseMenuControl" unique_id=668183180 instance=ExtResource("6_tu3ki")]
-layout_mode = 1
+[node name="PauseScreen" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=736869025 node_paths=PackedStringArray("hud_control") instance=ExtResource("4_mw67o")]
+hud_control = NodePath("../HUDControl")
 
 [node name="MotionPlayerStateMachine" parent="." unique_id=2089066676 node_paths=PackedStringArray("starting_state") instance=ExtResource("2_3mpri")]
 starting_state = NodePath("IdleState")
@@ -899,4 +891,3 @@ libraries/ = SubResource("AnimationLibrary_k6i6l")
 [connection signal="body_exited" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_exited"]
 [connection signal="body_entered" from="Camera3D/Medium_HurtZoneArea" to="CombatPlayerStateMachine/AttackingState" method="_on_medium_hurt_zone_area_body_entered"]
 [connection signal="body_entered" from="Camera3D/Short_HurtZoneArea" to="CombatPlayerStateMachine/AttackingState" method="_on_short_hurt_zone_area_body_entered"]
-[connection signal="visibility_changed" from="Camera3D/SubViewportContainer/SubViewport/PauseMenuControl" to="." method="_on_pause_menu_control_visibility_changed"]

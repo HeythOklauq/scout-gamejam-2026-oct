@@ -13,7 +13,7 @@ enum ATTACK_RANGES {
 enum ATTACK_TYPES {
 	SWING,
 	BUNT,
-	SLAM
+	DOWNSWING
 }
 
 @export var attack_resources_list :Dictionary[ATTACK_TYPES, AttackResource] = {}

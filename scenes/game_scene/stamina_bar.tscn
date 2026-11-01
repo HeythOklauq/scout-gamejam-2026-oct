@@ -28,7 +28,7 @@ region = Rect2(112, 0, 32, 32)
 
 [node name="StaminaBar" type="HBoxContainer" unique_id=598262902]
 size_flags_vertical = 8
-theme_override_constants/separation = 0
+theme_override_constants/separation = -21
 script = ExtResource("1_ke02j")
 segment_texture = SubResource("AtlasTexture_ke02j")
 segment_texture_cracked = SubResource("AtlasTexture_ke02j")
@@ -44,9 +44,16 @@ stretch_mode = 5
 
 [node name="SegmentContainer" type="HBoxContainer" parent="." unique_id=552189053]
 layout_mode = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = -20
 
 [node name="MiddleTextureRect" type="TextureRect" parent="SegmentContainer" unique_id=1076570015]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_44kiu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MiddleTextureRect2" type="TextureRect" parent="SegmentContainer" unique_id=1144697861]
 custom_minimum_size = Vector2(64, 32)
 layout_mode = 2
 texture = SubResource("AtlasTexture_44kiu")

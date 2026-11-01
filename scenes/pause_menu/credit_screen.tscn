@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://b2gdmadvpjpbi"]
+
+[ext_resource type="Script" uid="uid://cpytu8o6hj8eg" path="res://scenes/pause_menu/credit_screen.gd" id="1_8xt4t"]
+[ext_resource type="PackedScene" uid="uid://drpdprq8newxm" path="res://scenes/pause_menu/credit_line.tscn" id="1_hkbjg"]
+
+[node name="CreditScreen" type="Control" unique_id=1372777105]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8xt4t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=290536741]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1625687107]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "CREDITS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=876158964]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1124675472]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer" unique_id=1766670917]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer" unique_id=1174820474]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=724540530]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=47110724]
+layout_mode = 2
+text = "Main Team"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=14648375]
+layout_mode = 2
+
+[node name="CreditLine" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1954263039 instance=ExtResource("1_hkbjg")]
+layout_mode = 2
+collaborator_name = "Heyth"
+collaborator_link = "https://bsky.app/profile/heythoklauq.bsky.social"
+participation_name = "Laws of Physics"
+
+[node name="CreditLine2" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=474799945 instance=ExtResource("1_hkbjg")]
+layout_mode = 2
+collaborator_name = "Scout"
+collaborator_link = "https://bsky.app/profile/clowndepot.mariogolf.info"
+participation_name = "Laws of Nature"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1737185519]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1661346479]
+layout_mode = 2
+text = "Assets"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1182869532]
+layout_mode = 2
+
+[node name="CreditLine" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1601275223 instance=ExtResource("1_hkbjg")]
+layout_mode = 2
+collaborator_name = "PremedLynx"
+participation_name = "Font - Redden"
+participation_link = "https://premedlynx.itch.io/reddenpixelfont"
+
+[node name="CreditLine2" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1736793111 instance=ExtResource("1_hkbjg")]
+layout_mode = 2
+collaborator_name = "PlayMakeReview"
+participation_name = "Font - WritePix16"
+participation_link = "https://www.dafont.com/writepix16.font"
+
+[node name="CreditLine3" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1242096479 instance=ExtResource("1_hkbjg")]
+layout_mode = 2
+collaborator_name = "Elli Sho"
+participation_name = "Font - CooperBits"
+participation_link = "https://www.dafont.com/cooperbits.font"
+
+[node name="CreditLine4" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=639381194 instance=ExtResource("1_hkbjg")]
+layout_mode = 2
+collaborator_name = "jsr_Games"
+participation_name = "Font - Tengoku"
+participation_link = "https://www.dafont.com/tengoku.font"
+
+[node name="CreditLine5" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=154816048 instance=ExtResource("1_hkbjg")]
+layout_mode = 2
+collaborator_name = "Catterio Sylt"
+participation_name = "Font - Ari-W9500"
+participation_link = "https://www.dafont.com/ari-w9500.font"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=359738323]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer3" unique_id=749453801]
+layout_mode = 2
+text = "BGM / SFX"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer3" unique_id=990365808]
+layout_mode = 2
+
+[node name="CreditLine" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer3" unique_id=1287882785 instance=ExtResource("1_hkbjg")]
+layout_mode = 2
+collaborator_name = "Freesound Community"
+collaborator_link = "https://pixabay.com/users/freesound_community-46691455/"
+participation_name = "SFX"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1080559541]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer4" unique_id=1308204159]
+layout_mode = 2
+text = "Special Thanks"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer4" unique_id=144550199]
+layout_mode = 2
+
+[node name="CreditLine" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer4" unique_id=755882937 instance=ExtResource("1_hkbjg")]
+layout_mode = 2
+collaborator_name = "Fable (UbertheMeh)"
+collaborator_link = "https://bsky.app/profile/uberthemeh.bsky.social"
+participation_name = "Concept Art"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=1750658715]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=125213261]
+layout_mode = 2
+alignment = 1
+
+[node name="CloseButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1027445091]
+layout_mode = 2
+text = "CLOSE"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
