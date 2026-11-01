@@ -260,9 +260,9 @@ tracks/0/path = NodePath("Camera3D/Bat:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0.7469999, -0.016666668, 0, 0.06666667, 0, 0.74699986, -0.0027777776, -4.5155032e-10, 0.05358872, -3.5993524, -0.5679053, -0.025112307, -8.553201e-09, 0.03322103, 1.1315016e-08, 0.977, 0, 0, 0.029166667, -0.03833335),
-"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0.977, 0, 0, 0, -0.58503985, -0.118, -0.012765961, 0, 0.012234043, 0, -0.118, -0.012234043, 0, 0.009356665, 0, -0.063, -0.009356665, 0, 0.045206144, 0, -0.063, -0.045206144, 0, 0.032025784, 0, -0.063, -0.032025784, 0, 0.016674161, 0, 0.222, -0.016674161, 0, 0.07173725, 0, 0.977, -0.07173725, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.031950533, 0.05, 0.084723175, 0.17533335, 0.27499998, 0.38478827, 0.6)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -271,9 +271,9 @@ tracks/1/path = NodePath("Camera3D/Bat:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(-0.738, -0.016666668, 0, 0.06666667, 0, -0.738, -0.0027777776, 0, 0.058333334, 0, -0.73800004, -0.025112307, 0, 0.03322103, 0, -0.863, 0, 0, 0.029166667, 0.020833334),
-"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(-0.863, 0, 0, 0.012765961, 0, 0.472, -0.012194839, -0.07675121, 0.024999991, 0.15734357, -0.588, -0.040932, 1.5048357, 0.024999991, -0.9191068, -0.773, -0.032025784, 0, 0.016674161, 0, -0.613, -0.016674161, 0, 0.07173725, 0, -0.863, -0.07173725, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.05, 0.17533335, 0.27499998, 0.38478827, 0.6)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -282,9 +282,9 @@ tracks/2/path = NodePath("Camera3D/Bat:position:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.016666668, 0, 0.06666667, 0, 0, -0.0027777776, 0, 0.05358872, -1.8801764, -0.71149015, -0.025112307, 0, 0.03322103, 0, -1.03, 0, 0, 0.029166667, 0.17166667),
-"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2, 1, 2, 2, 2),
+"points": PackedFloat32Array(-1.03, 0, 0, 0.012765961, 0, -1.235, -0.012765961, 0, 0.012234043, 0, -0.88, -0.012234043, 0, 0.009356665, 0, -0.955, -0.009356665, 0, 0.045206144, 0, -0.75843614, -0.0077733463, -0.03478378, 4.83195e-05, 0.00021621768, -0.745, 0, 0, 0, 0, -0.745, -0.032025784, 0, 0.016674161, 0, -0.72, -0.016674161, 0, 0.07173725, 0, -1.03, -0.07173725, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.031950533, 0.05, 0.084723175, 0.175, 0.17533335, 0.27499998, 0.38478827, 0.6)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -293,9 +293,9 @@ tracks/3/path = NodePath("Camera3D/Bat:rotation:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.016666668, 0, 0.06666667, 0, 1.5707964, -0.01046136, -0.73330057, 0.012361795, 0.87962806, 1.5707964, -0.020971537, -0.622826, 0.0123618245, 0.9901024, 0.12217305, 0, 0, 0.029166667, -0.020362176),
-"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0.12217305, 0, 0, 0.012765961, 0, 0, -0.012234043, 0, 0.009356665, 0, 0, -0.009356665, 0, 0.045206144, 0, 0, -0.045206144, 0, 0.032025784, 0, 0, -0.032025784, 0, 0.016674161, 0, 0, -0.016674161, 0, 0.07173725, 0, 0.12217305, -0.07173725, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.05, 0.084723175, 0.17533335, 0.27499998, 0.38478827, 0.6)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -304,9 +304,9 @@ tracks/4/path = NodePath("Camera3D/Bat:rotation:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(1.5707964, -0.016666668, 0, 0.06666667, 0, 1.5707964, -0.0027777776, 0, 0.016273588, 2.536747, 4.148648, -0.014906943, 1.107832, 0.016666671, 0, 1.5707964, 0, 0, 0.029166667, 0),
-"times": PackedFloat32Array(0, 0.175, 0.5, 0.6)
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(1.5707964, 0, 0, 0.012765961, 0, 1.4573499, -0.012765961, 0, 0.012234043, 0, 1.7104226, -0.012234043, 0, 0.009356665, 0, 1.6929693, -0.009356665, 0, 0.045206144, 0, 1.6929693, -0.045206144, 0, 0.032025784, 0, 1.6929693, -0.032025784, 0, 0.016674161, 0, 1.5707964, -0.07173725, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.031950533, 0.05, 0.084723175, 0.17533335, 0.27499998, 0.6)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
@@ -315,20 +315,103 @@ tracks/5/path = NodePath("Camera3D/Bat:rotation:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0.6038839, -0.016666668, 0, 0.007198587, 0.65341526, 0.6038839, -0.009862602, -0.517615, 0.02347073, 0.5871305, 0, -0.018354952, -0.59867334, 0.06058091, 0.28512308, 0, -0.10555556, 0.16806728, 0.016666671, -0.026536945, 0.0017453292, 0, 0, 0.029166667, 0.10035643),
-"times": PackedFloat32Array(0, 0.075, 0.175, 0.5, 0.6)
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0.0017453292, 0, 0, 0.012765961, 0, 1.4416419, -0.012227491, -0.031397313, 0.024999991, 0.06419408, -2.855729, -0.003667218, 0.2648286, 0.03571117, -2.5788863, -2.2410028, -0.009765789, 0.2591293, 0.015794655, -0.41910163, -1.8395771, -0.016674161, 0, 0.07173725, 0, 0.0017453292, -0.07173725, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.05, 0.18204772, 0.27499998, 0.38478827, 0.6)
 }
-tracks/6/type = "bezier"
+tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Camera3D:rotation:z")
+tracks/6/path = NodePath("CombatPlayerStateMachine/AttackingState:hurtzone_active")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.13333334, -0.045361258, -0.05235988, -0.023888603, 0, 0.06666666, 0.102060616, 0.08726646, -0.037996773, 0.037067708, 0.09712058, -0.094745874, 0, -0.19999999, -0.009623668, 0, 0),
-"times": PackedFloat32Array(0, 0.175, 0.42500004, 0.6)
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ppx7h"]
+resource_name = "Downswing_KnockedBack"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/Bat:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(-0.013, 0, 0, 0.010581678, 0, 0.977, -0.04859, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/Bat:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 2),
+"points": PackedFloat32Array(-0.283, 0, 0, 0, 0, 0.10945986, -0.010581678, 0, 0.008736186, 0, -0.263, -0.022751657, 0, 0.06666668, 0, -0.863, -0.04859, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.031745024, 0.099999994, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/Bat:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2),
+"points": PackedFloat32Array(-0.735, 0, 0, 0.010581678, 0, -0.61, -0.010581678, 0, 0.008736186, 0, -0.713, -0.022751657, 0, 0.018076673, 0, -0.839, -0.018076673, 0, 0.04859, 0, -1.03, -0.04859, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.031745024, 0.099999994, 0.15423001, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/Bat:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0.12217305, 0, 0, 0.006426873, 0.57450366, 0.19676399, -0.020557504, 0.11810681, 0.008696661, -0.049963992, 0.12217305, -0.022751657, 0, 0.018076673, 0, 0.12217305, -0.018076673, 0, 0.04859, 0, 0.12217305, -0.04859, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.031745024, 0.099999994, 0.15423001, 0.3)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/Bat:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2),
+"points": PackedFloat32Array(1.6667894, 0, 0, 0.010581678, 0, 1.7889625, -0.018058166, 0.3519367, 0.008131539, -0.15847605, 1.69646, -0.022751657, 0, 0.018076673, 0, 1.5411258, -0.018076673, 0, 0.04859, 0, 1.5707964, -0.04859, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.031745024, 0.099999994, 0.15423001, 0.3)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D/Bat:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 2),
+"points": PackedFloat32Array(-1.1850786, 0, 0, 0.014162924, 1.1443872, -0.30211675, -0.010581678, 0, 0.008736186, 0, -0.5550397, -0.04497388, 0, 0.04444445, 0, 0.0017453292, -0.04859, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.031745024, 0.16666667, 0.3)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CombatPlayerStateMachine/AttackingState:hurtzone_active")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ami1r"]
@@ -632,6 +715,7 @@ _data = {
 &"Bunt": SubResource("Animation_toa43"),
 &"Bunt_KnockedBack": SubResource("Animation_srlsm"),
 &"Downswing": SubResource("Animation_tu3ki"),
+&"Downswing_KnockedBack": SubResource("Animation_ppx7h"),
 &"RESET": SubResource("Animation_ami1r"),
 &"Swing": SubResource("Animation_3mpri"),
 &"Swing_KnockedBack": SubResource("Animation_aivhf"),
@@ -711,7 +795,7 @@ mesh = SubResource("BoxMesh_mw67o")
 surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
 
 [node name="Bat" type="MeshInstance3D" parent="Camera3D" unique_id=1265214212]
-transform = Transform3D(0.00021265808, 0.12186905, 0.99254626, 0.001732317, 0.9925437, -0.12186936, -0.9999974, 0.0017453214, -4.3385572e-08, 0.977, -0.863, -1.03)
+transform = Transform3D(0.00021265807, 0.12186904, 0.99254626, 0.0017323169, 0.99254364, -0.12186936, -0.9999973, 0.0017453213, -4.3385572e-08, 0.977, -0.863, -1.03)
 cast_shadow = 0
 mesh = ExtResource("3_xlee4")
 surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")

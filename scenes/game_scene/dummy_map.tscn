@@ -85,7 +85,7 @@ shadow_enabled = true
 sky_mode = 1
 
 [node name="PlayerNode" parent="." unique_id=764222003 instance=ExtResource("4_p3kjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.776207, 7.6534805, 4.670761)
+transform = Transform3D(-0.43458676, 0, 0.90063, 0, 1, 0, -0.90063, 0, -0.43458676, -12.776207, 7.6534805, -7.5058155)
 
 [node name="WoodyNode" parent="." unique_id=744089844 node_paths=PackedStringArray("player_node") instance=ExtResource("5_vpstl")]
 transform = Transform3D(0.9810703, 0, -0.6996615, 0, 1.205, 0, 0.6996615, 0, 0.9810703, -14.72998, 5.484318, -11.7648115)
