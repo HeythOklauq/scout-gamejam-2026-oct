@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://drmhsiovv34hb" path="res://scenes/props/telephone_pole.tscn" id="9_saoeg"]
 [ext_resource type="Texture2D" uid="uid://chm4qfskxhy2g" path="res://assets/graphics/boosh.png" id="9_we7ej"]
 [ext_resource type="PackedScene" uid="uid://3t4r1b5j25iv" path="res://scenes/props/interactable_body_component.tscn" id="9_xi5sv"]
+[ext_resource type="PackedScene" uid="uid://c7r30g50m2il6" path="res://scenes/game_scene/projectile_node.tscn" id="11_2dgve"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6n02"]
 albedo_texture = ExtResource("5_oj4i3")
@@ -194,7 +195,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.753834, 2.7316144, 35.33615
 
 [node name="WoodChipNode" parent="Floor" unique_id=1986304666 instance=ExtResource("5_we7ej")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.532465, 9.6010275, -0.13810323)
-collision_mask = 3
+
+[node name="ProjectileNode" parent="Floor" unique_id=431655365 instance=ExtResource("11_2dgve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4798464, 1.8306272, -0.14758745)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1634201769]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 5.5999985, 161)

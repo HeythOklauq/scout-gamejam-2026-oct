@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c7r30g50m2il6"]
+
+[ext_resource type="Script" uid="uid://lav7ttlk7h0f" path="res://scenes/game_scene/projectile_node.gd" id="1_uurcg"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="2_um5ad"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j3pul"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uurcg"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_um5ad"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[node name="ProjectileNode" type="RigidBody3D" unique_id=431655365]
+collision_layer = 128
+collision_mask = 27
+mass = 0.2
+script = ExtResource("1_uurcg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=87289339]
+shape = SubResource("BoxShape3D_j3pul")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2076301855]
+mesh = SubResource("BoxMesh_uurcg")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=413306494]
+collision_layer = 0
+collision_mask = 27
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=25260346]
+shape = SubResource("BoxShape3D_um5ad")
+
+[node name="HittableBodyComponent" parent="." unique_id=1598085311 instance=ExtResource("2_um5ad")]
+on_hit_soundtype = 7
+animation_duration = 0.0
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="hit" from="HittableBodyComponent" to="." method="_on_hittable_body_component_hit"]

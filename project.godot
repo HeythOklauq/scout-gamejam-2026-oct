@@ -145,6 +145,7 @@ Bunt={
 3d_physics/layer_5="Player"
 3d_physics/layer_6="HurtZone"
 3d_physics/layer_7="Pickup"
+3d_physics/layer_8="Projectile"
 
 [physics]
 
