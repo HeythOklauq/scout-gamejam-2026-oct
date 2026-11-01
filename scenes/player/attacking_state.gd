@@ -54,6 +54,7 @@ func get_current_hurtbox() -> Area3D:
 	return hurtboxes_list[current_attack_resource.range]
 
 func on_activate_hurtbox() -> void:
+	prints("on_activate_hurtbox")
 	if not hurtzone_active:
 		return
 	
@@ -67,7 +68,7 @@ func on_activate_hurtbox() -> void:
 
 func on_hit(body :Node3D) -> void:
 	var hittable_component = HittableBodyComponent.get_hittable_component(body);
-	if hittable_component == null:
+	if not hittable_component == null:
 		hittable_component.on_hit(get_current_hurtbox().global_position, player_node.get_player_forward_angle(), strength_modifier)
 	target_hit = body
 
@@ -84,12 +85,14 @@ func process_frame(delta: float) -> StateNode:
 	return state_machine.state_list["KnockbackedState"]
 
 func _on_short_hurt_zone_area_body_entered(body: Node3D) -> void:
+	prints("_on_short_hurt_zone_area_body_entered")
 	if not hurtzone_active:
 		return;
 	if current_attack_resource.range == ATTACK_RANGES.SHORT:
 		on_hit(body)
 
 func _on_medium_hurt_zone_area_body_entered(body: Node3D) -> void:
+	prints("_on_medium_hurt_zone_area_body_entered")
 	if not hurtzone_active:
 		return;
 	if current_attack_resource.range == ATTACK_RANGES.MEDIUM:

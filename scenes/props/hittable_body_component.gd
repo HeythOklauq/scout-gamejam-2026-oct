@@ -26,10 +26,10 @@ func _ready() -> void:
 func on_hit(_impact_position :Vector3, _impact_direction :Vector3, hit_strength :float = 1.0) -> void:
 	SfxManager.play_3d_sound(_impact_position, on_hit_soundtype, 1.0, 0.1);
 	
+	hit.emit(_impact_direction, hit_strength);
+	prints("HIT", targetted_item.name)
 	if animation_duration == 0.0:
 		return
-	
-	hit.emit(_impact_direction, hit_strength);
 	
 	if not animation_tween == null:
 		animation_tween.stop()

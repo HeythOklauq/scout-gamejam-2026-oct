@@ -7,10 +7,12 @@ enum SOUND_TYPES {
 	PICK_UP,
 	IMPACT_WOOD,
 	IMPACT_CONCRETE,
-	IMPACT_METAL
+	IMPACT_METAL,
+	NONE,
 }
 
 const SOUNDS :Dictionary[SOUND_TYPES, Array] = {
+	SOUND_TYPES.NONE: [],
 	SOUND_TYPES.WIND_UP: [
 		preload("res://assets/audio/sfx/wind up2.wav")
 	],
@@ -76,6 +78,8 @@ func _init_audioplayer(audioplayer, audio_type :SOUND_TYPES, volume :float, pitc
 
 # Play a sounds not positioned in world
 func play_sound(audio_type :SOUND_TYPES, volume :float = 1.0, pitch_modifier :float = 0.1) -> AudioStreamPlayer:
+	if audio_type == SOUND_TYPES.NONE:
+		return
 	var audioplayer :AudioStreamPlayer
 	
 	if available_audioplayers.size() > 0:
@@ -89,6 +93,8 @@ func play_sound(audio_type :SOUND_TYPES, volume :float = 1.0, pitch_modifier :fl
 	return audioplayer;
 
 func play_3d_sound(target_global_position :Vector3, audio_type :SOUND_TYPES, volume :float = 1.0, pitch_modifier :float = 0.1) -> AudioStreamPlayer3D:
+	if audio_type == SOUND_TYPES.NONE:
+		return
 	var audioplayer :AudioStreamPlayer3D
 	
 	if available_3d_audioplayers.size() > 0:
