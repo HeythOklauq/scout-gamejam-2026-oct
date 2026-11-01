@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://m756l3lj3yrc"]
+
+[ext_resource type="Script" uid="uid://b6vo5b4vtwet3" path="res://scenes/props/waffle_letter.gd" id="1_0e44t"]
+[ext_resource type="ArrayMesh" uid="uid://esxbqlyif1fn" path="res://assets/models/waffle_letter.obj" id="1_0m4ns"]
+[ext_resource type="FontFile" uid="uid://dxpscgkwqhkh1" path="res://assets/fonts/ari-w9500-display.ttf" id="3_jb0fn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0e44t"]
+albedo_color = Color(0.08468992, 0.08468992, 0.08468992, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jb0fn"]
+albedo_color = Color(0.8627451, 0.7764706, 0.30980393, 1)
+emission_enabled = true
+emission = Color(0.8901961, 0.49019608, 0.19215687, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bldi8"]
+size = Vector3(2, 2, 0.70000005)
+
+[node name="WaffleLetter" type="Node3D" unique_id=1754010285]
+script = ExtResource("1_0e44t")
+default_font_size = 100
+
+[node name="WaffleLetter" type="MeshInstance3D" parent="." unique_id=1634179284]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_0m4ns")
+surface_material_override/0 = SubResource("StandardMaterial3D_0e44t")
+surface_material_override/1 = SubResource("StandardMaterial3D_jb0fn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WaffleLetter" unique_id=1647554151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.050000012)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaffleLetter/StaticBody3D" unique_id=2146085429]
+shape = SubResource("BoxShape3D_bldi8")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1817393856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0229702, -0.05742525, 0.09752363)
+texture_filter = 0
+modulate = Color(0, 0, 0, 1)
+text = "A"
+font = ExtResource("3_jb0fn")
+font_size = 110
+outline_size = 0

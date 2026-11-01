@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwk7yh52bw2lt" path="res://scenes/player/player_node.tscn" id="4_p3kjh"]
 [ext_resource type="PackedScene" uid="uid://cvd574a3vd0dc" path="res://scenes/props/woody_node.tscn" id="5_vpstl"]
 [ext_resource type="AudioStream" uid="uid://bh02sg8jcjh7l" path="res://assets/audio/ambiants/freesound_community-forest-wind-and-birds-6881.mp3" id="6_iuepn"]
+[ext_resource type="PackedScene" uid="uid://w5h4fg3yfssc" path="res://scenes/props/house_of_waffle.tscn" id="7_efq47"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iuepn"]
 albedo_texture = ExtResource("1_8ghve")
@@ -105,3 +106,6 @@ visible = false
 billboard = 2
 texture_filter = 0
 texture = SubResource("GradientTexture2D_iuepn")
+
+[node name="HouseOfWaffle" parent="." unique_id=1703005565 instance=ExtResource("7_efq47")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 19.074802, 7.3310585, 4.747534)
