@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://burvraqbakhmt" path="res://scenes/player/player_node.gd" id="1_e0ebx"]
 [ext_resource type="PackedScene" uid="uid://dpbf7qrlh6qqk" path="res://scenes/player/player_state_machine.tscn" id="2_3mpri"]
-[ext_resource type="PackedScene" uid="uid://bushhfwb0kykk" path="res://scenes/game_scene/hud_control.tscn" id="2_aivhf"]
 [ext_resource type="Script" uid="uid://bvp10nu5m1tgl" path="res://scenes/player/idle_move_state.gd" id="3_aivhf"]
 [ext_resource type="ArrayMesh" uid="uid://byum2ocxara4a" path="res://assets/models/bat.obj" id="3_xlee4"]
-[ext_resource type="PackedScene" uid="uid://bnsmcdxyrgku7" path="res://scenes/pause_menu/pause_screen.tscn" id="4_mw67o"]
 [ext_resource type="Script" uid="uid://cgrsjfh4j818g" path="res://scenes/player/walking_state.gd" id="4_xlee4"]
 [ext_resource type="Script" uid="uid://den8tw2v4lk6h" path="res://scenes/player/dashing_state.gd" id="5_k6i6l"]
 [ext_resource type="Script" uid="uid://b5u4i01ywgksx" path="res://scenes/player/falling_state.gd" id="5_xlee4"]
@@ -904,35 +902,11 @@ mesh = SubResource("BoxMesh_mw67o")
 surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
 
 [node name="Bat" type="MeshInstance3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1265214212]
-transform = Transform3D(0.00021265786, 0.12186892, 0.99254626, 0.0017323152, 0.9925426, -0.12186936, -0.9999963, 0.0017453196, -4.3385572e-08, 0.977, -0.863, -1.03)
+transform = Transform3D(0.00021265782, 0.1218689, 0.99254626, 0.0017323148, 0.99254245, -0.12186936, -0.9999961, 0.0017453192, -4.3385572e-08, 0.977, -0.863, -1.03)
 cast_shadow = 0
 mesh = ExtResource("3_xlee4")
 surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=327297930]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/SubViewportContainer" unique_id=375281558]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(800, 600)
-render_target_update_mode = 4
-
-[node name="HUDControl" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/SubViewportContainer/SubViewport" unique_id=1211318264 node_paths=PackedStringArray("player_node") instance=ExtResource("2_aivhf")]
-player_node = NodePath("../../../../../../..")
-
-[node name="PauseScreen" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/SubViewportContainer/SubViewport" unique_id=736869025 node_paths=PackedStringArray("hud_control") instance=ExtResource("4_mw67o")]
-hud_control = NodePath("../HUDControl")
-
-[connection signal="combo_changed" from="." to="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/SubViewportContainer/SubViewport/HUDControl" method="_on_player_combo_changed"]
-[connection signal="money_changed" from="." to="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/SubViewportContainer/SubViewport/HUDControl" method="_on_player_money_changed"]
-[connection signal="stamina_changed" from="." to="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/SubViewportContainer/SubViewport/HUDControl" method="_on_player_stamina_changed"]
-[connection signal="woodchip_changed" from="." to="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/SubViewportContainer/SubViewport/HUDControl" method="_on_player_woodchip_changed"]
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
 [connection signal="area_entered" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/InteractionArea3D" to="." method="_on_interaction_area_entered"]
 [connection signal="area_exited" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/InteractionArea3D" to="." method="_on_interaction_area_exited"]

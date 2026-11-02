@@ -6,7 +6,7 @@ class_name AttackResource
 @export var knockback_animation_name :String
 
 @export_subgroup("Physics and score")
-@export var range :AttackingState.ATTACK_RANGES
+@export var attack_range :AttackingState.ATTACK_RANGES
 @export var knockback_player :float = 0.5
 @export var strength := 1.0
 @export var charging_impact := 0.0
