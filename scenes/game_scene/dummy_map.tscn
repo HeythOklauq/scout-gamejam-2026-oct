@@ -127,3 +127,4 @@ texture = SubResource("GradientTexture2D_iuepn")
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 19.074802, 7.3310585, 4.747534)
 
 [node name="SkyboxScene" parent="." unique_id=2038386099 instance=ExtResource("9_biejc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.664711, 0)
