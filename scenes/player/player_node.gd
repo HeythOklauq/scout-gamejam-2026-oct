@@ -11,8 +11,6 @@ signal money_changed(value :int, modifier :int)
 @onready var forward_marker_3d: Marker3D = $GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/ForwardMarker3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@onready var pause_menu_control: ColorRect = %PauseMenuControl
-
 var attack_locked := false;
 var stamina_locked := false;
 
