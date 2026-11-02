@@ -4,8 +4,8 @@ class_name HUDControl
 @onready var cigarette_timer: HBoxContainer = %CigaretteTimer
 
 @onready var combo_counter: Label = %ComboCounter
-@onready var money_label: Label = %MoneyLabel
-@onready var chips_label: Label = %ChipsLabel
+@onready var money_currency_line_control: CurrencyLineControl = $MarginContainer/VBoxContainer/ScoreConatiner/MoneyCurrencyLineControl
+@onready var woodchip_currency_line_control: CurrencyLineControl = $MarginContainer/VBoxContainer/ScoreConatiner/WoodchipCurrencyLineControl
 
 var previous_max_stamina :float;
 var previous_stamina_usage :float;
@@ -33,11 +33,11 @@ func update_combo() -> void:
 
 
 func update_money() -> void:
-	money_label.text = str(player_node.money)
+	money_currency_line_control.set_amount(player_node.money)
 
 
 func update_woodchips() -> void:
-	chips_label.text = str(player_node.woodchips)
+	woodchip_currency_line_control.set_amount(player_node.woodchips)
 
 
 func update_stamina() -> void:
