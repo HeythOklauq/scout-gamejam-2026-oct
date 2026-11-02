@@ -2,8 +2,8 @@
 extends Resource
 class_name IncrementalUnlockResource
 
-@export var name := "UNLOCKABLE RESOURCE"
-@export var description := "LOL - LMAO even"
+@export var unlock_name := "UNLOCKABLE RESOURCE"
+@export var unlock_description := "LOL - LMAO even"
 
 @export_group("Progression")
 @export var current_level := 0
@@ -55,7 +55,19 @@ func get_current_value() -> float:
 	return progression_curve.get_value(current_level);
 
 func can_upgrade() -> bool:
-	return unlock_level < progression_curve.max_level
+	var can_offer := true;
+	can_offer = can_offer and get_upgrade_money_price() <= GameplayManager.player_currencies[GameplayManager.CURRENCIES.MONEY]
+	can_offer = can_offer and get_upgrade_woodchip_price() <= GameplayManager.player_currencies[GameplayManager.CURRENCIES.WOODCHIP]
+	return can_offer
+
+func upgrade() -> void:
+	GameplayManager.player_currencies[GameplayManager.CURRENCIES.MONEY] -= get_upgrade_money_price()
+	GameplayManager.player_currencies[GameplayManager.CURRENCIES.WOODCHIP] -= get_upgrade_woodchip_price()
+	unlock_level += 1
+	current_level == unlock_level
+
+func is_max_level() -> bool:
+	return unlock_level == progression_curve.max_level
 
 func get_upgrade_money_price() -> int:
 	if money_price_curve == null:

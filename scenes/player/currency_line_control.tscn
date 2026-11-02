@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cxw5pjbwo2lea"]
+
+[ext_resource type="Script" uid="uid://c60n4ispjsiju" path="res://scenes/player/currency_line_control.gd" id="1_1ch77"]
+[ext_resource type="FontFile" uid="uid://w5eb3iy23tj6" path="res://assets/fonts/Redden.ttf" id="1_egvps"]
+[ext_resource type="Texture2D" uid="uid://rpnlh06vg4mx" path="res://assets/graphics/cursed_wood_chips.png" id="2_1ch77"]
+
+[node name="CurrencyLineControl" type="HBoxContainer" unique_id=525960156]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -2
+script = ExtResource("1_1ch77")
+
+[node name="MoneyLabel" type="Label" parent="." unique_id=547104232]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("1_egvps")
+theme_override_font_sizes/font_size = 32
+text = "$ "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WoodChipContainer" type="Control" parent="." unique_id=1078320290]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="WoodChipSymbol" type="TextureRect" parent="WoodChipContainer" unique_id=2120094398]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("2_1ch77")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AmountLabel" type="Label" parent="." unique_id=1865171258]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("1_egvps")
+theme_override_font_sizes/font_size = 32
+text = "000000"
+vertical_alignment = 1

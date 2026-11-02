@@ -6,6 +6,11 @@ enum CURRENCIES {
 	WOODCHIP
 }
 
+var player_currencies :Dictionary[CURRENCIES, int] = {
+	CURRENCIES.MONEY: 0,
+	CURRENCIES.WOODCHIP: 0
+}
+
 enum UNLOCKABLE_TYPES {
 	POGO,
 	BUNT,
@@ -56,13 +61,32 @@ func _ready() -> void:
 func save_data() -> Dictionary:
 	var data :Dictionary = {}
 	
+	data["currencies"] = {}
+	for currency_type in CURRENCIES.keys():
+		var currency_id = CURRENCIES[currency_type]
+		if UNLOCKABLES.has(currency_id):
+			data["currencies"][currency_type] = player_currencies[currency_id];
+	
+	data["unlockables"] = {}
 	for unlockable_type in UNLOCKABLE_TYPES.keys():
 		var type_id = UNLOCKABLE_TYPES[unlockable_type]
 		if UNLOCKABLES.has(type_id):
-			data[unlockable_type] = UNLOCKABLES[UNLOCKABLE_TYPES[unlockable_type]].current_unlock_level;
+			data["unlockables"][unlockable_type] = {
+				"unlock_level": UNLOCKABLES[UNLOCKABLE_TYPES[unlockable_type]].unlock_level,
+				"current_level": UNLOCKABLES[UNLOCKABLE_TYPES[unlockable_type]].current_level
+			};
 	
-	prints(data)
+	load_data(data)
 	return data
 
 func load_data(data :Dictionary) -> void:
-	pass
+	for currency_type in CURRENCIES.keys():
+		var currency_id = CURRENCIES[currency_type]
+		if data["currencies"].has(currency_id):
+			player_currencies[currency_id] = data["currencies"][currency_type];
+	
+	for unlockable_type in UNLOCKABLE_TYPES.keys():
+		var type_id = UNLOCKABLE_TYPES[unlockable_type]
+		if data["unlockables"].has(type_id):
+			UNLOCKABLES[UNLOCKABLE_TYPES[unlockable_type]].unlock_level = data["unlockables"][unlockable_type].unlock_level
+			UNLOCKABLES[UNLOCKABLE_TYPES[unlockable_type]].current_level = data["unlockables"][unlockable_type].current_level

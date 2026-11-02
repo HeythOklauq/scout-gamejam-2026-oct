@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://5jf3dhs360cf"]
+
+[ext_resource type="Script" uid="uid://cq2h0trl0e2xe" path="res://scenes/game_scene/shops/unlockable_line.gd" id="1_w8n12"]
+
+[node name="UnlockableLine" type="HBoxContainer" unique_id=1488738785]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w8n12")
+unlockable_type = 1
+
+[node name="NameLabel" type="Label" parent="." unique_id=995250979]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bunt"
+
+[node name="LevelLabel" type="Label" parent="." unique_id=1410604370]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2025164544]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="UpgradeButton" type="Button" parent="VBoxContainer" unique_id=447063279]
+layout_mode = 2
+text = "UPGRADE"
+
+[connection signal="pressed" from="VBoxContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
