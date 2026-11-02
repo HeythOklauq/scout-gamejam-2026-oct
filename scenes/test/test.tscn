@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://3t4r1b5j25iv" path="res://scenes/props/interactable_body_component.tscn" id="9_xi5sv"]
 [ext_resource type="PackedScene" uid="uid://c7r30g50m2il6" path="res://scenes/game_scene/projectile_node.tscn" id="11_2dgve"]
 [ext_resource type="PackedScene" uid="uid://w5h4fg3yfssc" path="res://scenes/props/house_of_waffle.tscn" id="13_2dgve"]
+[ext_resource type="PackedScene" uid="uid://c7oligk42cm6t" path="res://scenes/game_scene/skybox_scene.tscn" id="14_x4ubh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6n02"]
 albedo_texture = ExtResource("5_oj4i3")
@@ -38,7 +39,12 @@ albedo_color = Color(1, 0.4627451, 1, 1)
 albedo_color = Color(0.15294118, 1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xi5sv"]
-albedo_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.9998428, 0.35752246, 0.29040423, 1)
+emission_energy_multiplier = 30.0
+emission_operator = 1
+grow_amount = 0.427
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xi5sv"]
 size = Vector3(1, 3, 3)
@@ -57,17 +63,6 @@ material = SubResource("StandardMaterial3D_saoeg")
 [sub_resource type="Gradient" id="Gradient_5unt0"]
 offsets = PackedFloat32Array(0, 0.18018018, 0.8873874, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_saoeg"]
-offsets = PackedFloat32Array(0.5575221, 0.63716817)
-colors = PackedColorArray(1.3887179, 0.89650697, 0.44604686, 1, 0.96618015, 0.7280375, 0.53202194, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5unt0"]
-gradient = SubResource("Gradient_saoeg")
-width = 320
-height = 320
-fill = 1
-fill_from = Vector2(0.4957265, 0.508547)
 
 [node name="Test" type="Node3D" unique_id=1028040761]
 
@@ -193,12 +188,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4798464, 1.8306272, -0.1475
 [node name="HouseOfWaffle" parent="Floor" unique_id=1703005565 instance=ExtResource("13_2dgve")]
 transform = Transform3D(0.22846976, 0, -0.973551, 0, 1, 0, 0.973551, 0, 0.22846976, 30.702103, 0.8729458, 0.41275024)
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1634201769]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 5.5999985, 161)
-billboard = 2
-texture_filter = 0
-texture = SubResource("GradientTexture2D_5unt0")
-
 [node name="PlayerNode" parent="." unique_id=764222003 instance=ExtResource("2_da6vm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.776207, 6.4613, 4.670761)
 
@@ -209,3 +198,6 @@ stream = ExtResource("9_5unt0")
 autoplay = true
 bus = &"Ambiant"
 parameters/looping = true
+
+[node name="SkyboxScene" parent="." unique_id=2038386099 node_paths=PackedStringArray("target") instance=ExtResource("14_x4ubh")]
+target = NodePath("../PlayerNode")
