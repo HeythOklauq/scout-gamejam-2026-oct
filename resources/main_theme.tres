@@ -4,3 +4,16 @@
 
 [resource]
 default_font = ExtResource("1_ols5k")
+default_font_size = 0
+Label/colors/font_color = Color(0.4326213, 0.18976071, 0.2617999, 1)
+Label/colors/font_outline_color = Color(0.7778228, 0.76363707, 0.9552391, 1)
+Label/colors/font_shadow_color = Color(0.18741855, 0.06615282, 0.09414581, 1)
+Label/constants/line_spacing = 0
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = -1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 8
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_ols5k")
+Label/styles/focus = null
+Label/styles/normal = null

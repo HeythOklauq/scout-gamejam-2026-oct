@@ -73,7 +73,7 @@ metadata/_custom_type_script = "uid://4lrefw2564ya"
 [sub_resource type="Resource" id="Resource_mw67o"]
 script = ExtResource("18_ppx7h")
 animation_name = "Downswing"
-knockback_animation_name = "Downswing_Knockedback"
+knockback_animation_name = "Downswing_KnockedBack"
 range = 1
 knockback_player = 0.8
 strength = 1.2
@@ -796,7 +796,7 @@ mesh = SubResource("BoxMesh_mw67o")
 surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
 
 [node name="Bat" type="MeshInstance3D" parent="Camera3D" unique_id=1265214212]
-transform = Transform3D(0.00021265796, 0.12186898, 0.99254626, 0.001732316, 0.9925431, -0.12186936, -0.9999968, 0.0017453204, -4.3385572e-08, 0.977, -0.863, -1.03)
+transform = Transform3D(0.00021265795, 0.121868975, 0.99254626, 0.0017323159, 0.99254304, -0.12186936, -0.9999967, 0.0017453203, -4.3385572e-08, 0.977, -0.863, -1.03)
 cast_shadow = 0
 mesh = ExtResource("3_xlee4")
 surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")
