@@ -1,0 +1,502 @@
+[gd_scene format=3 uid="uid://4klcdwarpaco"]
+
+[ext_resource type="Script" uid="uid://cti2bna2sl4gc" path="res://singletons/gameplay_manager.gd" id="1_i05kw"]
+[ext_resource type="Script" uid="uid://bikecxc4a72nl" path="res://resources/incremental_unlock_resource.gd" id="2_2nlnc"]
+[ext_resource type="Script" uid="uid://cwng774r6bupv" path="res://resources/custom_curve_resource.gd" id="3_td03u"]
+
+[sub_resource type="Curve" id="Curve_td03u"]
+
+[sub_resource type="Resource" id="Resource_rvp7l"]
+script = ExtResource("3_td03u")
+curve = SubResource("Curve_td03u")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Curve" id="Curve_nypwt"]
+bake_resolution = 1
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_f2620"]
+script = ExtResource("3_td03u")
+min_value = 5.0
+max_value = 5.0
+curve = SubResource("Curve_nypwt")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_jw43u"]
+script = ExtResource("2_2nlnc")
+name = "Pogo"
+progression_curve = SubResource("Resource_rvp7l")
+woodchip_price_curve = SubResource("Resource_f2620")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Curve" id="Curve_targq"]
+bake_resolution = 1
+
+[sub_resource type="Resource" id="Resource_t8b7f"]
+script = ExtResource("3_td03u")
+curve = SubResource("Curve_targq")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Curve" id="Curve_0l67v"]
+bake_resolution = 1
+
+[sub_resource type="Resource" id="Resource_j0dwp"]
+script = ExtResource("3_td03u")
+min_value = 5.0
+max_value = 5.0
+curve = SubResource("Curve_0l67v")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_y30eb"]
+script = ExtResource("2_2nlnc")
+name = "Bunt"
+progression_curve = SubResource("Resource_t8b7f")
+woodchip_price_curve = SubResource("Resource_j0dwp")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Curve" id="Curve_1kwi8"]
+
+[sub_resource type="Resource" id="Resource_1fo37"]
+script = ExtResource("3_td03u")
+curve = SubResource("Curve_1kwi8")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Curve" id="Curve_sq4sp"]
+bake_resolution = 1
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_4gcfv"]
+script = ExtResource("3_td03u")
+min_value = 5.0
+max_value = 5.0
+curve = SubResource("Curve_sq4sp")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_f3lkg"]
+script = ExtResource("2_2nlnc")
+name = "Wind up"
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_1fo37")
+woodchip_price_curve = SubResource("Resource_4gcfv")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Curve" id="Curve_khnl7"]
+
+[sub_resource type="Resource" id="Resource_trmcc"]
+script = ExtResource("3_td03u")
+curve = SubResource("Curve_khnl7")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Curve" id="Curve_ra7nt"]
+bake_resolution = 1
+
+[sub_resource type="Resource" id="Resource_romsu"]
+script = ExtResource("3_td03u")
+min_value = 5.0
+max_value = 5.0
+curve = SubResource("Curve_ra7nt")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_akorr"]
+script = ExtResource("2_2nlnc")
+name = "Downswing"
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_trmcc")
+woodchip_price_curve = SubResource("Resource_romsu")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Curve" id="Curve_ya5du"]
+
+[sub_resource type="Resource" id="Resource_drosq"]
+script = ExtResource("3_td03u")
+curve = SubResource("Curve_ya5du")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Curve" id="Curve_ttti8"]
+bake_resolution = 1
+
+[sub_resource type="Resource" id="Resource_1kwi8"]
+script = ExtResource("3_td03u")
+min_value = 5.0
+max_value = 5.0
+curve = SubResource("Curve_ttti8")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_sq4sp"]
+script = ExtResource("2_2nlnc")
+name = "Steal"
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_drosq")
+woodchip_price_curve = SubResource("Resource_1kwi8")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Curve" id="Curve_3djma"]
+bake_resolution = 20
+_data = [Vector2(0, 0), 0.0, 0.15812565, 0, 0, Vector2(1, 1), 3.115372, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_efofj"]
+script = ExtResource("3_td03u")
+max_value = 10.0
+max_level = 20.0
+curve = SubResource("Curve_3djma")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Curve" id="Curve_3c5hw"]
+bake_resolution = 50
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.7486145, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_epavk"]
+script = ExtResource("3_td03u")
+min_value = 5.0
+max_value = 500.0
+max_level = 50.0
+curve = SubResource("Curve_3c5hw")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_td03u"]
+script = ExtResource("2_2nlnc")
+name = "Swing"
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_efofj")
+woodchip_price_curve = SubResource("Resource_epavk")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_f3c6d"]
+script = ExtResource("3_td03u")
+min_value = 5.0
+max_value = 500.0
+max_level = 50.0
+curve = SubResource("Curve_3c5hw")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_ya5du"]
+script = ExtResource("2_2nlnc")
+name = "Flexibility"
+current_level = null
+unlock_level = null
+woodchip_price_curve = SubResource("Resource_f3c6d")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_35ns2"]
+script = ExtResource("3_td03u")
+max_value = 10.0
+max_level = 20.0
+curve = SubResource("Curve_3djma")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_7wodb"]
+script = ExtResource("3_td03u")
+min_value = 5.0
+max_value = 500.0
+max_level = 50.0
+curve = SubResource("Curve_3c5hw")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_targq"]
+script = ExtResource("2_2nlnc")
+name = "Guts"
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_35ns2")
+woodchip_price_curve = SubResource("Resource_7wodb")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_p86mp"]
+script = ExtResource("3_td03u")
+max_value = 10.0
+max_level = 20.0
+curve = SubResource("Curve_3djma")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_mgpf7"]
+script = ExtResource("3_td03u")
+min_value = 5.0
+max_value = 500.0
+max_level = 50.0
+curve = SubResource("Curve_3c5hw")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_0l67v"]
+script = ExtResource("2_2nlnc")
+name = "Moxie"
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_p86mp")
+woodchip_price_curve = SubResource("Resource_mgpf7")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_xdfel"]
+script = ExtResource("3_td03u")
+max_value = 10.0
+max_level = 20.0
+curve = SubResource("Curve_3djma")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_dvaj8"]
+script = ExtResource("3_td03u")
+min_value = 5.0
+max_value = 500.0
+max_level = 50.0
+curve = SubResource("Curve_3c5hw")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_ttti8"]
+script = ExtResource("2_2nlnc")
+name = "Grace"
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_xdfel")
+woodchip_price_curve = SubResource("Resource_dvaj8")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_sju55"]
+script = ExtResource("3_td03u")
+max_value = 10.0
+max_level = 20.0
+curve = SubResource("Curve_3djma")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_1b61q"]
+script = ExtResource("3_td03u")
+min_value = 5.0
+max_value = 500.0
+max_level = 50.0
+curve = SubResource("Curve_3c5hw")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_138jj"]
+script = ExtResource("2_2nlnc")
+name = "Patience"
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_sju55")
+woodchip_price_curve = SubResource("Resource_1b61q")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Curve" id="Curve_jkj4a"]
+bake_resolution = 1
+
+[sub_resource type="Resource" id="Resource_mntcr"]
+script = ExtResource("3_td03u")
+min_value = 150.0
+max_value = 150.0
+curve = SubResource("Curve_jkj4a")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Curve" id="Curve_cpukd"]
+bake_resolution = 1
+
+[sub_resource type="Resource" id="Resource_5sx4g"]
+script = ExtResource("3_td03u")
+curve = SubResource("Curve_cpukd")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_khnl7"]
+script = ExtResource("2_2nlnc")
+name = "Paddle"
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_5sx4g")
+money_price_curve = SubResource("Resource_mntcr")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_ra7nt"]
+script = ExtResource("2_2nlnc")
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_5sx4g")
+money_price_curve = SubResource("Resource_mntcr")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_rau84"]
+script = ExtResource("2_2nlnc")
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_5sx4g")
+money_price_curve = SubResource("Resource_mntcr")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_leytd"]
+script = ExtResource("2_2nlnc")
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_5sx4g")
+money_price_curve = SubResource("Resource_mntcr")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_77dsy"]
+script = ExtResource("3_td03u")
+min_value = 150.0
+max_value = 150.0
+curve = SubResource("Curve_jkj4a")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_e8c7a"]
+script = ExtResource("3_td03u")
+curve = SubResource("Curve_cpukd")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_5wyd2"]
+script = ExtResource("2_2nlnc")
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_e8c7a")
+money_price_curve = SubResource("Resource_77dsy")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_de00w"]
+script = ExtResource("3_td03u")
+min_value = 150.0
+max_value = 150.0
+curve = SubResource("Curve_jkj4a")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_g22hw"]
+script = ExtResource("3_td03u")
+curve = SubResource("Curve_cpukd")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_wx4dg"]
+script = ExtResource("2_2nlnc")
+name = "Boxing Gloves"
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_g22hw")
+money_price_curve = SubResource("Resource_de00w")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_yybo2"]
+script = ExtResource("2_2nlnc")
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_g22hw")
+money_price_curve = SubResource("Resource_de00w")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_d30t3"]
+script = ExtResource("2_2nlnc")
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_g22hw")
+money_price_curve = SubResource("Resource_de00w")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_3s0et"]
+script = ExtResource("2_2nlnc")
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_g22hw")
+money_price_curve = SubResource("Resource_de00w")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_lcbij"]
+script = ExtResource("3_td03u")
+min_value = 150.0
+max_value = 150.0
+curve = SubResource("Curve_jkj4a")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Curve" id="Curve_bnobl"]
+
+[sub_resource type="Resource" id="Resource_yg15k"]
+script = ExtResource("3_td03u")
+curve = SubResource("Curve_bnobl")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_k0pys"]
+script = ExtResource("3_td03u")
+min_value = 150.0
+max_value = 150.0
+curve = SubResource("Curve_jkj4a")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_7w1so"]
+script = ExtResource("2_2nlnc")
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_yg15k")
+money_price_curve = SubResource("Resource_lcbij")
+woodchip_price_curve = SubResource("Resource_k0pys")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_ananc"]
+script = ExtResource("2_2nlnc")
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_yg15k")
+money_price_curve = SubResource("Resource_lcbij")
+woodchip_price_curve = SubResource("Resource_k0pys")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_ykdq4"]
+script = ExtResource("2_2nlnc")
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_yg15k")
+money_price_curve = SubResource("Resource_lcbij")
+woodchip_price_curve = SubResource("Resource_k0pys")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_0mty4"]
+script = ExtResource("2_2nlnc")
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_yg15k")
+money_price_curve = SubResource("Resource_lcbij")
+woodchip_price_curve = SubResource("Resource_k0pys")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_q02d3"]
+script = ExtResource("2_2nlnc")
+current_level = null
+unlock_level = null
+progression_curve = SubResource("Resource_yg15k")
+money_price_curve = SubResource("Resource_lcbij")
+woodchip_price_curve = SubResource("Resource_k0pys")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Resource" id="Resource_7lu4i"]
+script = ExtResource("2_2nlnc")
+progression_curve = SubResource("Resource_yg15k")
+money_price_curve = SubResource("Resource_lcbij")
+woodchip_price_curve = SubResource("Resource_k0pys")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[node name="GameplayManager" type="Node" unique_id=929358421]
+script = ExtResource("1_i05kw")
+UNLOCKABLES = Dictionary[int, ExtResource("2_2nlnc")]({
+0: SubResource("Resource_jw43u"),
+1: SubResource("Resource_y30eb"),
+2: SubResource("Resource_f3lkg"),
+3: SubResource("Resource_akorr"),
+4: SubResource("Resource_sq4sp"),
+5: SubResource("Resource_td03u"),
+6: SubResource("Resource_ya5du"),
+7: SubResource("Resource_targq"),
+8: SubResource("Resource_0l67v"),
+9: SubResource("Resource_ttti8"),
+10: SubResource("Resource_138jj"),
+11: SubResource("Resource_khnl7"),
+12: SubResource("Resource_ra7nt"),
+13: SubResource("Resource_rau84"),
+14: SubResource("Resource_leytd"),
+15: SubResource("Resource_5wyd2"),
+16: SubResource("Resource_wx4dg"),
+17: SubResource("Resource_yybo2"),
+18: SubResource("Resource_d30t3"),
+19: SubResource("Resource_3s0et"),
+20: SubResource("Resource_7w1so"),
+21: SubResource("Resource_ananc"),
+22: SubResource("Resource_ykdq4"),
+23: SubResource("Resource_0mty4"),
+24: SubResource("Resource_q02d3"),
+25: SubResource("Resource_7lu4i")
+})
