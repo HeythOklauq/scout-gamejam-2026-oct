@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c7oligk42cm6t"]
+
+[ext_resource type="Script" uid="uid://4l1lc7qnajqm" path="res://scenes/game_scene/skybox_scene.gd" id="1_pwjlu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dqkqe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwjlu"]
+albedo_color = Color(0.613202, 0.00027646302, 0.6131976, 1)
+
+[sub_resource type="Gradient" id="Gradient_pwjlu"]
+offsets = PackedFloat32Array(0, 0.67017543, 1)
+colors = PackedColorArray(1, 0.5793735, 0, 1, 1, 0.5793735, 0, 1, 1, 0.5793735, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gqa15"]
+gradient = SubResource("Gradient_pwjlu")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.3, 0.1)
+
+[node name="SkyboxScene" type="Node3D" unique_id=2038386099]
+script = ExtResource("1_pwjlu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1986954431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9234867, 1.7, -7.425293)
+layers = 524288
+mesh = SubResource("BoxMesh_dqkqe")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1899956053]
+transform = Transform3D(0.25402808, 0, 0.9671968, 0, 1, 0, -0.9671968, 0, 0.25402808, -7.1527853, 1.7, 2.066557)
+layers = 524288
+mesh = SubResource("BoxMesh_dqkqe")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1366201045]
+transform = Transform3D(0.25402808, 0, 0.9671968, 0, 1, 0, -0.9671968, 0, 0.25402808, 7.2128963, 4.1362047, 10.2148075)
+layers = 524288
+mesh = SubResource("BoxMesh_dqkqe")
+surface_material_override/0 = SubResource("StandardMaterial3D_pwjlu")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1642606092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17)
+pixel_size = 0.03
+billboard = 1
+texture = SubResource("GradientTexture2D_gqa15")

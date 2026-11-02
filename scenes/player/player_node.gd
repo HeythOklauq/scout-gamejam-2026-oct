@@ -8,9 +8,9 @@ signal money_changed(value :int, modifier :int)
 
 const WOOD_IMPACT_PARTICLE = preload("res://scenes/game_scene/wood_impact_particle.tscn")
 
-@onready var camera_3d: Camera3D = $Camera3D
+@onready var camera_anchor :Node3D = $CameraAnchor
 @onready var hitzone_collision_shape: CollisionShape3D = $HitzoneCollisionShape
-@onready var forward_marker_3d: Marker3D = $Camera3D/ForwardMarker3D
+@onready var forward_marker_3d: Marker3D = $GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/ForwardMarker3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var pause_menu_control: ColorRect = %PauseMenuControl
@@ -72,13 +72,13 @@ func turn_player(movement :Vector2) -> void:
 	
 	var camera_sensibility = Vector2(10.0, 10.0);
 	rotation_degrees.y -= deg_to_rad(movement.x) * camera_sensibility.x;
-	camera_3d.rotation_degrees.x = clampf(camera_3d.rotation_degrees.x - deg_to_rad(movement.y) * camera_sensibility.x, -80.0, 80.0);
+	camera_anchor.rotation_degrees.x = clampf(camera_anchor.rotation_degrees.x - deg_to_rad(movement.y) * camera_sensibility.x, -80.0, 80.0);
 
 func get_horizontal_velocity() -> Vector2:
 	return Vector2(velocity.x, velocity.z);
 
 func get_player_forward_angle() -> Vector3:
-	return (forward_marker_3d.global_position - camera_3d.global_position)
+	return (forward_marker_3d.global_position - camera_anchor.global_position)
 
 func apply_movement(movement :Vector3, strength :float) -> void:
 	velocity += movement.normalized() * strength

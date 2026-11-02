@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dasd35dkn24dq" path="res://scenes/player/jumping_state.gd" id="6_2yxhw"]
 [ext_resource type="Script" uid="uid://2xa0jbo84i3w" path="res://scenes/player/idle_combat_state.gd" id="12_ami1r"]
 [ext_resource type="Script" uid="uid://c3v8y40ynvi6r" path="res://scenes/player/knockbacked_state.gd" id="12_toa43"]
+[ext_resource type="Script" uid="uid://dwlo7cbtwn7" path="res://scenes/player/player_camera.gd" id="15_srlsm"]
 [ext_resource type="Script" uid="uid://q1xbkhesn5kk" path="res://scenes/player/charging_state.gd" id="16_mw67o"]
 [ext_resource type="Script" uid="uid://spmjsaalsve5" path="res://scenes/player/windup_state.gd" id="16_toa43"]
 [ext_resource type="Script" uid="uid://b5wxsu6elij08" path="res://scenes/player/attacking_state.gd" id="17_mw67o"]
@@ -23,28 +24,6 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tu3ki"]
 height = 1.1259766
 radius = 1.1
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_toa43"]
-size = Vector3(0.2890625, 0.23657227, 3.5617676)
-
-[sub_resource type="BoxMesh" id="BoxMesh_toa43"]
-size = Vector3(1, 0.3, 1.3)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_toa43"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.277)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_aivhf"]
-size = Vector3(1, 0.3, 1.3000001)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tu3ki"]
-size = Vector3(1, 0.8046875, 0.70410156)
-
-[sub_resource type="BoxMesh" id="BoxMesh_mw67o"]
-size = Vector3(1, 0.8, 0.7)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6i6l"]
-albedo_color = Color(0.33034274, 0.1058517, 0.22935909, 1)
 
 [sub_resource type="Resource" id="Resource_ikhd0"]
 script = ExtResource("18_ppx7h")
@@ -90,7 +69,7 @@ step = 0.025
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Bat:rotation:x")
+tracks/0/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -101,7 +80,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Bat:rotation:y")
+tracks/1/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -112,7 +91,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D/Bat:rotation:z")
+tracks/2/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -123,7 +102,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D/Bat:position:x")
+tracks/3/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -134,7 +113,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Camera3D/Bat:position:y")
+tracks/4/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -145,7 +124,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Camera3D/Bat:position:z")
+tracks/5/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -173,7 +152,7 @@ step = 0.025
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Bat:rotation:x")
+tracks/0/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -184,7 +163,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Bat:rotation:y")
+tracks/1/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -195,7 +174,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D/Bat:rotation:z")
+tracks/2/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -206,7 +185,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D/Bat:position:x")
+tracks/3/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -217,7 +196,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Camera3D/Bat:position:y")
+tracks/4/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -228,7 +207,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Camera3D/Bat:position:z")
+tracks/5/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -256,7 +235,7 @@ step = 0.025
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Bat:position:x")
+tracks/0/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -267,7 +246,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Bat:position:y")
+tracks/1/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -278,7 +257,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D/Bat:position:z")
+tracks/2/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -289,7 +268,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D/Bat:rotation:x")
+tracks/3/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -300,7 +279,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Camera3D/Bat:rotation:y")
+tracks/4/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -311,7 +290,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Camera3D/Bat:rotation:z")
+tracks/5/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -338,7 +317,7 @@ length = 0.3
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Bat:position:x")
+tracks/0/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -349,7 +328,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Bat:position:y")
+tracks/1/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -360,7 +339,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D/Bat:position:z")
+tracks/2/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -371,7 +350,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D/Bat:rotation:x")
+tracks/3/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -382,7 +361,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Camera3D/Bat:rotation:y")
+tracks/4/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -393,7 +372,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Camera3D/Bat:rotation:z")
+tracks/5/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -421,7 +400,7 @@ step = 0.025
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Bat:rotation:x")
+tracks/0/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -432,7 +411,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Bat:rotation:y")
+tracks/1/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -443,7 +422,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D/Bat:rotation:z")
+tracks/2/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -454,7 +433,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D/Bat:position:x")
+tracks/3/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -465,7 +444,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Camera3D/Bat:position:y")
+tracks/4/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -476,7 +455,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Camera3D/Bat:position:z")
+tracks/5/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -504,7 +483,7 @@ step = 0.025
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Bat:position:x")
+tracks/0/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -515,7 +494,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Bat:position:y")
+tracks/1/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -526,7 +505,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D/Bat:position:z")
+tracks/2/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -537,7 +516,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D/Bat:rotation:x")
+tracks/3/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -548,7 +527,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Camera3D/Bat:rotation:y")
+tracks/4/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -559,7 +538,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Camera3D/Bat:rotation:z")
+tracks/5/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -570,7 +549,7 @@ tracks/5/keys = {
 tracks/6/type = "bezier"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Camera3D:rotation:z")
+tracks/6/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera:rotation:z")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -597,7 +576,7 @@ length = 0.3
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Bat:position:x")
+tracks/0/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -608,7 +587,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Bat:position:y")
+tracks/1/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -619,7 +598,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D/Bat:position:z")
+tracks/2/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -630,7 +609,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D/Bat:rotation:x")
+tracks/3/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -641,7 +620,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Camera3D/Bat:rotation:y")
+tracks/4/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -652,7 +631,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Camera3D/Bat:rotation:z")
+tracks/5/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:rotation:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -680,7 +659,7 @@ step = 0.025
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Bat:position:x")
+tracks/0/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -691,7 +670,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Bat:position:y")
+tracks/1/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -702,7 +681,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D/Bat:position:z")
+tracks/2/path = NodePath("GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Bat:position:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -723,6 +702,28 @@ _data = {
 &"WindUp": SubResource("Animation_mw67o")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_toa43"]
+size = Vector3(0.2890625, 0.23657227, 3.5617676)
+
+[sub_resource type="BoxMesh" id="BoxMesh_toa43"]
+size = Vector3(1, 0.3, 1.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_toa43"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.277)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aivhf"]
+size = Vector3(1, 0.3, 1.3000001)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tu3ki"]
+size = Vector3(1, 0.8046875, 0.70410156)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mw67o"]
+size = Vector3(1, 0.8, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6i6l"]
+albedo_color = Color(0.33034274, 0.1058517, 0.22935909, 1)
+
 [node name="PlayerNode" type="CharacterBody3D" unique_id=764222003]
 collision_layer = 16
 collision_mask = 11
@@ -736,6 +737,9 @@ stamina_usage = 10.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_l67bh")
 
+[node name="CameraAnchor" type="Marker3D" parent="." unique_id=1628498056]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.52422, 0)
+
 [node name="PickupArea" type="Area3D" parent="." unique_id=1856561486]
 collision_layer = 0
 collision_mask = 64
@@ -744,82 +748,6 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea" unique_id=1413318854]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.087402344, 0)
 shape = SubResource("CylinderShape3D_tu3ki")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=143402113]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.52422, 0)
-current = true
-
-[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D" unique_id=1346256610]
-current = true
-
-[node name="ForwardMarker3D" type="Marker3D" parent="Camera3D" unique_id=1049655489]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-
-[node name="InteractionArea3D" type="Area3D" parent="Camera3D" unique_id=819175782]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/InteractionArea3D" unique_id=355644444]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7360198e-08, 0, -1.9068121)
-shape = SubResource("BoxShape3D_toa43")
-
-[node name="Medium_HurtZoneArea" type="Area3D" parent="Camera3D" unique_id=1913803103]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021437677, -0.48510623, -1)
-collision_layer = 0
-collision_mask = 139
-monitorable = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Medium_HurtZoneArea" unique_id=741235311]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 8.8475645e-09, 0, -0.45002162)
-visible = false
-mesh = SubResource("BoxMesh_toa43")
-surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Medium_HurtZoneArea" unique_id=835786139]
-transform = Transform3D(1, 0, 0, 0, 1, 0, -4.7606363e-13, -1.8596236e-15, 1, 0, 0, -0.45000005)
-shape = SubResource("BoxShape3D_aivhf")
-
-[node name="Short_HurtZoneArea" type="Area3D" parent="Camera3D" unique_id=1801602985]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021437677, -0.48510623, -1)
-collision_layer = 0
-collision_mask = 139
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Short_HurtZoneArea" unique_id=1696795455]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 0, 0.25, -0.14999998)
-shape = SubResource("BoxShape3D_tu3ki")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Short_HurtZoneArea" unique_id=996915530]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 0, 0.25, -0.14999998)
-visible = false
-mesh = SubResource("BoxMesh_mw67o")
-surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
-
-[node name="Bat" type="MeshInstance3D" parent="Camera3D" unique_id=1265214212]
-transform = Transform3D(0.00021265793, 0.12186897, 0.99254626, 0.0017323158, 0.992543, -0.12186936, -0.99999666, 0.0017453202, -4.3385572e-08, 0.977, -0.863, -1.03)
-cast_shadow = 0
-mesh = ExtResource("3_xlee4")
-surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera3D" unique_id=327297930]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="Camera3D/SubViewportContainer" unique_id=375281558]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(800, 600)
-render_target_update_mode = 4
-
-[node name="HUDControl" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=1211318264 node_paths=PackedStringArray("player_node") instance=ExtResource("2_aivhf")]
-player_node = NodePath("../../../..")
-
-[node name="PauseScreen" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=736869025 node_paths=PackedStringArray("hud_control") instance=ExtResource("4_mw67o")]
-hud_control = NodePath("../HUDControl")
 
 [node name="MotionPlayerStateMachine" parent="." unique_id=2089066676 node_paths=PackedStringArray("starting_state") instance=ExtResource("2_3mpri")]
 starting_state = NodePath("IdleState")
@@ -850,8 +778,8 @@ starting_state = NodePath("IdleState")
 [node name="AttackingState" type="Node" parent="CombatPlayerStateMachine" unique_id=2015591623 node_paths=PackedStringArray("hurtboxes_list")]
 script = ExtResource("17_mw67o")
 hurtboxes_list = {
-0: NodePath("../../Camera3D/Short_HurtZoneArea"),
-1: NodePath("../../Camera3D/Medium_HurtZoneArea")
+0: NodePath("../../GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Short_HurtZoneArea"),
+1: NodePath("../../GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Medium_HurtZoneArea")
 }
 attack_resources_list = Dictionary[int, ExtResource("18_ppx7h")]({
 0: SubResource("Resource_ikhd0"),
@@ -880,14 +808,135 @@ metadata/_custom_type_script = "uid://fyrql5g47aon"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=179279295]
 libraries/ = SubResource("AnimationLibrary_k6i6l")
 
-[connection signal="combo_changed" from="." to="Camera3D/SubViewportContainer/SubViewport/HUDControl" method="_on_player_combo_changed"]
-[connection signal="money_changed" from="." to="Camera3D/SubViewportContainer/SubViewport/HUDControl" method="_on_player_money_changed"]
-[connection signal="stamina_changed" from="." to="Camera3D/SubViewportContainer/SubViewport/HUDControl" method="_on_player_stamina_changed"]
-[connection signal="woodchip_changed" from="." to="Camera3D/SubViewportContainer/SubViewport/HUDControl" method="_on_player_woodchip_changed"]
+[node name="3dSkyboxCanvas" type="CanvasLayer" parent="." unique_id=643765146]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="3dSkyboxCanvas" unique_id=548605318]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="3dSkyboxCanvas/SubViewportContainer" unique_id=1419438425]
+handle_input_locally = false
+size = Vector2i(800, 600)
+render_target_update_mode = 4
+
+[node name="SkyboxCamera3D" type="Camera3D" parent="3dSkyboxCanvas/SubViewportContainer/SubViewport" unique_id=1557965251 node_paths=PackedStringArray("target")]
+cull_mask = 524288
+script = ExtResource("15_srlsm")
+target = NodePath("../../../../CameraAnchor")
+update_rotation = true
+deferred_update = true
+
+[node name="GameCanvas" type="CanvasLayer" parent="." unique_id=1129814942]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GameCanvas" unique_id=1184110378]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GameCanvas/SubViewportContainer" unique_id=1113236423]
+transparent_bg = true
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(800, 600)
+render_target_update_mode = 4
+
+[node name="PlayerCamera" type="Camera3D" parent="GameCanvas/SubViewportContainer/SubViewport" unique_id=143402113 node_paths=PackedStringArray("target")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.52422, 0)
+cull_mask = 524287
+current = true
+script = ExtResource("15_srlsm")
+target = NodePath("../../../../CameraAnchor")
+update_position = true
+update_rotation = true
+deferred_update = true
+
+[node name="AudioListener3D" type="AudioListener3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1346256610]
+current = true
+
+[node name="ForwardMarker3D" type="Marker3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1049655489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="InteractionArea3D" type="Area3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=819175782]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/InteractionArea3D" unique_id=355644444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7360198e-08, 0, -1.9068121)
+shape = SubResource("BoxShape3D_toa43")
+
+[node name="Medium_HurtZoneArea" type="Area3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1913803103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021437677, -0.48510623, -1)
+collision_layer = 0
+collision_mask = 139
+monitorable = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Medium_HurtZoneArea" unique_id=741235311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 8.8475645e-09, 0, -0.45002162)
+visible = false
+mesh = SubResource("BoxMesh_toa43")
+surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Medium_HurtZoneArea" unique_id=835786139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -4.7606363e-13, -1.8596236e-15, 1, 0, 0, -0.45000005)
+shape = SubResource("BoxShape3D_aivhf")
+
+[node name="Short_HurtZoneArea" type="Area3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1801602985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021437677, -0.48510623, -1)
+collision_layer = 0
+collision_mask = 139
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Short_HurtZoneArea" unique_id=1696795455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 0, 0.25, -0.14999998)
+shape = SubResource("BoxShape3D_tu3ki")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Short_HurtZoneArea" unique_id=996915530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 0, 0.25, -0.14999998)
+visible = false
+mesh = SubResource("BoxMesh_mw67o")
+surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
+
+[node name="Bat" type="MeshInstance3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1265214212]
+transform = Transform3D(0.00021265792, 0.12186896, 0.99254626, 0.0017323158, 0.9925429, -0.12186936, -0.9999966, 0.00174532, -4.3385572e-08, 0.977, -0.863, -1.03)
+cast_shadow = 0
+mesh = ExtResource("3_xlee4")
+surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=327297930]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/SubViewportContainer" unique_id=375281558]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(800, 600)
+render_target_update_mode = 4
+
+[node name="HUDControl" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/SubViewportContainer/SubViewport" unique_id=1211318264 node_paths=PackedStringArray("player_node") instance=ExtResource("2_aivhf")]
+player_node = NodePath("../../../../../../..")
+
+[node name="PauseScreen" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/SubViewportContainer/SubViewport" unique_id=736869025 node_paths=PackedStringArray("hud_control") instance=ExtResource("4_mw67o")]
+hud_control = NodePath("../HUDControl")
+
+[connection signal="combo_changed" from="." to="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/SubViewportContainer/SubViewport/HUDControl" method="_on_player_combo_changed"]
+[connection signal="money_changed" from="." to="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/SubViewportContainer/SubViewport/HUDControl" method="_on_player_money_changed"]
+[connection signal="stamina_changed" from="." to="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/SubViewportContainer/SubViewport/HUDControl" method="_on_player_stamina_changed"]
+[connection signal="woodchip_changed" from="." to="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/SubViewportContainer/SubViewport/HUDControl" method="_on_player_woodchip_changed"]
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
-[connection signal="area_entered" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_entered"]
-[connection signal="area_exited" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_exited"]
-[connection signal="body_entered" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_entered"]
-[connection signal="body_exited" from="Camera3D/InteractionArea3D" to="." method="_on_interaction_area_exited"]
-[connection signal="body_entered" from="Camera3D/Medium_HurtZoneArea" to="CombatPlayerStateMachine/AttackingState" method="_on_medium_hurt_zone_area_body_entered"]
-[connection signal="body_entered" from="Camera3D/Short_HurtZoneArea" to="CombatPlayerStateMachine/AttackingState" method="_on_short_hurt_zone_area_body_entered"]
+[connection signal="area_entered" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/InteractionArea3D" to="." method="_on_interaction_area_entered"]
+[connection signal="area_exited" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/InteractionArea3D" to="." method="_on_interaction_area_exited"]
+[connection signal="body_entered" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/InteractionArea3D" to="." method="_on_interaction_area_entered"]
+[connection signal="body_exited" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/InteractionArea3D" to="." method="_on_interaction_area_exited"]
+[connection signal="body_entered" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Medium_HurtZoneArea" to="CombatPlayerStateMachine/AttackingState" method="_on_medium_hurt_zone_area_body_entered"]
+[connection signal="body_entered" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Short_HurtZoneArea" to="CombatPlayerStateMachine/AttackingState" method="_on_short_hurt_zone_area_body_entered"]
