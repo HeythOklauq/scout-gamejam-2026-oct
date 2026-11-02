@@ -6,8 +6,6 @@ signal combo_changed(value :int)
 signal woodchip_changed(value :int, modifier :int)
 signal money_changed(value :int, modifier :int)
 
-const WOOD_IMPACT_PARTICLE = preload("res://scenes/game_scene/wood_impact_particle.tscn")
-
 @onready var camera_anchor :Node3D = $CameraAnchor
 @onready var hitzone_collision_shape: CollisionShape3D = $HitzoneCollisionShape
 @onready var forward_marker_3d: Marker3D = $GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/ForwardMarker3D

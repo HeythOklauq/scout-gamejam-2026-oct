@@ -35,6 +35,8 @@ func _on_hittable_body_component_hit(direction: Vector3, strength: float) -> voi
 	var delta_segments = (old_hp_segments - new_hp_segments)
 	for i in delta_segments:
 		spawn_woodchip(direction, strength)
+	
+	ParticleManager.spawn_particle(ParticleManager.PARTICLE_TYPES.WOOD_IMPACT, chip_spawn_point.global_position);
 
 func on_woodchip_picked_up(woodchip :WoodChipNode) -> void:
 	used_woodchips.remove_at(used_woodchips.find(woodchip))
