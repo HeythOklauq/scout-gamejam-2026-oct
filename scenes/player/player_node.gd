@@ -125,6 +125,9 @@ var active_interactable_node
 
 func _on_interaction_area_entered(node) -> void:
 	var interactable_component = InteractableBodyComponent.get_interactable_component(node);
+	if interactable_component == null:
+		return
+	
 	if not active_interactable_node == null:
 		active_interactable_node.unselect()
 	
@@ -134,6 +137,9 @@ func _on_interaction_area_entered(node) -> void:
 
 func _on_interaction_area_exited(node) -> void:
 	var interactable_component = InteractableBodyComponent.get_interactable_component(node);
+	if interactable_component == null:
+		return
+	
 	if active_interactable_node == interactable_component:
 		active_interactable_node = null;
 		interactable_component.unselect()
