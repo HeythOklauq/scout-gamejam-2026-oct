@@ -21,7 +21,7 @@ const SOUNDS :Dictionary[SOUND_TYPES, Array] = {
 		preload("res://assets/audio/sfx/swing.wav")
 	],
 	SOUND_TYPES.BUNT: [
-		preload("res://assets/audio/sfx/swing.wav")
+		preload("uid://sko6cbv1w2s5"),
 	],
 	SOUND_TYPES.PICK_UP: [
 		preload("uid://stiujfj5814e"), 
