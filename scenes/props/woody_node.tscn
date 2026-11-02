@@ -60,25 +60,36 @@ point_count = 4
 curve = SubResource("Curve_8rms8")
 
 [sub_resource type="Curve" id="Curve_f4r6e"]
-_data = [Vector2(0.01421801, 0), 0.0, 3.8948643, 0, 0, Vector2(0.13270143, 0.7865169), 2.9946768, 2.9946768, 0, 0, Vector2(0.38388628, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
+_data = [Vector2(0, 0), 0.0, 3.8948643, 0, 0, Vector2(0.17378047, 0.64459294), 1.2776878, 1.2776878, 0, 0, Vector2(0.4878049, 0.47873628), 0.0, 0.0, 0, 0, Vector2(0.8871951, 1), -0.7229369, -0.7229369, 0, 0, Vector2(1, 0), -10.785537, 0.0, 0, 0]
+point_count = 5
 
 [sub_resource type="CurveTexture" id="CurveTexture_kl2ce"]
 curve = SubResource("Curve_f4r6e")
 
+[sub_resource type="Curve" id="Curve_4t0ym"]
+_data = [Vector2(0, 0), 0.0, 0.059371654, 0, 0, Vector2(1, 1), 3.6147017, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6gsia"]
+curve = SubResource("Curve_4t0ym")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_paawa"]
-emission_shape_scale = Vector3(0.007, 0.007, 0.007)
+emission_shape_scale = Vector3(0, 0, 0)
 emission_shape = 1
 emission_sphere_radius = 1.0
+angle_min = -271.5
+angle_max = 326.00003
 angle_curve = SubResource("CurveTexture_bgv0c")
 velocity_pivot = Vector3(0.725, 0, 0)
 direction = Vector3(1, 0.12, 0)
 spread = 0.0
-gravity = Vector3(0.07, 0.38, 0.055)
+gravity = Vector3(0.01, 0.075, -0.025)
 scale_min = 0.0
-scale_max = 8.03
+scale_max = 5.0
 scale_curve = SubResource("CurveTexture_kl2ce")
-scale_over_velocity_max = 108.43
+turbulence_enabled = true
+turbulence_noise_scale = 0.436
+turbulence_influence_over_life = SubResource("CurveTexture_6gsia")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1oi6"]
 transparency = 4
@@ -172,16 +183,16 @@ process_material = SubResource("ParticleProcessMaterial_f4r6e")
 draw_pass_1 = SubResource("RibbonTrailMesh_6gsia")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="ciggiebasic" unique_id=395031434]
-transform = Transform3D(0.99999905, 2.4680048e-07, 1.4901161e-07, -2.6170164e-07, 0.9999987, -7.450581e-09, -4.4703484e-08, -4.4703484e-08, 0.9999991, 0.017212143, 0.003606677, -0.00017249444)
-amount = 7
-amount_ratio = 0.6611
+transform = Transform3D(0.97988814, 0.19932832, -0.009223573, -0.1995171, 0.97944367, -0.029649999, 0.0031240582, 0.03089387, 0.99951684, 0.014000131, 0.00364995, 0.00035924977)
+amount = 278
+amount_ratio = 0.8
+lifetime = 5.27
 transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_paawa")
 draw_pass_1 = SubResource("PlaneMesh_4t0ym")
 draw_skin = SubResource("Skin_6gsia")
 
 [node name="HittableBodyComponent" parent="." unique_id=1598085311 instance=ExtResource("8_tbbh2")]
-hit_sfx_volume = 0.1
 on_hit_soundtype_1 = 4
 on_hit_soundtype_2 = 5
 knockback_angle = 20.0

@@ -73,6 +73,13 @@ mesh = ExtResource("3_vpstl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DummyHouse/StaticBody3D" unique_id=1502682580]
 shape = SubResource("ConcavePolygonShape3D_vpstl")
 
+[node name="HittableBodyComponent" parent="DummyHouse/StaticBody3D" unique_id=1842619649 instance=ExtResource("3_bug3b")]
+on_hit_soundtype_1 = 6
+on_hit_soundtype_2 = 8
+knockback_angle = 0.0
+knockback_movement = 0.0
+animation_duration = 0.0
+
 [node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=2131594757]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08967376, 10.1, -0.2277143)
 amount = 200

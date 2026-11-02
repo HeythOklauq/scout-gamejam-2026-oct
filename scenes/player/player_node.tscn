@@ -851,7 +851,7 @@ size = Vector2i(800, 600)
 render_target_update_mode = 4
 
 [node name="PlayerCamera" type="Camera3D" parent="GameCanvas/SubViewportContainer/SubViewport" unique_id=143402113 node_paths=PackedStringArray("target")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.52422, 0)
+transform = Transform3D(-4.371139e-08, -0.11320321, -0.9935719, 0, 0.9935719, -0.11320321, 1, -4.94827e-09, -4.3430408e-08, 0, 1.52422, 0)
 cull_mask = 524287
 current = true
 script = ExtResource("15_srlsm")
@@ -904,7 +904,7 @@ mesh = SubResource("BoxMesh_mw67o")
 surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
 
 [node name="Bat" type="MeshInstance3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1265214212]
-transform = Transform3D(0.00021265788, 0.12186894, 0.99254626, 0.0017323154, 0.99254274, -0.12186936, -0.9999964, 0.0017453197, -4.3385572e-08, 0.977, -0.863, -1.03)
+transform = Transform3D(0.00021265788, 0.12186893, 0.99254626, 0.0017323153, 0.9925427, -0.12186936, -0.99999636, 0.0017453196, -4.3385572e-08, 0.977, -0.863, -1.03)
 cast_shadow = 0
 mesh = ExtResource("3_xlee4")
 surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")
