@@ -2,6 +2,29 @@
 
 [ext_resource type="Script" uid="uid://cpytu8o6hj8eg" path="res://scenes/pause_menu/credit_screen.gd" id="1_8xt4t"]
 [ext_resource type="PackedScene" uid="uid://drpdprq8newxm" path="res://scenes/pause_menu/credit_line.tscn" id="1_hkbjg"]
+[ext_resource type="FontFile" uid="uid://w5eb3iy23tj6" path="res://assets/fonts/Redden.ttf" id="3_3rsxe"]
+[ext_resource type="FontFile" uid="uid://bqku6p58plfbf" path="res://assets/fonts/WritePix16.ttf" id="4_uq8ro"]
+[ext_resource type="FontFile" uid="uid://dqioc5wf561hr" path="res://assets/fonts/CooperBits.ttf" id="5_r78ps"]
+[ext_resource type="FontFile" uid="uid://dxpscgkwqhkh1" path="res://assets/fonts/ari-w9500-display.ttf" id="6_60g7k"]
+
+[sub_resource type="Theme" id="Theme_cxggi"]
+default_font = ExtResource("3_3rsxe")
+default_font_size = 48
+
+[sub_resource type="Theme" id="Theme_5qxau"]
+default_font = ExtResource("4_uq8ro")
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_cv8i5"]
+default_font = ExtResource("5_r78ps")
+default_font_size = 24
+
+[sub_resource type="Theme" id="Theme_lpm0h"]
+default_font_size = 24
+
+[sub_resource type="Theme" id="Theme_ak6r4"]
+default_font = ExtResource("6_60g7k")
+default_font_size = 24
 
 [node name="CreditScreen" type="Control" unique_id=1372777105]
 layout_mode = 3
@@ -48,24 +71,24 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=724540530]
+[node name="VBoxContainer5" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=813305108]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=47110724]
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer5" unique_id=258901597]
 layout_mode = 2
 text = "Main Team"
 
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=14648375]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer5" unique_id=1218857833]
 layout_mode = 2
 
-[node name="CreditLine" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1954263039 instance=ExtResource("1_hkbjg")]
+[node name="CreditLine" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer5" unique_id=1954263039 instance=ExtResource("1_hkbjg")]
 layout_mode = 2
 collaborator_name = "Heyth"
 collaborator_link = "https://bsky.app/profile/heythoklauq.bsky.social"
 participation_name = "Laws of Physics"
 
-[node name="CreditLine2" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=474799945 instance=ExtResource("1_hkbjg")]
+[node name="CreditLine2" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer5" unique_id=1971139619 instance=ExtResource("1_hkbjg")]
 layout_mode = 2
 collaborator_name = "Scout"
 collaborator_link = "https://bsky.app/profile/clowndepot.mariogolf.info"
@@ -84,30 +107,35 @@ layout_mode = 2
 
 [node name="CreditLine" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1601275223 instance=ExtResource("1_hkbjg")]
 layout_mode = 2
+theme = SubResource("Theme_cxggi")
 collaborator_name = "PremedLynx"
 participation_name = "Font - Redden"
 participation_link = "https://premedlynx.itch.io/reddenpixelfont"
 
 [node name="CreditLine2" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1736793111 instance=ExtResource("1_hkbjg")]
 layout_mode = 2
+theme = SubResource("Theme_5qxau")
 collaborator_name = "PlayMakeReview"
 participation_name = "Font - WritePix16"
 participation_link = "https://www.dafont.com/writepix16.font"
 
 [node name="CreditLine3" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1242096479 instance=ExtResource("1_hkbjg")]
 layout_mode = 2
+theme = SubResource("Theme_cv8i5")
 collaborator_name = "Elli Sho"
 participation_name = "Font - CooperBits"
 participation_link = "https://www.dafont.com/cooperbits.font"
 
 [node name="CreditLine4" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=639381194 instance=ExtResource("1_hkbjg")]
 layout_mode = 2
+theme = SubResource("Theme_lpm0h")
 collaborator_name = "jsr_Games"
 participation_name = "Font - Tengoku"
 participation_link = "https://www.dafont.com/tengoku.font"
 
 [node name="CreditLine5" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=154816048 instance=ExtResource("1_hkbjg")]
 layout_mode = 2
+theme = SubResource("Theme_ak6r4")
 collaborator_name = "Catterio Sylt"
 participation_name = "Font - Ari-W9500"
 participation_link = "https://www.dafont.com/ari-w9500.font"
@@ -145,6 +173,25 @@ layout_mode = 2
 collaborator_name = "Fable (UbertheMeh)"
 collaborator_link = "https://bsky.app/profile/uberthemeh.bsky.social"
 participation_name = "Concept Art"
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer4" unique_id=1121109370]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=724540530]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=47110724]
+layout_mode = 2
+theme_override_constants/paragraph_spacing = 3
+theme_override_constants/shadow_outline_size = 6
+theme_override_font_sizes/font_size = 18
+text = "We didn't use generative AI at any step in the creation of this stupid little game.
+If you DO use generative AI in the process of making your stupid little games,
+your are-- and we do not mean this lightly--
+objectively below us."
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=1750658715]
 layout_mode = 2
