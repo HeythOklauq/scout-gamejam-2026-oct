@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cydn8rfyee3s" path="res://assets/models/ciggiebasic.blend" id="6_65piq"]
 [ext_resource type="Texture2D" uid="uid://7bx28j1qwm6y" path="res://assets/graphics/smokelet.png" id="7_tbbh2"]
 [ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="8_tbbh2"]
+[ext_resource type="Texture2D" uid="uid://dmfk2fah7oc8o" path="res://assets/graphics/woody_leaf.png" id="9_8rms8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hv1t7"]
 height = 2.0002441
@@ -142,5 +143,14 @@ draw_skin = SubResource("Skin_6gsia")
 on_hit_soundtype = 4
 knockback_angle = 20.0
 knockback_movement = 0.3
+
+[node name="Leafstem" type="Node3D" parent="." unique_id=1390153730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9852004, -0.20760433)
+
+[node name="Sprite3D" type="Sprite3D" parent="Leafstem" unique_id=1192921072]
+transform = Transform3D(0.4, 0, 0, 0, 0.3905184, 0.08657585, 0, -0.08657585, 0.3905184, 0.004, 0.0527997, -0.042395666)
+axis = 0
+shaded = true
+texture = ExtResource("9_8rms8")
 
 [connection signal="hit" from="HittableBodyComponent" to="." method="_on_hittable_body_component_hit"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bkyevm5ghv8pt" path="res://assets/models/ground_texture.001.png" id="1_8ghve"]
 [ext_resource type="ArrayMesh" uid="uid://c560n2s0slopl" path="res://assets/models/dummy map.obj" id="2_p3kjh"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="3_bug3b"]
 [ext_resource type="ArrayMesh" uid="uid://c2s5cbrimie73" path="res://assets/models/dummy house.obj" id="3_vpstl"]
 [ext_resource type="PackedScene" uid="uid://cwk7yh52bw2lt" path="res://scenes/player/player_node.tscn" id="4_p3kjh"]
 [ext_resource type="PackedScene" uid="uid://cvd574a3vd0dc" path="res://scenes/props/woody_node.tscn" id="5_vpstl"]
@@ -54,6 +55,11 @@ surface_material_override/1 = SubResource("StandardMaterial3D_efq47")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DummyMap/StaticBody3D2" unique_id=324181381]
 shape = SubResource("ConcavePolygonShape3D_p3kjh")
+
+[node name="HittableBodyComponent" parent="DummyMap/StaticBody3D2" unique_id=1598085311 instance=ExtResource("3_bug3b")]
+knockback_angle = 0.0
+knockback_movement = 0.0
+animation_duration = 0.0
 
 [node name="DummyHouse" type="MeshInstance3D" parent="." unique_id=596206383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.955986, -0.21455383, -6.682396)
