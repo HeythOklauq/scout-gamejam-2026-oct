@@ -16,7 +16,7 @@ albedo_color = Color(0.22745098, 0.43529412, 0.38431373, 1)
 script = ExtResource("1_pwjlu")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=123181071]
-transform = Transform3D(0.9041653, -0.012004924, 0.42701408, -0.1710021, 0.90585, 0.38754883, -0.3914632, -0.42342854, 0.81698525, 3.4945984, 25.185322, 34.618896)
+transform = Transform3D(0.97467065, 0.011694767, 0.22333917, -0.028641276, 0.9969361, 0.07279009, -0.22180358, -0.07734307, 0.97201926, -8.587807, 16.709963, 34.451336)
 layers = 524288
 light_color = Color(0.77678156, 0.3949854, 0.22161457, 1)
 light_energy = 6.702
@@ -139,7 +139,7 @@ texture_filter = 0
 texture = ExtResource("2_umi8b")
 
 [node name="Sprite3D17" type="Sprite3D" parent="." unique_id=1492844018]
-transform = Transform3D(-0.15519835, 0.019893678, -0.5820364, -0.009297188, 0.36001217, 0.07374318, 0.19629914, 0.032779407, -0.45667797, 13.24061, 8.131688, 11.178232)
+transform = Transform3D(-0.15519835, 0.019893678, -0.5820364, -0.009297188, 0.36001217, 0.07374318, 0.19629914, 0.032779407, -0.45667797, 10.558641, 7.242983, 15.858389)
 layers = 524288
 pixel_size = 0.03
 shaded = true
@@ -153,6 +153,14 @@ pixel_size = 0.03
 shaded = true
 texture_filter = 0
 texture = ExtResource("2_umi8b")
+
+[node name="Sprite3D21" type="Sprite3D" parent="." unique_id=1089164719]
+transform = Transform3D(-0.03261487, -0.0549243, 0.72846496, 0.0016085317, 0.35773095, 0.114375286, -0.24827415, 0.009532891, -0.09495488, 13.374701, 6.9386187, 10.033371)
+layers = 524288
+pixel_size = 0.03
+shaded = true
+texture_filter = 0
+texture = ExtResource("4_dmqod")
 
 [node name="Sprite3D16" type="Sprite3D" parent="." unique_id=114373573]
 transform = Transform3D(-0.24674568, -0.0072256923, 0.12589228, 0.0016085304, 0.357731, 0.114375286, -0.042665243, 0.055275157, -0.7237601, 2.8360095, 6.3902054, -7.2492085)
