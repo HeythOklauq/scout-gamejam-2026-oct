@@ -68,7 +68,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_r4uwc")
 surface_material_override/1 = SubResource("StandardMaterial3D_b20dj")
 
 [node name="DoorBody" type="StaticBody3D" parent="." unique_id=997615715]
-transform = Transform3D(2.695, 0, 0, 0, 2.695, 0, 0, 0, 2.695, 0, 1.928, 9.842426)
+transform = Transform3D(-1.1780219e-07, 0, 2.695, 0, 2.695, 0, -2.695, 0, -1.1780219e-07, 9.81814, 1.928, -0.009581566)
 collision_layer = 4
 collision_mask = 0
 
