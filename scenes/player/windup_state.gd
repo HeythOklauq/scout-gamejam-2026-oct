@@ -14,7 +14,6 @@ func on_entering_state(_previous_state :StateNode) -> void:
 	player_node.use_stamina()
 	SfxManager.play_sound(SfxManager.SOUND_TYPES.WIND_UP, 0.1, 0.02);
 	attack_type = AttackingState.ATTACK_TYPES.SWING
-	animation_player.stop();
 	animation_player.play("WindUp")
 
 func process_frame(_delta: float) -> StateNode:

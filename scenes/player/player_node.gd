@@ -121,21 +121,6 @@ func can_use_stamina() -> bool:
 func use_stamina() -> void:
 	current_stamina -= stamina_usage;
 
-func hit_target(node3d :Node3D) -> void:
-	animation_player.stop();
-	animation_player.play("KnockedBack");
-	
-	SlowMotionManager.slow_time(SlowMotionManager.MAJOR_SLOW, 0.5);
-	
-	
-	var target = node3d.find_parent("WoodyNode")
-	if not target == null:
-		target.on_hit()
-	
-	var tmp_particle = WOOD_IMPACT_PARTICLE.instantiate() as WoodImpactParticle
-	tmp_particle.global_position = forward_marker_3d.global_position
-	get_tree().root.add_child(tmp_particle)
-
 var active_interactable_node
 
 func _on_interaction_area_entered(node) -> void:

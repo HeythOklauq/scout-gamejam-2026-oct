@@ -45,7 +45,6 @@ func on_entering_state(_previous_state :StateNode) -> void:
 	current_attack_resource = attack_resources_list[_previous_state.attack_type]
 	
 	sfx = SfxManager.play_sound(current_attack_resource.sfx_type, current_attack_resource.sfx_volume, current_attack_resource.sfx_variation);
-	animation_player.stop();
 	if animation_player.has_animation(current_attack_resource.animation_name):
 		animation_player.play(current_attack_resource.animation_name);
 
