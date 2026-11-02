@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bh02sg8jcjh7l" path="res://assets/audio/ambiants/freesound_community-forest-wind-and-birds-6881.mp3" id="6_iuepn"]
 [ext_resource type="PackedScene" uid="uid://w5h4fg3yfssc" path="res://scenes/props/house_of_waffle.tscn" id="7_efq47"]
 [ext_resource type="PackedScene" uid="uid://o2wrmyrdsqf0" path="res://scenes/game_scene/skybox_scene.tscn" id="9_biejc"]
+[ext_resource type="Environment" uid="uid://c4jiuhl5im7nu" path="res://resources/world_environment.tres" id="10_bgv0c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iuepn"]
 albedo_texture = ExtResource("1_8ghve")
@@ -128,3 +129,6 @@ transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50
 
 [node name="SkyboxScene" parent="." unique_id=2038386099 instance=ExtResource("9_biejc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.664711, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1210430226]
+environment = ExtResource("10_bgv0c")

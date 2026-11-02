@@ -6,14 +6,10 @@ signal combo_changed(value :int)
 signal woodchip_changed(value :int, modifier :int)
 signal money_changed(value :int, modifier :int)
 
-const WOOD_IMPACT_PARTICLE = preload("res://scenes/game_scene/wood_impact_particle.tscn")
-
 @onready var camera_anchor :Node3D = $CameraAnchor
 @onready var hitzone_collision_shape: CollisionShape3D = $HitzoneCollisionShape
 @onready var forward_marker_3d: Marker3D = $GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/ForwardMarker3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-@onready var pause_menu_control: ColorRect = %PauseMenuControl
 
 var attack_locked := false;
 var stamina_locked := false;
@@ -125,6 +121,9 @@ var active_interactable_node
 
 func _on_interaction_area_entered(node) -> void:
 	var interactable_component = InteractableBodyComponent.get_interactable_component(node);
+	if interactable_component == null:
+		return
+	
 	if not active_interactable_node == null:
 		active_interactable_node.unselect()
 	
@@ -134,6 +133,9 @@ func _on_interaction_area_entered(node) -> void:
 
 func _on_interaction_area_exited(node) -> void:
 	var interactable_component = InteractableBodyComponent.get_interactable_component(node);
+	if interactable_component == null:
+		return
+	
 	if active_interactable_node == interactable_component:
 		active_interactable_node = null;
 		interactable_component.unselect()

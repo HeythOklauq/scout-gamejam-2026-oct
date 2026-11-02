@@ -27,9 +27,11 @@ func _ready() -> void:
 		body.set_collision_layer_value(3, true);
 
 func select() -> void:
+	prints("InteractableBodyComponent", name, "select")
 	mesh.set_surface_override_material(0, INTERACTIBLE_SHADER)
 
 func unselect() -> void:
+	prints("InteractableBodyComponent", name, "unselect")
 	mesh.set_surface_override_material(0, default_mesh_shader)
 
 func interact() -> bool:
