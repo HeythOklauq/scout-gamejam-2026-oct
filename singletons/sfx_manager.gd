@@ -5,7 +5,8 @@ enum SOUND_TYPES {
 	SWING,
 	BUNT,
 	PICK_UP,
-	IMPACT_WOOD,
+	IMPACT_WOOD_1,
+	IMPACT_WOOD_2,
 	IMPACT_CONCRETE,
 	IMPACT_METAL,
 	NONE,
@@ -35,14 +36,27 @@ const SOUNDS :Dictionary[SOUND_TYPES, Array] = {
 		preload("uid://y1eccf4m4s66"), 
 		preload("uid://do4g56rv5iwno")
 	],
-	SOUND_TYPES.IMPACT_WOOD: [
+	SOUND_TYPES.IMPACT_WOOD_1: [
 		preload("uid://bfa28h1p2ky5n"), 
 		preload("uid://bkqp1birh5vsh"), 
 		preload("uid://dhystfok6plyr"), 
 		preload("uid://oxk3cut45kok"), 
 		preload("uid://b33utbnontobh"), 
-		preload("uid://1w2ea5wjx7v4")
+		preload("uid://1w2ea5wjx7v4"),
 	],
+	
+	SOUND_TYPES.IMPACT_WOOD_2: [
+		preload("uid://f61qpg3dpp5k"), 
+		preload("uid://dpebyrd3kvba2"), 
+		preload("uid://d2appwvtqgach"), 
+		preload("uid://c8ugcmty6w6m8"), 
+		preload("uid://bmmkgrobxmjqr"), 
+		preload("uid://dhm8tta0ocj7"), 
+		preload("uid://4ww1xx2mb2r7"), 
+		preload("uid://cphy7guap7obr"), 
+		preload("uid://bfcj780db6vxc"), 
+		preload("uid://crsd62ysk8p71"),
+	],	
 	SOUND_TYPES.IMPACT_CONCRETE: [
 		preload("res://assets/audio/sfx/impactWood_light_001.ogg")
 	],

@@ -181,7 +181,9 @@ draw_pass_1 = SubResource("PlaneMesh_4t0ym")
 draw_skin = SubResource("Skin_6gsia")
 
 [node name="HittableBodyComponent" parent="." unique_id=1598085311 instance=ExtResource("8_tbbh2")]
-on_hit_soundtype = 4
+hit_sfx_volume = 0.1
+on_hit_soundtype_1 = 4
+on_hit_soundtype_2 = 5
 knockback_angle = 20.0
 knockback_movement = 0.3
 
