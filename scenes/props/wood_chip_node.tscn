@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://coabcqnvs1j08" path="res://scenes/props/wood_chip_node.gd" id="1_k3c1e"]
 [ext_resource type="Texture2D" uid="uid://rpnlh06vg4mx" path="res://assets/graphics/cursed_wood_chips.png" id="1_s5vyn"]
-[ext_resource type="Texture2D" uid="uid://7bx28j1qwm6y" path="res://assets/graphics/smokelet.png" id="3_pj5d6"]
+[ext_resource type="Texture2D" uid="uid://b77ejg2w3c8f6" path="res://assets/graphics/magic_smokelet.png" id="3_pj5d6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pj5d6"]
 bounce = 0.3
@@ -18,8 +18,9 @@ point_count = 2
 curve = SubResource("Curve_pj5d6")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p8qal"]
-emission_shape = 3
-emission_box_extents = Vector3(0.06, 0.06, 0.02)
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 1
+emission_sphere_radius = 1.0
 direction = Vector3(0, 1, 0)
 initial_velocity_min = 0.099999994
 initial_velocity_max = 0.19999999
