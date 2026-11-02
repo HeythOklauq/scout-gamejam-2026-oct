@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cvd574a3vd0dc" path="res://scenes/props/woody_node.tscn" id="5_vpstl"]
 [ext_resource type="AudioStream" uid="uid://bh02sg8jcjh7l" path="res://assets/audio/ambiants/freesound_community-forest-wind-and-birds-6881.mp3" id="6_iuepn"]
 [ext_resource type="PackedScene" uid="uid://w5h4fg3yfssc" path="res://scenes/props/house_of_waffle.tscn" id="7_efq47"]
-[ext_resource type="PackedScene" path="res://scenes/game_scene/skybox_scene.tscn" id="9_biejc"]
+[ext_resource type="PackedScene" uid="uid://o2wrmyrdsqf0" path="res://scenes/game_scene/skybox_scene.tscn" id="9_biejc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iuepn"]
 albedo_texture = ExtResource("1_8ghve")

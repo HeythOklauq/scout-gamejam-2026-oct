@@ -1,23 +1,12 @@
-[gd_scene format=3 uid="uid://c7oligk42cm6t"]
+[gd_scene format=3 uid="uid://o2wrmyrdsqf0"]
 
 [ext_resource type="Script" uid="uid://4l1lc7qnajqm" path="res://scenes/game_scene/skybox_scene.gd" id="1_pwjlu"]
+[ext_resource type="Texture2D" uid="uid://cvl8f4r3u0gtb" path="res://assets/graphics/treeline1.png" id="2_gqa15"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dqkqe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwjlu"]
 albedo_color = Color(0.613202, 0.00027646302, 0.6131976, 1)
-
-[sub_resource type="Gradient" id="Gradient_pwjlu"]
-offsets = PackedFloat32Array(0, 0.67017543, 1)
-colors = PackedColorArray(1, 0.5793735, 0, 1, 1, 0.5793735, 0, 1, 1, 0.5793735, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gqa15"]
-gradient = SubResource("Gradient_pwjlu")
-width = 256
-height = 256
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.3, 0.1)
 
 [node name="SkyboxScene" type="Node3D" unique_id=2038386099]
 script = ExtResource("1_pwjlu")
@@ -39,7 +28,50 @@ mesh = SubResource("BoxMesh_dqkqe")
 surface_material_override/0 = SubResource("StandardMaterial3D_pwjlu")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1642606092]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4459324, 24.485222)
+layers = 524288
 pixel_size = 0.03
-billboard = 1
-texture = SubResource("GradientTexture2D_gqa15")
+shaded = true
+texture = ExtResource("2_gqa15")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Sprite3D" unique_id=870850669]
+transform = Transform3D(-0.9770939, 0, -0.21280861, 0, 1, 0, 0.21280861, 0, -0.9770939, -17.153175, 0, -51.235905)
+layers = 524288
+pixel_size = 0.03
+shaded = true
+texture = ExtResource("2_gqa15")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Sprite3D" unique_id=840354828]
+transform = Transform3D(-0.96128106, 0, -0.2755704, 0, 1, 0, 0.2755704, 0, -0.96128106, 7.597248, 0, -2.601719)
+layers = 524288
+pixel_size = 0.03
+shaded = true
+texture = ExtResource("2_gqa15")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D" unique_id=1493969787]
+transform = Transform3D(-0.8626373, 0, 0.5058231, 0, 1, 0, -0.5058231, 0, -0.8626373, 7.8196793, 0, -46.44536)
+layers = 524288
+pixel_size = 0.03
+shaded = true
+texture = ExtResource("2_gqa15")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Sprite3D" unique_id=641360472]
+transform = Transform3D(0.10006657, 0, -0.9949811, 0, 1, 0, 0.9949811, 0, 0.10006657, 23.492092, 0, -23.870296)
+layers = 524288
+pixel_size = 0.03
+shaded = true
+texture = ExtResource("2_gqa15")
+
+[node name="Sprite3D" type="Sprite3D" parent="Sprite3D" unique_id=1319768939]
+transform = Transform3D(0.73523414, 0, -0.6778133, 0, 1, 0, 0.6778133, 0, 0.73523414, -23.381355, 0, -9.9952545)
+layers = 524288
+pixel_size = 0.03
+shaded = true
+texture = ExtResource("2_gqa15")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Sprite3D" unique_id=1816562092]
+transform = Transform3D(-0.046984345, 0, -0.9988957, 0, 1, 0, 0.9988957, 0, -0.046984345, -35.564796, 0, -31.522564)
+layers = 524288
+pixel_size = 0.03
+shaded = true
+texture = ExtResource("2_gqa15")
