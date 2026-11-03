@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://q1xbkhesn5kk" path="res://scenes/player/charging_state.gd" id="16_mw67o"]
 [ext_resource type="Script" uid="uid://spmjsaalsve5" path="res://scenes/player/windup_state.gd" id="16_toa43"]
 [ext_resource type="Script" uid="uid://b5wxsu6elij08" path="res://scenes/player/attacking_state.gd" id="17_mw67o"]
+[ext_resource type="PackedScene" uid="uid://jg8ee07gabae" path="res://scenes/pause_menu/ui_controller.tscn" id="17_srlsm"]
 [ext_resource type="Script" uid="uid://bvq2t7bef0vwa" path="res://scenes/player/AttackResource.gd" id="18_ppx7h"]
 [ext_resource type="Script" uid="uid://4lrefw2564ya" path="res://scenes/player/BumpAttackResource.gd" id="19_33ooy"]
 
@@ -27,7 +28,6 @@ radius = 1.1
 script = ExtResource("18_ppx7h")
 animation_name = "Swing"
 knockback_animation_name = "Swing_KnockedBack"
-range = 1
 knockback_player = 0.6
 strength = 1.5
 charging_impact = 0.8
@@ -51,7 +51,6 @@ metadata/_custom_type_script = "uid://4lrefw2564ya"
 script = ExtResource("18_ppx7h")
 animation_name = "Downswing"
 knockback_animation_name = "Downswing_KnockedBack"
-range = 1
 knockback_player = 0.8
 strength = 1.2
 charging_impact = 2.0
@@ -902,10 +901,13 @@ mesh = SubResource("BoxMesh_mw67o")
 surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
 
 [node name="Bat" type="MeshInstance3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1265214212]
-transform = Transform3D(0.00021265782, 0.1218689, 0.99254626, 0.0017323148, 0.99254245, -0.12186936, -0.9999961, 0.0017453192, -4.3385572e-08, 0.977, -0.863, -1.03)
+transform = Transform3D(0.0002126578, 0.12186889, 0.99254626, 0.0017323148, 0.9925424, -0.12186936, -0.99999607, 0.0017453191, -4.3385572e-08, 0.977, -0.863, -1.03)
 cast_shadow = 0
 mesh = ExtResource("3_xlee4")
 surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")
+
+[node name="UIController" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1755173362 instance=ExtResource("17_srlsm")]
+transform = Transform3D(-4.3711392e-08, 4.440892e-16, 1, -0.11320321, 0.9935719, -4.94827e-09, -0.9935719, -0.11320321, -4.3430408e-08, -6.7688965e-16, -1.514422, 0.1725466)
 
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
 [connection signal="area_entered" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/InteractionArea3D" to="." method="_on_interaction_area_entered"]

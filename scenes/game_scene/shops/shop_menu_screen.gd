@@ -1,8 +1,10 @@
 extends Control
 class_name ShopScreenNode
 
+signal close_pressed()
+
 const UNLOCKABLE_LINE_PREFAB = preload("uid://5jf3dhs360cf")
-@onready var product_container: VBoxContainer = $VBoxContainer/ScrollContainer/MarginContainer/ProductContainer
+@onready var product_container: VBoxContainer = %ProductContainer
 
 @export var product_types :Array[GameplayManager.UNLOCKABLE_TYPES] = []
 
@@ -10,6 +12,7 @@ func _ready() -> void:
 	call_deferred("update_shop")
 
 func update_shop() -> void:
+	prints("ShopScreenNode - update_shop")
 	for child in product_container.get_children():
 		child.queue_free()
 	
@@ -17,3 +20,10 @@ func update_shop() -> void:
 		var tmp_line = UNLOCKABLE_LINE_PREFAB.instantiate() as UnlockableLineContainer
 		tmp_line.unlockable_type = product_type
 		product_container.add_child(tmp_line)
+
+
+func _on_close_button_pressed() -> void:
+	close_pressed.emit()
+
+func go_back() -> void:
+	close_pressed.emit()

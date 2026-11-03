@@ -10,7 +10,7 @@ var previous_state :PlayerStateNode
 func on_entering_state(_previous_state :StateNode) -> void:
 	previous_state = _previous_state
 	
-	player_node.combo_count += 1;
+	GameplayManager.combo_counter += 1;
 	
 	var attack_resource :AttackResource = _previous_state.current_attack_resource
 	
@@ -19,10 +19,10 @@ func on_entering_state(_previous_state :StateNode) -> void:
 	
 	SlowMotionManager.slow_time(knockback_duration, 0.5);
 	
-	var hit_normal = -player_node.get_player_forward_angle()
-	attack_resource.get_reflect_angle(player_node.get_player_forward_angle())
-	player_node.velocity.y = 0
-	player_node.apply_movement(hit_normal, knockback_strength);
+	var hit_normal = -GameplayManager.player_node.get_player_forward_angle()
+	attack_resource.get_reflect_angle(GameplayManager.player_node.get_player_forward_angle())
+	GameplayManager.player_node.velocity.y = 0
+	GameplayManager.player_node.apply_movement(hit_normal, knockback_strength);
 	
 	animation_player.stop()
 	if animation_player.has_animation(attack_resource.knockback_animation_name):

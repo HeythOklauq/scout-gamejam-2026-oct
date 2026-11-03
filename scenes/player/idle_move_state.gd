@@ -1,8 +1,7 @@
 extends PlayerStateNode
 
 func on_entering_state(_previous_state :StateNode) -> void:
-	if not player_node == null:
-		player_node.combo_count = 0
+	GameplayManager.combo_counter = 0
 
 func process_frame(_delta: float) -> StateNode:
 	if Input.is_action_just_pressed("Jump"):
@@ -20,9 +19,9 @@ func process_physics(_delta: float) -> StateNode:
 	);
 	
 	if movement_vector != Vector3.ZERO:
-		player_node.apply_relative_movement(movement_vector, player_node.walking_speed * _delta)
+		GameplayManager.player_node.apply_relative_movement(movement_vector, GameplayManager.walking_speed * _delta)
 	
-	if not player_node.is_on_floor():
+	if not GameplayManager.player_node.is_on_floor():
 		return state_machine.state_list["FallingState"]
 	if movement_vector.length_squared() > 0.1:
 		return state_machine.state_list["WalkingState"]

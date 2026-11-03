@@ -1,33 +1,14 @@
 extends Control
 class_name PauseScreenControl
 
-@export var hud_control :Control
+signal resume_game()
 
 @onready var main_menu: Control = $MarginContainer/MainMenu
 @onready var option_control: OptionScreenNode = $MarginContainer/OptionControl
 @onready var credit_screen: CreditScreenNode = $MarginContainer/CreditScreen
 
-func _ready() -> void:
-	call_deferred("activate")
-
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Pause"):
-		if visible:
-			go_back()
-		else:
-			activate()
-
-func activate() -> void:
-	visible = true
-	hud_control.visible = false
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	SlowMotionManager.pause_time()
-
 func deactivate() -> void:
-	visible = false
-	hud_control.visible = true
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	SlowMotionManager.resume_time()
+	resume_game.emit()
 
 func go_back() -> void:
 	if option_control.visible or credit_screen.visible:
@@ -48,7 +29,6 @@ func _on_option_control_close_clicked() -> void:
 	main_menu.visible = true
 	option_control.visible = false
 
-
 func _on_credits_button_pressed() -> void:
 	main_menu.visible = false
 	credit_screen.visible = true
@@ -56,7 +36,6 @@ func _on_credits_button_pressed() -> void:
 func _on_credit_screen_close_clicked() -> void:
 	main_menu.visible = true
 	credit_screen.visible = false
-
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

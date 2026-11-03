@@ -10,7 +10,6 @@ class_name StaminaBar
 @export var loading_flash_speed := 1.0
 var flashing_timer := 0.0
 
-@export var player_node :PlayerNode
 @export var segment_size := Vector2(64.0, 32.0)
 
 var segments_list :Array[Control] = []
@@ -45,19 +44,16 @@ func empty_segment(index :int) -> void:
 	segments_list[index].modulate = empty_segment_modulate_color
 
 func get_segment_count() -> int:
-	return floor(player_node.max_stamina / player_node.stamina_usage)
+	return floor(GameplayManager.max_stamina / GameplayManager.stamina_usage)
 
 func get_loading_segment_index() -> int:
-	var segment_index = floor(player_node.current_stamina / player_node.stamina_usage)
+	var segment_index = floor(GameplayManager.current_stamina / GameplayManager.stamina_usage)
 	if segment_index >= get_segment_count():
 		return -1
 	return segment_index
 
 func _process(_delta: float) -> void:
-	if player_node == null:
-		return
-	
-	if player_node.stamina_locked:
+	if GameplayManager.stamina_locked:
 		return
 	
 	flashing_timer += _delta * loading_flash_speed

@@ -1,9 +1,6 @@
 extends StateNode
 class_name PlayerStateNode
 
-var player_node :PlayerNode
-
-
 func on_entering_state(_previous_state :StateNode) -> void:
 	pass
 

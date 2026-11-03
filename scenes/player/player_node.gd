@@ -1,66 +1,15 @@
 extends CharacterBody3D
 class_name PlayerNode
 
-signal stamina_changed()
-signal combo_changed(value :int)
-signal woodchip_changed(value :int, modifier :int)
-signal money_changed(value :int, modifier :int)
-
 @onready var camera_anchor :Node3D = $CameraAnchor
 @onready var hitzone_collision_shape: CollisionShape3D = $HitzoneCollisionShape
 @onready var forward_marker_3d: Marker3D = $GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/ForwardMarker3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-var attack_locked := false;
-var stamina_locked := false;
 
-@export_group("Score Stats")
-var woodchips := 0:
-	set(_value):
-		var _delta := _value - woodchips
-		woodchips = _value
-		woodchip_changed.emit(_value, _delta);
-var money := 0:
-	set(_value):
-		var _delta := _value - money
-		money = _value
-		money_changed.emit(_value, _delta);
-var combo_count := 0:
-	set(_value):
-		var _delta := _value - combo_count
-		combo_count = _value
-		combo_changed.emit(_value);
+func _init() -> void:
+	GameplayManager.player_node = self
 
-@export_group("Movement Stats")
-@export var damping_speed = 100.0;
-@export var walking_speed = 400.0;
-var squared_max_walking_speed = 0.0;
-@export var max_walking_speed = 5.0:
-	set(_speed):
-		max_walking_speed = _speed
-		squared_max_walking_speed = pow(max_walking_speed, 2);
-@export var jump_speed = 10.0;
-@export var falling_speed = 2.0;
-@export var dash_speed = 20.0;
-@export var knockback_strength = 20.0
-
-@export_group("Stamina")
-@export var max_stamina := 100.0:
-	set(_max_stamina):
-		max_stamina = _max_stamina
-		stamina_changed.emit();
-@export var current_stamina := 0.0;
-## Stamina consumption by action
-@export var stamina_usage := 30.0:
-	set(_stamina_usage):
-		stamina_usage = _stamina_usage
-		stamina_changed.emit();
-## Stamina regen per seconds
-@export var stamina_regen := 10.0;
-
-func _ready() -> void:
-	current_stamina = max_stamina;
-	max_walking_speed = max_walking_speed;
 
 func turn_player(movement :Vector2) -> void:
 	if Engine.time_scale == 0.0:
@@ -88,12 +37,12 @@ func apply_relative_movement(relative_movement :Vector3, strength :float) -> voi
 	apply_movement(forward_velocity + side_velocity, strength)
 
 func _physics_process(_delta: float) -> void:
-	var h_dampening :Vector2 = get_horizontal_velocity().normalized() * (-damping_speed) * _delta
+	var h_dampening :Vector2 = get_horizontal_velocity().normalized() * (-GameplayManager.damping_speed) * _delta
 	velocity += Vector3(h_dampening.x, 0.0, h_dampening.y)
 	
-	if abs(velocity.x) < damping_speed * _delta:
+	if abs(velocity.x) < GameplayManager.damping_speed * _delta:
 		velocity.x = 0;
-	if abs(velocity.z) < damping_speed * _delta:
+	if abs(velocity.z) < GameplayManager.damping_speed * _delta:
 		velocity.z = 0;
 	move_and_slide();
 
@@ -104,18 +53,9 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	turn_player(Vector2(Input.get_axis("PivotLeft", "PivotRight"), Input.get_axis("PivotUp", "PivotDown")) * 20.0)
 	
-	if not stamina_locked and current_stamina < max_stamina:
-		current_stamina = min(current_stamina + stamina_regen*_delta, max_stamina);
-	
 	if Input.is_action_just_pressed("Interact") and active_interactable_node != null:
 		active_interactable_node = active_interactable_node as InteractableBodyComponent;
 		active_interactable_node.interact()
-
-func can_use_stamina() -> bool:
-	return (current_stamina >= stamina_usage);
-
-func use_stamina() -> void:
-	current_stamina -= stamina_usage;
 
 var active_interactable_node
 
@@ -147,5 +87,4 @@ func _on_pickup_area_body_entered(body: Node3D) -> void:
 	if woodchip == null:
 		return
 	
-	woodchips += woodchip.value
 	woodchip.pick_up()

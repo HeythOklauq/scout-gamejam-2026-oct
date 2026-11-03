@@ -8,10 +8,10 @@ var attack_type :AttackingState.ATTACK_TYPES
 var strength_modifier := 1.0
 
 func is_valid_state(_previous_state :StateNode) -> bool:
-	return player_node.can_use_stamina();
+	return GameplayManager.can_use_stamina();
 
 func on_entering_state(_previous_state :StateNode) -> void:
-	player_node.use_stamina()
+	GameplayManager.use_stamina()
 	SfxManager.play_sound(SfxManager.SOUND_TYPES.WIND_UP, 0.1, 0.02);
 	attack_type = AttackingState.ATTACK_TYPES.SWING
 	animation_player.play("WindUp")

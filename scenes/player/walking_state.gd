@@ -9,20 +9,20 @@ func process_frame(_delta: float) -> StateNode:
 	return null
 
 func process_physics(_delta: float) -> StateNode:
-	if player_node.get_horizontal_velocity().length_squared() < player_node.squared_max_walking_speed:
+	if GameplayManager.player_node.get_horizontal_velocity().length_squared() < GameplayManager.squared_max_walking_speed:
 		var movement_vector = Vector3(
 			Input.get_axis("Backward", "Forward"),
 			0.0,
 			Input.get_axis("StrafeRight","StrafeLeft")
 		);
 		
-		player_node.apply_relative_movement(movement_vector, player_node.walking_speed * _delta)
+		GameplayManager.player_node.apply_relative_movement(movement_vector, GameplayManager.walking_speed * _delta)
 	
-	if player_node.get_horizontal_velocity().length_squared() < 0.1:
-		player_node.velocity = Vector3.ZERO;
+	if GameplayManager.player_node.get_horizontal_velocity().length_squared() < 0.1:
+		GameplayManager.player_node.velocity = Vector3.ZERO;
 		return state_machine.state_list["IdleState"]
 	
-	if not player_node.is_on_floor():
+	if not GameplayManager.player_node.is_on_floor():
 		return state_machine.state_list["FallingState"]
 	
 	return null;

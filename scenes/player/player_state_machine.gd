@@ -3,16 +3,6 @@ class_name PlayerStateMachine
 
 var current_player_state :PlayerStateNode
 
-func _ready() -> void:
-	super()
-	call_deferred("initialize_player_node_data")
-
-func initialize_player_node_data() -> void:
-	for child in get_children():
-		child = child as PlayerStateNode
-		if child != null:
-			child.player_node = find_parent("PlayerNode");
-
 func switch_state_to(new_state :StateNode) -> bool:
 	if (new_state as PlayerStateNode) == null:
 		return false

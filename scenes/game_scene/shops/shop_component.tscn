@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cuuatwqgxcs7g"]
+
+[ext_resource type="Script" uid="uid://db52cimpidwsf" path="res://scenes/game_scene/shops/shop_component.gd" id="1_6koww"]
+
+[node name="ShopComponent" type="Node" unique_id=950899033]
+script = ExtResource("1_6koww")
+metadata/_custom_type_script = "uid://bdpwaxy5trodm"

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://jg8ee07gabae"]
+
+[ext_resource type="Script" uid="uid://d0qb7dvtvxfow" path="res://scenes/pause_menu/ui_controller.gd" id="1_7nmj1"]
+[ext_resource type="PackedScene" uid="uid://bnsmcdxyrgku7" path="res://scenes/pause_menu/pause_screen.tscn" id="1_bsb7w"]
+[ext_resource type="PackedScene" uid="uid://bushhfwb0kykk" path="res://scenes/game_scene/hud_control.tscn" id="2_cnqhu"]
+[ext_resource type="PackedScene" uid="uid://bea4rrkcx7py2" path="res://scenes/game_scene/shops/shop_menu_screen.tscn" id="3_cnqhu"]
+
+[node name="UIController" type="Node3D" unique_id=1755173362]
+script = ExtResource("1_7nmj1")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1484155880]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1185457369]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(800, 600)
+render_target_update_mode = 4
+
+[node name="HUDControl" parent="SubViewportContainer/SubViewport" unique_id=1211318264 instance=ExtResource("2_cnqhu")]
+unique_name_in_owner = true
+
+[node name="ShopMenuScreen" parent="SubViewportContainer/SubViewport" unique_id=1623967260 instance=ExtResource("3_cnqhu")]
+unique_name_in_owner = true
+visible = false
+
+[node name="PauseScreen" parent="SubViewportContainer/SubViewport" unique_id=736869025 instance=ExtResource("1_bsb7w")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="close_pressed" from="SubViewportContainer/SubViewport/ShopMenuScreen" to="." method="_on_shop_menu_screen_close_pressed"]
+[connection signal="resume_game" from="SubViewportContainer/SubViewport/PauseScreen" to="." method="_on_pause_screen_resume_game"]

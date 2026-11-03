@@ -455,3 +455,4 @@ UNLOCKABLES = Dictionary[int, ExtResource("2_2nlnc")]({
 24: SubResource("Resource_q02d3"),
 25: SubResource("Resource_7lu4i")
 })
+stamina_usage = 15.0

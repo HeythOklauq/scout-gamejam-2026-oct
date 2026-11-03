@@ -12,10 +12,10 @@ var strength_modifier := 1.0
 func on_entering_state(_previous_state :StateNode) -> void:
 	attack_type = AttackingState.ATTACK_TYPES.SWING
 	time_passed = 0.0
-	player_node.stamina_locked = true
+	GameplayManager.stamina_locked = true
 
 func on_exiting_state() -> void:
-	player_node.stamina_locked = false
+	GameplayManager.stamina_locked = false
 
 func process_frame(_delta: float) -> StateNode:
 	var attack_released := false;
@@ -28,7 +28,7 @@ func process_frame(_delta: float) -> StateNode:
 	if not Input.is_action_pressed("Attack") or time_passed >= max_time:
 		attack_type = AttackingState.ATTACK_TYPES.SWING
 		attack_released = true
-		if not player_node.is_on_floor():
+		if not GameplayManager.player_node.is_on_floor():
 			attack_type = AttackingState.ATTACK_TYPES.DOWNSWING
 		strength_modifier = get_strength_power()
 	

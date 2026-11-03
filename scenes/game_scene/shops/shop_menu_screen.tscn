@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bea4rrkcx7py2"]
 
 [ext_resource type="Script" uid="uid://bbuhtm7dab4b" path="res://scenes/game_scene/shops/shop_menu_screen.gd" id="1_uat71"]
+[ext_resource type="PackedScene" uid="uid://cxw5pjbwo2lea" path="res://scenes/player/currency_line_control.tscn" id="2_uat71"]
 
-[node name="ShopMenuScreen" type="Control" unique_id=1623967260]
+[node name="ShopMenuScreen" type="Control" unique_id=80192020]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,27 +11,56 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uat71")
-product_types = Array[int]([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13])
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2082592896]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=863643138]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=548752740]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2082592896]
 layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1115806118]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=218394211]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CurrencyLineControl" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=525960156 instance=ExtResource("2_uat71")]
+layout_mode = 2
+
+[node name="CurrencyLineControl2" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1922533605 instance=ExtResource("2_uat71")]
+layout_mode = 2
+currency_type = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=548752740]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "SHOP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=352266760]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=751523754]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1078698466]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=352266760]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer" unique_id=629746332]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=629746332]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -39,14 +69,20 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 30
 
-[node name="ProductContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer" unique_id=847991162]
+[node name="ProductContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer" unique_id=847991162]
+unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=517724388]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1711189909]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=517724388]
 layout_mode = 2
 alignment = 1
 
-[node name="CloseButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=351728042]
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=351728042]
 layout_mode = 2
 text = "CLOSE"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

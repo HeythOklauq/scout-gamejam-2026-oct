@@ -4,8 +4,6 @@ class_name WoodyNode
 const WOOD_CHIP_NODE = preload("uid://dl1g3n0samtg3")
 @onready var chip_spawn_point: Marker3D = $ChipSpawnPoint
 
-@export var player_node :PlayerNode
-
 var current_hp := 0.0
 @export var max_hp := 1000*1000*1000
 @export var hp_threshold := 5
@@ -29,7 +27,7 @@ func instantiate() -> void:
 
 func _on_hittable_body_component_hit(direction: Vector3, strength: float) -> void:
 	var old_hp_segments = ceil(current_hp / float(hp_threshold));
-	current_hp -= strength * (player_node.combo_count + 1)
+	current_hp -= strength * (GameplayManager.combo_counter + 1)
 	var new_hp_segments = ceil(current_hp / float(hp_threshold));
 	
 	var delta_segments = (old_hp_segments - new_hp_segments)

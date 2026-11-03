@@ -1,6 +1,11 @@
 @tool
 extends Node
 
+signal stamina_changed(value :int)
+signal combo_changed(value :int)
+signal woodchip_changed(modifier :int);
+signal money_changed(modifier :int);
+
 enum CURRENCIES {
 	MONEY,
 	WOODCHIP
@@ -46,6 +51,58 @@ enum UNLOCKABLE_TYPES {
 
 @export var UNLOCKABLES :Dictionary[UNLOCKABLE_TYPES, IncrementalUnlockResource] = {}
 
+var attack_locked := false
+var stamina_locked := false
+
+var player_node :PlayerNode
+var combo_counter := 0:
+	set(_combo_counter):
+		combo_counter = _combo_counter
+		combo_changed.emit(combo_counter)
+
+#region
+@export_group("Movement Stats")
+@export var damping_speed = 100.0;
+@export var walking_speed = 400.0;
+var squared_max_walking_speed = 0.0;
+@export var max_walking_speed = 5.0:
+	set(_speed):
+		max_walking_speed = _speed
+		squared_max_walking_speed = pow(max_walking_speed, 2);
+@export var jump_speed = 10.0;
+@export var falling_speed = 2.0;
+@export var dash_speed = 20.0;
+@export var knockback_strength = 20.0
+#endregion
+
+#region STAMINA
+
+@export_group("Stamina")
+@export var max_stamina := 100.0:
+	set(_max_stamina):
+		max_stamina = _max_stamina
+		stamina_changed.emit();
+@export var current_stamina := 0.0;
+## Stamina consumption by action
+@export var stamina_usage := 30.0:
+	set(_stamina_usage):
+		stamina_usage = _stamina_usage
+		stamina_changed.emit();
+## Stamina regen per seconds
+@export var stamina_regen := 10.0;
+
+func can_use_stamina() -> bool:
+	return (current_stamina >= stamina_usage);
+
+func use_stamina() -> void:
+	current_stamina -= stamina_usage;
+
+func _update_stamina(delta :float) -> void:
+	if not stamina_locked and current_stamina < max_stamina:
+		current_stamina = min(current_stamina + stamina_regen * delta, max_stamina);
+
+#endregion
+
 func _get_configuration_warnings():
 	var warnings := []
 	for _unlockable_key in UNLOCKABLES.keys():
@@ -56,7 +113,14 @@ func _get_configuration_warnings():
 	return warnings
 
 func _ready() -> void:
-	call_deferred("save_data")
+	call_deferred("initialize")
+
+func _process(delta: float) -> void:
+	_update_stamina(delta)
+
+func initialize() -> void:
+	current_stamina = max_stamina
+	max_walking_speed = max_walking_speed;
 
 func save_data() -> Dictionary:
 	var data :Dictionary = {}
@@ -90,3 +154,11 @@ func load_data(data :Dictionary) -> void:
 		if data["unlockables"].has(type_id):
 			UNLOCKABLES[UNLOCKABLE_TYPES[unlockable_type]].unlock_level = data["unlockables"][unlockable_type].unlock_level
 			UNLOCKABLES[UNLOCKABLE_TYPES[unlockable_type]].current_level = data["unlockables"][unlockable_type].current_level
+
+func modify_currency(type :CURRENCIES, modifier :int) -> void:
+	GameplayManager.player_currencies[type] += modifier
+	
+	if type == CURRENCIES.WOODCHIP:
+		woodchip_changed.emit(modifier)
+	elif type == CURRENCIES.MONEY:
+		money_changed.emit(modifier)
