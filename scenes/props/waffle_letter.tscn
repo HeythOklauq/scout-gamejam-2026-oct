@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6vo5b4vtwet3" path="res://scenes/props/waffle_letter.gd" id="1_0e44t"]
 [ext_resource type="ArrayMesh" uid="uid://esxbqlyif1fn" path="res://assets/models/waffle_letter.obj" id="1_0m4ns"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="3_bldi8"]
 [ext_resource type="FontFile" uid="uid://dxpscgkwqhkh1" path="res://assets/fonts/ari-w9500-display.ttf" id="3_jb0fn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0e44t"]
@@ -32,11 +33,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.050000012)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaffleLetter/StaticBody3D" unique_id=2146085429]
 shape = SubResource("BoxShape3D_bldi8")
 
+[node name="HittableBodyComponent" parent="WaffleLetter/StaticBody3D" unique_id=1598085311 instance=ExtResource("3_bldi8")]
+on_hit_soundtype_1 = 5
+on_hit_soundtype_2 = 8
+
 [node name="Label3D" type="Label3D" parent="." unique_id=1817393856]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0229702, -0.05742525, 0.09752363)
 texture_filter = 0
 modulate = Color(0, 0, 0, 1)
 text = "A"
 font = ExtResource("3_jb0fn")
-font_size = 110
+font_size = 100
 outline_size = 0

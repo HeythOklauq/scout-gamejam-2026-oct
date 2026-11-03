@@ -181,9 +181,15 @@ mesh = SubResource("QuadMesh_r4uwc")
 surface_material_override/0 = SubResource("StandardMaterial3D_c3gk3")
 
 [node name="ShopComponent" parent="DoorBody" unique_id=950899033 node_paths=PackedStringArray("body", "mesh") instance=ExtResource("4_r4uwc")]
-product_types = [0, 1, 2, 3, 4]
+product_types = Array[int]([0, 1, 2, 3, 4])
 body = NodePath("..")
 mesh = NodePath("../WaffleLetter3/CurtainSprite/CurtainBackMesh")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="DoorBody" unique_id=1276761644]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -0.65)
+light_negative = true
+spot_range = 25.0
+spot_angle = 90.0
 
 [node name="WaffleLogo" parent="." unique_id=1151025857 instance=ExtResource("5_r4uwc")]
 transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 10.695714, 9.338471, 0)

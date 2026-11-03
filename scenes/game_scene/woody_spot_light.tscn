@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://chfnp3824h6x4"]
+
+[ext_resource type="Texture2D" uid="uid://b77ejg2w3c8f6" path="res://assets/graphics/magic_smokelet.png" id="1_84yuw"]
+
+[sub_resource type="Gradient" id="Gradient_84yuw"]
+offsets = PackedFloat32Array(0, 0.5473684, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d225k"]
+gradient = SubResource("Gradient_84yuw")
+
+[sub_resource type="Curve" id="Curve_b7062"]
+_data = [Vector2(0, 0), 0.0, 4.210738, 0, 0, Vector2(0.9003215, 1), 0.08728476, 0.08728476, 0, 0, Vector2(1, 0), -0.1286872, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_htcjd"]
+curve = SubResource("Curve_b7062")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d225k"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 5.0
+emission_ring_inner_radius = 4.55
+emission_ring_cone_angle = 90.0
+angle_min = -44.99999
+angle_max = 45.00001
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0.02, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_htcjd")
+color_ramp = SubResource("GradientTexture1D_d225k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7062"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_84yuw")
+emission_enabled = true
+texture_filter = 0
+disable_receive_shadows = true
+proximity_fade_enabled = true
+proximity_fade_distance = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_htcjd"]
+material = SubResource("StandardMaterial3D_b7062")
+
+[node name="WoodySpotLight" type="Node3D" unique_id=158472872]
+transform = Transform3D(0.6514881, -0.17909501, 0.48185226, 0.21997356, 0.80019087, 1.236611e-08, -0.46461627, 0.12772366, 0.67565656, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1476533886]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 11.157956, 0)
+light_color = Color(0.10872426, 0.55039227, 0.7225864, 1)
+light_energy = 4.0
+shadow_enabled = true
+shadow_caster_mask = 4294443007
+spot_range = 17.073
+spot_angle = 30.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=685090209]
+transform = Transform3D(0.9706606, 0.0013528466, -0.24044831, -0.24028012, 0.04327383, -0.96973795, 0.009093225, 0.9990622, 0.042329244, 0.12776278, 0.46475855, 5.214481e-09)
+amount = 20
+lifetime = 16.0
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_d225k")
+draw_pass_1 = SubResource("QuadMesh_htcjd")
