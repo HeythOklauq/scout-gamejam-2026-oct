@@ -177,7 +177,7 @@ material_override = SubResource("StandardMaterial3D_prcl3")
 mesh = ExtResource("4_prcl3")
 
 [node name="Sprite3D9" type="Sprite3D" parent="MtTengu" unique_id=823523508]
-transform = Transform3D(-0.65250856, 0, 0.75778127, 0, 1, 0, -0.75778127, 0, -0.65250856, 6.6366806, 13.433482, 4.042057)
+transform = Transform3D(-0.74620926, 0, 0.66571295, 0, 1, 0, -0.66571295, 0, -0.74620926, 9.622644, 11.197774, 2.1391392)
 layers = 524288
 pixel_size = 0.03
 shaded = true
