@@ -12,13 +12,11 @@ const INTERACTIBLE_SHADER = preload("uid://cqas26bf4crwg")
 var default_mesh_shader :StandardMaterial3D
 
 static func get_interactable_component(node :Node3D) -> InteractableBodyComponent:
-	var result :InteractableBodyComponent
-	
 	for child in node.get_children():
 		if child is InteractableBodyComponent:
 			return (child as InteractableBodyComponent)
 	
-	return result
+	return
 
 func _ready() -> void:
 	mesh = mesh

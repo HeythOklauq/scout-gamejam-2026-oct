@@ -53,14 +53,14 @@ func get_loading_segment_index() -> int:
 		return -1
 	return segment_index
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player_node == null:
 		return
 	
 	if player_node.stamina_locked:
 		return
 	
-	flashing_timer += delta * loading_flash_speed
+	flashing_timer += _delta * loading_flash_speed
 	var loading_segment_index = get_loading_segment_index();
 	if not loading_segment_index == -1:
 		segments_list[loading_segment_index].modulate = lerp(default_segment_modulate_color, empty_segment_modulate_color, (sin(flashing_timer)+1.0)/2.0);

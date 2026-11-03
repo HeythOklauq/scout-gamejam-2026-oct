@@ -4,7 +4,7 @@ func on_entering_state(_previous_state :StateNode) -> void:
 	if not player_node == null:
 		player_node.combo_count = 0
 
-func process_frame(delta: float) -> StateNode:
+func process_frame(_delta: float) -> StateNode:
 	if Input.is_action_just_pressed("Jump"):
 		return state_machine.state_list["JumpingState"]
 	if Input.is_action_just_pressed("Dash"):
@@ -12,7 +12,7 @@ func process_frame(delta: float) -> StateNode:
 	
 	return null
 
-func process_physics(delta: float) -> StateNode:
+func process_physics(_delta: float) -> StateNode:
 	var movement_vector = Vector3(
 		Input.get_axis("Backward", "Forward"),
 		0.0,
@@ -20,7 +20,7 @@ func process_physics(delta: float) -> StateNode:
 	);
 	
 	if movement_vector != Vector3.ZERO:
-		player_node.apply_relative_movement(movement_vector, player_node.walking_speed * delta)
+		player_node.apply_relative_movement(movement_vector, player_node.walking_speed * _delta)
 	
 	if not player_node.is_on_floor():
 		return state_machine.state_list["FallingState"]

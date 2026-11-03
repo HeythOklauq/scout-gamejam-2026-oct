@@ -10,11 +10,11 @@ func on_entering_state(_previous_state :StateNode) -> void:
 func on_exiting_state() -> void:
 	pass
 
-func process_input(event: InputEvent) -> StateNode:
+func process_input(_event: InputEvent) -> StateNode:
 	return null
 
-func process_frame(delta: float) -> StateNode:
+func process_frame(_delta: float) -> StateNode:
 	return null
 
-func process_physics(delta: float) -> StateNode:
+func process_physics(_delta: float) -> StateNode:
 	return null

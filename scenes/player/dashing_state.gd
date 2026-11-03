@@ -3,7 +3,7 @@ extends PlayerStateNode
 var dash_duration = 0.2
 var timer := 0.0
 
-func is_valid_state(previous_state :StateNode) -> bool:
+func is_valid_state(_previous_state :StateNode) -> bool:
 	return player_node.can_use_stamina();
 
 func on_entering_state(_previous_state :StateNode) -> void:
@@ -21,12 +21,12 @@ func on_entering_state(_previous_state :StateNode) -> void:
 func on_exiting_state() -> void:
 	player_node.attack_locked = false
 
-func process_frame(delta: float) -> StateNode:
-	timer -= delta
+func process_frame(_delta: float) -> StateNode:
+	timer -= _delta
 	
 	if timer <= 0.0:
 		return state_machine.state_list["IdleState"]
 	return null
 
-func process_physics(delta: float) -> StateNode:
+func process_physics(_delta: float) -> StateNode:
 	return null

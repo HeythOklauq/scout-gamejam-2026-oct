@@ -34,14 +34,14 @@ func switch_state_to(new_state :StateNode) -> bool:
 	
 	return true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if current_state == null or Engine.time_scale == 0.0:
 		return
 	
-	switch_state_to(current_state.process_frame(delta));
+	switch_state_to(current_state.process_frame(_delta));
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if current_state == null or Engine.time_scale == 0.0:
 		return
 	
-	switch_state_to(current_state.process_physics(delta));
+	switch_state_to(current_state.process_physics(_delta));

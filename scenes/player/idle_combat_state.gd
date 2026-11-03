@@ -3,7 +3,7 @@ extends PlayerStateNode
 var attack_type := AttackingState.ATTACK_TYPES.BUNT
 var strength_modifier := 1.0
 
-func process_frame(delta: float) -> StateNode:
+func process_frame(_delta: float) -> StateNode:
 	if player_node.attack_locked:
 		return null
 	

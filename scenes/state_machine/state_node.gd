@@ -3,7 +3,7 @@ class_name StateNode
 
 var state_machine :StateMachine
 
-func is_valid_state(previous_state :StateNode) -> bool:
+func is_valid_state(_previous_state :StateNode) -> bool:
 	return true;
 
 func _ready() -> void:
@@ -15,8 +15,8 @@ func on_entering_state(_previous_state :StateNode) -> void:
 func on_exiting_state() -> void:
 	pass
 
-func process_frame(delta: float) -> StateNode:
+func process_frame(_delta: float) -> StateNode:
 	return null
 
-func process_physics(delta: float) -> StateNode:
+func process_physics(_delta: float) -> StateNode:
 	return null

@@ -64,7 +64,7 @@ func upgrade() -> void:
 	GameplayManager.player_currencies[GameplayManager.CURRENCIES.MONEY] -= get_upgrade_money_price()
 	GameplayManager.player_currencies[GameplayManager.CURRENCIES.WOODCHIP] -= get_upgrade_woodchip_price()
 	unlock_level += 1
-	current_level == unlock_level
+	current_level = unlock_level
 
 func is_max_level() -> bool:
 	return unlock_level == progression_curve.max_level
@@ -73,9 +73,9 @@ func get_upgrade_money_price() -> int:
 	if money_price_curve == null:
 		return 0
 	
-	return money_price_curve.get_value(unlock_level + 1);
+	return int(money_price_curve.get_value(unlock_level + 1));
 
 func get_upgrade_woodchip_price() -> int:
 	if woodchip_price_curve == null:
 		return 0
-	return woodchip_price_curve.get_value(unlock_level + 1);
+	return int(woodchip_price_curve.get_value(unlock_level + 1));

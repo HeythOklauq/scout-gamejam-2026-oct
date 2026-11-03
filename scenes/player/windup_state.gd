@@ -7,7 +7,7 @@ const WIND_UP_AUDIOSTREAM = preload("res://assets/audio/sfx/wind up2.wav")
 var attack_type :AttackingState.ATTACK_TYPES
 var strength_modifier := 1.0
 
-func is_valid_state(previous_state :StateNode) -> bool:
+func is_valid_state(_previous_state :StateNode) -> bool:
 	return player_node.can_use_stamina();
 
 func on_entering_state(_previous_state :StateNode) -> void:

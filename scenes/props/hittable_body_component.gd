@@ -49,10 +49,8 @@ func on_hit(_impact_position :Vector3, _impact_direction :Vector3, hit_strength 
 	animation_tween.tween_property(targetted_item, "position", default_position, animation_duration)
 
 static func get_hittable_component(node :Node3D) -> HittableBodyComponent:
-	var result :HittableBodyComponent
-	
 	for child in node.get_children():
 		if child is HittableBodyComponent:
 			return (child as HittableBodyComponent)
 	
-	return result
+	return

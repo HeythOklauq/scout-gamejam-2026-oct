@@ -14,7 +14,6 @@ var unlockable_resource :IncrementalUnlockResource
 
 func update_display() -> void:
 	unlockable_resource = GameplayManager.UNLOCKABLES[unlockable_type]
-	prints("unlockable_resource", unlockable_resource)
 	if unlockable_resource == null:
 		return
 	

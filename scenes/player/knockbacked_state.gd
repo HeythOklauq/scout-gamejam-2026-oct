@@ -28,7 +28,7 @@ func on_entering_state(_previous_state :StateNode) -> void:
 	if animation_player.has_animation(attack_resource.knockback_animation_name):
 		animation_player.play(attack_resource.knockback_animation_name)
 
-func process_frame(delta: float) -> StateNode:
+func process_frame(_delta: float) -> StateNode:
 	if animation_player.is_playing():
 		return null
 	

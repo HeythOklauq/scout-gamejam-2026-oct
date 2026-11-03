@@ -17,17 +17,17 @@ var stamina_locked := false;
 @export_group("Score Stats")
 var woodchips := 0:
 	set(_value):
-		var delta := _value - woodchips
+		var _delta := _value - woodchips
 		woodchips = _value
-		woodchip_changed.emit(_value, delta);
+		woodchip_changed.emit(_value, _delta);
 var money := 0:
 	set(_value):
-		var delta := _value - money
+		var _delta := _value - money
 		money = _value
-		money_changed.emit(_value, delta);
+		money_changed.emit(_value, _delta);
 var combo_count := 0:
 	set(_value):
-		var delta := _value - combo_count
+		var _delta := _value - combo_count
 		combo_count = _value
 		combo_changed.emit(_value);
 
@@ -87,13 +87,13 @@ func apply_relative_movement(relative_movement :Vector3, strength :float) -> voi
 	var side_velocity = forward_angle.rotated(Vector3.UP, deg_to_rad(90)) * relative_movement.z
 	apply_movement(forward_velocity + side_velocity, strength)
 
-func _physics_process(delta: float) -> void:
-	var h_dampening :Vector2 = get_horizontal_velocity().normalized() * (-damping_speed) * delta
+func _physics_process(_delta: float) -> void:
+	var h_dampening :Vector2 = get_horizontal_velocity().normalized() * (-damping_speed) * _delta
 	velocity += Vector3(h_dampening.x, 0.0, h_dampening.y)
 	
-	if abs(velocity.x) < damping_speed * delta:
+	if abs(velocity.x) < damping_speed * _delta:
 		velocity.x = 0;
-	if abs(velocity.z) < damping_speed * delta:
+	if abs(velocity.z) < damping_speed * _delta:
 		velocity.z = 0;
 	move_and_slide();
 
@@ -101,11 +101,11 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		turn_player(event.relative);
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	turn_player(Vector2(Input.get_axis("PivotLeft", "PivotRight"), Input.get_axis("PivotUp", "PivotDown")) * 20.0)
 	
 	if not stamina_locked and current_stamina < max_stamina:
-		current_stamina = min(current_stamina + stamina_regen*delta, max_stamina);
+		current_stamina = min(current_stamina + stamina_regen*_delta, max_stamina);
 	
 	if Input.is_action_just_pressed("Interact") and active_interactable_node != null:
 		active_interactable_node = active_interactable_node as InteractableBodyComponent;

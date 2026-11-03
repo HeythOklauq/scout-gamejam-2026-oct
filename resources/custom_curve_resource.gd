@@ -37,8 +37,8 @@ func _get_configuration_warnings():
 	return warnings
 
 func _init() -> void:
-	if not curve == null and delta_level > 1:
-		curve.bake_resolution = delta_level
+	if not curve == null and delta_level > 1.0:
+		curve.bake_resolution = int(delta_level)
 
 func update_baking() -> void:
 	delta_value = max_value - min_value
@@ -48,7 +48,7 @@ func update_baking() -> void:
 	level_increment = 1.0 / delta_level
 	
 	if not curve == null:
-		curve.bake_resolution = delta_level
+		curve.bake_resolution = int(delta_level)
 		curve.bake()
 
 func get_relative_level(level :int) -> float:

@@ -1,6 +1,6 @@
 extends PlayerStateNode
 
-func process_frame(delta: float) -> StateNode:
+func process_frame(_delta: float) -> StateNode:
 	if Input.is_action_just_pressed("Jump"):
 		return state_machine.state_list["JumpingState"]
 	if Input.is_action_just_pressed("Dash"):
@@ -8,7 +8,7 @@ func process_frame(delta: float) -> StateNode:
 	
 	return null
 
-func process_physics(delta: float) -> StateNode:
+func process_physics(_delta: float) -> StateNode:
 	if player_node.get_horizontal_velocity().length_squared() < player_node.squared_max_walking_speed:
 		var movement_vector = Vector3(
 			Input.get_axis("Backward", "Forward"),
@@ -16,7 +16,7 @@ func process_physics(delta: float) -> StateNode:
 			Input.get_axis("StrafeRight","StrafeLeft")
 		);
 		
-		player_node.apply_relative_movement(movement_vector, player_node.walking_speed * delta)
+		player_node.apply_relative_movement(movement_vector, player_node.walking_speed * _delta)
 	
 	if player_node.get_horizontal_velocity().length_squared() < 0.1:
 		player_node.velocity = Vector3.ZERO;
