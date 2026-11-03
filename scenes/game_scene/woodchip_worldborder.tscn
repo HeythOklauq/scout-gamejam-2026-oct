@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dbfwxrw20comh"]
+
+[ext_resource type="Script" uid="uid://bl2ryoq0vwrgw" path="res://scenes/game_scene/woodchip_worldborder.gd" id="1_uf5wt"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_qf686"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ft27f"]
+size = Vector3(300, 1, 300)
+
+[node name="WoodchipWorldborder" type="Node3D" unique_id=1145486651]
+script = ExtResource("1_uf5wt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=308065931]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1791443516]
+shape = SubResource("WorldBoundaryShape3D_qf686")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1418479309]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=297912316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_ft27f")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

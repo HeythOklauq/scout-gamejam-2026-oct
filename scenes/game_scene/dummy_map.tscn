@@ -17,6 +17,7 @@
 [ext_resource type="Environment" uid="uid://c4jiuhl5im7nu" path="res://resources/world_environment.tres" id="10_bgv0c"]
 [ext_resource type="PackedScene" uid="uid://chfnp3824h6x4" path="res://scenes/game_scene/woody_spot_light.tscn" id="12_0ythe"]
 [ext_resource type="PackedScene" uid="uid://c0prwfbs6d37f" path="res://scenes/game_scene/how_sign.tscn" id="14_n1oi6"]
+[ext_resource type="PackedScene" uid="uid://dbfwxrw20comh" path="res://scenes/game_scene/woodchip_worldborder.tscn" id="18_hircd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iuepn"]
 albedo_texture = ExtResource("1_8ghve")
@@ -390,6 +391,7 @@ transform = Transform3D(0.9810703, 0, -0.6996615, 0, 1.205, 0, 0.6996615, 0, 0.9
 
 [node name="WoodyNode" parent="WoodyPositionner" unique_id=744089844 instance=ExtResource("5_vpstl")]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1.0000001, 0, -2.9802322e-08, 0, 1, 0, 0, 0)
+max_woodchip_count = 500
 
 [node name="WoodySpotLight" parent="WoodyPositionner" unique_id=158472872 instance=ExtResource("12_0ythe")]
 transform = Transform3D(0.6514881, -0.17909507, 0.48185232, 0.21997353, 0.80019087, 2.7449826e-08, -0.46461633, 0.1277237, 0.67565656, 0, 0, 0)
@@ -418,3 +420,11 @@ visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1210430226]
 environment = ExtResource("10_bgv0c")
+
+[node name="WorldBorders" type="Node3D" parent="." unique_id=1676829869]
+
+[node name="WoodchipWorldborder" parent="WorldBorders" unique_id=1145486651 instance=ExtResource("18_hircd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+
+[node name="WoodchipWorldborder2" parent="WorldBorders" unique_id=628012501 instance=ExtResource("18_hircd")]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 60, 0)
