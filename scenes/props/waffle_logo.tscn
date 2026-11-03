@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bl5ovkpklvim0"]
+
+[ext_resource type="PackedScene" uid="uid://m756l3lj3yrc" path="res://scenes/props/waffle_letter.tscn" id="1_e3sim"]
+
+[node name="WaffleLogo" type="Node3D" unique_id=1151025857]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 0, 0, 0)
+
+[node name="WaffleLetter1" parent="." unique_id=1754010285 instance=ExtResource("1_e3sim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6000001, 0.5999994, 0)
+letter = "H"
+
+[node name="WaffleLetter2" parent="." unique_id=994904296 instance=ExtResource("1_e3sim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0000001, 0.5999994, 0)
+letter = "O"
+
+[node name="WaffleLetter3" parent="." unique_id=205281844 instance=ExtResource("1_e3sim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40000004, 0.5999994, 0)
+letter = "U"
+
+[node name="WaffleLetter4" parent="." unique_id=1541756294 instance=ExtResource("1_e3sim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20000002, 0.5999994, 0)
+letter = "S"
+
+[node name="WaffleLetter5" parent="." unique_id=395522569 instance=ExtResource("1_e3sim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8000001, 0.5999994, 0)
+letter = "E"
+
+[node name="WaffleLetter6" parent="." unique_id=1461435197 instance=ExtResource("1_e3sim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6000001, 0.5999994, 0)
+letter = "of"
+
+[node name="WaffleLetter8" parent="." unique_id=215500010 instance=ExtResource("1_e3sim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8000001, 0, 0)
+letter = "W"
+
+[node name="WaffleLetter9" parent="." unique_id=667635231 instance=ExtResource("1_e3sim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0, 0)
+
+[node name="WaffleLetter10" parent="." unique_id=1961527862 instance=ExtResource("1_e3sim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
+letter = "F"
+
+[node name="WaffleLetter11" parent="." unique_id=569489662 instance=ExtResource("1_e3sim")]
+letter = "F"
+
+[node name="WaffleLetter12" parent="." unique_id=1659669181 instance=ExtResource("1_e3sim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
+letter = "L"
+
+[node name="WaffleLetter13" parent="." unique_id=373649633 instance=ExtResource("1_e3sim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, 0)
+letter = "E"
+
+[node name="WaffleLetter14" parent="." unique_id=60791717 instance=ExtResource("1_e3sim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8000001, 0, 0)
+letter = "S"

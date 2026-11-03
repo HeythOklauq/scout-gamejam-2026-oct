@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://w5h4fg3yfssc"]
 
 [ext_resource type="ArrayMesh" uid="uid://4qva4lomfpts" path="res://assets/models/house_of_waffle.obj" id="1_rc632"]
-[ext_resource type="PackedScene" uid="uid://m756l3lj3yrc" path="res://scenes/props/waffle_letter.tscn" id="2_qu2og"]
 [ext_resource type="ArrayMesh" uid="uid://esxbqlyif1fn" path="res://assets/models/waffle_letter.obj" id="2_x0ywg"]
 [ext_resource type="Texture2D" uid="uid://ba6ui14dadmn5" path="res://assets/graphics/curtain.png" id="3_68j84"]
 [ext_resource type="PackedScene" uid="uid://cuuatwqgxcs7g" path="res://scenes/game_scene/shops/shop_component.tscn" id="4_r4uwc"]
+[ext_resource type="PackedScene" uid="uid://bl5ovkpklvim0" path="res://scenes/props/waffle_logo.tscn" id="5_r4uwc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qu2og"]
 albedo_color = Color(0.9999997, 0.83445454, 0.62301475, 1)
@@ -164,55 +164,5 @@ product_types = Array[int]([0, 1, 2, 3, 4])
 body = NodePath("..")
 mesh = NodePath("../WaffleLetter3/CurtainSprite/CurtainBackMesh")
 
-[node name="LogoContainer" type="Node3D" parent="." unique_id=1774174814]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 8.5, 10.449319)
-
-[node name="WaffleLetter1" parent="LogoContainer" unique_id=1754010285 instance=ExtResource("2_qu2og")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6000001, 0.5999994, 0)
-letter = "H"
-
-[node name="WaffleLetter2" parent="LogoContainer" unique_id=1464470783 instance=ExtResource("2_qu2og")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0000001, 0.5999994, 0)
-letter = "O"
-
-[node name="WaffleLetter3" parent="LogoContainer" unique_id=1673241590 instance=ExtResource("2_qu2og")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40000004, 0.5999994, 0)
-letter = "U"
-
-[node name="WaffleLetter4" parent="LogoContainer" unique_id=623136581 instance=ExtResource("2_qu2og")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20000002, 0.5999994, 0)
-letter = "S"
-
-[node name="WaffleLetter5" parent="LogoContainer" unique_id=1688430047 instance=ExtResource("2_qu2og")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8000001, 0.5999994, 0)
-letter = "E"
-
-[node name="WaffleLetter6" parent="LogoContainer" unique_id=1450162493 instance=ExtResource("2_qu2og")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6000001, 0.5999994, 0)
-letter = "of"
-
-[node name="WaffleLetter8" parent="LogoContainer" unique_id=943222163 instance=ExtResource("2_qu2og")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8000001, 0, 0)
-letter = "W"
-
-[node name="WaffleLetter9" parent="LogoContainer" unique_id=1995656544 instance=ExtResource("2_qu2og")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0, 0)
-
-[node name="WaffleLetter10" parent="LogoContainer" unique_id=232457608 instance=ExtResource("2_qu2og")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
-letter = "F"
-
-[node name="WaffleLetter11" parent="LogoContainer" unique_id=1821611952 instance=ExtResource("2_qu2og")]
-letter = "F"
-
-[node name="WaffleLetter12" parent="LogoContainer" unique_id=248823677 instance=ExtResource("2_qu2og")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
-letter = "L"
-
-[node name="WaffleLetter13" parent="LogoContainer" unique_id=1970274750 instance=ExtResource("2_qu2og")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, 0)
-letter = "E"
-
-[node name="WaffleLetter14" parent="LogoContainer" unique_id=2075417281 instance=ExtResource("2_qu2og")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8000001, 0, 0)
-letter = "S"
+[node name="WaffleLogo" parent="." unique_id=1151025857 instance=ExtResource("5_r4uwc")]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 10.33781, 8.651208, 0)

@@ -7,6 +7,7 @@ func _ready() -> void:
 	call_deferred("initialize_position");
 
 func initialize_position() -> void:
+	visible = true
 	if target == null:
 		return 
 	
