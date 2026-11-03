@@ -26,6 +26,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="WoodChipContainer" type="Control" parent="." unique_id=1078320290]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 

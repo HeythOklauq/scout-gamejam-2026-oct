@@ -35,10 +35,10 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CurrencyLineControl" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=525960156 instance=ExtResource("2_uat71")]
+[node name="MoneyCurrencyLineControl" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=525960156 instance=ExtResource("2_uat71")]
 layout_mode = 2
 
-[node name="CurrencyLineControl2" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1922533605 instance=ExtResource("2_uat71")]
+[node name="WoodchipCurrencyLineControl2" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1922533605 instance=ExtResource("2_uat71")]
 layout_mode = 2
 currency_type = 1
 

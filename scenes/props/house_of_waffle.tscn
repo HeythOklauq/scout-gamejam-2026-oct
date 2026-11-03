@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://m756l3lj3yrc" path="res://scenes/props/waffle_letter.tscn" id="2_qu2og"]
 [ext_resource type="ArrayMesh" uid="uid://esxbqlyif1fn" path="res://assets/models/waffle_letter.obj" id="2_x0ywg"]
 [ext_resource type="Texture2D" uid="uid://ba6ui14dadmn5" path="res://assets/graphics/curtain.png" id="3_68j84"]
-[ext_resource type="PackedScene" uid="uid://3t4r1b5j25iv" path="res://scenes/props/interactable_body_component.tscn" id="4_r4uwc"]
+[ext_resource type="PackedScene" uid="uid://cuuatwqgxcs7g" path="res://scenes/game_scene/shops/shop_component.tscn" id="4_r4uwc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qu2og"]
 albedo_color = Color(0.9999997, 0.83445454, 0.62301475, 1)
@@ -159,7 +159,8 @@ transform = Transform3D(1.3888887, 0, 0, 0, 1.3888887, 0, 0, 0, 1.3888887, 0, 0,
 mesh = SubResource("QuadMesh_r4uwc")
 surface_material_override/0 = SubResource("StandardMaterial3D_c3gk3")
 
-[node name="InteractableBodyComponent" parent="DoorBody" unique_id=1906740058 node_paths=PackedStringArray("body", "mesh") instance=ExtResource("4_r4uwc")]
+[node name="ShopComponent" parent="DoorBody" unique_id=950899033 node_paths=PackedStringArray("body", "mesh") instance=ExtResource("4_r4uwc")]
+product_types = Array[int]([0, 1, 2, 3, 4])
 body = NodePath("..")
 mesh = NodePath("../WaffleLetter3/CurtainSprite/CurtainBackMesh")
 

@@ -727,8 +727,6 @@ collision_mask = 11
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_e0ebx")
-max_stamina = 150.0
-stamina_usage = 10.0
 
 [node name="HitzoneCollisionShape" type="CollisionShape3D" parent="." unique_id=1645901718]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -791,6 +789,8 @@ metadata/_custom_type_script = "uid://fyrql5g47aon"
 
 [node name="ChargingState" type="Node" parent="CombatPlayerStateMachine" unique_id=173443898]
 script = ExtResource("16_mw67o")
+max_time = null
+max_strength = null
 metadata/_custom_type_script = "uid://fyrql5g47aon"
 
 [node name="IdleState" type="Node" parent="CombatPlayerStateMachine" unique_id=637435399]

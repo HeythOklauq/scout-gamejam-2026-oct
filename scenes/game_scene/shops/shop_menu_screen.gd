@@ -9,10 +9,12 @@ const UNLOCKABLE_LINE_PREFAB = preload("uid://5jf3dhs360cf")
 @export var product_types :Array[GameplayManager.UNLOCKABLE_TYPES] = []
 
 func _ready() -> void:
-	call_deferred("update_shop")
+	call_deferred("initialize")
+
+func initialize() -> void:
+	update_shop()
 
 func update_shop() -> void:
-	prints("ShopScreenNode - update_shop")
 	for child in product_container.get_children():
 		child.queue_free()
 	

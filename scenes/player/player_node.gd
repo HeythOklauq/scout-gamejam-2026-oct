@@ -2,10 +2,8 @@ extends CharacterBody3D
 class_name PlayerNode
 
 @onready var camera_anchor :Node3D = $CameraAnchor
-@onready var hitzone_collision_shape: CollisionShape3D = $HitzoneCollisionShape
 @onready var forward_marker_3d: Marker3D = $GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/ForwardMarker3D
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+@onready var ui_controller: UIController = $GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/UIController
 
 func _init() -> void:
 	GameplayManager.player_node = self
@@ -55,9 +53,22 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Interact") and active_interactable_node != null:
 		active_interactable_node = active_interactable_node as InteractableBodyComponent;
-		active_interactable_node.interact()
+		
+		if active_interactable_node is ShopComponent:
+			ui_controller.show_shop(active_interactable_node.product_types)
+		else:
+			active_interactable_node.interact()
 
 var active_interactable_node
+
+func _on_pickup_area_body_entered(body: Node3D) -> void:
+	if not is_on_floor():
+		return
+	var woodchip := body as WoodChipNode
+	if woodchip == null:
+		return
+	
+	woodchip.pick_up()
 
 func _on_interaction_area_entered(node) -> void:
 	var interactable_component = InteractableBodyComponent.get_interactable_component(node);
@@ -79,12 +90,3 @@ func _on_interaction_area_exited(node) -> void:
 	if active_interactable_node == interactable_component:
 		active_interactable_node = null;
 		interactable_component.unselect()
-
-func _on_pickup_area_body_entered(body: Node3D) -> void:
-	if not is_on_floor():
-		return
-	var woodchip := body as WoodChipNode
-	if woodchip == null:
-		return
-	
-	woodchip.pick_up()
