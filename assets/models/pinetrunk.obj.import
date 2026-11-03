@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cwl63fl6qc1w6"
+path="res://.godot/imported/pinetrunk.obj-d8fb067c0cb24b7a4c781e3333412172.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pinetrunk.obj-d8fb067c0cb24b7a4c781e3333412172.mesh"]
+
+source_file="res://assets/models/pinetrunk.obj"
+dest_files=["res://.godot/imported/pinetrunk.obj-d8fb067c0cb24b7a4c781e3333412172.mesh", "res://.godot/imported/pinetrunk.obj-d8fb067c0cb24b7a4c781e3333412172.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
