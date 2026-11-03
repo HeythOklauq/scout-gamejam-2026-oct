@@ -55,24 +55,52 @@ var attack_locked := false
 var stamina_locked := false
 
 var player_node :PlayerNode
+var combo_duration := 0.3
+var combo_current_timer := 0.0
+var combo_timer_ticking := true
+var combo_timer_speed_multiplier := 1.0
 var combo_counter := 0:
 	set(_combo_counter):
+		if not UNLOCKABLES[UNLOCKABLE_TYPES.POGO].is_unlocked():
+			return
+		
+		if _combo_counter > 0:
+			reset_combo_timer()
+		
 		combo_counter = _combo_counter
 		combo_changed.emit(combo_counter)
 
+func reset_combo_timer() -> void:
+	combo_current_timer = combo_duration
+	combo_timer_ticking = false
+
+func _update_combo(_delta :float) -> void:
+	if combo_current_timer <= 0.0:
+		return
+	
+	if player_node.is_on_floor():
+		combo_timer_ticking = true
+	
+	if not combo_timer_ticking:
+		return
+	
+	combo_current_timer -= _delta * combo_timer_speed_multiplier
+	if combo_current_timer <= 0.0:
+		combo_counter = 0;
+
 #region
 @export_group("Movement Stats")
-@export var damping_speed = 100.0;
-@export var walking_speed = 400.0;
-var squared_max_walking_speed = 0.0;
-@export var max_walking_speed = 5.0:
+@export var damping_speed := 100.0;
+@export var walking_speed := 400.0;
+var squared_max_walking_speed := 0.0;
+@export var max_walking_speed := 5.0:
 	set(_speed):
 		max_walking_speed = _speed
 		squared_max_walking_speed = pow(max_walking_speed, 2);
-@export var jump_speed = 10.0;
-@export var falling_speed = 2.0;
-@export var dash_speed = 20.0;
-@export var knockback_strength = 20.0
+@export var jump_speed := 10.0;
+@export var falling_speed := 2.0;
+@export var dash_speed := 20.0;
+@export var knockback_strength := 20.0
 #endregion
 
 #region STAMINA
@@ -117,6 +145,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_update_stamina(delta)
+	_update_combo(delta)
 
 func initialize() -> void:
 	current_stamina = max_stamina

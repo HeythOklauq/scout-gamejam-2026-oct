@@ -18,17 +18,17 @@ func on_exiting_state() -> void:
 	GameplayManager.stamina_locked = false
 
 func process_frame(_delta: float) -> StateNode:
-	var attack_released := false;
+	var attack_released := (GameplayManager.UNLOCKABLES[GameplayManager.UNLOCKABLE_TYPES.WIND_UP].is_unlocked() == false);
 	time_passed = min(time_passed+_delta, max_time);
 	
-	if Input.is_action_just_pressed("Bunt"):
+	if Input.is_action_just_pressed("Bunt") and GameplayManager.UNLOCKABLES[GameplayManager.UNLOCKABLE_TYPES.BUNT].is_unlocked():
 		attack_type = AttackingState.ATTACK_TYPES.BUNT
 		attack_released = true
 	
 	if not Input.is_action_pressed("Attack") or time_passed >= max_time:
 		attack_type = AttackingState.ATTACK_TYPES.SWING
 		attack_released = true
-		if not GameplayManager.player_node.is_on_floor():
+		if not GameplayManager.player_node.is_on_floor() and GameplayManager.UNLOCKABLES[GameplayManager.UNLOCKABLE_TYPES.DOWNSWING].is_unlocked():
 			attack_type = AttackingState.ATTACK_TYPES.DOWNSWING
 		strength_modifier = get_strength_power()
 	

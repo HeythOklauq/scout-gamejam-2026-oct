@@ -5,11 +5,8 @@ signal picked_up(woodchipNode :WoodChipNode)
 
 @export var value := 1
 
-func disappear() -> void:
-	SfxManager.play_3d_sound(global_position, SfxManager.SOUND_TYPES.PICK_UP);
-
 func pick_up() -> void:
 	GameplayManager.modify_currency(GameplayManager.CURRENCIES.WOODCHIP, value)
-	disappear()
-	get_parent().remove_child(self);
+	SfxManager.play_3d_sound(global_position, SfxManager.SOUND_TYPES.PICK_UP);
+	
 	picked_up.emit(self);

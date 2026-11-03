@@ -4,7 +4,7 @@ var dash_duration = 0.2
 var timer := 0.0
 
 func is_valid_state(_previous_state :StateNode) -> bool:
-	return GameplayManager.can_use_stamina();
+	return GameplayManager.can_use_stamina() and GameplayManager.UNLOCKABLES[GameplayManager.UNLOCKABLE_TYPES.STEAL].is_unlocked();
 
 func on_entering_state(_previous_state :StateNode) -> void:
 	GameplayManager.use_stamina();

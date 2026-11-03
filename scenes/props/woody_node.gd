@@ -37,6 +37,7 @@ func _on_hittable_body_component_hit(direction: Vector3, strength: float) -> voi
 	ParticleManager.spawn_particle(ParticleManager.PARTICLE_TYPES.WOOD_IMPACT, chip_spawn_point.global_position);
 
 func on_woodchip_picked_up(woodchip :WoodChipNode) -> void:
+	get_tree().root.remove_child(woodchip);
 	used_woodchips.remove_at(used_woodchips.find(woodchip))
 	free_woodchips.push_back(woodchip)
 
@@ -44,12 +45,12 @@ func spawn_woodchip(direction: Vector3, strength: float) -> void:
 	var woodchip :WoodChipNode;
 	if free_woodchips.size() > 0:
 		woodchip = free_woodchips.pop_front()
+		get_tree().root.add_child(woodchip);
 	else:
 		woodchip = used_woodchips.pop_front()
 		woodchip.disappear()
 	
-	used_woodchips.push_back(woodchip)
-	get_tree().root.add_child(woodchip);
+	used_woodchips.push_back(woodchip);
 	woodchip.global_position = chip_spawn_point.global_position;
 	var random_direction_factor = Vector3(
 		randf_range(-drop_vector_randomness, drop_vector_randomness), 

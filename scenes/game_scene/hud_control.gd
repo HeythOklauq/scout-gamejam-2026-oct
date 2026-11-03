@@ -4,6 +4,7 @@ class_name HUDControl
 @onready var cigarette_timer: HBoxContainer = %CigaretteTimer
 
 @onready var combo_counter: Label = %ComboCounter
+@onready var combo_timer_progress_bar: TextureProgressBar = $MarginContainer/VBoxContainer/HBoxContainer/ComboTimerProgressBar
 
 var previous_max_stamina :float;
 var previous_stamina_usage :float;
@@ -15,9 +16,11 @@ func _ready() -> void:
 func initialise() -> void:
 	update_combo()
 	update_stamina()
-	GameplayManager.combo_changed.connect(_on_combo_changed)
-	GameplayManager.stamina_changed.connect(_on_stamina_changed)
+	GameplayManager.combo_changed.connect(_on_combo_changed);
+	GameplayManager.stamina_changed.connect(_on_stamina_changed);
 
+func _process(delta: float) -> void:
+	combo_timer_progress_bar.value = GameplayManager.combo_current_timer/GameplayManager.combo_duration
 
 func update_combo() -> void:
 	combo_counter.text = str(GameplayManager.combo_counter)

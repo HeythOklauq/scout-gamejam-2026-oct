@@ -17,7 +17,7 @@ func on_entering_state(_previous_state :StateNode) -> void:
 	animation_player.play("WindUp")
 
 func process_frame(_delta: float) -> StateNode:
-	if Input.is_action_just_pressed("Bunt"):
+	if Input.is_action_just_pressed("Bunt") and GameplayManager.UNLOCKABLES[GameplayManager.UNLOCKABLE_TYPES.BUNT].is_unlocked():
 		attack_type = AttackingState.ATTACK_TYPES.BUNT
 		return state_machine.state_list["AttackingState"]
 	

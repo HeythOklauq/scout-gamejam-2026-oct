@@ -22,7 +22,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tu3ki"]
 height = 1.1259766
-radius = 1.1
+radius = 0.5786133
 
 [sub_resource type="Resource" id="Resource_ikhd0"]
 script = ExtResource("18_ppx7h")
@@ -54,6 +54,7 @@ knockback_animation_name = "Downswing_KnockedBack"
 knockback_player = 0.8
 strength = 1.2
 charging_impact = 2.0
+velocity_impact = 1.0
 sfx_type = 1
 sfx_volume = 0.8
 sfx_variation = 0.1
@@ -789,8 +790,6 @@ metadata/_custom_type_script = "uid://fyrql5g47aon"
 
 [node name="ChargingState" type="Node" parent="CombatPlayerStateMachine" unique_id=173443898]
 script = ExtResource("16_mw67o")
-max_time = null
-max_strength = null
 metadata/_custom_type_script = "uid://fyrql5g47aon"
 
 [node name="IdleState" type="Node" parent="CombatPlayerStateMachine" unique_id=637435399]
@@ -901,7 +900,7 @@ mesh = SubResource("BoxMesh_mw67o")
 surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
 
 [node name="Bat" type="MeshInstance3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1265214212]
-transform = Transform3D(0.0002126578, 0.12186889, 0.99254626, 0.0017323148, 0.9925424, -0.12186936, -0.99999607, 0.0017453191, -4.3385572e-08, 0.977, -0.863, -1.03)
+transform = Transform3D(0.00021265777, 0.12186887, 0.99254626, 0.0017323145, 0.9925422, -0.12186936, -0.9999959, 0.0017453188, -4.3385572e-08, 0.977, -0.863, -1.03)
 cast_shadow = 0
 mesh = ExtResource("3_xlee4")
 surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")

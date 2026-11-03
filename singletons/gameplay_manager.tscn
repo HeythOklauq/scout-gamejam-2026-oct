@@ -11,9 +11,62 @@ point_count = 1
 
 [sub_resource type="Resource" id="Resource_a8nxj"]
 script = ExtResource("3_td03u")
-max_value = 1.0
 curve = SubResource("Curve_t6dcp")
 metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Curve" id="Curve_ya5du"]
+bake_resolution = 1
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Resource" id="Resource_7w1so"]
+script = ExtResource("3_td03u")
+max_value = 1.0
+curve = SubResource("Curve_ya5du")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_td03u"]
+script = ExtResource("2_2nlnc")
+unlock_name = "Pogo"
+progression_curve = SubResource("Resource_a8nxj")
+woodchip_price_curve = SubResource("Resource_7w1so")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Curve" id="Curve_td03u"]
+bake_resolution = 1
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Resource" id="Resource_3s0et"]
+script = ExtResource("3_td03u")
+max_value = 5.0
+curve = SubResource("Curve_td03u")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_ya5du"]
+script = ExtResource("2_2nlnc")
+unlock_name = "Bunt"
+progression_curve = SubResource("Resource_a8nxj")
+woodchip_price_curve = SubResource("Resource_3s0et")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Curve" id="Curve_drosq"]
+bake_resolution = 1
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Resource" id="Resource_ykdq4"]
+script = ExtResource("3_td03u")
+max_value = 20.0
+curve = SubResource("Curve_drosq")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Resource" id="Resource_drosq"]
+script = ExtResource("2_2nlnc")
+unlock_name = "Wind up"
+progression_curve = SubResource("Resource_a8nxj")
+woodchip_price_curve = SubResource("Resource_ykdq4")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"
 
 [sub_resource type="Curve" id="Curve_lebyi"]
 bake_resolution = 1
@@ -26,52 +79,28 @@ max_value = 50.0
 curve = SubResource("Curve_lebyi")
 metadata/_custom_type_script = "uid://cwng774r6bupv"
 
-[sub_resource type="Resource" id="Resource_td03u"]
-script = ExtResource("2_2nlnc")
-unlock_name = "Pogo"
-progression_curve = SubResource("Resource_a8nxj")
-woodchip_price_curve = SubResource("Resource_62b7n")
-metadata/_custom_type_script = "uid://bikecxc4a72nl"
-
-[sub_resource type="Resource" id="Resource_ya5du"]
-script = ExtResource("2_2nlnc")
-unlock_name = "Bunt"
-progression_curve = SubResource("Resource_a8nxj")
-woodchip_price_curve = SubResource("Resource_62b7n")
-metadata/_custom_type_script = "uid://bikecxc4a72nl"
-
-[sub_resource type="Curve" id="Curve_onmbx"]
-bake_resolution = 1
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
-point_count = 1
-
-[sub_resource type="Resource" id="Resource_gh81h"]
-script = ExtResource("3_td03u")
-max_value = 50.0
-curve = SubResource("Curve_onmbx")
-metadata/_custom_type_script = "uid://cwng774r6bupv"
-
-[sub_resource type="Resource" id="Resource_drosq"]
-script = ExtResource("2_2nlnc")
-unlock_name = "Wind up"
-progression_curve = SubResource("Resource_a8nxj")
-money_price_curve = SubResource("Resource_gh81h")
-woodchip_price_curve = SubResource("Resource_62b7n")
-metadata/_custom_type_script = "uid://bikecxc4a72nl"
-
 [sub_resource type="Resource" id="Resource_targq"]
 script = ExtResource("2_2nlnc")
 unlock_name = "Downswing"
 progression_curve = SubResource("Resource_a8nxj")
-money_price_curve = SubResource("Resource_gh81h")
 woodchip_price_curve = SubResource("Resource_62b7n")
 metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Curve" id="Curve_7w1so"]
+bake_resolution = 1
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Resource" id="Resource_ananc"]
+script = ExtResource("3_td03u")
+max_value = 50.0
+curve = SubResource("Curve_7w1so")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
 
 [sub_resource type="Resource" id="Resource_0l67v"]
 script = ExtResource("2_2nlnc")
 unlock_name = "Steal"
-progression_curve = SubResource("Resource_a8nxj")
-money_price_curve = SubResource("Resource_gh81h")
+progression_curve = SubResource("Resource_ananc")
 woodchip_price_curve = SubResource("Resource_62b7n")
 metadata/_custom_type_script = "uid://bikecxc4a72nl"
 
@@ -160,6 +189,17 @@ progression_curve = SubResource("Resource_5051e")
 money_price_curve = SubResource("Resource_wla5k")
 woodchip_price_curve = SubResource("Resource_yqj2p")
 metadata/_custom_type_script = "uid://bikecxc4a72nl"
+
+[sub_resource type="Curve" id="Curve_onmbx"]
+bake_resolution = 1
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Resource" id="Resource_gh81h"]
+script = ExtResource("3_td03u")
+max_value = 50.0
+curve = SubResource("Curve_onmbx")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
 
 [sub_resource type="Resource" id="Resource_1fo37"]
 script = ExtResource("2_2nlnc")

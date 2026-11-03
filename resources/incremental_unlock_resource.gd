@@ -2,6 +2,8 @@
 extends Resource
 class_name IncrementalUnlockResource
 
+signal updated(resource :IncrementalUnlockResource)
+
 @export var unlock_name := "UNLOCKABLE RESOURCE"
 @export var unlock_description := "LOL - LMAO even"
 
@@ -67,6 +69,7 @@ func upgrade() -> void:
 	GameplayManager.modify_currency(GameplayManager.CURRENCIES.WOODCHIP, -get_upgrade_woodchip_price())
 	unlock_level += 1
 	current_level = unlock_level
+	updated.emit(self)
 
 func is_max_level() -> bool:
 	return unlock_level == progression_curve.max_level
