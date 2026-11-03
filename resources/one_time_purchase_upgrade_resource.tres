@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="IncrementalUnlockResource" format=3 uid="uid://dg1tubfqbfn4m"]
+
+[ext_resource type="Script" uid="uid://bikecxc4a72nl" path="res://resources/incremental_unlock_resource.gd" id="1_0rhtg"]
+[ext_resource type="Script" uid="uid://cwng774r6bupv" path="res://resources/custom_curve_resource.gd" id="1_pry26"]
+
+[sub_resource type="Curve" id="Curve_onmbx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Resource" id="Resource_gh81h"]
+script = ExtResource("1_pry26")
+curve = SubResource("Curve_onmbx")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Curve" id="Curve_t6dcp"]
+bake_resolution = 1
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Resource" id="Resource_a8nxj"]
+script = ExtResource("1_pry26")
+max_value = 1.0
+curve = SubResource("Curve_t6dcp")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Curve" id="Curve_lebyi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Resource" id="Resource_62b7n"]
+script = ExtResource("1_pry26")
+curve = SubResource("Curve_lebyi")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[resource]
+script = ExtResource("1_0rhtg")
+unlock_name = "ONE TIME PURCHASE"
+progression_curve = SubResource("Resource_a8nxj")
+money_price_curve = SubResource("Resource_gh81h")
+woodchip_price_curve = SubResource("Resource_62b7n")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"

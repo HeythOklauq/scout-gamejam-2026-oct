@@ -6,6 +6,9 @@ class_name UnlockableLineContainer
 @onready var level_label: Label = $LevelLabel
 @onready var upgrade_button: Button = $VBoxContainer/UpgradeButton
 
+@onready var money_currency_line_control: CurrencyLineControl = %MoneyCurrencyLineControl
+@onready var woodchip_currency_line_control: CurrencyLineControl = %WoodchipCurrencyLineControl
+
 @export var unlockable_type :GameplayManager.UNLOCKABLE_TYPES:
 	set(_type):
 		unlockable_type = _type
@@ -19,8 +22,21 @@ func update_display() -> void:
 	
 	name_label.text = unlockable_resource.unlock_name
 	level_label.text = str("", unlockable_resource.unlock_level)
+	
+	var money_upgrade :int = unlockable_resource.get_upgrade_money_price()
+	money_currency_line_control.visible = (money_upgrade > 0)
+	money_currency_line_control.set_amount(money_upgrade)
+	prints("money_upgrade", money_upgrade)
+	
+	var woodchip_upgrade :int = unlockable_resource.get_upgrade_woodchip_price()
+	woodchip_currency_line_control.visible = (woodchip_upgrade > 0)
+	woodchip_currency_line_control.set_amount(woodchip_upgrade)
+	prints("woodchip_upgrade", woodchip_upgrade)
+	
 	upgrade_button.visible = not unlockable_resource.is_max_level();
-	upgrade_button.disabled = unlockable_resource.can_upgrade();
+	upgrade_button.disabled = (!unlockable_resource.can_upgrade());
+	
 
 func _on_upgrade_button_pressed() -> void:
-	pass # Replace with function body.
+	unlockable_resource.upgrade()
+	update_display()

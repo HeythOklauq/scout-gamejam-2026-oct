@@ -55,14 +55,16 @@ func get_current_value() -> float:
 	return progression_curve.get_value(current_level);
 
 func can_upgrade() -> bool:
-	var can_offer := true;
-	can_offer = can_offer and get_upgrade_money_price() <= GameplayManager.player_currencies[GameplayManager.CURRENCIES.MONEY]
-	can_offer = can_offer and get_upgrade_woodchip_price() <= GameplayManager.player_currencies[GameplayManager.CURRENCIES.WOODCHIP]
-	return can_offer
+	var money_price := get_upgrade_money_price()
+	var player_money = GameplayManager.player_currencies[GameplayManager.CURRENCIES.MONEY]
+	var woodchip_price := get_upgrade_woodchip_price()
+	var player_woodchip = GameplayManager.player_currencies[GameplayManager.CURRENCIES.WOODCHIP]
+	
+	return (money_price <= player_money) and (woodchip_price <= player_woodchip)
 
 func upgrade() -> void:
-	GameplayManager.player_currencies[GameplayManager.CURRENCIES.MONEY] -= get_upgrade_money_price()
-	GameplayManager.player_currencies[GameplayManager.CURRENCIES.WOODCHIP] -= get_upgrade_woodchip_price()
+	GameplayManager.modify_currency(GameplayManager.CURRENCIES.MONEY, -get_upgrade_money_price())
+	GameplayManager.modify_currency(GameplayManager.CURRENCIES.WOODCHIP, -get_upgrade_woodchip_price())
 	unlock_level += 1
 	current_level = unlock_level
 

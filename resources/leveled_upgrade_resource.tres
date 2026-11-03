@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="IncrementalUnlockResource" format=3 uid="uid://bgcirdmv75q4p"]
+
+[ext_resource type="Script" uid="uid://cwng774r6bupv" path="res://resources/custom_curve_resource.gd" id="1_xysof"]
+[ext_resource type="Script" uid="uid://bikecxc4a72nl" path="res://resources/incremental_unlock_resource.gd" id="2_wla5k"]
+
+[sub_resource type="Curve" id="Curve_xysof"]
+bake_resolution = 50
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.580646, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_wla5k"]
+script = ExtResource("1_xysof")
+min_value = 5.0
+max_value = 1000.0
+max_level = 50.0
+curve = SubResource("Curve_xysof")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Curve" id="Curve_in5ww"]
+bake_resolution = 50
+_data = [Vector2(0, 0), 0.0, 0.0681313, 0, 0, Vector2(1, 1), 2.7520223, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_5051e"]
+script = ExtResource("1_xysof")
+max_value = 100.0
+max_level = 50.0
+curve = SubResource("Curve_in5ww")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[sub_resource type="Curve" id="Curve_yy3o8"]
+bake_resolution = 50
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.580646, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_yqj2p"]
+script = ExtResource("1_xysof")
+min_value = 5.0
+max_value = 1000.0
+max_level = 50.0
+curve = SubResource("Curve_yy3o8")
+metadata/_custom_type_script = "uid://cwng774r6bupv"
+
+[resource]
+script = ExtResource("2_wla5k")
+unlock_name = "LEVELED UPGRADE"
+progression_curve = SubResource("Resource_5051e")
+money_price_curve = SubResource("Resource_wla5k")
+woodchip_price_curve = SubResource("Resource_yqj2p")
+metadata/_custom_type_script = "uid://bikecxc4a72nl"

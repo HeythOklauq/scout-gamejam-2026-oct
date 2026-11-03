@@ -21,7 +21,6 @@ buses/default_bus_layout="uid://cpde6asl0s45p"
 
 [autoload]
 
-ScoreManager="*uid://bjh4nbe7s3wg2"
 SlowMotionManager="*uid://dphwu35i2y503"
 OptionsManager="*uid://xcaf7wqotfuw"
 SfxManager="*uid://crw4vtghf20cc"
