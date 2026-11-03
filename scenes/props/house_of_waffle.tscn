@@ -56,19 +56,85 @@ surface_material_override/3 = SubResource("StandardMaterial3D_68j84")
 shape = SubResource("ConcavePolygonShape3D_rc632")
 
 [node name="WaffleLetter" type="MeshInstance3D" parent="." unique_id=640874923]
-transform = Transform3D(2.37, 0, 0, 0, 2.37, 0, 0, 0, 0.67, 7.3355484, 4.428331, 9.906885)
+transform = Transform3D(2.37, 0, 0, 0, 2.37, 0, 0, 0, 0.67, 7.3355484, 4.428331, 9.910859)
+mesh = ExtResource("2_x0ywg")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4uwc")
+surface_material_override/1 = SubResource("StandardMaterial3D_b20dj")
+
+[node name="WaffleLetter5" type="MeshInstance3D" parent="." unique_id=559840621]
+transform = Transform3D(2.37, 0, 0, 0, 2.37, 0, 0, 0, 0.67, 2.298966, 4.428331, 9.910859)
+mesh = ExtResource("2_x0ywg")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4uwc")
+surface_material_override/1 = SubResource("StandardMaterial3D_b20dj")
+
+[node name="WaffleLetter6" type="MeshInstance3D" parent="." unique_id=2010527509]
+transform = Transform3D(2.37, 0, 0, 0, 2.37, 0, 0, 0, 0.67, -2.2385986, 4.428331, 9.910859)
+mesh = ExtResource("2_x0ywg")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4uwc")
+surface_material_override/1 = SubResource("StandardMaterial3D_b20dj")
+
+[node name="WaffleLetter7" type="MeshInstance3D" parent="." unique_id=1347752317]
+transform = Transform3D(-2.37, 0, -5.857326e-08, 0, 2.37, 0, 2.0719197e-07, 0, -0.67, 2.298966, 4.428331, -9.903476)
+mesh = ExtResource("2_x0ywg")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4uwc")
+surface_material_override/1 = SubResource("StandardMaterial3D_b20dj")
+
+[node name="WaffleLetter8" type="MeshInstance3D" parent="." unique_id=710007622]
+transform = Transform3D(-2.37, 0, -5.857326e-08, 0, 2.37, 0, 2.0719197e-07, 0, -0.67, -2.2385986, 4.428331, -9.903476)
 mesh = ExtResource("2_x0ywg")
 surface_material_override/0 = SubResource("StandardMaterial3D_r4uwc")
 surface_material_override/1 = SubResource("StandardMaterial3D_b20dj")
 
 [node name="WaffleLetter2" type="MeshInstance3D" parent="." unique_id=1779408179]
-transform = Transform3D(2.37, 0, 0, 0, 2.37, 0, 0, 0, 0.67, -7.6644516, 4.428331, 9.906885)
+transform = Transform3D(2.37, 0, 0, 0, 2.37, 0, 0, 0, 0.67, -7.6644516, 4.428331, 9.910859)
+mesh = ExtResource("2_x0ywg")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4uwc")
+surface_material_override/1 = SubResource("StandardMaterial3D_b20dj")
+
+[node name="WaffleLetter3" type="MeshInstance3D" parent="." unique_id=1115801663]
+transform = Transform3D(-2.37, 0, -5.857326e-08, 0, 2.37, 0, 2.0719197e-07, 0, -0.67, 7.333562, 4.428331, -9.919311)
+mesh = ExtResource("2_x0ywg")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4uwc")
+surface_material_override/1 = SubResource("StandardMaterial3D_b20dj")
+
+[node name="WaffleLetter4" type="MeshInstance3D" parent="." unique_id=1072461421]
+transform = Transform3D(-2.37, 0, -5.857326e-08, 0, 2.37, 0, 2.0719197e-07, 0, -0.67, -7.359432, 4.428331, -9.919311)
+mesh = ExtResource("2_x0ywg")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4uwc")
+surface_material_override/1 = SubResource("StandardMaterial3D_b20dj")
+
+[node name="WaffleLetter9" type="MeshInstance3D" parent="." unique_id=851900773]
+transform = Transform3D(-1.0359599e-07, 0, 0.6700001, 0, 2.3700001, 0, -2.3700001, 0, -2.9286632e-08, 9.912242, 4.4283314, -7.444978)
+mesh = ExtResource("2_x0ywg")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4uwc")
+surface_material_override/1 = SubResource("StandardMaterial3D_b20dj")
+
+[node name="WaffleLetter11" type="MeshInstance3D" parent="." unique_id=430719803]
+transform = Transform3D(-5.048665e-08, 0, 0.67, 0, 2.37, 0, -1.155, 0, -2.928663e-08, 9.912242, 4.4283314, 3.722124)
+mesh = ExtResource("2_x0ywg")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4uwc")
+surface_material_override/1 = SubResource("StandardMaterial3D_b20dj")
+
+[node name="WaffleLetter12" type="MeshInstance3D" parent="." unique_id=2090159232]
+transform = Transform3D(-4.6771188e-08, 0, 0.67, 0, 2.37, 0, -1.07, 0, -2.928663e-08, 9.912242, 4.4283314, -3.7542596)
+mesh = ExtResource("2_x0ywg")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4uwc")
+surface_material_override/1 = SubResource("StandardMaterial3D_b20dj")
+
+[node name="WaffleLetter13" type="MeshInstance3D" parent="." unique_id=1375376387]
+transform = Transform3D(1.9106853e-15, 1.182393e-07, 0.67, 1, -1.182393e-07, 9.882988e-23, 4.371139e-08, 2.705, -2.928663e-08, 9.912242, 5.9115, -0.03538525)
+mesh = ExtResource("2_x0ywg")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4uwc")
+surface_material_override/1 = SubResource("StandardMaterial3D_b20dj")
+
+[node name="WaffleLetter10" type="MeshInstance3D" parent="." unique_id=1779113037]
+transform = Transform3D(-1.0359599e-07, 0, 0.6700001, 0, 2.3700001, 0, -2.3700001, 0, -2.9286632e-08, 9.912242, 4.4283314, 7.314162)
 mesh = ExtResource("2_x0ywg")
 surface_material_override/0 = SubResource("StandardMaterial3D_r4uwc")
 surface_material_override/1 = SubResource("StandardMaterial3D_b20dj")
 
 [node name="DoorBody" type="StaticBody3D" parent="." unique_id=997615715]
-transform = Transform3D(-1.1780219e-07, 0, 2.695, 0, 2.695, 0, -2.695, 0, -1.1780219e-07, 9.81814, 1.928, -0.009581566)
+transform = Transform3D(-1.1780219e-07, 0, 2.695, 0, 2.695, 0, -2.695, 0, -1.1780219e-07, 10.134247, 2.4186559, -0.03224206)
 collision_layer = 4
 collision_mask = 0
 
@@ -85,6 +151,7 @@ surface_material_override/1 = SubResource("StandardMaterial3D_bk3ge")
 [node name="CurtainSprite" type="Sprite3D" parent="DoorBody/WaffleLetter3" unique_id=2097246591]
 transform = Transform3D(0.71999997, 0, 0, 0, 0.71999997, 0, 0, 0, 0.7200001, 0, 0, 0.32111788)
 shaded = true
+texture_filter = 0
 texture = ExtResource("3_68j84")
 
 [node name="CurtainBackMesh" type="MeshInstance3D" parent="DoorBody/WaffleLetter3/CurtainSprite" unique_id=1937327305]
