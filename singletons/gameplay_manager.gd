@@ -1,6 +1,8 @@
 @tool
 extends Node
 
+signal unlockable_updated(unlockable_resource :IncrementalUnlockResource)
+
 signal stamina_changed(value :int)
 signal combo_changed(value :int)
 signal woodchip_changed(modifier :int);
@@ -15,6 +17,8 @@ var player_currencies :Dictionary[CURRENCIES, int] = {
 	CURRENCIES.MONEY: 0,
 	CURRENCIES.WOODCHIP: 0
 }
+
+#region UNLOCKABLES
 
 enum UNLOCKABLE_TYPES {
 	POGO,
@@ -50,6 +54,11 @@ enum UNLOCKABLE_TYPES {
 }
 
 @export var UNLOCKABLES :Dictionary[UNLOCKABLE_TYPES, IncrementalUnlockResource] = {}
+
+func on_unlockable_updated( unlockable_resource :IncrementalUnlockResource ) -> void:
+	unlockable_updated.emit(unlockable_resource)
+	save_data()
+#endregion
 
 var attack_locked := false
 var stamina_locked := false
@@ -88,7 +97,7 @@ func _update_combo(_delta :float) -> void:
 	if combo_current_timer <= 0.0:
 		combo_counter = 0;
 
-#region
+#region Movement stats
 @export_group("Movement Stats")
 @export var damping_speed := 100.0;
 @export var walking_speed := 400.0;
@@ -150,8 +159,28 @@ func _process(delta: float) -> void:
 func initialize() -> void:
 	current_stamina = max_stamina
 	max_walking_speed = max_walking_speed;
+	
+	load_data()
+	
+	for unlockable_resource in UNLOCKABLES.values():
+		(unlockable_resource as IncrementalUnlockResource).updated.connect(on_unlockable_updated)
 
-func save_data() -> Dictionary:
+func modify_currency(type :CURRENCIES, modifier :int) -> void:
+	GameplayManager.player_currencies[type] += modifier
+	
+	if type == CURRENCIES.WOODCHIP:
+		prints("CURRENCIES.WOODCHIP: ", modifier)
+		woodchip_changed.emit(modifier)
+	elif type == CURRENCIES.MONEY:
+		prints("CURRENCIES.MONEY: ", modifier)
+		money_changed.emit(modifier)
+
+
+#region SAVE DATA
+var data_file_path :String = "user://gameplay_data.json"
+
+
+func get_data() -> Dictionary:
 	var data :Dictionary = {}
 	
 	data["currencies"] = {}
@@ -169,25 +198,35 @@ func save_data() -> Dictionary:
 				"current_level": UNLOCKABLES[UNLOCKABLE_TYPES[unlockable_type]].current_level
 			};
 	
-	load_data(data)
 	return data
 
-func load_data(data :Dictionary) -> void:
-	for currency_type in CURRENCIES.keys():
-		var currency_id = CURRENCIES[currency_type]
-		if data["currencies"].has(currency_id):
-			player_currencies[currency_id] = data["currencies"][currency_type];
+func load_gameplay_data(data :Dictionary) -> void:
+	for currency_name in CURRENCIES.keys():
+		var currency_id = CURRENCIES[currency_name]
+		if data["currencies"].has(currency_name):
+			call_deferred("modify_currency", [currency_id, data["currencies"][currency_name]])
 	
-	for unlockable_type in UNLOCKABLE_TYPES.keys():
-		var type_id = UNLOCKABLE_TYPES[unlockable_type]
-		if data["unlockables"].has(type_id):
-			UNLOCKABLES[UNLOCKABLE_TYPES[unlockable_type]].unlock_level = data["unlockables"][unlockable_type].unlock_level
-			UNLOCKABLES[UNLOCKABLE_TYPES[unlockable_type]].current_level = data["unlockables"][unlockable_type].current_level
+	for unlockable_name in UNLOCKABLE_TYPES.keys():
+		var unlockable_type = UNLOCKABLE_TYPES[unlockable_name]
+		if data["unlockables"].has(unlockable_name):
+			var current_unlockable = UNLOCKABLES[unlockable_type]
+			current_unlockable.unlock_level = data["unlockables"][unlockable_name].unlock_level
+			current_unlockable.current_level = data["unlockables"][unlockable_name].current_level
 
-func modify_currency(type :CURRENCIES, modifier :int) -> void:
-	GameplayManager.player_currencies[type] += modifier
-	
-	if type == CURRENCIES.WOODCHIP:
-		woodchip_changed.emit(modifier)
-	elif type == CURRENCIES.MONEY:
-		money_changed.emit(modifier)
+func load_data() -> void:
+	if FileAccess.file_exists(data_file_path):
+		var file = FileAccess.open(data_file_path, FileAccess.READ)
+		var file_content = file.get_as_text()
+		file.close()
+		
+		var file_parsed = JSON.parse_string(file_content)
+		prints(file_parsed)
+		load_gameplay_data(file_parsed)
+
+func save_data() -> void:
+	var file = FileAccess.open(data_file_path, FileAccess.WRITE_READ)
+	var option_data = JSON.stringify(get_data())
+	prints(option_data)
+	file.store_string(option_data)
+	file.close()
+#endregion
