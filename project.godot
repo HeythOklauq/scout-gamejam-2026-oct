@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="scout-gamejam-2026-oct"
+config/name="Free Woody"
+config/version="0.1b"
 run/main_scene="uid://blygvalsnvb35"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.21745217, 0.088644646, 0.17413014, 1)
+boot_splash/use_filter=false
+boot_splash/image="uid://dli2k6runv5q8"
+config/icon="res://assets/graphics/icon.png"
+boot_splash/minimum_display_time=1000
 
 [audio]
 
