@@ -24,6 +24,7 @@ render_target_update_mode = 4
 
 [node name="HUDControl" parent="SubViewportContainer/SubViewport" unique_id=1211318264 instance=ExtResource("2_cnqhu")]
 unique_name_in_owner = true
+visible = false
 
 [node name="ShopMenuScreen" parent="SubViewportContainer/SubViewport" unique_id=1623967260 instance=ExtResource("3_cnqhu")]
 unique_name_in_owner = true

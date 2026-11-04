@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bi8g2fnqbyvlj"]
+[gd_scene format=3 uid="uid://clxn7bc34tk50"]
 
 [ext_resource type="ArrayMesh" uid="uid://jm0cykw7oeub" path="res://assets/models/jizo_lantern.obj" id="1_yxleu"]
 [ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="2_176cj"]
@@ -43,3 +43,4 @@ omni_range = 5.279
 omni_attenuation = 0.409
 
 [node name="HittableBodyComponent" parent="." unique_id=1598085311 instance=ExtResource("2_176cj")]
+knockback_movement = 0.0

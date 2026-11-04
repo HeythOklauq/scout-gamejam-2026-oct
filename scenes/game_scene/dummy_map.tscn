@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cvl8f4r3u0gtb" path="res://assets/graphics/treeline1.png" id="5_kl2ce"]
 [ext_resource type="PackedScene" uid="uid://cvd574a3vd0dc" path="res://scenes/props/woody_node.tscn" id="5_vpstl"]
 [ext_resource type="AudioStream" uid="uid://bh02sg8jcjh7l" path="res://assets/audio/ambiants/freesound_community-forest-wind-and-birds-6881.mp3" id="6_iuepn"]
-[ext_resource type="PackedScene" uid="uid://bi8g2fnqbyvlj" path="res://scenes/game_scene/jizo_lantern.tscn" id="6_l7ur4"]
-[ext_resource type="PackedScene" uid="uid://byi5f6u54eg5m" path="res://scenes/game_scene/gate.tscn" id="6_n1oi6"]
+[ext_resource type="PackedScene" uid="uid://clxn7bc34tk50" path="res://scenes/game_scene/jizo_lantern.tscn" id="6_l7ur4"]
+[ext_resource type="PackedScene" path="res://scenes/game_scene/gate.tscn" id="6_n1oi6"]
 [ext_resource type="PackedScene" uid="uid://w5h4fg3yfssc" path="res://scenes/props/house_of_waffle.tscn" id="7_efq47"]
 [ext_resource type="PackedScene" uid="uid://o2wrmyrdsqf0" path="res://scenes/game_scene/skybox_scene.tscn" id="9_biejc"]
 [ext_resource type="Environment" uid="uid://c4jiuhl5im7nu" path="res://resources/world_environment.tres" id="10_bgv0c"]
@@ -247,7 +247,7 @@ transform = Transform3D(0.5490768, 0.023199102, 0.2870128, -0.008741557, 0.61904
 transform = Transform3D(0.6152302, -0.033749916, -0.068939164, 0.034535527, 0.619016, 0.0051577757, 0.06854899, -0.0089581935, 0.6161337, -27.010136, 5.106272, 7.813012)
 
 [node name="JizoLantern6" parent="DummyMap/Node3D" unique_id=1684643242 instance=ExtResource("6_l7ur4")]
-transform = Transform3D(0.4418642, -0.021032434, -0.4344118, 0.03453552, 0.6190159, 0.0051577776, 0.43354723, -0.027873687, 0.44233438, -33.416718, 5.106272, -8.226073)
+transform = Transform3D(0.4418642, -0.021032434, -0.4344118, 0.03453552, 0.6190159, 0.0051577776, 0.43354723, -0.027873687, 0.44233438, -33.416718, 4.8886395, -8.226073)
 
 [node name="JizoLantern7" parent="DummyMap/Node3D" unique_id=845245163 instance=ExtResource("6_l7ur4")]
 transform = Transform3D(0.561579, -0.033502366, 0.26058885, 0.034535524, 0.61901593, 0.005157777, -0.2604537, 0.009843654, 0.5625538, -14.267847, 5.1848993, -32.736526)
@@ -256,7 +256,7 @@ transform = Transform3D(0.561579, -0.033502366, 0.26058885, 0.034535524, 0.61901
 transform = Transform3D(0.5765932, -0.01703285, -0.22726662, 0.01661881, 0.6197625, -0.004285823, 0.22729747, -0.00210603, 0.576829, 4.3784113, 6.5051494, -27.339394)
 
 [node name="JizoLantern9" parent="DummyMap/Node3D" unique_id=1896893132 instance=ExtResource("6_l7ur4")]
-transform = Transform3D(0.24362548, 0.00047345218, 0.5701283, 0.01020694, 0.61989665, -0.0048764, -0.57003707, 0.01130207, 0.24357694, -27.493082, 4.2330737, -26.432972)
+transform = Transform3D(0.23944075, -0.091158286, 0.5645867, 0.037125595, 0.6132595, 0.08327207, -0.5706921, 0.0016482063, 0.24229605, -27.493082, 4.268887, -26.432972)
 
 [node name="JizoLantern10" parent="DummyMap/Node3D" unique_id=711303063 instance=ExtResource("6_l7ur4")]
 transform = Transform3D(0.61797166, -0.034777865, 0.036074467, 0.034535527, 0.61901605, 0.0051577757, -0.036306486, -0.00313148, 0.618928, -17.82856, 5.106272, 19.9912)

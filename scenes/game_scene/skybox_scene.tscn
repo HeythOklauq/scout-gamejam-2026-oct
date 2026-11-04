@@ -61,6 +61,10 @@ material = SubResource("StandardMaterial3D_iw4pc")
 size = Vector2(0.1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnfyl"]
+transparency = 1
+cull_mode = 2
+depth_draw_mode = 1
+albedo_color = Color(1, 1, 1, 0.13725491)
 albedo_texture = ExtResource("10_7h6lo")
 
 [node name="SkyboxScene" type="Node3D" unique_id=2038386099]
@@ -391,7 +395,7 @@ process_material = SubResource("ParticleProcessMaterial_cq3xx")
 draw_pass_1 = SubResource("QuadMesh_ushvn")
 
 [node name="ScoutPlush" type="MeshInstance3D" parent="." unique_id=1051348664]
-transform = Transform3D(0.5055671, 0, 0.86278737, 0, 1, 0, -0.86278737, 0, 0.5055671, -33.04715, 6.0435095, -19.6199)
+transform = Transform3D(0.26349515, 9.9227915, 1.2119334, -1.1716424, 1.2346537, -9.854079, -9.927629, 0.1176545, 1.1951289, -186.10916, 114.13938, -66.35559)
 layers = 524288
 mesh = ExtResource("9_ushvn")
 surface_material_override/0 = SubResource("StandardMaterial3D_hnfyl")
