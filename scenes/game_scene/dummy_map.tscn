@@ -331,6 +331,33 @@ transform = Transform3D(2.6871119, 0, 1.3339524, 0, 3, 0, -1.3339524, 0, 2.68711
 [node name="Pine Tree3" parent="DummyMap/Trees" unique_id=231180095 instance=ExtResource("4_ssmqr")]
 transform = Transform3D(2.677558, -0.2527553, 1.3292096, 0.22639392, 2.9893336, 0.11238785, -1.3339524, 0, 2.6871119, 82.02409, 1.1313801, 5.675251)
 
+[node name="Pine Tree11" parent="DummyMap/Trees" unique_id=1788362563 instance=ExtResource("4_ssmqr")]
+transform = Transform3D(2.160019, 0, -2.0819025, 0, 3, 0, 2.0819025, 0, 2.160019, 49.272755, 2.2530394, -52.42903)
+
+[node name="Pine Tree12" parent="DummyMap/Trees" unique_id=756642073 instance=ExtResource("4_ssmqr")]
+transform = Transform3D(-0.05047673, 1.3669487e-08, -3.0895875, -0.21428144, 3.082559, 0.0035008779, 3.0821478, 0.21431004, -0.050355177, 50.253704, 2.2530394, -39.918133)
+
+[node name="Pine Tree13" parent="DummyMap/Trees" unique_id=766635183 instance=ExtResource("4_ssmqr")]
+transform = Transform3D(1.8493155, 0.4285384, 2.3230124, -0.48153824, 2.9566617, -0.16208552, -2.3126073, -0.27295732, 1.8913859, 27.197523, 5.413575, -67.31805)
+
+[node name="Pine Tree14" parent="DummyMap/Trees" unique_id=1904126688 instance=ExtResource("4_ssmqr")]
+transform = Transform3D(2.879136, 0.39292687, 0.74577653, -0.3316232, 2.9681017, -0.2835411, -0.7749839, 0.18967894, 2.8919578, -0.32151437, 5.413575, -59.03504)
+
+[node name="Pine Tree15" parent="DummyMap/Trees" unique_id=459992607 instance=ExtResource("4_ssmqr")]
+transform = Transform3D(1.5962155, 0.23143843, -2.529532, -0.32470357, 2.9816027, 0.0679021, 2.5192583, 0.23765393, 1.6114764, -69.0475, 1.6909571, -8.510906)
+
+[node name="Pine Tree16" parent="DummyMap/Trees" unique_id=1408227174 instance=ExtResource("4_ssmqr")]
+transform = Transform3D(-2.2042222, 0.08520455, 2.03326, 0.02297211, 2.9982202, -0.100737795, -2.034915, -0.05844666, -2.203567, -55.124176, 0.67462254, 36.455177)
+
+[node name="Pine Tree17" parent="DummyMap/Trees" unique_id=523988245 instance=ExtResource("4_ssmqr")]
+transform = Transform3D(1.3414977, 0, 2.6833527, 0, 3, 0, -2.6833527, 0, 1.3414977, -14.127635, -0.49717712, 76.77731)
+
+[node name="Pine Tree18" parent="DummyMap/Trees" unique_id=530269637 instance=ExtResource("4_ssmqr")]
+transform = Transform3D(2.718796, 0, -0.29727614, 0, 2.735, 0, 0.29727614, 0, 2.718796, 37.9679, -0.60048676, 82.720726)
+
+[node name="Pine Tree19" parent="DummyMap/Trees" unique_id=707221631 instance=ExtResource("4_ssmqr")]
+transform = Transform3D(2.8894646, 0.054827224, 0.0093968315, -0.055242017, 2.8855584, 0.15033768, -0.0065302793, -0.15048943, 2.8860717, 27.429209, -0.49717712, 71.52249)
+
 [node name="DummyHouse" type="MeshInstance3D" parent="." unique_id=596206383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.955986, -0.21455383, -6.682396)
 mesh = ExtResource("3_vpstl")
