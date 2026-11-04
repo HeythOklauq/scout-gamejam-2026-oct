@@ -48,7 +48,7 @@ func spawn_woodchip(direction: Vector3, strength: float) -> void:
 		get_tree().root.add_child(woodchip);
 	else:
 		woodchip = used_woodchips.pop_front()
-		woodchip.disappear()
+		woodchip.pick_up()
 	
 	used_woodchips.push_back(woodchip);
 	woodchip.global_position = chip_spawn_point.global_position;

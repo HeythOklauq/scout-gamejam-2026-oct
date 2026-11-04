@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cvl8f4r3u0gtb" path="res://assets/graphics/treeline1.png" id="5_kl2ce"]
 [ext_resource type="PackedScene" uid="uid://cvd574a3vd0dc" path="res://scenes/props/woody_node.tscn" id="5_vpstl"]
 [ext_resource type="AudioStream" uid="uid://bh02sg8jcjh7l" path="res://assets/audio/ambiants/freesound_community-forest-wind-and-birds-6881.mp3" id="6_iuepn"]
-[ext_resource type="PackedScene" path="res://scenes/game_scene/gate.tscn" id="6_n1oi6"]
+[ext_resource type="PackedScene" uid="uid://byi5f6u54eg5m" path="res://scenes/game_scene/gate.tscn" id="6_n1oi6"]
 [ext_resource type="PackedScene" uid="uid://w5h4fg3yfssc" path="res://scenes/props/house_of_waffle.tscn" id="7_efq47"]
 [ext_resource type="PackedScene" uid="uid://o2wrmyrdsqf0" path="res://scenes/game_scene/skybox_scene.tscn" id="9_biejc"]
 [ext_resource type="Environment" uid="uid://c4jiuhl5im7nu" path="res://resources/world_environment.tres" id="10_bgv0c"]
