@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c50luwb0jyfcn" path="res://assets/graphics/tree1.png" id="5_5svpj"]
 [ext_resource type="Texture2D" uid="uid://beprc5s7q22r4" path="res://assets/graphics/tree3.png" id="6_dmqod"]
 [ext_resource type="Texture2D" uid="uid://btc4dx7adrl61" path="res://assets/graphics/tree2.png" id="7_cq3xx"]
+[ext_resource type="ArrayMesh" uid="uid://b27x8ug702v0h" path="res://assets/models/scoutplush/ScoutPlush.obj" id="9_ushvn"]
+[ext_resource type="Texture2D" uid="uid://jk5qpibni4m8" path="res://assets/models/scoutplush/diffuse_ScoutPlush.png" id="10_7h6lo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmqod"]
 transparency = 1
@@ -57,6 +59,9 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_ushvn"]
 material = SubResource("StandardMaterial3D_iw4pc")
 size = Vector2(0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnfyl"]
+albedo_texture = ExtResource("10_7h6lo")
 
 [node name="SkyboxScene" type="Node3D" unique_id=2038386099]
 script = ExtResource("1_pwjlu")
@@ -384,3 +389,9 @@ amount = 500
 lifetime = 20.0
 process_material = SubResource("ParticleProcessMaterial_cq3xx")
 draw_pass_1 = SubResource("QuadMesh_ushvn")
+
+[node name="ScoutPlush" type="MeshInstance3D" parent="." unique_id=1051348664]
+transform = Transform3D(0.5055671, 0, 0.86278737, 0, 1, 0, -0.86278737, 0, 0.5055671, -33.04715, 6.0435095, -19.6199)
+layers = 524288
+mesh = ExtResource("9_ushvn")
+surface_material_override/0 = SubResource("StandardMaterial3D_hnfyl")

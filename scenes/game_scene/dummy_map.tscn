@@ -232,16 +232,31 @@ shape = SubResource("WorldBoundaryShape3D_kl2ce")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9604645e-06, 0, 3.5762787e-06)
 
 [node name="JizoLantern" parent="DummyMap/Node3D" unique_id=2042970159 instance=ExtResource("6_l7ur4")]
-transform = Transform3D(0.55748457, 1.15484e-09, 0.27131343, 0.008399102, 0.6197029, -0.017258158, -0.2711834, 0.019193461, 0.55721736, 10.544664, 0.76673317, 70.37627)
+transform = Transform3D(0.55748457, 1.15484e-09, 0.27131343, 0.008399102, 0.6197029, -0.017258158, -0.2711834, 0.019193461, 0.55721736, 10.544664, 0.9038819, 70.37627)
 
 [node name="JizoLantern2" parent="DummyMap/Node3D" unique_id=1571218457 instance=ExtResource("6_l7ur4")]
-transform = Transform3D(0.6197672, -0.0079401005, -0.015018139, 0.007942431, 0.6199491, -2.4540836e-11, 0.015016907, -0.00019238792, 0.6198181, 10.170896, -0.3713131, 81.66695)
+transform = Transform3D(0.6197672, -0.0079401005, -0.015018139, 0.007942431, 0.6199491, -2.4540836e-11, 0.015016907, -0.00019238792, 0.6198181, 10.170896, -0.20798898, 81.66695)
 
 [node name="JizoLantern3" parent="DummyMap/Node3D" unique_id=1187940611 instance=ExtResource("6_l7ur4")]
-transform = Transform3D(0.55748457, -4.61936e-09, 0.27131343, 0.042288434, 0.6124225, -0.086892664, -0.2679975, 0.096636675, 0.55067116, 20.467922, 4.5806003, 50.549763)
+transform = Transform3D(0.55748457, -4.61936e-09, 0.27131343, 0.042288434, 0.6124225, -0.086892664, -0.2679975, 0.096636675, 0.55067116, 20.467922, 4.663996, 50.549763)
 
 [node name="JizoLantern4" parent="DummyMap/Node3D" unique_id=603383780 instance=ExtResource("6_l7ur4")]
 transform = Transform3D(0.5490768, 0.023199102, 0.2870128, -0.008741557, 0.61904263, -0.03331368, -0.28781608, 0.025456177, 0.54855615, 21.00767, 6.9709883, 37.924797)
+
+[node name="JizoLantern5" parent="DummyMap/Node3D" unique_id=482434419 instance=ExtResource("6_l7ur4")]
+transform = Transform3D(0.54761225, -0.032958623, 0.28885043, 0.03453552, 0.61901593, 0.005157775, -0.28866604, 0.011534087, 0.548579, -27.010136, 5.106272, 7.813012)
+
+[node name="JizoLantern6" parent="DummyMap/Node3D" unique_id=1684643242 instance=ExtResource("6_l7ur4")]
+transform = Transform3D(0.54761225, -0.032958623, 0.28885043, 0.03453552, 0.61901593, 0.005157775, -0.28866604, 0.011534087, 0.548579, -33.416718, 5.106272, -8.226073)
+
+[node name="JizoLantern7" parent="DummyMap/Node3D" unique_id=845245163 instance=ExtResource("6_l7ur4")]
+transform = Transform3D(0.54761225, -0.032958623, 0.28885043, 0.03453552, 0.61901593, 0.005157775, -0.28866604, 0.011534087, 0.548579, -14.267847, 5.1062703, -32.736526)
+
+[node name="JizoLantern8" parent="DummyMap/Node3D" unique_id=878165034 instance=ExtResource("6_l7ur4")]
+transform = Transform3D(0.54761225, -0.032958623, 0.28885043, 0.03453552, 0.61901593, 0.005157775, -0.28866604, 0.011534087, 0.548579, 1.9584694, 6.760239, -27.339394)
+
+[node name="JizoLantern9" parent="DummyMap/Node3D" unique_id=1896893132 instance=ExtResource("6_l7ur4")]
+transform = Transform3D(0.54761225, -0.032958623, 0.28885043, 0.03453552, 0.61901593, 0.005157775, -0.28866604, 0.011534087, 0.548579, -27.493082, 5.106272, -26.432972)
 
 [node name="Poles" type="Node3D" parent="DummyMap" unique_id=651664000]
 transform = Transform3D(0.39841646, 0, 0.78464276, 0, 1, 0, -0.78464276, 0, 0.39841646, 66.01998, -1.4243166, 43.226776)
@@ -345,7 +360,7 @@ transform = Transform3D(1.3414974, -6.661338e-16, 2.6833525, 0.25909922, 2.98598
 transform = Transform3D(2.6871119, 0, 1.3339524, 0, 3, 0, -1.3339524, 0, 2.6871119, 72.99262, -0.5593767, 65.876755)
 
 [node name="Pine Tree3" parent="DummyMap/Trees" unique_id=231180095 instance=ExtResource("4_ssmqr")]
-transform = Transform3D(2.677558, -0.2527553, 1.3292096, 0.22639392, 2.9893336, 0.11238785, -1.3339524, 0, 2.6871119, 82.02409, 1.1313801, 5.675251)
+transform = Transform3D(2.6857653, -0.09496494, 1.3332839, 0.08506048, 2.9984965, 0.04222624, -1.3339524, 0, 2.6871119, 74.86111, 2.4717503, 5.675251)
 
 [node name="Pine Tree11" parent="DummyMap/Trees" unique_id=1788362563 instance=ExtResource("4_ssmqr")]
 transform = Transform3D(2.160019, 0, -2.0819025, 0, 3, 0, 2.0819025, 0, 2.160019, 49.272755, 2.2530394, -52.42903)
@@ -373,6 +388,15 @@ transform = Transform3D(2.718796, 0, -0.29727614, 0, 2.735, 0, 0.29727614, 0, 2.
 
 [node name="Pine Tree19" parent="DummyMap/Trees" unique_id=707221631 instance=ExtResource("4_ssmqr")]
 transform = Transform3D(2.8894646, 0.054827224, 0.0093968315, -0.055242017, 2.8855584, 0.15033768, -0.0065302793, -0.15048943, 2.8860717, 27.429209, -0.49717712, 71.52249)
+
+[node name="Pine Tree20" parent="DummyMap/Trees" unique_id=586692256 instance=ExtResource("4_ssmqr")]
+transform = Transform3D(0.4433762, 0, 2.9670548, 0.08864252, 2.9986608, -0.013246128, -2.9657302, 0.08962676, 0.4431783, 72.86242, -0.30720806, 38.140007)
+
+[node name="Pine Tree21" parent="DummyMap/Trees" unique_id=1348083665 instance=ExtResource("4_ssmqr")]
+transform = Transform3D(0.4517134, 0.7165515, 2.877934, -0.01987336, 2.9117901, -0.7218613, -2.96573, 0.08962677, 0.44317833, 64.733795, 4.9090834, -23.29972)
+
+[node name="Pine Tree22" parent="DummyMap/Trees" unique_id=1095881350 instance=ExtResource("4_ssmqr")]
+transform = Transform3D(-2.937877, 0.12717925, 0.59388727, 0.12534094, 2.997302, -0.021818638, -0.59427786, 0.0034461021, -2.9405484, 47.86403, 4.2763433, -1.6569998)
 
 [node name="DummyHouse" type="MeshInstance3D" parent="." unique_id=596206383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.955986, -0.21455383, -6.682396)
@@ -427,7 +451,7 @@ shadow_enabled = true
 sky_mode = 1
 
 [node name="PlayerNode" parent="." unique_id=764222003 instance=ExtResource("4_p3kjh")]
-transform = Transform3D(0.3187443, 0, 0.9478408, 0, 1, 0, -0.9478408, 0, 0.3187443, 12.656141, 8.728819, 20.72754)
+transform = Transform3D(-0.78009206, 0, 0.62566483, 0, 1, 0, -0.62566483, 0, -0.78009206, 21.994272, 1.4017501, 80.178955)
 
 [node name="WoodyPositionner" type="Node3D" parent="." unique_id=744705870]
 transform = Transform3D(0.9810703, 0, -0.6996615, 0, 1.205, 0, 0.6996615, 0, 0.9810703, -16.386936, 5.4255877, -9.835358)
