@@ -73,7 +73,7 @@ var pickup_locked := false:
 var player_node :PlayerNode
 
 #region COMBO
-var combo_duration := 0.3
+@export var combo_duration := 0.8
 var combo_current_timer := 0.0
 var combo_timer_ticking := true
 var combo_timer_speed_multiplier := 1.0
@@ -214,7 +214,7 @@ func load_gameplay_data(data :Dictionary) -> void:
 	for currency_name in CURRENCIES.keys():
 		var currency_id = CURRENCIES[currency_name]
 		if data["currencies"].has(currency_name):
-			call_deferred("modify_currency", [currency_id, data["currencies"][currency_name]])
+			call_deferred("modify_currency", currency_id, data["currencies"][currency_name])
 	
 	for unlockable_name in UNLOCKABLE_TYPES.keys():
 		var unlockable_type = UNLOCKABLE_TYPES[unlockable_name]
