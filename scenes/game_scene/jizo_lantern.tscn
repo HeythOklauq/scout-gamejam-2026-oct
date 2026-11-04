@@ -43,4 +43,6 @@ omni_range = 5.279
 omni_attenuation = 0.409
 
 [node name="HittableBodyComponent" parent="." unique_id=1598085311 instance=ExtResource("2_176cj")]
-knockback_movement = 0.0
+on_hit_soundtype_1 = 5
+on_hit_soundtype_2 = 8
+animation_duration = 0.0
