@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cvl8f4r3u0gtb" path="res://assets/graphics/treeline1.png" id="5_kl2ce"]
 [ext_resource type="PackedScene" uid="uid://cvd574a3vd0dc" path="res://scenes/props/woody_node.tscn" id="5_vpstl"]
 [ext_resource type="AudioStream" uid="uid://bh02sg8jcjh7l" path="res://assets/audio/ambiants/freesound_community-forest-wind-and-birds-6881.mp3" id="6_iuepn"]
+[ext_resource type="PackedScene" uid="uid://bi8g2fnqbyvlj" path="res://scenes/game_scene/jizo_lantern.tscn" id="6_l7ur4"]
 [ext_resource type="PackedScene" uid="uid://byi5f6u54eg5m" path="res://scenes/game_scene/gate.tscn" id="6_n1oi6"]
 [ext_resource type="PackedScene" uid="uid://w5h4fg3yfssc" path="res://scenes/props/house_of_waffle.tscn" id="7_efq47"]
 [ext_resource type="PackedScene" uid="uid://o2wrmyrdsqf0" path="res://scenes/game_scene/skybox_scene.tscn" id="9_biejc"]
@@ -227,6 +228,21 @@ texture = ExtResource("5_kl2ce")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DummyMap/Treeline/Sprite3D7/StaticBody3D" unique_id=1253783727]
 shape = SubResource("WorldBoundaryShape3D_kl2ce")
 
+[node name="Node3D" type="Node3D" parent="DummyMap" unique_id=507876121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9604645e-06, 0, 3.5762787e-06)
+
+[node name="JizoLantern" parent="DummyMap/Node3D" unique_id=2042970159 instance=ExtResource("6_l7ur4")]
+transform = Transform3D(0.55748457, 1.15484e-09, 0.27131343, 0.008399102, 0.6197029, -0.017258158, -0.2711834, 0.019193461, 0.55721736, 10.544664, 0.76673317, 70.37627)
+
+[node name="JizoLantern2" parent="DummyMap/Node3D" unique_id=1571218457 instance=ExtResource("6_l7ur4")]
+transform = Transform3D(0.6197672, -0.0079401005, -0.015018139, 0.007942431, 0.6199491, -2.4540836e-11, 0.015016907, -0.00019238792, 0.6198181, 10.170896, -0.3713131, 81.66695)
+
+[node name="JizoLantern3" parent="DummyMap/Node3D" unique_id=1187940611 instance=ExtResource("6_l7ur4")]
+transform = Transform3D(0.55748457, -4.61936e-09, 0.27131343, 0.042288434, 0.6124225, -0.086892664, -0.2679975, 0.096636675, 0.55067116, 20.467922, 4.5806003, 50.549763)
+
+[node name="JizoLantern4" parent="DummyMap/Node3D" unique_id=603383780 instance=ExtResource("6_l7ur4")]
+transform = Transform3D(0.5490768, 0.023199102, 0.2870128, -0.008741557, 0.61904263, -0.03331368, -0.28781608, 0.025456177, 0.54855615, 21.00767, 6.9709883, 37.924797)
+
 [node name="Poles" type="Node3D" parent="DummyMap" unique_id=651664000]
 transform = Transform3D(0.39841646, 0, 0.78464276, 0, 1, 0, -0.78464276, 0, 0.39841646, 66.01998, -1.4243166, 43.226776)
 
@@ -294,10 +310,10 @@ transform = Transform3D(0.5932363, 0, -0.80502856, 0, 1, 0, 0.80502856, 0, 0.593
 transform = Transform3D(0.5804614, 0, -0.8142879, 0, 1, 0, 0.8142879, 0, 0.5804614, -54.362427, 3.74624, -92.11212)
 
 [node name="Gatebody1" parent="DummyMap/Poles" unique_id=458893960 instance=ExtResource("6_n1oi6")]
-transform = Transform3D(0.6399563, -0.09893989, -0.7620165, 0.016770251, 0.993238, -0.11487778, 0.76822966, 0.060737483, 0.6372883, -23.047695, 2.4197292, -41.0743)
+transform = Transform3D(0.634994, -0.023681521, -0.7721562, -0.1467242, 0.97763914, -0.15064433, 0.7584569, 0.20895177, 0.61732054, -21.501942, 2.4197292, -42.320816)
 
 [node name="Gatebody2" parent="DummyMap/Poles" unique_id=1949864735 instance=ExtResource("6_n1oi6")]
-transform = Transform3D(-0.24457552, -0.045650944, 0.9685572, 0.41912675, 0.8957747, 0.14805621, -0.8743672, 0.44215742, -0.19995119, -18.16667, 1.1389198, -33.633698)
+transform = Transform3D(-0.2742411, -0.12960085, 0.9528904, 0.23387265, 0.95214003, 0.19680724, -0.93279076, 0.27682656, -0.23080567, -19.82552, 0.7830143, -31.458927)
 
 [node name="Trees" type="Node3D" parent="DummyMap" unique_id=1104046340]
 
@@ -377,28 +393,28 @@ animation_duration = 0.0
 [node name="HoW Sign" parent="." unique_id=752210448 instance=ExtResource("14_n1oi6")]
 transform = Transform3D(-0.6161794, 0, -1.595125, 0, 1.7100008, 0, 1.595125, 0, -0.6161794, 39.50067, -0.009273529, 53.45397)
 
-[node name="Node3D" type="Node3D" parent="." unique_id=627820381]
+[node name="Fireflies" type="Node3D" parent="." unique_id=627820381]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08967376, 10.98106, -0.2277143)
 
-[node name="FireflyParticles3D" type="GPUParticles3D" parent="Node3D" unique_id=2077262574]
+[node name="FireflyParticles3D" type="GPUParticles3D" parent="Fireflies" unique_id=2077262574]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
 amount = 1000
 process_material = SubResource("ParticleProcessMaterial_ep4rp")
 draw_pass_1 = SubResource("QuadMesh_rhs7m")
 
-[node name="FireflyParticles3D2" type="GPUParticles3D" parent="Node3D" unique_id=718272476]
+[node name="FireflyParticles3D2" type="GPUParticles3D" parent="Fireflies" unique_id=718272476]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 0)
 amount = 1000
 process_material = SubResource("ParticleProcessMaterial_ep4rp")
 draw_pass_1 = SubResource("QuadMesh_rhs7m")
 
-[node name="FireflyParticles3D3" type="GPUParticles3D" parent="Node3D" unique_id=500376003]
+[node name="FireflyParticles3D3" type="GPUParticles3D" parent="Fireflies" unique_id=500376003]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100)
 amount = 1000
 process_material = SubResource("ParticleProcessMaterial_ep4rp")
 draw_pass_1 = SubResource("QuadMesh_rhs7m")
 
-[node name="FireflyParticles3D4" type="GPUParticles3D" parent="Node3D" unique_id=1941447448]
+[node name="FireflyParticles3D4" type="GPUParticles3D" parent="Fireflies" unique_id=1941447448]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100)
 amount = 1000
 process_material = SubResource("ParticleProcessMaterial_ep4rp")
