@@ -890,7 +890,7 @@ mesh = SubResource("BoxMesh_mw67o")
 surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
 
 [node name="Bat" type="MeshInstance3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1265214212]
-transform = Transform3D(0.00021265776, 0.12186886, 0.99254626, 0.0017323144, 0.99254215, -0.12186936, -0.9999958, 0.0017453186, -4.3385572e-08, 0.977, -0.863, -1.03)
+transform = Transform3D(0.00021265775, 0.121868856, 0.99254626, 0.0017323142, 0.9925421, -0.12186936, -0.99999577, 0.0017453185, -4.3385572e-08, 0.977, -0.863, -1.03)
 cast_shadow = 0
 mesh = ExtResource("3_xlee4")
 surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")

@@ -9,13 +9,10 @@ func is_valid_state(_previous_state :StateNode) -> bool:
 func on_entering_state(_previous_state :StateNode) -> void:
 	GameplayManager.use_stamina();
 	timer = dash_duration;
-	var dash_direction :Vector3 = GameplayManager.player_node.velocity
-	if GameplayManager.player_node.get_horizontal_velocity().length_squared() < 1.0:
-		var h_velocity = GameplayManager.player_node.get_player_forward_angle()
-		dash_direction = Vector3(h_velocity.x, 0.0, h_velocity.y)
+	var dash_direction :Vector3 = GameplayManager.player_node.get_player_forward_angle()
 	
-	SlowMotionManager.slow_time(SlowMotionManager.MINOR_SLOW, 0.3);
-	GameplayManager.player_node.apply_movement(dash_direction, GameplayManager.dash_speed);
+	#SlowMotionManager.slow_time(SlowMotionManager.MINOR_SLOW, 0.3);
+	GameplayManager.player_node.apply_movement(dash_direction * GameplayManager.dash_speed, GameplayManager.dash_speed);
 	GameplayManager.attack_locked = false
 
 func on_exiting_state() -> void:
