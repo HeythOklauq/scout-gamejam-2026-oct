@@ -197,14 +197,6 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("2_umi8b")
 
-[node name="Sprite3D12" type="Sprite3D" parent="." unique_id=1414639655]
-transform = Transform3D(0.14003272, 0.044889696, -0.6094307, 0.0016085302, 0.35773104, 0.114375286, 0.2075923, -0.033052523, 0.41020924, 10.864067, 6.5027924, -1.6905146)
-layers = 524288
-pixel_size = 0.03
-shaded = true
-texture_filter = 0
-texture = ExtResource("4_dmqod")
-
 [node name="Sprite3D14" type="Sprite3D" parent="." unique_id=953500985]
 transform = Transform3D(-0.21955524, -0.024768597, 0.3539029, 0.0016085305, 0.35773104, 0.11437529, -0.12041283, 0.049940664, -0.6437626, 5.2739577, 6.7060947, -5.94174)
 layers = 524288
@@ -220,14 +212,6 @@ pixel_size = 0.03
 shaded = true
 texture_filter = 0
 texture = ExtResource("4_dmqod")
-
-[node name="Sprite3D20" type="Sprite3D" parent="." unique_id=809963284]
-transform = Transform3D(-0.13907117, -0.045042105, 0.6113216, 0.0016085333, 0.35773098, 0.11437529, -0.20823787, 0.032844547, -0.4073863, 13.374701, 6.9386187, 5.0138083)
-layers = 524288
-pixel_size = 0.03
-shaded = true
-texture_filter = 0
-texture = ExtResource("2_umi8b")
 
 [node name="Sprite3D21" type="Sprite3D" parent="." unique_id=1089164719]
 transform = Transform3D(-0.03261487, -0.0549243, 0.72846496, 0.0016085317, 0.35773095, 0.114375286, -0.24827415, 0.009532891, -0.09495488, 13.374701, 6.9386187, 10.033371)
