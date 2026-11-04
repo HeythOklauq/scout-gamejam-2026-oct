@@ -5,10 +5,26 @@ class_name UIController
 @onready var shop_menu_screen: ShopScreenNode = %ShopMenuScreen
 @onready var pause_screen: PauseScreenControl = %PauseScreen
 
+@onready var dash_texture_rect: TextureRect = $SubViewportContainer/SubViewport/DashTextureRect
+var dashlines_disappearance_speed := 3.0
+
 var active_ui
 
 func _ready() -> void:
-	call_deferred("show_pause")
+	call_deferred("initialize")
+
+func initialize() -> void:
+	GameplayManager.dashing_changed.connect(_on_dashing_changed)
+	dash_texture_rect.modulate.a = 0.0
+	show_pause()
+
+func _on_dashing_changed() -> void:
+	if GameplayManager.dashing:
+		dash_texture_rect.modulate.a = 1.0
+
+func _process(delta: float) -> void:
+	if GameplayManager.dashing == false and dash_texture_rect.modulate.a > 0.0:
+		dash_texture_rect.modulate.a = max(0.0, dash_texture_rect.modulate.a - delta * dashlines_disappearance_speed)
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Pause"):

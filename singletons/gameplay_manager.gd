@@ -3,6 +3,7 @@ extends Node
 
 signal unlockable_updated(unlockable_resource :IncrementalUnlockResource)
 signal pickup_lock_changed()
+signal dashing_changed()
 
 signal stamina_changed(value :int)
 signal combo_changed(value :int)
@@ -61,12 +62,16 @@ func on_unlockable_updated( unlockable_resource :IncrementalUnlockResource ) -> 
 	save_data()
 #endregion
 
+var dashing := false:
+	set(_dashing):
+		dashing = _dashing
+		dashing_changed.emit()
+
 var attack_locked := false
 var stamina_locked := false
 var pickup_locked := false:
 	set(_pickup_locked):
 		pickup_locked = _pickup_locked
-		prints("Pickup_locked: ", pickup_locked)
 		pickup_lock_changed.emit()
 
 

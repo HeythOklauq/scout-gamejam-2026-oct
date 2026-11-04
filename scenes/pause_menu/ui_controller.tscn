@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d0qb7dvtvxfow" path="res://scenes/pause_menu/ui_controller.gd" id="1_7nmj1"]
 [ext_resource type="PackedScene" uid="uid://bnsmcdxyrgku7" path="res://scenes/pause_menu/pause_screen.tscn" id="1_bsb7w"]
 [ext_resource type="PackedScene" uid="uid://bushhfwb0kykk" path="res://scenes/game_scene/hud_control.tscn" id="2_cnqhu"]
+[ext_resource type="Texture2D" uid="uid://cssp8snb3tyho" path="res://assets/graphics/dash_visual.png" id="2_n3uma"]
 [ext_resource type="Texture2D" uid="uid://ctl7w5iauvvg1" path="res://assets/graphics/vignette.png" id="2_tyt0h"]
 [ext_resource type="PackedScene" uid="uid://bea4rrkcx7py2" path="res://scenes/game_scene/shops/shop_menu_screen.tscn" id="3_cnqhu"]
 
@@ -23,8 +24,19 @@ handle_input_locally = false
 size = Vector2i(800, 600)
 render_target_update_mode = 4
 
-[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport" unique_id=1462067202]
-modulate = Color(1, 1, 1, 0.39215687)
+[node name="DashTextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport" unique_id=1233748586]
+self_modulate = Color(1, 1, 1, 0.39215687)
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_n3uma")
+expand_mode = 1
+
+[node name="VignetteTextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport" unique_id=1462067202]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
