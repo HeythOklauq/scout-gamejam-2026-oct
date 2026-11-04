@@ -42,6 +42,7 @@ func _hide_menu() -> void:
 	SlowMotionManager.resume_time()
 
 func show_pause() -> void:
+	GameplayManager.save_data();
 	_show_menu(pause_screen)
 
 func show_shop(shop_products :Array[GameplayManager.UNLOCKABLE_TYPES]) -> void:

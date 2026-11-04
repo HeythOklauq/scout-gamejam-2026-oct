@@ -73,7 +73,7 @@ var pickup_locked := false:
 var player_node :PlayerNode
 
 #region COMBO
-var combo_duration := 0.3
+@export var combo_duration := 0.8
 var combo_current_timer := 0.0
 var combo_timer_ticking := true
 var combo_timer_speed_multiplier := 1.0
@@ -214,7 +214,7 @@ func load_gameplay_data(data :Dictionary) -> void:
 	for currency_name in CURRENCIES.keys():
 		var currency_id = CURRENCIES[currency_name]
 		if data["currencies"].has(currency_name):
-			call_deferred("modify_currency", [currency_id, data["currencies"][currency_name]])
+			call_deferred("modify_currency", currency_id, data["currencies"][currency_name])
 	
 	for unlockable_name in UNLOCKABLE_TYPES.keys():
 		var unlockable_type = UNLOCKABLE_TYPES[unlockable_name]
@@ -222,6 +222,22 @@ func load_gameplay_data(data :Dictionary) -> void:
 			var current_unlockable = UNLOCKABLES[unlockable_type]
 			current_unlockable.unlock_level = data["unlockables"][unlockable_name].unlock_level
 			current_unlockable.current_level = data["unlockables"][unlockable_name].current_level
+
+func reset_data() -> void:
+	combo_counter = 0
+	combo_current_timer = 0.0
+	
+	for currency_name in CURRENCIES.keys():
+		player_currencies[CURRENCIES[currency_name]] = 0
+	
+	for unlockable_name in UNLOCKABLE_TYPES.keys():
+		var unlockable_type = UNLOCKABLE_TYPES[unlockable_name]
+		UNLOCKABLES[unlockable_type].unlock_level = 0
+		UNLOCKABLES[unlockable_type].current_level = 0
+	
+	money_changed.emit(0)
+	woodchip_changed.emit(0)
+	call_deferred("save_data")
 
 func load_data() -> void:
 	if FileAccess.file_exists(data_file_path):

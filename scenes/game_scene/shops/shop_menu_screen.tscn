@@ -19,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.23529412)
+color = Color(0, 0, 0, 0.47058824)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=863643138]
 layout_mode = 1
@@ -46,6 +46,7 @@ size_flags_horizontal = 3
 
 [node name="MoneyCurrencyLineControl" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=525960156 instance=ExtResource("2_uat71")]
 layout_mode = 2
+currency_type = 0
 
 [node name="WoodchipCurrencyLineControl2" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1922533605 instance=ExtResource("2_uat71")]
 layout_mode = 2
