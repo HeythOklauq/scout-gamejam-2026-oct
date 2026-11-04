@@ -223,6 +223,22 @@ func load_gameplay_data(data :Dictionary) -> void:
 			current_unlockable.unlock_level = data["unlockables"][unlockable_name].unlock_level
 			current_unlockable.current_level = data["unlockables"][unlockable_name].current_level
 
+func reset_data() -> void:
+	combo_counter = 0
+	combo_current_timer = 0.0
+	
+	for currency_name in CURRENCIES.keys():
+		player_currencies[CURRENCIES[currency_name]] = 0
+	
+	for unlockable_name in UNLOCKABLE_TYPES.keys():
+		var unlockable_type = UNLOCKABLE_TYPES[unlockable_name]
+		UNLOCKABLES[unlockable_type].unlock_level = 0
+		UNLOCKABLES[unlockable_type].current_level = 0
+	
+	money_changed.emit(0)
+	woodchip_changed.emit(0)
+	call_deferred("save_data")
+
 func load_data() -> void:
 	if FileAccess.file_exists(data_file_path):
 		var file = FileAccess.open(data_file_path, FileAccess.READ)
