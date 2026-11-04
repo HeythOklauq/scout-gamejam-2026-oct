@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://w1aibyt3sfmc"]
+
+[ext_resource type="Texture2D" uid="uid://bfcckael41out" path="res://assets/graphics/uncle.png" id="1_jbko0"]
+[ext_resource type="Script" uid="uid://d37owirid20d2" path="res://scenes/props/uncle_node.gd" id="1_vcftc"]
+[ext_resource type="PackedScene" uid="uid://3t4r1b5j25iv" path="res://scenes/props/interactable_body_component.tscn" id="3_5bn57"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="4_kape2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kape2"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="TorusMesh" id="TorusMesh_4k1cq"]
+inner_radius = 0.3
+outer_radius = 0.4
+rings = 6
+ring_segments = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g11yi"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[node name="UncleNode" type="Node3D" unique_id=283933273]
+script = ExtResource("1_vcftc")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1858913184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16502833, 0)
+billboard = 2
+texture = ExtResource("1_jbko0")
+hframes = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=82323684]
+collision_layer = 6
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1933821419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource("BoxShape3D_kape2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=210358869]
+mesh = SubResource("TorusMesh_4k1cq")
+surface_material_override/0 = SubResource("StandardMaterial3D_g11yi")
+
+[node name="InteractableBodyComponent" parent="StaticBody3D" unique_id=1906740058 node_paths=PackedStringArray("body", "mesh") instance=ExtResource("3_5bn57")]
+body = NodePath("..")
+mesh = NodePath("../MeshInstance3D")
+
+[node name="HittableBodyComponent" parent="StaticBody3D" unique_id=1598085311 instance=ExtResource("4_kape2")]
+on_hit_soundtype_1 = 2
+on_hit_soundtype_2 = 8
+animation_duration = 0.0

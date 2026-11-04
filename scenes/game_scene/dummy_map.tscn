@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://clxn7bc34tk50" path="res://scenes/game_scene/jizo_lantern.tscn" id="6_l7ur4"]
 [ext_resource type="PackedScene" path="res://scenes/game_scene/gate.tscn" id="6_n1oi6"]
 [ext_resource type="PackedScene" uid="uid://w5h4fg3yfssc" path="res://scenes/props/house_of_waffle.tscn" id="7_efq47"]
+[ext_resource type="PackedScene" uid="uid://w1aibyt3sfmc" path="res://scenes/props/uncle_node.tscn" id="7_iw4pc"]
 [ext_resource type="PackedScene" uid="uid://o2wrmyrdsqf0" path="res://scenes/game_scene/skybox_scene.tscn" id="9_biejc"]
 [ext_resource type="Environment" uid="uid://c4jiuhl5im7nu" path="res://resources/world_environment.tres" id="10_bgv0c"]
 [ext_resource type="PackedScene" uid="uid://chfnp3824h6x4" path="res://scenes/game_scene/woody_spot_light.tscn" id="12_0ythe"]
@@ -260,6 +261,9 @@ transform = Transform3D(0.23944075, -0.091158286, 0.5645867, 0.037125595, 0.6132
 
 [node name="JizoLantern10" parent="DummyMap/Node3D" unique_id=711303063 instance=ExtResource("6_l7ur4")]
 transform = Transform3D(0.61797166, -0.034777865, 0.036074467, 0.034535527, 0.61901605, 0.0051577757, -0.036306486, -0.00313148, 0.618928, -17.82856, 5.106272, 19.9912)
+
+[node name="UncleNode" parent="DummyMap/Node3D" unique_id=283933273 instance=ExtResource("7_iw4pc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.332695, 17.57126, 6.0697136)
 
 [node name="Poles" type="Node3D" parent="DummyMap" unique_id=651664000]
 transform = Transform3D(0.39841646, 0, 0.78464276, 0, 1, 0, -0.78464276, 0, 0.39841646, 66.01998, -1.4243166, 43.226776)
