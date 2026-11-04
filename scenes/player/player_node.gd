@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name PlayerNode
 
 @onready var camera_anchor :Node3D = $CameraAnchor
+@onready var camera: Camera3D = $GameCanvas/SubViewportContainer/SubViewport/PlayerCamera
 @onready var forward_marker_3d: Marker3D = $GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/ForwardMarker3D
 @onready var ui_controller: UIController = $GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/UIController
 
@@ -21,7 +22,7 @@ func get_horizontal_velocity() -> Vector2:
 	return Vector2(velocity.x, velocity.z);
 
 func get_player_forward_angle() -> Vector3:
-	return (forward_marker_3d.global_position - camera_anchor.global_position)
+	return (forward_marker_3d.global_position - camera.global_position)
 
 func apply_movement(movement :Vector3, strength :float) -> void:
 	velocity += movement.normalized() * strength
@@ -60,15 +61,6 @@ func _process(_delta: float) -> void:
 			active_interactable_node.interact()
 
 var active_interactable_node
-
-func _on_pickup_area_body_entered(body: Node3D) -> void:
-	if not is_on_floor():
-		return
-	var woodchip := body as WoodChipNode
-	if woodchip == null:
-		return
-	
-	woodchip.pick_up()
 
 func _on_interaction_area_entered(node) -> void:
 	var interactable_component = InteractableBodyComponent.get_interactable_component(node);

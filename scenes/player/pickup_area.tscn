@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://4f3hys6nnrd"]
+
+[ext_resource type="Script" uid="uid://c5v26sqlkb67p" path="res://scenes/player/pickup_area.gd" id="1_oema3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tu3ki"]
+height = 1.1259766
+radius = 0.6
+
+[node name="PickupArea" type="Area3D" unique_id=610202049]
+collision_layer = 0
+collision_mask = 64
+monitorable = false
+script = ExtResource("1_oema3")
+radius = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=484005723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.087402344, 0)
+shape = SubResource("CylinderShape3D_tu3ki")
+
+[connection signal="body_entered" from="." to="." method="_on_pickup_area_body_entered"]

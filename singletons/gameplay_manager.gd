@@ -2,6 +2,7 @@
 extends Node
 
 signal unlockable_updated(unlockable_resource :IncrementalUnlockResource)
+signal pickup_lock_changed()
 
 signal stamina_changed(value :int)
 signal combo_changed(value :int)
@@ -62,8 +63,16 @@ func on_unlockable_updated( unlockable_resource :IncrementalUnlockResource ) -> 
 
 var attack_locked := false
 var stamina_locked := false
+var pickup_locked := false:
+	set(_pickup_locked):
+		pickup_locked = _pickup_locked
+		prints("Pickup_locked: ", pickup_locked)
+		pickup_lock_changed.emit()
+
 
 var player_node :PlayerNode
+
+#region COMBO
 var combo_duration := 0.3
 var combo_current_timer := 0.0
 var combo_timer_ticking := true
@@ -96,6 +105,7 @@ func _update_combo(_delta :float) -> void:
 	combo_current_timer -= _delta * combo_timer_speed_multiplier
 	if combo_current_timer <= 0.0:
 		combo_counter = 0;
+#endregion
 
 #region Movement stats
 @export_group("Movement Stats")
