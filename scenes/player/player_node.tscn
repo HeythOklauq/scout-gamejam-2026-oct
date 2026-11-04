@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://burvraqbakhmt" path="res://scenes/player/player_node.gd" id="1_e0ebx"]
 [ext_resource type="PackedScene" uid="uid://dpbf7qrlh6qqk" path="res://scenes/player/player_state_machine.tscn" id="2_3mpri"]
+[ext_resource type="PackedScene" uid="uid://4f3hys6nnrd" path="res://scenes/player/pickup_area.tscn" id="2_srlsm"]
 [ext_resource type="Script" uid="uid://bvp10nu5m1tgl" path="res://scenes/player/idle_move_state.gd" id="3_aivhf"]
 [ext_resource type="ArrayMesh" uid="uid://byum2ocxara4a" path="res://assets/models/bat.obj" id="3_xlee4"]
 [ext_resource type="Script" uid="uid://cgrsjfh4j818g" path="res://scenes/player/walking_state.gd" id="4_xlee4"]
@@ -19,10 +20,6 @@
 [ext_resource type="Script" uid="uid://4lrefw2564ya" path="res://scenes/player/BumpAttackResource.gd" id="19_33ooy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l67bh"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_tu3ki"]
-height = 1.1259766
-radius = 0.5786133
 
 [sub_resource type="Resource" id="Resource_ikhd0"]
 script = ExtResource("18_ppx7h")
@@ -740,14 +737,7 @@ current = true
 [node name="CameraAnchor" type="Marker3D" parent="." unique_id=1628498056]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.52422, 0)
 
-[node name="PickupArea" type="Area3D" parent="." unique_id=1856561486]
-collision_layer = 0
-collision_mask = 64
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea" unique_id=1413318854]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.087402344, 0)
-shape = SubResource("CylinderShape3D_tu3ki")
+[node name="PickupArea" parent="." unique_id=610202049 instance=ExtResource("2_srlsm")]
 
 [node name="MotionPlayerStateMachine" parent="." unique_id=2089066676 node_paths=PackedStringArray("starting_state") instance=ExtResource("2_3mpri")]
 starting_state = NodePath("IdleState")
@@ -900,7 +890,7 @@ mesh = SubResource("BoxMesh_mw67o")
 surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
 
 [node name="Bat" type="MeshInstance3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1265214212]
-transform = Transform3D(0.00021265777, 0.12186887, 0.99254626, 0.0017323145, 0.9925422, -0.12186936, -0.9999959, 0.0017453188, -4.3385572e-08, 0.977, -0.863, -1.03)
+transform = Transform3D(0.00021265776, 0.12186886, 0.99254626, 0.0017323144, 0.99254215, -0.12186936, -0.9999958, 0.0017453186, -4.3385572e-08, 0.977, -0.863, -1.03)
 cast_shadow = 0
 mesh = ExtResource("3_xlee4")
 surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")

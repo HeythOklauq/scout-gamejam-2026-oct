@@ -3,10 +3,12 @@ extends PlayerStateNode
 var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func on_entering_state(_previous_state :StateNode) -> void:
+	GameplayManager.pickup_locked = true
 	GameplayManager.player_node.velocity.y = GameplayManager.jump_speed;
 
 func on_exiting_state() -> void:
 	GameplayManager.player_node.velocity.y = 0.0;
+	GameplayManager.pickup_locked = false;
 
 func process_frame(_delta: float) -> StateNode:
 	if Input.is_action_just_pressed("Dash"):
