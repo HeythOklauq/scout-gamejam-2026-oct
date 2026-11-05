@@ -17,8 +17,13 @@ func on_entering_state(_previous_state :StateNode) -> void:
 	GameplayManager.dashing = true;
 	
 	timer = dash_duration;
-	dash_direction = GameplayManager.player_node.get_player_forward_angle()
+	dash_direction = GameplayManager.player_node.velocity
+	if GameplayManager.player_node.velocity.length_squared() < 0.1:
+		dash_direction = GameplayManager.player_node.get_player_forward_angle()
+	
 	#SlowMotionManager.slow_time(SlowMotionManager.MAJOR_SLOW, dash_duration/2.0);
+	dash_direction = dash_direction.normalized()
+	prints("dash_direction", dash_direction);
 	SfxManager.play_sound(SfxManager.SOUND_TYPES.WIND_UP, 0.05, 0.02);
 	GameplayManager.player_node.velocity = dash_direction * GameplayManager.dash_speed
 	GameplayManager.player_node.camera.fov += FOV_modifier

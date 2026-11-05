@@ -8,6 +8,8 @@ var current_hp := 0.0
 @export var max_hp := 1000*1000*1000
 @export var hp_threshold := 5
 
+@export var damage_indicator_node :DamageNumberNode
+
 @export var drop_vector_randomness := 0.2;
 @export var drop_vector_strength := 10.0;
 @export var max_drop_vector_strength := 15.0;
@@ -27,12 +29,16 @@ func instantiate() -> void:
 
 func _on_hittable_body_component_hit(direction: Vector3, strength: float) -> void:
 	var old_hp_segments = ceil(current_hp / float(hp_threshold));
-	current_hp -= strength * (GameplayManager.combo_counter + 1)
+	var damages = strength * (GameplayManager.combo_counter + 1)
+	current_hp -= damages
 	var new_hp_segments = ceil(current_hp / float(hp_threshold));
 	
 	var delta_segments = (old_hp_segments - new_hp_segments)
 	for i in delta_segments:
 		spawn_woodchip(direction, strength)
+	
+	if damage_indicator_node != null:
+		damage_indicator_node.show_damage(damages)
 	
 	ParticleManager.spawn_particle(ParticleManager.PARTICLE_TYPES.WOOD_IMPACT, chip_spawn_point.global_position);
 
