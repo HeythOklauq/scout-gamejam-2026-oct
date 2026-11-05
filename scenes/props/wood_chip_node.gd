@@ -1,12 +1,12 @@
 extends RigidBody3D
 class_name WoodChipNode
 
-signal picked_up(woodchipNode :WoodChipNode)
+signal picked_up(woodchipNode :WoodChipNode, by_player :bool)
 
 @export var value := 1
 
-func pick_up() -> void:
+func pick_up(by_player :bool = true) -> void:
 	GameplayManager.modify_currency(GameplayManager.CURRENCIES.WOODCHIP, value)
-	SfxManager.play_3d_sound(global_position, SfxManager.SOUND_TYPES.PICK_UP);
-	
-	picked_up.emit(self);
+	if by_player:
+		SfxManager.play_3d_sound(global_position, SfxManager.SOUND_TYPES.PICK_UP);
+	picked_up.emit(self, by_player);

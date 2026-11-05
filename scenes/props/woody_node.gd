@@ -11,8 +11,8 @@ var current_hp := 0.0
 @export var damage_indicator_node :DamageNumberNode
 
 @export var drop_vector_randomness := 0.2;
-@export var drop_vector_strength := 10.0;
-@export var max_drop_vector_strength := 15.0;
+@export var drop_vector_strength := 0.4;
+@export var max_drop_vector_strength := 1.0;
 @export var max_woodchip_count := 100;
 var free_woodchips :Array[WoodChipNode] = []
 var used_woodchips :Array[WoodChipNode] = []
@@ -42,7 +42,9 @@ func _on_hittable_body_component_hit(direction: Vector3, strength: float) -> voi
 	
 	ParticleManager.spawn_particle(ParticleManager.PARTICLE_TYPES.WOOD_IMPACT, chip_spawn_point.global_position);
 
-func on_woodchip_picked_up(woodchip :WoodChipNode) -> void:
+func on_woodchip_picked_up(woodchip :WoodChipNode, by_player :bool) -> void:
+	if not by_player:
+		return
 	get_tree().root.remove_child(woodchip);
 	used_woodchips.remove_at(used_woodchips.find(woodchip))
 	free_woodchips.push_back(woodchip)
@@ -54,7 +56,7 @@ func spawn_woodchip(direction: Vector3, strength: float) -> void:
 		get_tree().root.add_child(woodchip);
 	else:
 		woodchip = used_woodchips.pop_front()
-		woodchip.pick_up()
+		woodchip.pick_up(false)
 	
 	used_woodchips.push_back(woodchip);
 	woodchip.global_position = chip_spawn_point.global_position;
@@ -65,4 +67,4 @@ func spawn_woodchip(direction: Vector3, strength: float) -> void:
 	)
 	var randomness_strength = 1.0 + randf_range(-drop_vector_randomness, drop_vector_randomness)
 	var vector_strength = min(max_drop_vector_strength, randomness_strength * strength * drop_vector_strength)
-	woodchip.apply_impulse((random_direction_factor + direction) * vector_strength, Vector3.ZERO);
+	woodchip.set_axis_velocity((random_direction_factor + direction) * vector_strength);
