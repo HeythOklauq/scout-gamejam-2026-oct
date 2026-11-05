@@ -26,13 +26,14 @@ func on_entering_state(_previous_state :StateNode) -> void:
 	prints("dash_direction", dash_direction);
 	SfxManager.play_sound(SfxManager.SOUND_TYPES.WIND_UP, 0.05, 0.02);
 	GameplayManager.player_node.velocity = dash_direction * GameplayManager.dash_speed
-	GameplayManager.player_node.camera.fov += FOV_modifier
 	
 	if fov_tween != null:
 		fov_tween.stop()
 	
 	fov_tween = create_tween()
-	fov_tween.tween_property(GameplayManager.player_node.camera, "fov", camera_default_fov, dash_duration);
+	var in_ratio := 0.2
+	fov_tween.tween_property(GameplayManager.player_node.camera, "fov", camera_default_fov + FOV_modifier, dash_duration * in_ratio);
+	fov_tween.tween_property(GameplayManager.player_node.camera, "fov", camera_default_fov, dash_duration * (1.0 - in_ratio));
 
 func on_exiting_state() -> void:
 	GameplayManager.dashing = false;
