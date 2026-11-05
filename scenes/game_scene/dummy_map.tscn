@@ -488,10 +488,9 @@ transform = Transform3D(0.9810703, 0, -0.6996615, 0, 1.205, 0, 0.6996615, 0, 0.9
 [node name="WoodyNode" parent="WoodyPositionner" unique_id=744089844 node_paths=PackedStringArray("damage_indicator_node") instance=ExtResource("5_vpstl")]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1.0000001, 0, -2.9802322e-08, 0, 1, 0, 0, 0)
 damage_indicator_node = NodePath("../DamageNumberNode")
-drop_vector_randomness = 0.5
-drop_vector_strength = 20.0
-max_drop_vector_strength = 30.0
-max_woodchip_count = 500
+drop_vector_strength = 1.0
+max_drop_vector_strength = 10.0
+max_woodchip_count = 300
 
 [node name="WoodySpotLight" parent="WoodyPositionner" unique_id=158472872 instance=ExtResource("12_0ythe")]
 transform = Transform3D(0.6514881, -0.17909507, 0.48185232, 0.21997353, 0.80019087, 2.7449826e-08, -0.46461633, 0.1277237, 0.67565656, 0, 0, 0)
