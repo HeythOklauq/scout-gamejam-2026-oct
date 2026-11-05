@@ -23,7 +23,7 @@ func update_display() -> void:
 		return
 	
 	name_label.text = unlockable_resource.unlock_name
-	level_label.text = str("", unlockable_resource.unlock_level)
+	level_label.text = str(unlockable_resource.unlock_level)
 	
 	var money_upgrade :int = unlockable_resource.get_upgrade_money_price()
 	money_currency_line_control.visible = (not unlockable_resource.is_max_level()) and (money_upgrade > 0)

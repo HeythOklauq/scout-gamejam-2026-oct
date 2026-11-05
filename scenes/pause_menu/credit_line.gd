@@ -26,7 +26,6 @@ func _ready() -> void:
 
 func update_display() -> void:
 	if name_label == null or role_label == null:
-		call_deferred("update_display")
 		return
 	
 	name_label.text = get_label(collaborator_name, collaborator_link)

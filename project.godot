@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Free Woody"
+config/name="Free Woody - Beta 0.1"
 config/version="0.1b"
 run/main_scene="uid://blygvalsnvb35"
+config/custom_user_dir_name="free_woody"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0.21745217, 0.088644646, 0.17413014, 1)
 boot_splash/use_filter=false

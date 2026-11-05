@@ -20,7 +20,7 @@ text = "Bunt"
 [node name="LevelLabel" type="Label" parent="." unique_id=1410604370]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "0"
+text = "1"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -32,11 +32,14 @@ alignment = 1
 
 [node name="MoneyCurrencyLineControl" parent="VBoxContainer2" unique_id=525960156 instance=ExtResource("2_jjmbf")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 static_value = true
+currency_type = 0
 
 [node name="WoodchipCurrencyLineControl" parent="VBoxContainer2" unique_id=1916701204 instance=ExtResource("2_jjmbf")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 static_value = true
 currency_type = 1
@@ -47,6 +50,7 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="UpgradeButton" type="Button" parent="VBoxContainer" unique_id=447063279]
+visible = false
 layout_mode = 2
 text = "UPGRADE"
 

@@ -1,7 +1,4 @@
-@tool
-
 extends Control
-
 
 @onready var label: Label = $Label
 @onready var h_slider: HSlider = $HSlider
@@ -30,7 +27,6 @@ func update_name() -> void:
 
 func update_volume() -> void:
 	if OptionsManager == null:
-		call_deferred("update_volume")
 		return
 	check_button.button_pressed = !OptionsManager.is_bus_mute(audio_bus);
 	h_slider.value = OptionsManager.get_audio_level(audio_bus);
