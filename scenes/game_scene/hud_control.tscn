@@ -4,9 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://udeqcylculyn" path="res://scenes/game_scene/cigarette_timer.tscn" id="1_dhjr6"]
 [ext_resource type="Texture2D" uid="uid://q4ese4ir28d4" path="res://assets/graphics/crosshair.png" id="2_fiqqh"]
 [ext_resource type="PackedScene" uid="uid://dno1lgy1587be" path="res://scenes/game_scene/stamina_bar.tscn" id="2_tjly2"]
-[ext_resource type="FontFile" uid="uid://w5eb3iy23tj6" path="res://assets/fonts/Redden.ttf" id="3_e3713"]
 [ext_resource type="PackedScene" uid="uid://cxw5pjbwo2lea" path="res://scenes/player/currency_line_control.tscn" id="4_44kiu"]
-[ext_resource type="PackedScene" uid="uid://ctp488d1eg3tk" path="res://scenes/game_scene/combo_timer.tscn" id="4_tv0g7"]
+[ext_resource type="PackedScene" uid="uid://ddi2uea5bre00" path="res://scenes/game_scene/combo_display_control.tscn" id="4_tv0g7"]
 
 [node name="HUDControl" type="Control" unique_id=1211318264]
 layout_mode = 3
@@ -56,36 +55,7 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = -4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1079553152]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_constants/separation = 2
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=570986576]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_e3713")
-theme_override_font_sizes/font_size = 64
-text = "COMBO: "
-
-[node name="ComboCounter" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=822345965]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.12156863, 0.03137255, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.49330902, 0.31001118, 0.38937265, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/outline_size = 4
-theme_override_constants/shadow_outline_size = 8
-theme_override_fonts/font = ExtResource("3_e3713")
-theme_override_font_sizes/font_size = 64
-text = "999"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="ComboTimer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1164878953 instance=ExtResource("4_tv0g7")]
+[node name="ComboDisplayControl" parent="MarginContainer/VBoxContainer" unique_id=1389671728 instance=ExtResource("4_tv0g7")]
 layout_mode = 2
 
 [node name="ScoreConatiner" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=19055802]

@@ -1,0 +1,212 @@
+[gd_scene format=3 uid="uid://ddi2uea5bre00"]
+
+[ext_resource type="FontFile" uid="uid://w5eb3iy23tj6" path="res://assets/fonts/Redden.ttf" id="1_fkolc"]
+[ext_resource type="Script" uid="uid://2il301o5antd" path="res://scenes/game_scene/combo_display_control.gd" id="1_qobaq"]
+[ext_resource type="Texture2D" uid="uid://nqce82sup53i" path="res://assets/graphics/timer_edge.png" id="4_cyq2t"]
+[ext_resource type="Texture2D" uid="uid://bxf1ye5l6wajc" path="res://assets/graphics/timer_interior.png" id="5_63f4l"]
+[ext_resource type="Texture2D" uid="uid://cr4soewr8kxxh" path="res://assets/graphics/timer_hand.png" id="6_56m83"]
+
+[sub_resource type="Animation" id="Animation_c3r1n"]
+resource_name = "Appear"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(0.08726646, 0, 0, 0.16666667, -0.34132487, 0, -0.10000001, 0.04116188, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.050000004, 0.16666667, 1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="Animation" id="Animation_c7hgh"]
+resource_name = "Bump"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0, -0.2, 0.08849369, 0.2, -0.08849369, 0, -0.16666666, 0.11563642, 0.16666666, -0.11563642),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(-5, -0.25, 0, 0.3, -8.941359, 0, -0.20000002, 16.893213, 0.20000002, -16.893213),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="Animation" id="Animation_cyq2t"]
+resource_name = "Disappear"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.033333335, -0.10352407, 0.034906585, -0.033333335, -0.0058177644, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.033333335, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="Animation" id="Animation_63f4l"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.034906585, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_56m83"]
+_data = {
+&"Appear": SubResource("Animation_c3r1n"),
+&"Bump": SubResource("Animation_c7hgh"),
+&"Disappear": SubResource("Animation_cyq2t"),
+&"RESET": SubResource("Animation_63f4l")
+}
+
+[node name="ComboDisplayControl" type="Control" unique_id=1341854626]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -32.0
+offset_right = 154.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_qobaq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1097216675]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -32.0
+offset_right = 324.0
+offset_bottom = 32.0
+grow_vertical = 2
+rotation = 0.034906585
+pivot_offset_ratio = Vector2(0, 0.5)
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=828519616]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fkolc")
+theme_override_font_sizes/font_size = 64
+text = "COMBO: "
+
+[node name="ComboCounterLabel" type="Label" parent="HBoxContainer" unique_id=621419959]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12156863, 0.03137255, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.49330902, 0.31001118, 0.38937265, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("1_fkolc")
+theme_override_font_sizes/font_size = 64
+text = "999"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ComboTimer" type="Control" parent="HBoxContainer" unique_id=1164878953]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="RidgeTexture" type="TextureRect" parent="HBoxContainer/ComboTimer" unique_id=1849546273]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_cyq2t")
+
+[node name="BackTexture" type="TextureRect" parent="HBoxContainer/ComboTimer/RidgeTexture" unique_id=1387998116]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_63f4l")
+
+[node name="HandTexture" type="TextureRect" parent="HBoxContainer/ComboTimer/RidgeTexture" unique_id=1758331561]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(33, 34)
+texture = ExtResource("6_56m83")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=341272764]
+libraries/ = SubResource("AnimationLibrary_56m83")
