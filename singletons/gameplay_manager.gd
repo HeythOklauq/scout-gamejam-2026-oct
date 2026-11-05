@@ -184,10 +184,8 @@ func modify_currency(type :CURRENCIES, modifier :int) -> void:
 	GameplayManager.player_currencies[type] += modifier
 	
 	if type == CURRENCIES.WOODCHIP:
-		prints("CURRENCIES.WOODCHIP: ", modifier)
 		woodchip_changed.emit(modifier)
 	elif type == CURRENCIES.MONEY:
-		prints("CURRENCIES.MONEY: ", modifier)
 		money_changed.emit(modifier)
 
 
@@ -251,13 +249,11 @@ func load_data() -> void:
 		file.close()
 		
 		var file_parsed = JSON.parse_string(file_content)
-		prints(file_parsed)
 		load_gameplay_data(file_parsed)
 
 func save_data() -> void:
 	var file = FileAccess.open(data_file_path, FileAccess.WRITE_READ)
 	var option_data = JSON.stringify(get_data())
-	prints(option_data)
 	file.store_string(option_data)
 	file.close()
 #endregion
