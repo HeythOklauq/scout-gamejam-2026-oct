@@ -39,6 +39,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=673919935]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="ResetProgressButton" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=358599643]
+layout_mode = 2
+text = "RESET PROGRESS"
+
 [node name="AudioOptionsContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=261109026]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -72,14 +81,25 @@ audio_bus = 2
 layout_mode = 2
 audio_bus = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=673919935]
+[node name="KeybindingOptions" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=66459013]
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment = 1
 
-[node name="ResetProgressButton" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=358599643]
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/KeybindingOptions" unique_id=1761855385]
 layout_mode = 2
-text = "RESET PROGRESS"
+text = "KEYBINDING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/VBoxContainer/KeybindingOptions" unique_id=198317418]
+layout_mode = 2
+
+[node name="KeybindingContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/KeybindingOptions" unique_id=307560327]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1691876475]
 layout_mode = 2
