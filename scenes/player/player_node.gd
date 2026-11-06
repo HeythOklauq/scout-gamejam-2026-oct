@@ -45,9 +45,10 @@ func _physics_process(_delta: float) -> void:
 		velocity.z = 0;
 	move_and_slide();
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		turn_player(event.relative);
+		get_tree().root.get_viewport().set_input_as_handled()
 
 func _process(_delta: float) -> void:
 	turn_player(Vector2(Input.get_axis("PivotLeft", "PivotRight"), Input.get_axis("PivotUp", "PivotDown")) * 20.0)

@@ -14,8 +14,10 @@ func switch_state_to(new_state :StateNode) -> bool:
 	return false
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if current_player_state == null:
 		return
 	
-	switch_state_to(current_player_state.process_input(event));
+	var input_handled = switch_state_to(current_player_state.process_input(event));
+	if input_handled:
+		get_tree().root.get_viewport().set_input_as_handled()
