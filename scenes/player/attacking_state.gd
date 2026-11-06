@@ -5,7 +5,8 @@ const SWING_AUDIOSTREAM = preload("res://assets/audio/sfx/swing.wav")
 
 enum ATTACK_RANGES {
 	SHORT,
-	MEDIUM
+	MEDIUM,
+	VERTICAL
 }
 
 @export var hurtboxes_list :Dictionary[ATTACK_RANGES, Area3D] = {}

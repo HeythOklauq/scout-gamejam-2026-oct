@@ -25,6 +25,7 @@
 script = ExtResource("18_ppx7h")
 animation_name = "Swing"
 knockback_animation_name = "Swing_KnockedBack"
+attack_range = 1
 knockback_player = 0.6
 strength = 1.5
 charging_impact = 0.8
@@ -48,6 +49,7 @@ metadata/_custom_type_script = "uid://4lrefw2564ya"
 script = ExtResource("18_ppx7h")
 animation_name = "Downswing"
 knockback_animation_name = "Downswing_KnockedBack"
+attack_range = 2
 knockback_player = 0.8
 strength = 1.2
 charging_impact = 2.0
@@ -700,21 +702,14 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_toa43"]
 size = Vector3(0.2890625, 0.23657227, 3.5617676)
 
-[sub_resource type="BoxMesh" id="BoxMesh_toa43"]
-size = Vector3(1, 0.3, 1.3)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_toa43"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.277)
+[sub_resource type="BoxShape3D" id="BoxShape3D_srlsm"]
+size = Vector3(0.28125, 1.4763184, 0.8803711)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aivhf"]
 size = Vector3(1, 0.3, 1.3000001)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tu3ki"]
 size = Vector3(1, 0.8046875, 0.70410156)
-
-[sub_resource type="BoxMesh" id="BoxMesh_mw67o"]
-size = Vector3(1, 0.8, 0.7)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6i6l"]
 albedo_color = Color(0.33034274, 0.1058517, 0.22935909, 1)
@@ -769,7 +764,8 @@ starting_state = NodePath("IdleState")
 script = ExtResource("17_mw67o")
 hurtboxes_list = {
 0: NodePath("../../GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Short_HurtZoneArea"),
-1: NodePath("../../GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Medium_HurtZoneArea")
+1: NodePath("../../GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Medium_HurtZoneArea"),
+2: NodePath("../../GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Vertical_HurtZoneArea")
 }
 attack_resources_list = Dictionary[int, ExtResource("18_ppx7h")]({
 0: SubResource("Resource_ikhd0"),
@@ -837,7 +833,7 @@ size = Vector2i(800, 600)
 render_target_update_mode = 4
 
 [node name="PlayerCamera" type="Camera3D" parent="GameCanvas/SubViewportContainer/SubViewport" unique_id=143402113 node_paths=PackedStringArray("target")]
-transform = Transform3D(-4.371139e-08, -0.11320321, -0.9935719, 0, 0.9935719, -0.11320321, 1, -4.94827e-09, -4.3430408e-08, 0, 1.52422, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.52422, 0)
 cull_mask = 524287
 current = true
 script = ExtResource("15_srlsm")
@@ -857,17 +853,21 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7360198e-08, 0, -1.9068121)
 shape = SubResource("BoxShape3D_toa43")
 
+[node name="Vertical_HurtZoneArea" type="Area3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=222830740]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+collision_layer = 0
+collision_mask = 139
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Vertical_HurtZoneArea" unique_id=409314437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -4.7606363e-13, -1.8596236e-15, 1, 3.5527137e-15, 0, -0.13647461)
+shape = SubResource("BoxShape3D_srlsm")
+
 [node name="Medium_HurtZoneArea" type="Area3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1913803103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021437677, -0.48510623, -1)
 collision_layer = 0
 collision_mask = 139
 monitorable = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Medium_HurtZoneArea" unique_id=741235311]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 8.8475645e-09, 0, -0.45002162)
-visible = false
-mesh = SubResource("BoxMesh_toa43")
-surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Medium_HurtZoneArea" unique_id=835786139]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -4.7606363e-13, -1.8596236e-15, 1, 0, 0, -0.45000005)
@@ -883,14 +883,8 @@ monitorable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 0, 0.25, -0.14999998)
 shape = SubResource("BoxShape3D_tu3ki")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Short_HurtZoneArea" unique_id=996915530]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 0, 0.25, -0.14999998)
-visible = false
-mesh = SubResource("BoxMesh_mw67o")
-surface_material_override/0 = SubResource("StandardMaterial3D_toa43")
-
 [node name="Bat" type="MeshInstance3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1265214212]
-transform = Transform3D(0.00021265775, 0.121868856, 0.99254626, 0.0017323142, 0.9925421, -0.12186936, -0.99999577, 0.0017453185, -4.3385572e-08, 0.977, -0.863, -1.03)
+transform = Transform3D(0.00021265772, 0.121868834, 0.99254626, 0.001732314, 0.9925419, -0.12186936, -0.99999565, 0.0017453183, -4.3385572e-08, 0.977, -0.863, -1.03)
 cast_shadow = 0
 mesh = ExtResource("3_xlee4")
 surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")
@@ -903,5 +897,6 @@ transform = Transform3D(-4.3711392e-08, 4.440892e-16, 1, -0.11320321, 0.9935719,
 [connection signal="area_exited" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/InteractionArea3D" to="." method="_on_interaction_area_exited"]
 [connection signal="body_entered" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/InteractionArea3D" to="." method="_on_interaction_area_entered"]
 [connection signal="body_exited" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/InteractionArea3D" to="." method="_on_interaction_area_exited"]
+[connection signal="body_entered" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Vertical_HurtZoneArea" to="CombatPlayerStateMachine/AttackingState" method="_on_medium_hurt_zone_area_body_entered"]
 [connection signal="body_entered" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Medium_HurtZoneArea" to="CombatPlayerStateMachine/AttackingState" method="_on_medium_hurt_zone_area_body_entered"]
 [connection signal="body_entered" from="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Short_HurtZoneArea" to="CombatPlayerStateMachine/AttackingState" method="_on_short_hurt_zone_area_body_entered"]
