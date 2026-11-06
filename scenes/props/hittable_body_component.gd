@@ -27,7 +27,8 @@ func _ready() -> void:
 func on_hit(_impact_position :Vector3, _impact_direction :Vector3, hit_strength :float = 1.0) -> void:
 	SfxManager.play_3d_sound(_impact_position, on_hit_soundtype_1, 1.0, 0.1);
 	SfxManager.play_3d_sound(_impact_position, on_hit_soundtype_2, 1.0, 0.1);
-		
+	
+	
 	hit.emit(_impact_direction, hit_strength);
 	if animation_duration == 0.0:
 		return
@@ -41,6 +42,7 @@ func on_hit(_impact_position :Vector3, _impact_direction :Vector3, hit_strength 
 	animation_tween.set_ease(Tween.EASE_OUT)
 	
 	var perpendicular_axis = Vector3(_impact_direction.x, 0.0, _impact_direction.z).normalized().rotated(Vector3.UP, deg_to_rad(90.0));
+	ParticleManager._spawn_vector(_impact_position, _impact_direction, hit_strength);
 	targetted_item.rotate(perpendicular_axis, deg_to_rad(knockback_angle))
 	targetted_item.position = default_position + _impact_direction.normalized() * knockback_movement
 	
