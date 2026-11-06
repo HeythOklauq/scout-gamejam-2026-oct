@@ -8,7 +8,8 @@ const INTERACTIBLE_SHADER = preload("uid://cqas26bf4crwg")
 	set(_mesh):
 		mesh = _mesh;
 		if mesh != null:
-			default_mesh_shader = mesh.get_surface_override_material(0);
+			default_mesh_shader = mesh.get_surface_override_material(materiel_index);
+@export var materiel_index := 0
 var default_mesh_shader :StandardMaterial3D
 
 static func get_interactable_component(node :Node3D) -> InteractableBodyComponent:
@@ -26,11 +27,11 @@ func _ready() -> void:
 
 func select() -> void:
 	prints("InteractableBodyComponent", name, "select")
-	mesh.set_surface_override_material(0, INTERACTIBLE_SHADER)
+	mesh.set_surface_override_material(materiel_index, INTERACTIBLE_SHADER)
 
 func unselect() -> void:
 	prints("InteractableBodyComponent", name, "unselect")
-	mesh.set_surface_override_material(0, default_mesh_shader)
+	mesh.set_surface_override_material(materiel_index, default_mesh_shader)
 
 func interact() -> bool:
 	prints("interact", body.name);
