@@ -76,6 +76,7 @@ var pickup_locked := false:
 
 
 var player_node :PlayerNode
+var woody_node :WoodyNode
 
 #region COMBO
 @export var combo_duration := 0.8
@@ -195,6 +196,7 @@ var data_file_path :String = "user://gameplay_data.json"
 
 func get_data() -> Dictionary:
 	var data :Dictionary = {}
+	data["woody_hp"] = woody_node.current_hp
 	
 	data["currencies"] = {}
 	for currency_type in CURRENCIES.keys():
@@ -214,6 +216,9 @@ func get_data() -> Dictionary:
 	return data
 
 func load_gameplay_data(data :Dictionary) -> void:
+	if data.has("woody_hp"):
+		woody_node.current_hp = data["woody_hp"]
+	
 	for currency_name in CURRENCIES.keys():
 		var currency_id = CURRENCIES[currency_name]
 		if data["currencies"].has(currency_name):
@@ -229,6 +234,9 @@ func load_gameplay_data(data :Dictionary) -> void:
 func reset_data() -> void:
 	combo_counter = 0
 	combo_current_timer = 0.0
+	
+	woody_node.current_hp = woody_node.max_hp
+	woody_node.reset_woodchips()
 	
 	for currency_name in CURRENCIES.keys():
 		player_currencies[CURRENCIES[currency_name]] = 0

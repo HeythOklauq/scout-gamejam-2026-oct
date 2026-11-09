@@ -19,6 +19,7 @@ var used_woodchips :Array[WoodChipNode] = []
 
 func _ready() -> void:
 	current_hp = max_hp
+	GameplayManager.woody_node = self
 	call_deferred("instantiate")
 
 func instantiate() -> void:
@@ -29,7 +30,7 @@ func instantiate() -> void:
 
 func _on_hittable_body_component_hit(direction: Vector3, strength: float) -> void:
 	var old_hp_segments = ceil(current_hp / float(hp_threshold));
-	var damages = strength * (GameplayManager.combo_counter + 1)
+	var damages = strength * (GameplayManager.combo_counter + 1) * 10000
 	current_hp -= damages
 	var new_hp_segments = ceil(current_hp / float(hp_threshold));
 	
@@ -53,6 +54,12 @@ func on_woodchip_picked_up(woodchip :WoodChipNode, by_player :bool) -> void:
 	get_tree().root.remove_child(woodchip);
 	used_woodchips.remove_at(used_woodchips.find(woodchip))
 	free_woodchips.push_back(woodchip)
+
+func reset_woodchips() -> void:
+	while used_woodchips.size() > 0:
+		var woodchip = used_woodchips.pop_front()
+		get_tree().root.remove_child(woodchip);
+		free_woodchips.push_back(woodchip);
 
 func spawn_woodchip(direction: Vector3, strength: float) -> void:
 	var woodchip :WoodChipNode;
