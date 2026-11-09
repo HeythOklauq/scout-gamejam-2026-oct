@@ -34,6 +34,11 @@ func _on_hittable_body_component_hit(direction: Vector3, strength: float) -> voi
 	var new_hp_segments = ceil(current_hp / float(hp_threshold));
 	
 	var delta_segments = (old_hp_segments - new_hp_segments)
+	if max_woodchip_count < delta_segments:
+		var overflow = delta_segments - max_woodchip_count;
+		GameplayManager.modify_currency(GameplayManager.CURRENCIES.WOODCHIP, overflow)
+		delta_segments = max_woodchip_count
+	
 	for i in delta_segments:
 		spawn_woodchip(direction, strength)
 	
