@@ -13,8 +13,6 @@ func _ready() -> void:
 	call_deferred("_update_display")
 
 func _update_display() -> void:
-	InputMap.load_from_project_settings()
-	
 	var button_text := "[UNDEFINED]"
 	var events := InputMap.action_get_events(action_id)
 	if events.size() > 0:

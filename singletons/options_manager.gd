@@ -13,13 +13,19 @@ func load_data() -> void:
 		file.close()
 		
 		var file_parsed = JSON.parse_string(file_content)
-		load_audio_options(file_parsed.audio)
+		if file_parsed.has("audio"):
+			load_audio_options(file_parsed.audio)
+		if file_parsed.has("keybinding"):
+			load_keybinding_data(file_parsed.keybinding)
 
 func save_data() -> void:
-	prints("save_data")
 	var file = FileAccess.open(option_file_path, FileAccess.WRITE_READ)
-	var option_data = JSON.stringify({ "audio": get_audio_options() })
-	file.store_string(option_data)
+	
+	var option_data = {} 
+	option_data["audio"] = get_audio_options();
+	option_data["keybinding"] = get_keybinding_data();
+	
+	file.store_string(JSON.stringify(option_data))
 	file.close()
 #endregion
 
@@ -62,4 +68,50 @@ func load_audio_options(audio_options :Array) -> void:
 		AudioServer.set_bus_volume_linear(bus_index, bus_data["volume"])
 		AudioServer.set_bus_mute(bus_index, bus_data["mute"])
 
+#endregion
+
+#region KEYBINDING
+var KEYBINDS := {
+	"Forward": "Forward",
+	"Backward": "Back",
+	"StrafeLeft": "Left",
+	"StrafeRight": "Right",
+	"Jump": "Jump",
+	"Dash": "Dash",
+	"Attack": "Swing",
+	"Bunt": "Bunt",
+	"Cancel": "Cancel",
+	"Interact": "Interact",
+	"Pause": "Pause"
+}
+
+func reset_keybinding() -> void:
+	InputMap.load_from_project_settings()
+	call_deferred("save_data")
+
+func get_keybinding_data() -> Dictionary:
+	var result = {}
+	for keybind_id in KEYBINDS.keys():
+		var current_event = InputMap.action_get_events(keybind_id)[0] as InputEvent
+		if current_event is InputEventKey:
+			result[keybind_id] = OS.get_keycode_string(current_event.physical_keycode)
+		if current_event is InputEventMouseButton:
+			result[keybind_id] = str("mouse_", current_event.button_index);
+	return result;
+
+func load_keybinding_data(keybinding_data :Dictionary) -> void:
+	for keybind_id in keybinding_data.keys():
+		var event :InputEvent
+		var key_label :String = keybinding_data[keybind_id]
+		 
+		if key_label.contains("mouse_"):
+			event = InputEventMouseButton.new()
+			event.button_index = int(key_label.split("_")[1])
+		else:
+			event = InputEventKey.new()
+			event.physical_keycode = OS.find_keycode_from_string(key_label)
+			prints("key_label", key_label, "event.keycode", event.keycode)
+		
+		InputMap.action_erase_events(keybind_id)
+		InputMap.action_add_event(keybind_id, event);
 #endregion
