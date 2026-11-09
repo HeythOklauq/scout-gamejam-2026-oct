@@ -703,7 +703,7 @@ _data = {
 size = Vector3(0.2890625, 0.23657227, 3.5617676)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_srlsm"]
-size = Vector3(0.28125, 1.4763184, 0.8803711)
+size = Vector3(0.28125, 1.4763184, 1.5860596)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aivhf"]
 size = Vector3(1, 0.3, 1.3000001)
@@ -860,7 +860,7 @@ collision_mask = 139
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera/Vertical_HurtZoneArea" unique_id=409314437]
-transform = Transform3D(1, 0, 0, 0, 1, 0, -4.7606363e-13, -1.8596236e-15, 1, 3.5527137e-15, 0, -0.13647461)
+transform = Transform3D(1, 0, 0, 0, 1, 0, -4.7606363e-13, -1.8596236e-15, 1, 7.1054274e-15, 0, -0.48931885)
 shape = SubResource("BoxShape3D_srlsm")
 
 [node name="Medium_HurtZoneArea" type="Area3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1913803103]
@@ -884,7 +884,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.110223e-16, 1, 0, 0.25, -0.14999
 shape = SubResource("BoxShape3D_tu3ki")
 
 [node name="Bat" type="MeshInstance3D" parent="GameCanvas/SubViewportContainer/SubViewport/PlayerCamera" unique_id=1265214212]
-transform = Transform3D(0.00021265772, 0.121868834, 0.99254626, 0.001732314, 0.9925419, -0.12186936, -0.99999565, 0.0017453183, -4.3385572e-08, 0.977, -0.863, -1.03)
+transform = Transform3D(0.0002126577, 0.12186882, 0.99254626, 0.0017323139, 0.9925418, -0.12186936, -0.9999956, 0.0017453181, -4.3385572e-08, 0.977, -0.863, -1.03)
 cast_shadow = 0
 mesh = ExtResource("3_xlee4")
 surface_material_override/0 = SubResource("StandardMaterial3D_k6i6l")
