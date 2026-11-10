@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Free Woody - Beta 0.1"
-config/version="0.1b"
+config/name="Free Woody - Beta 0.2"
+config/version="0.2b"
 run/main_scene="uid://blygvalsnvb35"
 config/custom_user_dir_name="free_woody"
 config/features=PackedStringArray("4.6", "Forward Plus")
