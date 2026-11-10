@@ -30,7 +30,7 @@ func instantiate() -> void:
 
 func _on_hittable_body_component_hit(direction: Vector3, strength: float) -> void:
 	var old_hp_segments = ceil(current_hp / float(hp_threshold));
-	var damages = strength * (GameplayManager.combo_counter + 1) * 10000
+	var damages = strength * (GameplayManager.combo_counter + 1)
 	current_hp -= damages
 	var new_hp_segments = ceil(current_hp / float(hp_threshold));
 	
