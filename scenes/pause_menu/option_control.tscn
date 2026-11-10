@@ -3,6 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://buw74twm4vjks" path="res://scenes/pause_menu/volume_controller.tscn" id="1_2ktvu"]
 [ext_resource type="Script" uid="uid://b4ygn78mmwmm4" path="res://scenes/pause_menu/option_control.gd" id="1_emcv7"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8rxu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qr7t1"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+
 [node name="OptionControl" type="Control" unique_id=668183180]
 layout_mode = 3
 anchors_preset = 15
@@ -30,80 +38,67 @@ vertical_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=8137248]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=161186131]
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer" unique_id=1904892179]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_j8rxu")
+theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_qr7t1")
+theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_qr7t1")
+theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_qr7t1")
+theme_override_styles/tab_disabled = SubResource("StyleBoxEmpty_qr7t1")
+tab_alignment = 1
+current_tab = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=86797422]
+[node name="Audio" type="CenterContainer" parent="VBoxContainer/TabContainer" unique_id=1859237719]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+metadata/_tab_index = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=673919935]
-layout_mode = 2
-size_flags_vertical = 4
-alignment = 1
-
-[node name="ResetProgressButton" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=358599643]
-layout_mode = 2
-text = "RESET PROGRESS"
-
-[node name="AudioOptionsContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=261109026]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioOptionsContainer" unique_id=72023627]
-layout_mode = 2
-text = "AUDIO"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioOptionsContainer" unique_id=234082315]
+[node name="SlidersContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio" unique_id=566067408]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 
-[node name="SlidersContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioOptionsContainer" unique_id=566067408]
+[node name="VolumeController" parent="VBoxContainer/TabContainer/Audio/SlidersContainer" unique_id=888258577 instance=ExtResource("1_2ktvu")]
 layout_mode = 2
 
-[node name="VolumeController" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioOptionsContainer/SlidersContainer" unique_id=888258577 instance=ExtResource("1_2ktvu")]
-layout_mode = 2
-
-[node name="VolumeController2" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioOptionsContainer/SlidersContainer" unique_id=653629141 instance=ExtResource("1_2ktvu")]
+[node name="VolumeController2" parent="VBoxContainer/TabContainer/Audio/SlidersContainer" unique_id=653629141 instance=ExtResource("1_2ktvu")]
 layout_mode = 2
 audio_bus = 1
 
-[node name="VolumeController3" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioOptionsContainer/SlidersContainer" unique_id=185443946 instance=ExtResource("1_2ktvu")]
+[node name="VolumeController3" parent="VBoxContainer/TabContainer/Audio/SlidersContainer" unique_id=185443946 instance=ExtResource("1_2ktvu")]
 layout_mode = 2
 audio_bus = 2
 
-[node name="VolumeController4" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioOptionsContainer/SlidersContainer" unique_id=1383002741 instance=ExtResource("1_2ktvu")]
+[node name="VolumeController4" parent="VBoxContainer/TabContainer/Audio/SlidersContainer" unique_id=1383002741 instance=ExtResource("1_2ktvu")]
 layout_mode = 2
 audio_bus = 3
 
-[node name="KeybindingOptions" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=66459013]
+[node name="Keybinding" type="VBoxContainer" parent="VBoxContainer/TabContainer" unique_id=66459013]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
+metadata/_tab_index = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/KeybindingOptions" unique_id=1761855385]
-layout_mode = 2
-text = "KEYBINDING"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/VBoxContainer/KeybindingOptions" unique_id=198317418]
-layout_mode = 2
-
-[node name="KeybindingContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/KeybindingOptions" unique_id=307560327]
+[node name="KeybindingContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Keybinding" unique_id=307560327]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ResetKeybindingButton" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/KeybindingOptions" unique_id=284141538]
+[node name="ResetKeybindingButton" type="Button" parent="VBoxContainer/TabContainer/Keybinding" unique_id=284141538]
 layout_mode = 2
 text = "RESET KEYBINDING"
+
+[node name="Reset Progress" type="CenterContainer" parent="VBoxContainer/TabContainer" unique_id=2112982639]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="ResetProgressButton" type="Button" parent="VBoxContainer/TabContainer/Reset Progress" unique_id=358599643]
+layout_mode = 2
+text = "RESET PROGRESS"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1691876475]
 layout_mode = 2
@@ -113,6 +108,6 @@ alignment = 1
 layout_mode = 2
 text = "CLOSE"
 
-[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/ResetProgressButton" to="." method="_on_reset_progress_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/KeybindingOptions/ResetKeybindingButton" to="." method="_on_reset_keybinding_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/Keybinding/ResetKeybindingButton" to="." method="_on_reset_keybinding_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/Reset Progress/ResetProgressButton" to="." method="_on_reset_progress_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
