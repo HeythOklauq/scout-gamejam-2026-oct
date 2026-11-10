@@ -82,9 +82,23 @@ size_flags_vertical = 3
 alignment = 1
 metadata/_tab_index = 1
 
-[node name="KeybindingContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Keybinding" unique_id=307560327]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Keybinding" unique_id=1372971869]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Keybinding/ScrollContainer" unique_id=1558297103]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="KeybindingContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Keybinding/ScrollContainer/MarginContainer" unique_id=307560327]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ResetKeybindingButton" type="Button" parent="VBoxContainer/TabContainer/Keybinding" unique_id=284141538]
