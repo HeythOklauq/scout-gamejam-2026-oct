@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 	if GameplayManager.dashing == false and dash_texture_rect.modulate.a > 0.0:
 		dash_texture_rect.modulate.a = max(0.0, dash_texture_rect.modulate.a - delta * dashlines_disappearance_speed)
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Pause"):
 		if hud_control.visible:
 			show_pause()

@@ -28,7 +28,7 @@ func update() -> void:
 	angle_per_increment = -float(2 * PI / fixed_angle_counts);
 	time_per_increment = float(GameplayManager.combo_duration / fixed_angle_counts);
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if hand_texture == null:
 		return
 	if GameplayManager.combo_current_timer <= 0.0:

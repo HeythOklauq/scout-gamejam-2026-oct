@@ -259,151 +259,151 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.332695, 17.57126, 6.0697136
 [node name="Poles" type="Node3D" parent="DummyMap" unique_id=651664000]
 transform = Transform3D(0.45274597, 0, 0.89163953, 0, 1, 0, -0.89163953, 0, 0.45274597, 66.01998, -1.4243166, 43.226776)
 
-[node name="TelephonePole4" parent="DummyMap/Poles" unique_id=1388397219 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole" parent="DummyMap/Poles" unique_id=1388397219 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.6822959, -0.14793752, -0.7159518, 0.3107899, 0.9451087, 0.10089183, 0.6617266, -0.2913487, 0.69082135, -71.28041, 1.0611595, -9.180489)
 line_markers = {
-0: NodePath("../TelephonePole/LineMarkers/LineMarkerA"),
-1: NodePath("../TelephonePole/LineMarkers/LineMarkerB")
+0: NodePath("../TelephonePole2/LineMarkers/LineMarkerA"),
+1: NodePath("../TelephonePole2/LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole" parent="DummyMap/Poles" unique_id=2037122884 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole2" parent="DummyMap/Poles" unique_id=2037122884 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.6822959, -0.14793752, -0.7159518, 0.3107899, 0.9451087, 0.10089183, 0.6617266, -0.2913487, 0.69082135, -55.440605, 1.0611595, -15.94323)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole7" parent="DummyMap/Poles" unique_id=1814612846 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole3" parent="DummyMap/Poles" unique_id=1814612846 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.6760791, 0, -0.7368292, 0, 1, 0, 0.7368292, 0, 0.6760791, -35.88399, -0.38120937, -4.6783676)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole8" parent="DummyMap/Poles" unique_id=1291816088 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole4" parent="DummyMap/Poles" unique_id=1291816088 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(-0.9975483, 0, -0.0699828, 0, 1, 0, 0.0699828, 0, -0.9975483, -20.476643, -2.313216, 0.2600937)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole9" parent="DummyMap/Poles" unique_id=161858998 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole5" parent="DummyMap/Poles" unique_id=161858998 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.8519192, 0, -0.5236739, 0, 1, 0, 0.5236739, 0, 0.8519192, -3.1543446, 0, -6.2121964)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole19" parent="DummyMap/Poles" unique_id=706459151 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole6" parent="DummyMap/Poles" unique_id=706459151 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1.0000002, 17.796104, 1.9073486e-06, -26.77147)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole10" parent="DummyMap/Poles" unique_id=2127769618 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole7" parent="DummyMap/Poles" unique_id=2127769618 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.057895064, 0, -0.9983227, 0, 1, 0, 0.9983227, 0, 0.057895064, 42.16501, 3.2777157, -20.016438)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole11" parent="DummyMap/Poles" unique_id=1316392998 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole8" parent="DummyMap/Poles" unique_id=1316392998 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.6006017, 0, -0.7995485, 0, 1, 0, 0.7995485, 0, 0.6006017, 49.06343, 4.366792, -47.753517)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole12" parent="DummyMap/Poles" unique_id=1372387461 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole9" parent="DummyMap/Poles" unique_id=1372387461 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.8394113, 0, -0.54349685, 0, 1, 0, 0.54349685, 0, 0.8394113, 72.859634, 4.99564, -68.81608)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole13" parent="DummyMap/Poles" unique_id=1694968621 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole10" parent="DummyMap/Poles" unique_id=1694968621 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(-0.2229099, 0, -0.9748391, 0, 1, 0, 0.9748391, 0, -0.2229099, 74.32449, 4.7319736, -99.9138)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole14" parent="DummyMap/Poles" unique_id=2145507025 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole11" parent="DummyMap/Poles" unique_id=2145507025 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(-0.9995805, 0, 0.028968573, 0, 1, 0, -0.028968573, 0, -0.9995805, 59.687805, 3.416542, -128.85287)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole22" parent="DummyMap/Poles" unique_id=934795803 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole12" parent="DummyMap/Poles" unique_id=934795803 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.12147087, 0, -0.9925951, 0, 1, 0, 0.9925951, 0, 0.12147087, 38.26162, 3.416542, -132.52176)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole15" parent="DummyMap/Poles" unique_id=153974583 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole13" parent="DummyMap/Poles" unique_id=153974583 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.9822546, 0, -0.18755284, 0, 1, 0, 0.18755284, 0, 0.9822546, 19.419123, 3.6299284, -143.77475)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole16" parent="DummyMap/Poles" unique_id=1796832816 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole14" parent="DummyMap/Poles" unique_id=1796832816 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.87826693, 0, -0.47817093, 0, 1, 0, 0.47817093, 0, 0.87826693, -4.001832, 0.9610691, -141.2929)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole17" parent="DummyMap/Poles" unique_id=1281602985 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole15" parent="DummyMap/Poles" unique_id=1281602985 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.5932363, 0, -0.8050286, 0, 1, 0, 0.8050286, 0, 0.5932363, -25.620039, 0.20991576, -130.28793)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole23" parent="DummyMap/Poles" unique_id=2124429551 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole16" parent="DummyMap/Poles" unique_id=2124429551 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.5932363, 0, -0.8050286, 0, 1, 0, 0.8050286, 0, 0.5932363, -42.04854, 0.20991957, -113.33308)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole18" parent="DummyMap/Poles" unique_id=2024268948 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole17" parent="DummyMap/Poles" unique_id=2024268948 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.5804614, 0, -0.8142879, 0, 1, 0, 0.8142879, 0, 0.5804614, -54.362427, 3.74624, -92.11212)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole6" parent="DummyMap/Poles" unique_id=326951567 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole18" parent="DummyMap/Poles" unique_id=326951567 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.88543934, 0.08155379, -0.4575442, -0.10467693, 0.99418277, -0.025365237, 0.45281398, 0.07035371, 0.8888258, -49.8608, 1.0593733, -71.9948)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole3" parent="DummyMap/Poles" unique_id=1524062135 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole19" parent="DummyMap/Poles" unique_id=1524062135 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.43177968, -0.13618097, -0.8916404, 0.30078906, 0.9536907, 0, 0.85034937, -0.26819572, 0.4527461, -54.564987, 2.0277586, -48.314075)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole2" parent="DummyMap/Poles" unique_id=597077715 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole20" parent="DummyMap/Poles" unique_id=597077715 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.25557435, 0.07565909, -0.9638247, -0.19612381, 0.98026174, 0.024943851, 0.94668776, 0.18265393, 0.26536834, -66.02028, 1.0611595, -31.436825)
 line_markers = {
 0: NodePath("LineMarkers/LineMarkerA"),
 1: NodePath("LineMarkers/LineMarkerB")
 }
 
-[node name="TelephonePole5" parent="DummyMap/Poles" unique_id=531870089 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
+[node name="TelephonePole21" parent="DummyMap/Poles" unique_id=531870089 node_paths=PackedStringArray("line_markers") instance=ExtResource("4_omdgd")]
 transform = Transform3D(0.25557423, 0.07565909, -0.96382487, -0.19612381, 0.98026174, 0.024943851, 0.9466878, 0.18265396, 0.26536834, -80.54677, 1.0611595, -27.190834)
 line_markers = {
-0: NodePath("../TelephonePole2/LineMarkers/LineMarkerA"),
-1: NodePath("../TelephonePole2/LineMarkers/LineMarkerB")
+0: NodePath("../TelephonePole20/LineMarkers/LineMarkerA"),
+1: NodePath("../TelephonePole20/LineMarkers/LineMarkerB")
 }
 
 [node name="Gate" type="Node3D" parent="DummyMap" unique_id=1713376478]

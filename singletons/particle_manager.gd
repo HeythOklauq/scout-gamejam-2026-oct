@@ -24,6 +24,6 @@ func spawn_particle(particle_type :PARTICLE_TYPES, global_position :Vector3, glo
 	
 	return particle_instance
 
-func _spawn_vector(position :Vector3, orientation :Vector3, length :float) -> void:
+func _spawn_vector(position :Vector3, orientation :Vector3, _length :float) -> void:
 	vector_tracer_node.global_position = position
 	vector_tracer_node.look_at(position + orientation)
