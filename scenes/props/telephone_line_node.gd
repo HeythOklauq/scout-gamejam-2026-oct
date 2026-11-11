@@ -1,4 +1,3 @@
-@tool
 extends Node3D
 class_name TelephoneLineNode
 
@@ -8,8 +7,6 @@ class_name TelephoneLineNode
 @export var pole_anchors :TelephonePoleNode.LINE_ANCHORS
 
 @export var telephone_pole_container :Node3D
-
-@export_tool_button("Update Line") var update_line_function = update_line
 
 @export_category("Curve parameters")
 @export_range(0.1, 5.0, 0.1) var curve_weight := 1.0
@@ -70,22 +67,28 @@ func initialise_line() -> void:
 	update_line()
 
 func update_line() -> void:
-	path_3d.curve.clear_points()
+	var new_curve := Curve3D.new()
 	
 	var control_point_to_previous := Vector3.ZERO
 	var line_anchor_positions = telephone_pole_container.get_children().map(func(_pole :TelephonePoleNode): return _pole.get_line_anchor(pole_anchors).global_position)
 	for anchor_index in line_anchor_positions.size():
 		var anchor_position = line_anchor_positions[anchor_index]
+		var different_position = true
 		var control_point = [Vector3.ZERO]
 		if (anchor_index + 1) < line_anchor_positions.size():
-			control_point = _get_control_points(anchor_position, line_anchor_positions[anchor_index + 1])
+			var next_position = line_anchor_positions[anchor_index + 1]
+			different_position = ((anchor_position - next_position) as Vector3).length_squared() > 0.01
+			control_point = _get_control_points(anchor_position, next_position)
 		
-		path_3d.curve.add_point(anchor_position, control_point_to_previous, control_point[0])
+		if different_position:
+			new_curve.add_point(anchor_position, control_point_to_previous, control_point[0])
 		
 		if (anchor_index + 1) < line_anchor_positions.size():
 			control_point_to_previous = control_point[1]
+	
+	path_3d.curve = new_curve
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not pole_animated:
 		return
 	
