@@ -29,6 +29,9 @@ func instantiate() -> void:
 		new_woodchip.picked_up.connect(on_woodchip_picked_up)
 
 func _on_hittable_body_component_hit(direction: Vector3, strength: float) -> void:
+	if not direction.is_normalized():
+		direction = direction.normalized()
+	
 	var old_hp_segments = ceil(current_hp / float(hp_threshold));
 	var damages = strength * (GameplayManager.combo_counter + 1)
 	current_hp -= damages

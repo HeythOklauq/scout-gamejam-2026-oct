@@ -19,6 +19,7 @@
 [ext_resource type="Environment" uid="uid://c4jiuhl5im7nu" path="res://resources/world_environment.tres" id="10_bgv0c"]
 [ext_resource type="PackedScene" uid="uid://45jxr5obono6" path="res://scenes/props/telephone_line_node.tscn" id="11_ep4rp"]
 [ext_resource type="PackedScene" uid="uid://chfnp3824h6x4" path="res://scenes/game_scene/woody_spot_light.tscn" id="12_0ythe"]
+[ext_resource type="PackedScene" uid="uid://c7r30g50m2il6" path="res://scenes/game_scene/projectile_node.tscn" id="12_osq2w"]
 [ext_resource type="PackedScene" uid="uid://c0prwfbs6d37f" path="res://scenes/game_scene/how_sign.tscn" id="14_n1oi6"]
 [ext_resource type="PackedScene" uid="uid://c0wl6okepf2df" path="res://scenes/game_scene/damage_number_node.tscn" id="16_1mim4"]
 [ext_resource type="PackedScene" uid="uid://dbfwxrw20comh" path="res://scenes/game_scene/woodchip_worldborder.tscn" id="18_hircd"]
@@ -509,6 +510,18 @@ transform = Transform3D(3.472744, 0, 0.34662592, 0, 3.49, 0, -0.34662592, 0, 3.4
 
 [node name="TelephoneLineNodeA" parent="DummyMap" unique_id=431961585 node_paths=PackedStringArray("telephone_pole_container") instance=ExtResource("11_ep4rp")]
 telephone_pole_container = NodePath("../Poles")
+
+[node name="ProjectileNode" parent="DummyMap" unique_id=431655365 instance=ExtResource("12_osq2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.04743, 9.564341, -11.429664)
+
+[node name="ProjectileNode2" parent="DummyMap" unique_id=1171791472 instance=ExtResource("12_osq2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.576873, 9.564341, -5.211998)
+
+[node name="ProjectileNode3" parent="DummyMap" unique_id=1586398263 instance=ExtResource("12_osq2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1164, 9.564341, -2.734841)
+
+[node name="ProjectileNode4" parent="DummyMap" unique_id=1978576123 instance=ExtResource("12_osq2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.925205, 9.564341, -0.6502216)
 
 [node name="DummyHouse" type="MeshInstance3D" parent="." unique_id=596206383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.955986, -0.21455383, -6.682396)

@@ -29,7 +29,6 @@ func on_hit(_impact_position :Vector3, _impact_direction :Vector3, hit_strength 
 	SfxManager.play_3d_sound(_impact_position, on_hit_soundtype_1, 1.0, 0.1);
 	SfxManager.play_3d_sound(_impact_position, on_hit_soundtype_2, 1.0, 0.1);
 	
-	
 	hit.emit(_impact_direction, hit_strength);
 	if animation_duration == 0.0:
 		animation_finished.emit()
@@ -37,7 +36,6 @@ func on_hit(_impact_position :Vector3, _impact_direction :Vector3, hit_strength 
 	
 	if not animation_tween == null:
 		animation_tween.stop()
-	
 	
 	animation_tween = create_tween()
 	animation_tween.finished.connect(_on_tween_finished)

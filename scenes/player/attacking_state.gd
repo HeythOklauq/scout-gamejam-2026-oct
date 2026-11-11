@@ -73,7 +73,12 @@ func on_hit(body :Node3D) -> void:
 	hurtzone_active = false;
 	var hittable_component = HittableBodyComponent.get_hittable_component(body);
 	if not hittable_component == null:
-		hittable_component.on_hit(get_current_hurtbox().global_position, GameplayManager.player_node.get_player_forward_angle(), current_attack_resource.get_attack_strength(strength_modifier))
+		var hit_direction = GameplayManager.player_node.get_player_forward_angle()
+		if hittable_component.targetted_item is ProjectileNode:
+			hit_direction = current_attack_resource.get_reflect_angle(-hit_direction)
+			hittable_component.targetted_item.last_player_attack_resource = current_attack_resource
+		
+		hittable_component.on_hit(get_current_hurtbox().global_position, hit_direction, current_attack_resource.get_attack_strength(strength_modifier))
 	target_hit = body
 
 func process_frame(_delta: float) -> StateNode:

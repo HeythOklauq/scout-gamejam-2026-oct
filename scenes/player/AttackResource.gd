@@ -33,9 +33,9 @@ func get_attack_strength( state_strength_modifier :float ) -> float:
 	var velocity_strength = velocity_value * velocity_impact
 	
 	var total = base_strength + charging_strength + velocity_strength
-	prints("ATTACK DAMAGE: ", total, " (base_strength", base_strength, " + charging_strength", charging_strength, " + velocity_strength", velocity_strength, ")")
-	prints(" - Base attack damage: ", strength, " (Base attack type strength) * ", unlockable_strength_mod, " (unlockable strength mod)")
-	prints(" - Charge attack damage: ", charging_strength, " (Charging strength) * ", charging_impact, " (Impact of charging for that attack) * ", unlockable_charging_modifier, " (unlockable charging mod)")
-	prints(" - Velocity attack damage: ", velocity_value, " (Velocity speed) * ", velocity_strength, " (Impact of velocity)")
+	#prints("ATTACK DAMAGE: ", total, " (base_strength", base_strength, " + charging_strength", charging_strength, " + velocity_strength", velocity_strength, ")")
+	#prints(" - Base attack damage: ", strength, " (Base attack type strength) * ", unlockable_strength_mod, " (unlockable strength mod)")
+	#prints(" - Charge attack damage: ", charging_strength, " (Charging strength) * ", charging_impact, " (Impact of charging for that attack) * ", unlockable_charging_modifier, " (unlockable charging mod)")
+	#prints(" - Velocity attack damage: ", velocity_value, " (Velocity speed) * ", velocity_strength, " (Impact of velocity)")
 	
 	return base_strength + charging_strength + velocity_strength
