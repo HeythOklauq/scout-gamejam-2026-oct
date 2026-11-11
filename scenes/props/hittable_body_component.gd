@@ -2,6 +2,7 @@ extends Node
 class_name HittableBodyComponent
 
 signal hit(direction :Vector3, strength :float)
+signal animation_finished()
 
 var targetted_item :Node3D
 
@@ -31,12 +32,15 @@ func on_hit(_impact_position :Vector3, _impact_direction :Vector3, hit_strength 
 	
 	hit.emit(_impact_direction, hit_strength);
 	if animation_duration == 0.0:
+		animation_finished.emit()
 		return
 	
 	if not animation_tween == null:
 		animation_tween.stop()
 	
+	
 	animation_tween = create_tween()
+	animation_tween.finished.connect(_on_tween_finished)
 	animation_tween.set_parallel(true)
 	animation_tween.set_trans(Tween.TRANS_ELASTIC)
 	animation_tween.set_ease(Tween.EASE_OUT)
@@ -48,6 +52,9 @@ func on_hit(_impact_position :Vector3, _impact_direction :Vector3, hit_strength 
 	
 	animation_tween.tween_property(targetted_item, "rotation", default_rotation, animation_duration)
 	animation_tween.tween_property(targetted_item, "position", default_position, animation_duration)
+
+func _on_tween_finished() -> void:
+	animation_finished.emit()
 
 static func get_hittable_component(node :Node3D) -> HittableBodyComponent:
 	for child in node.get_children():

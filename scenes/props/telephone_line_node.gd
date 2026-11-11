@@ -6,6 +6,7 @@ class_name TelephoneLineNode
 @onready var path_3d: Path3D = $Path3D
 
 @export var pole_anchors :TelephonePoleNode.LINE_ANCHORS
+
 @export var telephone_pole_container :Node3D
 
 @export_tool_button("Update Line") var update_line_function = update_line
@@ -25,8 +26,10 @@ class_name TelephoneLineNode
 
 var circle_coords :PackedVector2Array = []
 
+var pole_animated := false
+
 func _ready() -> void:
-	update_line.call_deferred()
+	initialise_line.call_deferred()
 
 func update_circle() -> void:
 	circle_coords = []
@@ -58,6 +61,14 @@ func _get_control_points(position_A :Vector3, position_B :Vector3) -> Array[Vect
 		in_control_point
 	]
 
+func initialise_line() -> void:
+	for pole in telephone_pole_container.get_children():
+		pole = (pole as TelephonePoleNode)
+		pole.on_hit.connect(_on_pole_hit)
+		pole.on_animation_finished.connect(_on_pole_animation_finished)
+	
+	update_line()
+
 func update_line() -> void:
 	path_3d.curve.clear_points()
 	
@@ -73,3 +84,16 @@ func update_line() -> void:
 		
 		if (anchor_index + 1) < line_anchor_positions.size():
 			control_point_to_previous = control_point[1]
+
+func _process(delta: float) -> void:
+	if not pole_animated:
+		return
+	
+	update_line()
+
+func _on_pole_hit() -> void:
+	pole_animated = true
+
+func _on_pole_animation_finished() -> void:
+	pole_animated = false
+	update_line.call_deferred()

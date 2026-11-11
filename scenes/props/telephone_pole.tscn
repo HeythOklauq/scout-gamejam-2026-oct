@@ -13,14 +13,10 @@ data = PackedVector3Array(0.19999999, 0, 0.19999999, 0.25, 0, 0, 0, 0, 0.25, 0, 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vgbhl"]
 radius = 0.1
 
-[node name="TelephonePole" type="StaticBody3D" unique_id=1388397219 node_paths=PackedStringArray("line_markers")]
+[node name="TelephonePole" type="StaticBody3D" unique_id=1388397219]
 collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_04ajn")
-line_markers = {
-0: NodePath("LineMarkers/LineMarkerA"),
-1: NodePath("LineMarkers/LineMarkerB")
-}
 
 [node name="TelephonePole" type="MeshInstance3D" parent="." unique_id=1882804808]
 mesh = ExtResource("1_stgfi")
@@ -53,3 +49,6 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LineMarkers/LineMarkerB" unique_id=741419281]
 shape = SubResource("SphereShape3D_vgbhl")
+
+[connection signal="animation_finished" from="HittableBodyComponent" to="." method="_on_hittable_body_component_animation_finished"]
+[connection signal="hit" from="HittableBodyComponent" to="." method="_on_hittable_body_component_hit"]
