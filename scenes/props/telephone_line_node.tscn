@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://45jxr5obono6"]
+
+[ext_resource type="Script" uid="uid://cqe15gkcl1icy" path="res://scenes/props/telephone_line_node.gd" id="1_0kuhf"]
+
+[sub_resource type="Curve3D" id="Curve3D_0kuhf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w45oa"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="TelephoneLineNode" type="Node3D" unique_id=431961585]
+script = ExtResource("1_0kuhf")
+curve_progression_ratio = 0.4
+
+[node name="Path3D" type="Path3D" parent="." unique_id=1580763750]
+curve = SubResource("Curve3D_0kuhf")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=1446194732]
+polygon = PackedVector2Array(0, 0.1, 0.08660254, -0.05, -0.08660254, -0.05)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = SubResource("StandardMaterial3D_w45oa")
