@@ -7,6 +7,7 @@ var bunt_strength := 20.0
 @export var default_gravity_scale := 0.0
 @export var bunt_gravity_scale := 0.8
 @export var bunt_up_strength := 30.0
+@export var max_fall_speed = -2.5
 
 var last_player_attack_resource :AttackResource:
 	set(_resource):
@@ -34,3 +35,11 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		queue_free()
 	
 	queue_free()
+
+func _physics_process(delta: float) -> void:
+	if not last_player_attack_resource is BumpAttackResource:
+		return
+	
+	if linear_velocity.y < max_fall_speed:
+		linear_velocity.y = max_fall_speed
+		gravity_scale = 0.0

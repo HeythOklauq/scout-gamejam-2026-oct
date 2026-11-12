@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7r30g50m2il6"]
 
-[ext_resource type="Script" uid="uid://lav7ttlk7h0f" path="res://scenes/game_scene/projectile_node.gd" id="1_uurcg"]
+[ext_resource type="Script" uid="uid://lav7ttlk7h0f" path="res://scenes/props/projectile_node.gd" id="1_uurcg"]
 [ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="2_um5ad"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_um5ad"]
@@ -29,6 +29,7 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_um5ad")
 gravity_scale = 0.0
+can_sleep = false
 script = ExtResource("1_uurcg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=87289339]

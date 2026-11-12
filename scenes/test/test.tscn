@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://drmhsiovv34hb" path="res://scenes/props/telephone_pole.tscn" id="9_saoeg"]
 [ext_resource type="Texture2D" uid="uid://chm4qfskxhy2g" path="res://assets/graphics/boosh.png" id="9_we7ej"]
 [ext_resource type="PackedScene" uid="uid://3t4r1b5j25iv" path="res://scenes/props/interactable_body_component.tscn" id="9_xi5sv"]
-[ext_resource type="PackedScene" uid="uid://c7r30g50m2il6" path="res://scenes/game_scene/projectile_node.tscn" id="11_2dgve"]
+[ext_resource type="PackedScene" uid="uid://c7r30g50m2il6" path="res://scenes/props/projectile_node.tscn" id="11_2dgve"]
 [ext_resource type="PackedScene" uid="uid://w5h4fg3yfssc" path="res://scenes/props/house_of_waffle.tscn" id="13_2dgve"]
 [ext_resource type="PackedScene" uid="uid://o2wrmyrdsqf0" path="res://scenes/game_scene/skybox_scene.tscn" id="14_x4ubh"]
 

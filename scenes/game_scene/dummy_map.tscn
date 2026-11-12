@@ -19,7 +19,7 @@
 [ext_resource type="Environment" uid="uid://c4jiuhl5im7nu" path="res://resources/world_environment.tres" id="10_bgv0c"]
 [ext_resource type="PackedScene" uid="uid://45jxr5obono6" path="res://scenes/props/telephone_line_node.tscn" id="11_ep4rp"]
 [ext_resource type="PackedScene" uid="uid://chfnp3824h6x4" path="res://scenes/game_scene/woody_spot_light.tscn" id="12_0ythe"]
-[ext_resource type="PackedScene" uid="uid://c7r30g50m2il6" path="res://scenes/game_scene/projectile_node.tscn" id="12_osq2w"]
+[ext_resource type="PackedScene" uid="uid://c7r30g50m2il6" path="res://scenes/props/projectile_node.tscn" id="12_osq2w"]
 [ext_resource type="PackedScene" uid="uid://c0prwfbs6d37f" path="res://scenes/game_scene/how_sign.tscn" id="14_n1oi6"]
 [ext_resource type="PackedScene" uid="uid://c0wl6okepf2df" path="res://scenes/game_scene/damage_number_node.tscn" id="16_1mim4"]
 [ext_resource type="PackedScene" uid="uid://dbfwxrw20comh" path="res://scenes/game_scene/woodchip_worldborder.tscn" id="18_hircd"]
