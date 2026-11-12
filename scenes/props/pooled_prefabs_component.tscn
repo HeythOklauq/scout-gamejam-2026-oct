@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d2crnbrbxg8ib"]
+
+[ext_resource type="Script" uid="uid://bgjr45pu8soc5" path="res://scenes/props/pooled_prefabs_component.gd" id="1_ljjvt"]
+
+[node name="PooledPrefabsComponent" type="Node" unique_id=1877690810]
+script = ExtResource("1_ljjvt")
