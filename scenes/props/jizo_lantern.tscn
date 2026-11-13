@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://clxn7bc34tk50"]
 
 [ext_resource type="ArrayMesh" uid="uid://jm0cykw7oeub" path="res://assets/models/jizo_lantern.obj" id="1_yxleu"]
-[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="2_176cj"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/game_scene/generic components/hittable_body_component.tscn" id="2_176cj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxleu"]
 albedo_color = Color(0.18873519, 0.3157015, 0.34275913, 1)

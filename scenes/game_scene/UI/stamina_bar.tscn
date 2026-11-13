@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dno1lgy1587be"]
 
-[ext_resource type="Script" uid="uid://cqtrao275vhbh" path="res://scenes/game_scene/stamina_bar.gd" id="1_ke02j"]
+[ext_resource type="Script" uid="uid://cqtrao275vhbh" path="res://scenes/game_scene/UI/stamina_bar.gd" id="1_ke02j"]
 [ext_resource type="Texture2D" uid="uid://7v1q78614u48" path="res://assets/graphics/baseball_bat.png" id="2_ioxev"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ke02j"]

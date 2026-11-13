@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0qb7dvtvxfow" path="res://scenes/pause_menu/ui_controller.gd" id="1_7nmj1"]
 [ext_resource type="PackedScene" uid="uid://bnsmcdxyrgku7" path="res://scenes/pause_menu/pause_screen.tscn" id="1_bsb7w"]
-[ext_resource type="PackedScene" uid="uid://bushhfwb0kykk" path="res://scenes/game_scene/hud_control.tscn" id="2_cnqhu"]
+[ext_resource type="PackedScene" uid="uid://bushhfwb0kykk" path="res://scenes/game_scene/UI/hud_control.tscn" id="2_cnqhu"]
 [ext_resource type="Texture2D" uid="uid://cssp8snb3tyho" path="res://assets/graphics/dash_visual.png" id="2_n3uma"]
 [ext_resource type="Texture2D" uid="uid://ctl7w5iauvvg1" path="res://assets/graphics/vignette.png" id="2_tyt0h"]
 [ext_resource type="PackedScene" uid="uid://bea4rrkcx7py2" path="res://scenes/game_scene/shops/shop_menu_screen.tscn" id="3_cnqhu"]

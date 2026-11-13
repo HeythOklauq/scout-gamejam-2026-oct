@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://w5h4fg3yfssc"]
 
 [ext_resource type="ArrayMesh" uid="uid://4qva4lomfpts" path="res://assets/models/house_of_waffle.obj" id="1_rc632"]
-[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="2_b20dj"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/game_scene/generic components/hittable_body_component.tscn" id="2_b20dj"]
 [ext_resource type="ArrayMesh" uid="uid://esxbqlyif1fn" path="res://assets/models/waffle_letter.obj" id="2_x0ywg"]
 [ext_resource type="Texture2D" uid="uid://ba6ui14dadmn5" path="res://assets/graphics/curtain.png" id="3_68j84"]
 [ext_resource type="PackedScene" uid="uid://cuuatwqgxcs7g" path="res://scenes/game_scene/shops/shop_component.tscn" id="4_r4uwc"]

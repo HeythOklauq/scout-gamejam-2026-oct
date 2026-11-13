@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://drmhsiovv34hb" path="res://scenes/props/telephone_pole.tscn" id="1_3etsa"]
 [ext_resource type="PackedScene" uid="uid://bl5ovkpklvim0" path="res://scenes/props/waffle_logo.tscn" id="2_c4v5q"]
 [ext_resource type="ArrayMesh" uid="uid://beu5b7ki88lxm" path="res://assets/models/telephone_pole.obj" id="3_fjcxt"]
-[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="4_8on4h"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/game_scene/generic components/hittable_body_component.tscn" id="4_8on4h"]
 [ext_resource type="ArrayMesh" uid="uid://b27x8ug702v0h" path="res://assets/models/scoutplush/ScoutPlush.obj" id="5_0c4ui"]
 [ext_resource type="Texture2D" uid="uid://jk5qpibni4m8" path="res://assets/models/scoutplush/diffuse_ScoutPlush.png" id="6_s3472"]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6vo5b4vtwet3" path="res://scenes/props/waffle_letter.gd" id="1_0e44t"]
 [ext_resource type="ArrayMesh" uid="uid://esxbqlyif1fn" path="res://assets/models/waffle_letter.obj" id="1_0m4ns"]
-[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="3_bldi8"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/game_scene/generic components/hittable_body_component.tscn" id="3_bldi8"]
 [ext_resource type="FontFile" uid="uid://dxpscgkwqhkh1" path="res://assets/fonts/ari-w9500-display.ttf" id="3_jb0fn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0e44t"]

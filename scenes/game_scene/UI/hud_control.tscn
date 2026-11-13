@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bushhfwb0kykk"]
 
-[ext_resource type="Script" uid="uid://bjhu0tk53qwqd" path="res://scenes/game_scene/hud_control.gd" id="1_a6xiq"]
-[ext_resource type="PackedScene" uid="uid://udeqcylculyn" path="res://scenes/game_scene/cigarette_timer.tscn" id="1_dhjr6"]
+[ext_resource type="Script" uid="uid://bjhu0tk53qwqd" path="res://scenes/game_scene/UI/hud_control.gd" id="1_a6xiq"]
+[ext_resource type="PackedScene" uid="uid://udeqcylculyn" path="res://scenes/game_scene/UI/cigarette_timer.tscn" id="1_dhjr6"]
 [ext_resource type="Texture2D" uid="uid://q4ese4ir28d4" path="res://assets/graphics/crosshair.png" id="2_fiqqh"]
-[ext_resource type="PackedScene" uid="uid://dno1lgy1587be" path="res://scenes/game_scene/stamina_bar.tscn" id="2_tjly2"]
+[ext_resource type="PackedScene" uid="uid://dno1lgy1587be" path="res://scenes/game_scene/UI/stamina_bar.tscn" id="2_tjly2"]
 [ext_resource type="PackedScene" uid="uid://cxw5pjbwo2lea" path="res://scenes/player/currency_line_control.tscn" id="4_44kiu"]
 [ext_resource type="PackedScene" uid="uid://ddi2uea5bre00" path="res://scenes/game_scene/combo_display_control.tscn" id="4_tv0g7"]
 

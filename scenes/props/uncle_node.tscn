@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bfcckael41out" path="res://assets/graphics/uncle.png" id="1_jbko0"]
 [ext_resource type="Script" uid="uid://d37owirid20d2" path="res://scenes/props/uncle_node.gd" id="1_vcftc"]
-[ext_resource type="PackedScene" uid="uid://3t4r1b5j25iv" path="res://scenes/props/interactable_body_component.tscn" id="3_5bn57"]
-[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="4_kape2"]
+[ext_resource type="PackedScene" uid="uid://3t4r1b5j25iv" path="res://scenes/game_scene/generic components/interactable_body_component.tscn" id="3_5bn57"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/game_scene/generic components/hittable_body_component.tscn" id="4_kape2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kape2"]
 size = Vector3(0.3, 0.3, 0.3)

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dtdi0dbj3j5nl"]
+
+[ext_resource type="Script" uid="uid://bwgnwqfkwktsr" path="res://scenes/game_scene/generic components/hittable_body_component.gd" id="1_grrqk"]
+
+[node name="HittableBodyComponent" type="Node" unique_id=1598085311]
+script = ExtResource("1_grrqk")

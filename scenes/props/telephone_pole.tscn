@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3s7e6xjnjjxr" path="res://scenes/props/telephone_pole.gd" id="1_04ajn"]
 [ext_resource type="ArrayMesh" uid="uid://beu5b7ki88lxm" path="res://assets/models/telephone_pole.obj" id="1_stgfi"]
-[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="2_jenge"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/game_scene/generic components/hittable_body_component.tscn" id="2_jenge"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xge5t"]
 albedo_color = Color(0.51584375, 0, 0, 1)

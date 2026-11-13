@@ -2,24 +2,25 @@
 
 [ext_resource type="Texture2D" uid="uid://bkyevm5ghv8pt" path="res://assets/models/ground_texture.001.png" id="1_8ghve"]
 [ext_resource type="ArrayMesh" uid="uid://cxgg5hwwe68br" path="res://assets/models/dummymap2.obj" id="2_n1oi6"]
-[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="3_bug3b"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/game_scene/generic components/hittable_body_component.tscn" id="3_bug3b"]
 [ext_resource type="ArrayMesh" uid="uid://c2s5cbrimie73" path="res://assets/models/dummy house.obj" id="3_vpstl"]
 [ext_resource type="ArrayMesh" uid="uid://c87rud5udio7v" path="res://assets/models/dummy mapoutline.obj" id="4_0ythe"]
 [ext_resource type="PackedScene" uid="uid://drmhsiovv34hb" path="res://scenes/props/telephone_pole.tscn" id="4_omdgd"]
+[ext_resource type="Script" uid="uid://bwgnwqfkwktsr" path="res://scenes/game_scene/generic components/hittable_body_component.gd" id="4_osq2w"]
 [ext_resource type="PackedScene" uid="uid://cwk7yh52bw2lt" path="res://scenes/player/player_node.tscn" id="4_p3kjh"]
-[ext_resource type="PackedScene" uid="uid://dt88nrplgi2dx" path="res://scenes/game_scene/pine_tree.tscn" id="4_ssmqr"]
+[ext_resource type="PackedScene" uid="uid://dt88nrplgi2dx" path="res://scenes/props/pine_tree.tscn" id="4_ssmqr"]
 [ext_resource type="Texture2D" uid="uid://cvl8f4r3u0gtb" path="res://assets/graphics/treeline1.png" id="5_kl2ce"]
 [ext_resource type="PackedScene" uid="uid://cvd574a3vd0dc" path="res://scenes/props/woody_node.tscn" id="5_vpstl"]
 [ext_resource type="AudioStream" uid="uid://bh02sg8jcjh7l" path="res://assets/audio/ambiants/freesound_community-forest-wind-and-birds-6881.mp3" id="6_iuepn"]
-[ext_resource type="PackedScene" uid="uid://clxn7bc34tk50" path="res://scenes/game_scene/jizo_lantern.tscn" id="6_l7ur4"]
-[ext_resource type="PackedScene" path="res://scenes/game_scene/gate.tscn" id="6_n1oi6"]
+[ext_resource type="PackedScene" uid="uid://clxn7bc34tk50" path="res://scenes/props/jizo_lantern.tscn" id="6_l7ur4"]
+[ext_resource type="PackedScene" uid="uid://byi5f6u54eg5m" path="res://scenes/props/gate.tscn" id="6_n1oi6"]
 [ext_resource type="PackedScene" uid="uid://w5h4fg3yfssc" path="res://scenes/props/house_of_waffle.tscn" id="7_efq47"]
 [ext_resource type="PackedScene" uid="uid://w1aibyt3sfmc" path="res://scenes/props/uncle_node.tscn" id="7_iw4pc"]
 [ext_resource type="PackedScene" uid="uid://o2wrmyrdsqf0" path="res://scenes/game_scene/skybox_scene.tscn" id="9_biejc"]
 [ext_resource type="Environment" uid="uid://c4jiuhl5im7nu" path="res://resources/world_environment.tres" id="10_bgv0c"]
 [ext_resource type="PackedScene" uid="uid://45jxr5obono6" path="res://scenes/props/telephone_line_node.tscn" id="11_ep4rp"]
 [ext_resource type="PackedScene" uid="uid://chfnp3824h6x4" path="res://scenes/game_scene/woody_spot_light.tscn" id="12_0ythe"]
-[ext_resource type="PackedScene" uid="uid://c0prwfbs6d37f" path="res://scenes/game_scene/how_sign.tscn" id="14_n1oi6"]
+[ext_resource type="PackedScene" uid="uid://c0prwfbs6d37f" path="res://scenes/props/how_sign.tscn" id="14_n1oi6"]
 [ext_resource type="PackedScene" uid="uid://c0wl6okepf2df" path="res://scenes/game_scene/damage_number_node.tscn" id="16_1mim4"]
 [ext_resource type="PackedScene" uid="uid://dbfwxrw20comh" path="res://scenes/game_scene/woodchip_worldborder.tscn" id="18_hircd"]
 
@@ -97,6 +98,7 @@ surface_material_override/1 = SubResource("StandardMaterial3D_efq47")
 [node name="Map" type="StaticBody3D" parent="DummyMap" unique_id=1202634485]
 
 [node name="HittableBodyComponent" parent="DummyMap/Map" unique_id=1598085311 instance=ExtResource("3_bug3b")]
+script = ExtResource("4_osq2w")
 on_hit_soundtype_1 = 5
 on_hit_soundtype_2 = 8
 knockback_angle = 0.0
@@ -520,6 +522,7 @@ mesh = ExtResource("3_vpstl")
 shape = SubResource("ConcavePolygonShape3D_vpstl")
 
 [node name="HittableBodyComponent" parent="DummyHouse/StaticBody3D" unique_id=1842619649 instance=ExtResource("3_bug3b")]
+script = ExtResource("4_osq2w")
 on_hit_soundtype_1 = 6
 on_hit_soundtype_2 = 8
 knockback_angle = 0.0

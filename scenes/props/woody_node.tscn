@@ -6,14 +6,14 @@
 [ext_resource type="ArrayMesh" uid="uid://bclnwpt2fy3ad" path="res://assets/models/pillar_arm.obj" id="4_brs0k"]
 [ext_resource type="ArrayMesh" uid="uid://cnqoq6wcha3gu" path="res://assets/models/pillar_nose.obj" id="5_c3yqh"]
 [ext_resource type="ArrayMesh" uid="uid://b5n6hm4qxjkkg" path="res://assets/models/woody_phone.obj" id="5_f4r6e"]
-[ext_resource type="PackedScene" uid="uid://3t4r1b5j25iv" path="res://scenes/props/interactable_body_component.tscn" id="6_6gsia"]
+[ext_resource type="PackedScene" uid="uid://3t4r1b5j25iv" path="res://scenes/game_scene/generic components/interactable_body_component.tscn" id="6_6gsia"]
 [ext_resource type="PackedScene" uid="uid://cydn8rfyee3s" path="res://assets/models/ciggiebasic.blend" id="6_65piq"]
 [ext_resource type="ArrayMesh" uid="uid://b2whrnylhfnnx" path="res://assets/models/shimenawa.obj" id="7_paawa"]
 [ext_resource type="Texture2D" uid="uid://7bx28j1qwm6y" path="res://assets/graphics/smokelet.png" id="7_tbbh2"]
 [ext_resource type="Texture2D" uid="uid://y10hh3j6kujo" path="res://assets/graphics/shide.png" id="8_4t0ym"]
-[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="8_tbbh2"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/game_scene/generic components/hittable_body_component.tscn" id="8_tbbh2"]
 [ext_resource type="Texture2D" uid="uid://dmfk2fah7oc8o" path="res://assets/graphics/woody_leaf.png" id="9_8rms8"]
-[ext_resource type="PackedScene" uid="uid://d2crnbrbxg8ib" path="res://scenes/props/pooled_prefabs_component.tscn" id="14_ek0gl"]
+[ext_resource type="PackedScene" uid="uid://d2crnbrbxg8ib" path="res://scenes/game_scene/generic components/pooled_prefabs_component.tscn" id="14_ek0gl"]
 [ext_resource type="PackedScene" uid="uid://dl1g3n0samtg3" path="res://scenes/props/wood_chip_node.tscn" id="15_j7lv7"]
 [ext_resource type="PackedScene" uid="uid://c7r30g50m2il6" path="res://scenes/props/projectile_node.tscn" id="15_v7up7"]
 
@@ -259,7 +259,7 @@ knockback_movement = 0.3
 [node name="WoodchipsPooledComponent" parent="." unique_id=1877690810 instance=ExtResource("14_ek0gl")]
 unique_name_in_owner = true
 prefab = ExtResource("15_j7lv7")
-pool_size = 100
+pool_size = 300
 
 [node name="ProjectilesPooledComponent" parent="." unique_id=992130822 instance=ExtResource("14_ek0gl")]
 unique_name_in_owner = true

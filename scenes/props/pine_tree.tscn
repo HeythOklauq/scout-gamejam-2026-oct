@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dt88nrplgi2dx"]
 
 [ext_resource type="ArrayMesh" uid="uid://vlv5tqqjcr0b" path="res://assets/models/pine.obj" id="1_87sye"]
-[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/props/hittable_body_component.tscn" id="2_b635h"]
+[ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://scenes/game_scene/generic components/hittable_body_component.tscn" id="2_b635h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b635h"]
 albedo_color = Color(0.118324585, 0.23141181, 0.14654878, 1)
