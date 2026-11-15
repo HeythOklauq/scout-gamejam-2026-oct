@@ -65,6 +65,9 @@ const SOUNDS :Dictionary[SOUND_TYPES, Array] = {
 	]
 }
 
+@onready var sfx_3d_pooled_component: PoolPrefabComponent = $Sfx3DPooledComponent
+@onready var sfx_pooled_component: PoolPrefabComponent = $SfxPooledComponent
+
 var available_3d_audioplayers :Array[AudioStreamPlayer3D] = []
 var in_usage_3d_audioplayers :Array[AudioStreamPlayer3D] = []
 
@@ -75,13 +78,13 @@ func _ready() -> void:
 	call_deferred("initialise_audioplayers")
 
 func initialise_audioplayers() -> void:
-	for audioplayer in get_children():
-		audioplayer.finished.connect(_on_audioplayer_done.bind(audioplayer))
-		
-		if audioplayer is AudioStreamPlayer3D:
-			available_3d_audioplayers.push_back(audioplayer)
-		else:
-			available_audioplayers.push_back(audioplayer)
+	var audioplayers = []
+	audioplayers.append_array(sfx_pooled_component.get_instances(PoolPrefabComponent.INSTANCE_STATUS.ALL));
+	audioplayers.append_array(sfx_3d_pooled_component.get_instances(PoolPrefabComponent.INSTANCE_STATUS.ALL));
+	
+	for audioplayer in audioplayers:
+		add_child(audioplayer)
+		audioplayer.finished.connect(stop_sound.bind(audioplayer))
 
 func _init_audioplayer(audioplayer, audio_type :SOUND_TYPES, volume :float, pitch_modifier :float) :
 	audioplayer.stop();
@@ -94,42 +97,24 @@ func _init_audioplayer(audioplayer, audio_type :SOUND_TYPES, volume :float, pitc
 func play_sound(audio_type :SOUND_TYPES, volume :float = 1.0, pitch_modifier :float = 0.1) -> AudioStreamPlayer:
 	if audio_type == SOUND_TYPES.NONE:
 		return
-	var audioplayer :AudioStreamPlayer
 	
-	if available_audioplayers.size() > 0:
-		audioplayer = available_audioplayers.pop_front()
-	else:
-		audioplayer = in_usage_audioplayers.pop_front()
-	
+	var audioplayer := sfx_pooled_component.get_instance() as AudioStreamPlayer
 	_init_audioplayer(audioplayer, audio_type, volume, pitch_modifier);
-	in_usage_audioplayers.push_back(audioplayer)
 	
 	return audioplayer;
 
 func play_3d_sound(target_global_position :Vector3, audio_type :SOUND_TYPES, volume :float = 1.0, pitch_modifier :float = 0.1) -> AudioStreamPlayer3D:
 	if audio_type == SOUND_TYPES.NONE:
 		return
-	var audioplayer :AudioStreamPlayer3D
-	
-	if available_3d_audioplayers.size() > 0:
-		audioplayer = available_3d_audioplayers.pop_front()
-	else:
-		audioplayer = in_usage_3d_audioplayers.pop_front()
+	var audioplayer := sfx_3d_pooled_component.get_instance() as AudioStreamPlayer3D
 	
 	audioplayer.global_position = target_global_position
 	_init_audioplayer(audioplayer, audio_type, volume, pitch_modifier);
-	in_usage_3d_audioplayers.push_back(audioplayer)
-	
 	return audioplayer;
 
 func stop_sound(audioplayer) -> void:
 	audioplayer.stop();
 	if audioplayer is AudioStreamPlayer3D:
-		in_usage_3d_audioplayers.remove_at(in_usage_3d_audioplayers.find(audioplayer))
-		available_3d_audioplayers.push_back(audioplayer)
-	else:
-		in_usage_audioplayers.remove_at(in_usage_audioplayers.find(audioplayer))
-		available_audioplayers.push_back(audioplayer)
-
-func _on_audioplayer_done(audioplayer) -> void:
-	stop_sound(audioplayer)
+		sfx_3d_pooled_component.uninstantiate(audioplayer)
+	elif audioplayer is AudioStreamPlayer:
+		sfx_pooled_component.uninstantiate(audioplayer)
