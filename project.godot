@@ -45,9 +45,9 @@ window/stretch/aspect="expand"
 folder_colors={
 "res://assets/": "red",
 "res://builds/": "gray",
-"res://resources/": "green",
-"res://scenes/": "orange",
-"res://singletons/": "blue"
+"res://src/": "orange",
+"res://src/resources/": "green",
+"res://src/singletons/": "blue"
 }
 
 [gui]

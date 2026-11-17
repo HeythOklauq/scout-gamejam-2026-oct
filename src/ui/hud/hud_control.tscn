@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bushhfwb0kykk"]
+
+[ext_resource type="Script" uid="uid://bjhu0tk53qwqd" path="res://src/ui/hud/hud_control.gd" id="1_a6xiq"]
+[ext_resource type="PackedScene" uid="uid://udeqcylculyn" path="res://src/ui/hud/cigarette_timer.tscn" id="1_dhjr6"]
+[ext_resource type="Texture2D" uid="uid://q4ese4ir28d4" path="res://assets/graphics/crosshair.png" id="2_fiqqh"]
+[ext_resource type="PackedScene" uid="uid://dno1lgy1587be" path="res://src/ui/hud/stamina_bar.tscn" id="2_tjly2"]
+[ext_resource type="PackedScene" uid="uid://cxw5pjbwo2lea" path="res://src/gameplay/player/currency_line_control.tscn" id="4_44kiu"]
+[ext_resource type="PackedScene" uid="uid://ddi2uea5bre00" path="res://src/ui/hud/combo_display_control.tscn" id="4_tv0g7"]
+
+[node name="HUDControl" type="Control" unique_id=1211318264]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_a6xiq")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=101516447]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer" unique_id=380160513]
+modulate = Color(1, 1, 1, 0.39215687)
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_fiqqh")
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=833891330]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="CigaretteTimer" parent="MarginContainer" unique_id=1769428755 instance=ExtResource("1_dhjr6")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=905317805]
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/separation = -4
+
+[node name="ComboDisplayControl" parent="MarginContainer/VBoxContainer" unique_id=1389671728 instance=ExtResource("4_tv0g7")]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ScoreConatiner" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=19055802]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_override_constants/separation = -1
+
+[node name="MoneyCurrencyLineControl" parent="MarginContainer/VBoxContainer/ScoreConatiner" unique_id=1611753300 instance=ExtResource("4_44kiu")]
+layout_mode = 2
+mouse_filter = 2
+currency_type = 0
+
+[node name="WoodchipCurrencyLineControl" parent="MarginContainer/VBoxContainer/ScoreConatiner" unique_id=2090058076 instance=ExtResource("4_44kiu")]
+layout_mode = 2
+mouse_filter = 2
+currency_type = 1
+
+[node name="StaminaBar" parent="MarginContainer/VBoxContainer" unique_id=598262902 instance=ExtResource("2_tjly2")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
