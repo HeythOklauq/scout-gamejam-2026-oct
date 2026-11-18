@@ -29,10 +29,6 @@ func _on_option_control_close_clicked() -> void:
 	main_menu.visible = true
 	option_control.visible = false
 
-func _on_credits_button_pressed() -> void:
-	main_menu.visible = false
-	credit_screen.visible = true
-
 func _on_credit_screen_close_clicked() -> void:
 	main_menu.visible = true
 	credit_screen.visible = false

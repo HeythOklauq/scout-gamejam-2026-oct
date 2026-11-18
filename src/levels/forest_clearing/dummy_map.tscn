@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://blygvalsnvb35"]
 
 [ext_resource type="Texture2D" uid="uid://bkyevm5ghv8pt" path="res://assets/models/ground_texture.001.png" id="1_8ghve"]
+[ext_resource type="Script" uid="uid://uijdmme411hj" path="res://src/levels/forest_clearing/dummy_map.gd" id="1_ew3xb"]
 [ext_resource type="ArrayMesh" uid="uid://cxgg5hwwe68br" path="res://assets/models/dummymap2.obj" id="2_n1oi6"]
 [ext_resource type="PackedScene" uid="uid://dtdi0dbj3j5nl" path="res://src/gameplay/generic components/hittable_body_component.tscn" id="3_bug3b"]
 [ext_resource type="ArrayMesh" uid="uid://c2s5cbrimie73" path="res://assets/models/dummy house.obj" id="3_vpstl"]
 [ext_resource type="ArrayMesh" uid="uid://c87rud5udio7v" path="res://assets/models/dummy mapoutline.obj" id="4_0ythe"]
 [ext_resource type="PackedScene" uid="uid://drmhsiovv34hb" path="res://src/levels/props/telephone_pole.tscn" id="4_omdgd"]
-[ext_resource type="Script" uid="uid://bwgnwqfkwktsr" path="res://src/gameplay/generic components/hittable_body_component.gd" id="4_osq2w"]
-[ext_resource type="PackedScene" uid="uid://cwk7yh52bw2lt" path="res://src/gameplay/player/player_node.tscn" id="4_p3kjh"]
 [ext_resource type="PackedScene" uid="uid://dt88nrplgi2dx" path="res://src/levels/props/pine_tree.tscn" id="4_ssmqr"]
 [ext_resource type="Texture2D" uid="uid://cvl8f4r3u0gtb" path="res://assets/graphics/treeline1.png" id="5_kl2ce"]
 [ext_resource type="PackedScene" uid="uid://cvd574a3vd0dc" path="res://src/levels/props/woody_node.tscn" id="5_vpstl"]
@@ -87,7 +86,11 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_osq2w")
 size = Vector2(0.06, 0.06)
 
-[node name="Dummy Map" type="Node3D" unique_id=1980671728]
+[node name="Dummy Map" type="Node3D" unique_id=1980671728 node_paths=PackedStringArray("player_spawners")]
+script = ExtResource("1_ew3xb")
+player_spawners = {
+"\"\"": NodePath("PlayerSpawnFirst")
+}
 
 [node name="DummyMap" type="MeshInstance3D" parent="." unique_id=2136592491]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08967376, 0, -0.2277143)
@@ -98,7 +101,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_efq47")
 [node name="Map" type="StaticBody3D" parent="DummyMap" unique_id=1202634485]
 
 [node name="HittableBodyComponent" parent="DummyMap/Map" unique_id=1598085311 instance=ExtResource("3_bug3b")]
-script = ExtResource("4_osq2w")
 on_hit_soundtype_1 = 5
 on_hit_soundtype_2 = 8
 knockback_angle = 0.0
@@ -522,7 +524,6 @@ mesh = ExtResource("3_vpstl")
 shape = SubResource("ConcavePolygonShape3D_vpstl")
 
 [node name="HittableBodyComponent" parent="DummyHouse/StaticBody3D" unique_id=1842619649 instance=ExtResource("3_bug3b")]
-script = ExtResource("4_osq2w")
 on_hit_soundtype_1 = 6
 on_hit_soundtype_2 = 8
 knockback_angle = 0.0
@@ -565,8 +566,11 @@ light_color = Color(0.63525116, 0.2775518, 0.48703212, 1)
 shadow_enabled = true
 sky_mode = 1
 
-[node name="PlayerNode" parent="." unique_id=764222003 instance=ExtResource("4_p3kjh")]
+[node name="PlayerSpawnFirst" type="Marker3D" parent="." unique_id=695335581]
 transform = Transform3D(-0.78009206, 0, 0.62566483, 0, 1, 0, -0.62566483, 0, -0.78009206, 21.994272, 1.4017501, 80.178955)
+
+[node name="PlayerSpawnShop" type="Marker3D" parent="." unique_id=1983797500]
+transform = Transform3D(0.5959165, 0, 0.80304646, 0, 1, 0, -0.80304646, 0, 0.5959165, 15.911293, 5.150622, 10.106733)
 
 [node name="WoodyPositionner" type="Node3D" parent="." unique_id=744705870]
 transform = Transform3D(0.9810703, 0, -0.6996615, 0, 1.205, 0, 0.6996615, 0, 0.9810703, -16.386936, 5.4255877, -9.835358)

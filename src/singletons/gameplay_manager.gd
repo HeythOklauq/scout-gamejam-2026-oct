@@ -59,7 +59,8 @@ enum UNLOCKABLE_TYPES {
 
 func on_unlockable_updated( unlockable_resource :IncrementalUnlockResource ) -> void:
 	unlockable_updated.emit(unlockable_resource)
-	save_data()
+	save_data();
+
 #endregion
 
 var dashing := false:
@@ -175,8 +176,6 @@ func _process(delta: float) -> void:
 func initialize() -> void:
 	current_stamina = max_stamina
 	max_walking_speed = max_walking_speed;
-	
-	load_data()
 	
 	for unlockable_resource in UNLOCKABLES.values():
 		(unlockable_resource as IncrementalUnlockResource).updated.connect(on_unlockable_updated)

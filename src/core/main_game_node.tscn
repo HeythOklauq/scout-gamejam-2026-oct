@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dhu31uy0mdpfw"]
+
+[ext_resource type="Script" uid="uid://c5fr08ynkuo2f" path="res://src/core/main_game_node.gd" id="1_n21lx"]
+[ext_resource type="PackedScene" uid="uid://bushhfwb0kykk" path="res://src/ui/hud/hud_control.tscn" id="2_xxxq2"]
+[ext_resource type="PackedScene" uid="uid://bnsmcdxyrgku7" path="res://src/ui/pause_menu/pause_screen.tscn" id="3_xxxq2"]
+[ext_resource type="PackedScene" uid="uid://xf4wgw3duo27" path="res://src/ui/transition_screen/transition_screen.tscn" id="4_7i2fl"]
+
+[node name="MainGameNode" type="Node" unique_id=1102435197]
+process_mode = 3
+script = ExtResource("1_n21lx")
+
+[node name="World" type="Node3D" parent="." unique_id=451490825]
+process_mode = 1
+
+[node name="LevelRoot" type="Node3D" parent="World" unique_id=346506931]
+unique_name_in_owner = true
+
+[node name="EntityRoot" type="Node3D" parent="World" unique_id=2101319217]
+unique_name_in_owner = true
+
+[node name="EffectRoot" type="Node3D" parent="World" unique_id=500611601]
+unique_name_in_owner = true
+
+[node name="HudLayer" type="CanvasLayer" parent="." unique_id=1274025958]
+process_mode = 1
+
+[node name="HUDControl" parent="HudLayer" unique_id=1211318264 instance=ExtResource("2_xxxq2")]
+unique_name_in_owner = true
+visible = false
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=156443185]
+process_mode = 2
+
+[node name="PauseScreen" parent="PauseLayer" unique_id=736869025 instance=ExtResource("3_xxxq2")]
+unique_name_in_owner = true
+visible = false
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1473830371]
+process_mode = 2
+
+[node name="TransitionNode" parent="TransitionLayer" unique_id=448056894 instance=ExtResource("4_7i2fl")]
+unique_name_in_owner = true
+visible = false
+
+[node name="DebugLayer" type="CanvasLayer" parent="." unique_id=754873146]
+process_mode = 3

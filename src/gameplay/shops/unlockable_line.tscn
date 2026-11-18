@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cq2h0trl0e2xe" path="res://src/gameplay/shops/unlockable_line.gd" id="1_w8n12"]
 [ext_resource type="PackedScene" uid="uid://cxw5pjbwo2lea" path="res://src/gameplay/player/currency_line_control.tscn" id="2_jjmbf"]
+[ext_resource type="PackedScene" uid="uid://db2tmdjldrvkn" path="res://src/ui/custom_button.tscn" id="3_wjerm"]
 
 [node name="UnlockableLine" type="HBoxContainer" unique_id=1488738785]
 anchors_preset = 15
@@ -20,7 +21,7 @@ text = "Bunt"
 [node name="LevelLabel" type="Label" parent="." unique_id=1410604370]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "1"
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -39,7 +40,6 @@ currency_type = 0
 
 [node name="WoodchipCurrencyLineControl" parent="VBoxContainer2" unique_id=1916701204 instance=ExtResource("2_jjmbf")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 static_value = true
 currency_type = 1
@@ -49,9 +49,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="UpgradeButton" type="Button" parent="VBoxContainer" unique_id=447063279]
-visible = false
+[node name="UpgradeButton" parent="VBoxContainer" unique_id=96561817 instance=ExtResource("3_wjerm")]
 layout_mode = 2
 text = "UPGRADE"
+disabled = true
 
 [connection signal="pressed" from="VBoxContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]

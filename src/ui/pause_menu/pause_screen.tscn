@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bnsmcdxyrgku7"]
 
 [ext_resource type="Script" uid="uid://cki1nje1jmkde" path="res://src/ui/pause_menu/pause_screen.gd" id="1_0426r"]
+[ext_resource type="PackedScene" uid="uid://db2tmdjldrvkn" path="res://src/ui/custom_button.tscn" id="2_q8cxp"]
 [ext_resource type="PackedScene" uid="uid://b2gdmadvpjpbi" path="res://src/ui/pause_menu/credit_screen.tscn" id="2_qi6yq"]
 [ext_resource type="PackedScene" uid="uid://c0pb4u2dewqa" path="res://src/ui/pause_menu/option_control.tscn" id="3_ixexu"]
 
@@ -50,23 +51,15 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="MarginContainer/MainMenu/VBoxContainer" unique_id=1103575178]
-custom_minimum_size = Vector2(120, 32)
+[node name="PlayButton" parent="MarginContainer/MainMenu/VBoxContainer" unique_id=96561817 instance=ExtResource("2_q8cxp")]
 layout_mode = 2
-text = "PLAY"
+text = "RESUME"
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/MainMenu/VBoxContainer" unique_id=999545850]
-custom_minimum_size = Vector2(120, 32)
+[node name="OptionsButton" parent="MarginContainer/MainMenu/VBoxContainer" unique_id=1365394578 instance=ExtResource("2_q8cxp")]
 layout_mode = 2
 text = "OPTIONS"
 
-[node name="CreditsButton" type="Button" parent="MarginContainer/MainMenu/VBoxContainer" unique_id=538260961]
-custom_minimum_size = Vector2(120, 32)
-layout_mode = 2
-text = "CREDITS"
-
-[node name="QuitButton" type="Button" parent="MarginContainer/MainMenu/VBoxContainer" unique_id=979007536]
-custom_minimum_size = Vector2(120, 32)
+[node name="QuitButton" parent="MarginContainer/MainMenu/VBoxContainer" unique_id=524485401 instance=ExtResource("2_q8cxp")]
 layout_mode = 2
 text = "QUIT"
 
@@ -80,7 +73,6 @@ layout_mode = 2
 
 [connection signal="pressed" from="MarginContainer/MainMenu/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainMenu/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MarginContainer/MainMenu/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainMenu/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="close_clicked" from="MarginContainer/CreditScreen" to="." method="_on_credit_screen_close_clicked"]
 [connection signal="visibility_changed" from="MarginContainer/CreditScreen" to="." method="_on_credit_screen_visibility_changed"]

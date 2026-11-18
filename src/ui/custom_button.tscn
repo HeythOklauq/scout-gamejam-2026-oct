@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://db2tmdjldrvkn"]
+
+[ext_resource type="Script" uid="uid://b8yud5nbi7lw0" path="res://src/ui/custom_button.gd" id="1_fuwk3"]
+[ext_resource type="PackedScene" uid="uid://cpqosu25q1lfh" path="res://src/ui/dynamic_control_component.tscn" id="2_vk3iy"]
+
+[node name="CustomButton" type="Control" unique_id=96561817]
+process_mode = 3
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_fuwk3")
+
+[node name="Button" type="Button" parent="." unique_id=1609175693]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.5
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_default_cursor_shape = 2
+text = "BUTTON"
+
+[node name="DynamicControlComponent" parent="." unique_id=688845063 node_paths=PackedStringArray("target_control") instance=ExtResource("2_vk3iy")]
+unique_name_in_owner = true
+target_control = NodePath("../Button")
+hovered_rotation = 2.0
+hovered_scale = 1.2
+transformation_duration = 0.3
+in_transition_type = 9
+in_ease_type = 1
+out_transition_type = 11
+out_ease_type = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

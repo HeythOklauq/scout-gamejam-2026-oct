@@ -11,6 +11,7 @@ point_count = 1
 
 [sub_resource type="Resource" id="Resource_a8nxj"]
 script = ExtResource("3_td03u")
+max_value = 1.0
 curve = SubResource("Curve_t6dcp")
 metadata/_custom_type_script = "uid://cwng774r6bupv"
 
@@ -351,4 +352,5 @@ UNLOCKABLES = Dictionary[int, ExtResource("2_2nlnc")]({
 24: SubResource("Resource_yybo2"),
 25: SubResource("Resource_d30t3")
 })
+current_stamina = 100.0
 stamina_usage = 15.0

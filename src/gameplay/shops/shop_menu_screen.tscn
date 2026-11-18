@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbuhtm7dab4b" path="res://src/gameplay/shops/shop_menu_screen.gd" id="1_uat71"]
 [ext_resource type="PackedScene" uid="uid://cxw5pjbwo2lea" path="res://src/gameplay/player/currency_line_control.tscn" id="2_uat71"]
+[ext_resource type="PackedScene" uid="uid://db2tmdjldrvkn" path="res://src/ui/custom_button.tscn" id="3_13unm"]
 
 [node name="ShopMenuScreen" type="Control" unique_id=80192020]
 layout_mode = 3
@@ -46,7 +47,6 @@ size_flags_horizontal = 3
 
 [node name="MoneyCurrencyLineControl" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=525960156 instance=ExtResource("2_uat71")]
 layout_mode = 2
-currency_type = 0
 
 [node name="WoodchipCurrencyLineControl2" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1922533605 instance=ExtResource("2_uat71")]
 layout_mode = 2
@@ -91,7 +91,7 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=351728042]
+[node name="CloseButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=96561817 instance=ExtResource("3_13unm")]
 layout_mode = 2
 text = "CLOSE"
 

@@ -15,16 +15,15 @@ func _ready() -> void:
 func _initialize() -> void:
 	if not static_value:
 		if currency_type == GameplayManager.CURRENCIES.MONEY:
-			prints("LINK TO MONEY")
-			GameplayManager.money_changed.connect(_update_amout)
+			GameplayManager.money_changed.connect(_update_amount)
 		if currency_type == GameplayManager.CURRENCIES.WOODCHIP:
-			prints("LINK TO WOODCHIP")
-			GameplayManager.woodchip_changed.connect(_update_amout)
+			GameplayManager.woodchip_changed.connect(_update_amount)
 	update_display()
 
 func update_display() -> void:
 	money_label.visible = (currency_type == GameplayManager.CURRENCIES.MONEY)
 	wood_chip_symbol_container.visible = (currency_type == GameplayManager.CURRENCIES.WOODCHIP)
+	_update_amount(0)
 
 func get_player_amount() -> int:
 	return GameplayManager.player_currencies[currency_type]
@@ -32,6 +31,6 @@ func get_player_amount() -> int:
 func set_amount(_value :int) -> void:
 	amount_label.text = str(_value);
 
-func _update_amout(_value :int) -> void:
+func _update_amount(_value :int) -> void:
 	if not static_value:
 		set_amount(get_player_amount());

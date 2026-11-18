@@ -6,7 +6,7 @@ signal on_upgrade()
 
 @onready var name_label: Label = $NameLabel
 @onready var level_label: Label = $LevelLabel
-@onready var upgrade_button: Button = $VBoxContainer/UpgradeButton
+@onready var upgrade_button: CustomButton = $VBoxContainer/UpgradeButton
 
 @onready var money_currency_line_control: CurrencyLineControl = %MoneyCurrencyLineControl
 @onready var woodchip_currency_line_control: CurrencyLineControl = %WoodchipCurrencyLineControl
@@ -33,9 +33,18 @@ func update_display() -> void:
 	woodchip_currency_line_control.visible = (not unlockable_resource.is_max_level()) and (woodchip_upgrade > 0)
 	woodchip_currency_line_control.set_amount(woodchip_upgrade)
 	
-	upgrade_button.visible = not unlockable_resource.is_max_level();
-	upgrade_button.disabled = (!unlockable_resource.can_upgrade());
+	var button_text = "UPGRADE";
+	var is_available = true;
 	
+	if unlockable_resource.is_max_level():
+		is_available = false
+		button_text = "MAX LEVEL"
+	elif not unlockable_resource.can_upgrade():
+		is_available = false
+		button_text = "TOO EXPENSIVE"
+		
+	upgrade_button.disabled = !is_available;
+	upgrade_button.text = button_text
 
 func _on_upgrade_button_pressed() -> void:
 	unlockable_resource.upgrade()
