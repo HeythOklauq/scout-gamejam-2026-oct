@@ -1,5 +1,5 @@
 extends Camera3D
-class_name PlayerCamera
+class_name AnchoredCamera
 
 @export var target :Node3D
 @export var update_position := false
